@@ -1,0 +1,115 @@
+/* ==========================================================================
+   ALIVIO TYPOGRAPHY SYSTEM
+   ========================================================================== */
+
+body {
+  font-family: var(--sp-font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--sp-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings */
+h1, .sp-heading-h1 {
+  font-family: var(--sp-font-display);
+  font-size: clamp(2.5rem, 5.5vw + 1rem, 4.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+  color: var(--sp-text-primary);
+}
+
+h2, .sp-heading-h2 {
+  font-family: var(--sp-font-display);
+  font-size: clamp(2rem, 3.5vw + 0.5rem, 3.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+  color: var(--sp-text-primary);
+}
+
+h3, .sp-heading-h3 {
+  font-family: var(--sp-font-display);
+  font-size: clamp(1.35rem, 1.8vw + 0.4rem, 1.85rem);
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+}
+
+h4, .sp-heading-h4 {
+  font-family: var(--sp-font-display);
+  font-size: clamp(1.1rem, 1.2vw + 0.3rem, 1.35rem);
+  line-height: 1.35;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+}
+
+/* Body & Copy */
+.sp-lead {
+  font-size: clamp(1.05rem, 1vw + 0.75rem, 1.25rem);
+  line-height: 1.55;
+  color: var(--sp-text-secondary);
+  font-weight: 400;
+}
+
+.sp-body-medium {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--sp-text-secondary);
+}
+
+.sp-body-small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--sp-text-secondary);
+}
+
+.sp-body-micro {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--sp-text-tertiary);
+}
+
+/* Overlines & Labels */
+.sp-overline {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--sp-text-tertiary);
+  display: inline-block;
+  margin-bottom: var(--sp-space-2);
+}
+
+.sp-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--sp-radius-pill);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.sp-badge-pill.is-white {
+  background: rgba(255, 255, 255, 0.9);
+  color: #0D0D0E;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+}
+
+.sp-badge-pill.is-dark {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+}
+
+.sp-badge-pill.is-green {
+  background: var(--sp-accent-success-bg);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}

@@ -1,0 +1,698 @@
+{
+  "formId": "alivio_women_hormone_intake_v1",
+  "formName": "Alivio Women's Hormone Therapy Clinical Intake",
+  "formType": "multi_step",
+  "description": "Comprehensive clinical intake for women's perimenopause, menopause, and hormone replacement therapy.",
+  "version": 1,
+  "createdAt": "2026-11-04T12:00:00.000Z",
+  "updatedAt": "2026-11-04T12:00:00.000Z",
+  "settings": {
+    "saveDraft": true,
+    "draftExpiryDays": 7,
+    "autoSave": true,
+    "resumeMethod": "link",
+    "submitButtonText": "Submit Clinical Intake",
+    "successMessage": "Thank you! Your hormone health assessment has been received. A board-certified physician will review your clinical history.",
+    "successRedirectUrl": null,
+    "showProgressBar": true,
+    "injectCss": "",
+    "injectJs": "",
+    "pageColor": "#FAF7F2",
+    "backgroundColor": "#FAF7F2",
+    "accentColor": "#5B2008",
+    "pageConditionalRules": []
+  },
+  "pages": [
+    {
+      "pageId": "page_1",
+      "title": "Symptoms & Health Changes",
+      "description": "Help your clinician understand the physiological changes you are experiencing.",
+      "order": 0,
+      "conditions": [],
+      "fields": [
+        {
+          "fieldId": "heading_symptoms",
+          "type": "heading",
+          "label": "Have you noticed any of these symptoms or changes?",
+          "name": "heading_symptoms",
+          "required": false,
+          "sendToProvider": false,
+          "db_field": "",
+          "order": 0,
+          "validation": {},
+          "conditions": [],
+          "properties": {
+            "headingTitle": "Have you noticed any of these symptoms or changes?",
+            "headingLevel": "h2",
+            "headingAlign": "left",
+            "cols": 1
+          },
+          "description": "Select as many as you have. The more you share, the better your clinician can support you."
+        },
+        {
+          "fieldId": "mental_health_symptoms",
+          "type": "choice-multi",
+          "label": "Mental & Emotional Health",
+          "name": "mental_health_symptoms",
+          "required": false,
+          "sendToProvider": true,
+          "providerInfo": "medical",
+          "db_field": "",
+          "order": 1,
+          "validation": {},
+          "conditions": [],
+          "properties": {
+            "options": [
+              { "label": "Anxiety or heightened worry", "value": "anxiety" },
+              { "label": "Low mood or unexpected mood swings", "value": "low-mood" },
+              { "label": "Feelings of depression or irritability", "value": "depression" }
+            ],
+            "choiceInputType": "checkbox",
+            "multiSelect": true,
+            "layout": "vertical",
+            "showNoneOfAbove": true,
+            "cols": 1
+          }
+        },
+        {
+          "fieldId": "cognitive_symptoms",
+          "type": "choice-multi",
+          "label": "Cognitive & Psychological Changes",
+          "name": "cognitive_symptoms",
+          "required": false,
+          "sendToProvider": true,
+          "providerInfo": "medical",
+          "db_field": "",
+          "order": 2,
+          "validation": {},
+          "conditions": [],
+          "properties": {
+            "options": [
+              { "label": "Brain fog or difficulty concentrating", "value": "brain-fog" },
+              { "label": "Hormonal migraines or frequent headaches", "value": "migraines" },
+              { "label": "Memory lapses or forgetfulness", "value": "memory-changes" },
+              { "label": "Mental fatigue & reduced stamina", "value": "mental-tiredness" }
+            ],
+            "choiceInputType": "checkbox",
+            "multiSelect": true,
+            "layout": "vertical",
+            "showNoneOfAbove": true,
+            "cols": 1
+          }
+        },
+        {
+          "fieldId": "physical_vasomotor_symptoms",
+          "type": "choice-multi",
+          "label": "Physical & Vasomotor Symptoms",
+          "name": "physical_vasomotor_symptoms",
+          "required": false,
+          "sendToProvider": true,
+          "providerInfo": "medical",
+          "db_field": "",
+          "order": 3,
+          "validation": {},
+          "conditions": [],
+          "properties": {
+            "options": [
+              { "label": "Hot flashes or night sweats", "value": "hot-flashes" },
+              { "label": "Sleep disruptions or insomnia", "value": "sleep-disruptions" },
+              { "label": "Low libido or sexual discomfort", "value": "low-libido" },
+              { "label": "Unexplained weight gain or metabolic shifts", "value": "weight-gain" },
+              { "label": "Hair thinning or skin dryness", "value": "hair-skin-changes" }
+            ],
+            "choiceInputType": "checkbox",
+            "multiSelect": true,
+            "layout": "vertical",
+            "showNoneOfAbove": true,
+            "cols": 1
+          }
+        },
+        {
+          "fieldId": "button_nav_p1",
+          "type": "button",
+          "label": "Continue →",
+          "name": "button_nav_p1",
+          "required": false,
+          "sendToProvider": false,
+          "db_field": "",
+          "order": 4,
+          "validation": {},
+          "conditions": [],
+          "properties": {
+            "cols": 1,
+            "buttonCount": 1,
+            "buttonWidth": "auto",
+            "buttonRowAlign": "flex-end",
+            "buttonAction": "next_page",
+            "buttonColor": "#5B2008",
+            "buttonTextColor": "#FFFFFF",
+            "buttonSubmitNext": "none"
+          }
+        }
+      ]
+    },
+    {
+      "pageId": "page_2",
+      "title": "Menstrual Cycle & History",
+      "description": "Information regarding your current cycle status.",
+      "order": 1,
+      "conditions": [],
+      "fields": [
+        {
+          "fieldId": "heading_cycle_status",
+          "type": "heading",
+          "label": "What best describes your menstrual cycle status?",
+          "name": "heading_cycle_status",
+          "required": false,
+          "sendToProvider": false,
+          "db_field": "",
+          "order": 0,
+          "validation": {},
+          "conditions": [],
+          "properties": {
+            "headingTitle": "What best describes your menstrual cycle status?",
+            "headingLevel": "h2",
+            "headingAlign": "left",
+            "cols": 1
+          },
+          "description": "This determines whether estrogen-only or combined estrogen/progesterone therapy is appropriate for you."
+        },
+        {
+          "fieldId": "cycle_status",
+          "type": "choice-multi",
+          "label": "Cycle Status",
+          "name": "cycle_status",
+          "required": true,
+          "sendToProvider": true,
+          "providerInfo": "medical",
+          "db_field": "",
+          "order": 1,
+          "validation": {
+            "errorMessages": {
+              "required": "Please select your current cycle status."
+            }
+          },
+          "conditions": [],
+          "properties": {
+            "options": [
+              { "label": "Regular monthly periods (consistent timing)", "value": "regular-cycle" },
+              { "label": "Irregular periods (varying cycle length or skipped months)", "value": "irregular-perimenopause" },
+              { "label": "No periods for 12+ consecutive months (post-menopause)", "value": "post-menopause" },
+              { "label": "Surgical menopause (hysterectomy or oophorectomy)", "value": "surgical-menopause" }
+            ],
+            "choiceInputType": "radio",
+            "multiSelect": false,
+            "layout": "vertical",
+            "cols": 1
+          }
+        },
+        {
+          "fieldId": "has_uterus",
+          "type": "choice-multi",
+          "label": "Do you currently have an intact uterus?",
+          "name": "has_uterus",
+          "required": true,
+          "sendToProvider": true,
+          "providerInfo": "medical",
+          "db_field": "",
+          "order": 2,
+          "validation": {
+            "errorMessages": {
+              "required": "Please indicate if you have an intact uterus."
+            }
+          },
+          "conditions": [],
+          "properties": {
+            "options": [
+              { "label": "Yes (Intact uterus)", "value": "yes" },
+              { "label": "No (Previous partial or full hysterectomy)", "value": "no" }
+            ],
+            "choiceInputType": "radio",
+            "multiSelect": false,
+            "layout": "horizontal",
+            "cols": 1
+          },
+          "description": "Patients with an intact uterus taking estrogen require micronized progesterone to protect the uterine lining."
+        },
+        {
+          "fieldId": "button_nav_p2",
+          "type": "button",
+          "label": "← Back",
+          "name": "button_nav_p2",
+          "required": false,
+          "sendToProvider": false,
+          "db_field": "",
+          "order": 3,
+          "validation": {},
+          "conditions": [],
+          "properties": {
+            "cols": 1,
+            "buttonCount": 2,
+            "buttonWidth": "auto",
+            "buttonRowAlign": "space-between",
+            "buttonAction": "previous_page",
+            "buttonColor": "#5B2008",
+            "buttonTextColor": "#FFFFFF",
+            "secondaryButtonLabel": "Continue →",
+            "secondaryButtonAction": "next_page",
+            "secondaryButtonColor": "#5B2008",
+            "secondaryButtonTextColor": "#FFFFFF",
+            "buttonSubmitNext": "none"
+          }
+        }
+      ]
+    },
+    {
+      "pageId": "page_3",
+      "title": "Medical Safety & Contraindications",
+      "description": "Screening for patient safety and clinical appropriateness.",
+      "order": 2,
+      "conditions": [],
+      "fields": [
+        {
+          "fieldId": "heading_safety",
+          "type": "heading",
+          "label": "Medical History & Safety Screen",
+          "name": "heading_safety",
+          "required": false,
+          "sendToProvider": false,
+          "db_field": "",
+          "order": 0,
+          "validation": {},
+          "conditions": [],
+          "properties": {
+            "headingTitle": "Medical History & Safety Screen",
+            "headingLevel": "h2",
+            "headingAlign": "left",
+            "cols": 1
+          },
+          "description": "To ensure hormone therapy is safe for you, please answer these clinical safety questions carefully."
+        },
+        {
+          "fieldId": "safety_contraindications",
+          "type": "choice-multi",
+          "label": "Have you ever had or been diagnosed with any of the following?",
+          "name": "safety_contraindications",
+          "required": true,
+          "sendToProvider": true,
+          "providerInfo": "medical",
+          "db_field": "",
+          "order": 1,
+          "validation": {
+            "errorMessages": {
+              "required": "Please select applicable conditions or None of these."
+            }
+          },
+          "conditions": [],
+          "properties": {
+            "options": [
+              { "label": "History of breast, uterine, or ovarian cancer", "value": "hormone-sensitive-cancer" },
+              { "label": "History of blood clots (DVT, PE, stroke)", "value": "blood-clots" },
+              { "label": "Active liver disease or hepatic impairment", "value": "liver-disease" },
+              { "label": "Unexplained vaginal bleeding", "value": "unexplained-bleeding" },
+              { "label": "Current pregnancy or breastfeeding", "value": "pregnancy" }
+            ],
+            "choiceInputType": "checkbox",
+            "multiSelect": true,
+            "layout": "vertical",
+            "showNoneOfAbove": true,
+            "cols": 1
+          }
+        },
+        {
+          "fieldId": "safety_contraindication_notice",
+          "type": "alert",
+          "label": "Important Safety Note",
+          "name": "safety_contraindication_notice",
+          "required": false,
+          "sendToProvider": false,
+          "db_field": "",
+          "order": 2,
+          "validation": {},
+          "conditions": [
+            {
+              "conditionId": "cond_safety_contraindication_notice",
+              "logic": "or",
+              "rules": [
+                { "field": "safety_contraindications", "operator": "contains", "value": ["hormone-sensitive-cancer"] },
+                { "field": "safety_contraindications", "operator": "contains", "value": ["blood-clots"] },
+                { "field": "safety_contraindications", "operator": "contains", "value": ["liver-disease"] },
+                { "field": "safety_contraindications", "operator": "contains", "value": ["unexplained-bleeding"] },
+                { "field": "safety_contraindications", "operator": "contains", "value": ["pregnancy"] }
+              ],
+              "action": "show",
+              "target": "safety_contraindication_notice"
+            }
+          ],
+          "properties": {
+            "alertText": "Based on your reported medical history, systemically absorbed hormone therapy may not be safe. A clinical provider will review non-hormonal or localized alternatives with you.",
+            "alertType": "warning",
+            "alertIcon": true,
+            "cols": 1
+          }
+        },
+        {
+          "fieldId": "current_medications",
+          "type": "textarea",
+          "label": "Are you currently taking any prescription medications or supplements?",
+          "name": "current_medications",
+          "required": false,
+          "sendToProvider": true,
+          "providerInfo": "medical",
+          "db_field": "opportunity.clinical.medications",
+          "order": 3,
+          "validation": {},
+          "conditions": [],
+          "properties": {
+            "rows": 3,
+            "autoResize": true,
+            "showCounter": true,
+            "cols": 1
+          },
+          "placeholder": "List medication names and dosages, or type 'None'"
+        },
+        {
+          "fieldId": "allergies",
+          "type": "text",
+          "label": "Known Allergies (Medications, adhesive patches, or inactive ingredients)",
+          "name": "allergies",
+          "required": false,
+          "sendToProvider": true,
+          "providerInfo": "medical",
+          "db_field": "opportunity.clinical.allergies",
+          "order": 4,
+          "validation": {},
+          "conditions": [],
+          "properties": {
+            "cols": 1
+          },
+          "placeholder": "List allergies, or type 'None'"
+        },
+        {
+          "fieldId": "button_nav_p3",
+          "type": "button",
+          "label": "← Back",
+          "name": "button_nav_p3",
+          "required": false,
+          "sendToProvider": false,
+          "db_field": "",
+          "order": 5,
+          "validation": {},
+          "conditions": [],
+          "properties": {
+            "cols": 1,
+            "buttonCount": 2,
+            "buttonWidth": "auto",
+            "buttonRowAlign": "space-between",
+            "buttonAction": "previous_page",
+            "buttonColor": "#5B2008",
+            "buttonTextColor": "#FFFFFF",
+            "secondaryButtonLabel": "Continue →",
+            "secondaryButtonAction": "next_page",
+            "secondaryButtonColor": "#5B2008",
+            "secondaryButtonTextColor": "#FFFFFF",
+            "buttonSubmitNext": "none"
+          }
+        }
+      ]
+    },
+    {
+      "pageId": "page_4",
+      "title": "Treatment Preferences & Goals",
+      "description": "Your preferred delivery mechanism and care expectations.",
+      "order": 3,
+      "conditions": [],
+      "fields": [
+        {
+          "fieldId": "heading_preferences",
+          "type": "heading",
+          "label": "Your Treatment Goals & Format Preference",
+          "name": "heading_preferences",
+          "required": false,
+          "sendToProvider": false,
+          "db_field": "",
+          "order": 0,
+          "validation": {},
+          "conditions": [],
+          "properties": {
+            "headingTitle": "Your Treatment Goals & Format Preference",
+            "headingLevel": "h2",
+            "headingAlign": "left",
+            "cols": 1
+          },
+          "description": "Your doctor will consider your format preferences when personalizing your protocol."
+        },
+        {
+          "fieldId": "delivery_format_preference",
+          "type": "choice-multi",
+          "label": "Do you have a preferred treatment delivery format?",
+          "name": "delivery_format_preference",
+          "required": true,
+          "sendToProvider": true,
+          "providerInfo": "medical",
+          "db_field": "",
+          "order": 1,
+          "validation": {
+            "errorMessages": {
+              "required": "Please select a preferred format."
+            }
+          },
+          "conditions": [],
+          "properties": {
+            "options": [
+              { "label": "Transdermal Patch (Twice weekly steady bioidentical release)", "value": "patch" },
+              { "label": "Topical Bioidentical Cream (Daily metered skin application)", "value": "cream" },
+              { "label": "Oral Capsule (Daily Micronized Progesterone / HRT)", "value": "oral" },
+              { "label": "Physician's Recommendation (Let provider decide best protocol)", "value": "provider-recommendation" }
+            ],
+            "choiceInputType": "radio",
+            "multiSelect": false,
+            "layout": "vertical",
+            "cols": 1
+          }
+        },
+        {
+          "fieldId": "primary_treatment_goal",
+          "type": "choice-multi",
+          "label": "What is your primary goal for therapy?",
+          "name": "primary_treatment_goal",
+          "required": true,
+          "sendToProvider": true,
+          "providerInfo": "medical",
+          "db_field": "",
+          "order": 2,
+          "validation": {
+            "errorMessages": {
+              "required": "Please select your primary treatment goal."
+            }
+          },
+          "conditions": [],
+          "properties": {
+            "options": [
+              { "label": "Relief from hot flashes, night sweats, and physical distress", "value": "hot-flash-relief" },
+              { "label": "Restoring deep sleep, mood balance, and energy", "value": "sleep-mood-balance" },
+              { "label": "Cognitive clarity and eliminating brain fog", "value": "brain-fog-clarity" },
+              { "label": "Long-term metabolic, cardiovascular, and bone health protection", "value": "longterm-vitality" }
+            ],
+            "choiceInputType": "radio",
+            "multiSelect": false,
+            "layout": "vertical",
+            "cols": 1
+          }
+        },
+        {
+          "fieldId": "button_nav_p4",
+          "type": "button",
+          "label": "← Back",
+          "name": "button_nav_p4",
+          "required": false,
+          "sendToProvider": false,
+          "db_field": "",
+          "order": 3,
+          "validation": {},
+          "conditions": [],
+          "properties": {
+            "cols": 1,
+            "buttonCount": 2,
+            "buttonWidth": "auto",
+            "buttonRowAlign": "space-between",
+            "buttonAction": "previous_page",
+            "buttonColor": "#5B2008",
+            "buttonTextColor": "#FFFFFF",
+            "secondaryButtonLabel": "Continue →",
+            "secondaryButtonAction": "next_page",
+            "secondaryButtonColor": "#5B2008",
+            "secondaryButtonTextColor": "#FFFFFF",
+            "buttonSubmitNext": "none"
+          }
+        }
+      ]
+    },
+    {
+      "pageId": "page_5",
+      "title": "Contact & State Verification",
+      "description": "Information required to connect you with a physician licensed in your state.",
+      "order": 4,
+      "conditions": [],
+      "fields": [
+        {
+          "fieldId": "heading_contact",
+          "type": "heading",
+          "label": "Patient Information & Licensing",
+          "name": "heading_contact",
+          "required": false,
+          "sendToProvider": false,
+          "db_field": "",
+          "order": 0,
+          "validation": {},
+          "conditions": [],
+          "properties": {
+            "headingTitle": "Patient Information & Licensing",
+            "headingLevel": "h2",
+            "headingAlign": "left",
+            "cols": 1
+          },
+          "description": "Your prescription must be reviewed by a board-certified physician licensed in your state of residence."
+        },
+        {
+          "fieldId": "patient_full_name",
+          "type": "text",
+          "label": "Legal Full Name",
+          "name": "patient_full_name",
+          "required": true,
+          "sendToProvider": true,
+          "providerInfo": "patient",
+          "db_field": "opportunity.name",
+          "order": 1,
+          "validation": {
+            "errorMessages": {
+              "required": "Please provide your legal full name."
+            }
+          },
+          "conditions": [],
+          "properties": {
+            "cols": 1
+          },
+          "placeholder": "First and last name"
+        },
+        {
+          "fieldId": "patient_email",
+          "type": "email",
+          "label": "Email Address",
+          "name": "patient_email",
+          "required": true,
+          "sendToProvider": true,
+          "providerInfo": "patient",
+          "db_field": "opportunity.email",
+          "order": 2,
+          "validation": {
+            "errorMessages": {
+              "required": "Please provide a valid email for consultation updates."
+            }
+          },
+          "conditions": [],
+          "properties": {
+            "cols": 2
+          },
+          "placeholder": "name@example.com"
+        },
+        {
+          "fieldId": "patient_phone",
+          "type": "phone",
+          "label": "Mobile Phone Number",
+          "name": "patient_phone",
+          "required": true,
+          "sendToProvider": true,
+          "providerInfo": "patient",
+          "db_field": "opportunity.phone",
+          "order": 3,
+          "validation": {
+            "errorMessages": {
+              "required": "Please provide your mobile phone number for secure 2FA."
+            }
+          },
+          "conditions": [],
+          "properties": {
+            "countryCode": "+1_US",
+            "cols": 2
+          },
+          "placeholder": "(555) 000-0000"
+        },
+        {
+          "fieldId": "patient_dob",
+          "type": "picker-date",
+          "label": "Date of Birth",
+          "name": "patient_dob",
+          "required": true,
+          "sendToProvider": true,
+          "providerInfo": "patient",
+          "db_field": "opportunity.dob",
+          "order": 4,
+          "validation": {
+            "errorMessages": {
+              "required": "Please select your date of birth."
+            }
+          },
+          "conditions": [],
+          "properties": {
+            "dateYearStart": 1920,
+            "dateYearEnd": 2008,
+            "disableFuture": true,
+            "cols": 1
+          },
+          "placeholder": "Select date of birth"
+        },
+        {
+          "fieldId": "telehealth_consent",
+          "type": "terms",
+          "label": "Telehealth Informed Consent",
+          "name": "telehealth_consent",
+          "required": true,
+          "sendToProvider": true,
+          "providerInfo": "consent",
+          "db_field": "opportunity.communication_consent",
+          "order": 5,
+          "validation": {
+            "errorMessages": {
+              "required": "You must agree to telehealth consent and HIPAA disclosures to proceed."
+            }
+          },
+          "conditions": [],
+          "properties": {
+            "termsText": "I consent to telehealth clinical evaluation and acknowledge that prescription therapies require licensed provider approval.",
+            "termsLinks": [],
+            "cols": 1
+          }
+        },
+        {
+          "fieldId": "button_submit",
+          "type": "button",
+          "label": "← Back",
+          "name": "button_submit",
+          "required": false,
+          "sendToProvider": false,
+          "db_field": "",
+          "order": 6,
+          "validation": {},
+          "conditions": [],
+          "properties": {
+            "cols": 1,
+            "buttonCount": 2,
+            "buttonWidth": "auto",
+            "buttonRowAlign": "space-between",
+            "buttonAction": "previous_page",
+            "buttonColor": "#5B2008",
+            "buttonTextColor": "#FFFFFF",
+            "secondaryButtonLabel": "Submit Clinical Intake",
+            "secondaryButtonAction": "submit",
+            "secondaryButtonColor": "#5B2008",
+            "secondaryButtonTextColor": "#FFFFFF",
+            "secondaryButtonSubmitNext": "none",
+            "buttonSubmitNext": "none"
+          }
+        }
+      ]
+    }
+  ]
+}
+

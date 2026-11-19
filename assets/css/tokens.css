@@ -1,0 +1,118 @@
+/* ==========================================================================
+   ALIVIO BRAND DESIGN TOKENS
+   Direction: Premium healthcare × modern editorial × human-centered wellness
+   Verified Specification: docs/brand/color-style-guide.md
+   ========================================================================== */
+
+:root {
+  /* Core Brand Colors (Alivio Approved Palette) */
+  --color-rust-terracotta: #5B2009;
+  --color-rust-terracotta-hover: #3E1505;
+  --color-espresso-dark: #260D03;
+  --color-apricot-cream: #FFEBC4;
+  --color-linen-warm: #FAF2DE;
+  --color-linen-alt: #FAF6ED;
+  --color-canvas-light: #FFFDF5;
+  --color-olive-forest: #2D3622;
+  --color-charcoal-earth: #41382E;
+  --color-ink-nearblack: #070706;
+  --color-sand-divider: #D7D1C3;
+  --color-golden-apricot: #FACA89;
+  --color-teal-accent: #02554A;
+  --color-pure-white: #FFFFFF;
+
+  /* Surface & Canvas Colors */
+  --sp-canvas-bg: var(--color-canvas-light);
+  --sp-canvas-white: #FFFFFF;
+  --sp-canvas-subtle: var(--color-linen-alt);
+  --sp-canvas-linen: var(--color-linen-warm);
+  --sp-canvas-sand: var(--color-sand-divider);
+  --sp-canvas-dark: var(--color-rust-terracotta);
+  --sp-canvas-card-dark: var(--color-espresso-dark);
+  --sp-canvas-card-dark-hover: #1A0903;
+  --sp-canvas-step-olive: var(--color-olive-forest);
+  --sp-canvas-elevated: #FFFFFF;
+
+  /* Text Colors */
+  --sp-text-primary: var(--color-ink-nearblack);
+  --sp-text-secondary: var(--color-charcoal-earth);
+  --sp-text-tertiary: #7D7D7D;
+  --sp-text-inverse: #FFFFFF;
+  --sp-text-inverse-warm: var(--color-apricot-cream);
+
+  /* Brand & Action Colors (Terracotta Rust Primary) */
+  --sp-accent-primary: var(--color-rust-terracotta);
+  --sp-accent-primary-hover: var(--color-rust-terracotta-hover);
+  --sp-accent-pill-hover: var(--color-rust-terracotta-hover);
+  --sp-accent-highlight: var(--color-apricot-cream);
+  --sp-accent-glow: var(--color-golden-apricot);
+  --sp-accent-clinical: var(--color-teal-accent);
+  --sp-accent-success: var(--color-teal-accent);
+  --sp-accent-success-bg: rgba(2, 85, 74, 0.12);
+  --sp-accent-sand: var(--color-sand-divider);
+  --sp-accent-warm: var(--color-rust-terracotta);
+
+  /* Borders & Hairlines */
+  --sp-border-light: var(--color-sand-divider);
+  --sp-border-subtle: rgba(215, 209, 195, 0.45);
+  --sp-border-strong: rgba(91, 32, 9, 0.22);
+  --sp-border-dark: rgba(255, 235, 196, 0.25);
+  --sp-border-dark-strong: rgba(255, 235, 196, 0.50);
+
+  /* Glassmorphism & Translucent Badges */
+  --sp-glass-badge-bg: rgba(255, 235, 196, 0.12);
+  --sp-glass-badge-border: rgba(255, 235, 196, 0.32);
+  --sp-glass-badge-text: rgba(255, 235, 196, 0.90);
+  --sp-glass-card-bg: rgba(91, 32, 9, 0.45);
+  --sp-glass-card-border: rgba(255, 235, 196, 0.20);
+
+  /* Typography */
+  --sp-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --sp-font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --sp-font-mono: 'SF Mono', Menlo, Consolas, Monaco, monospace;
+
+  /* Shadows */
+  --sp-shadow-sm: 0 1px 3px rgba(38, 13, 3, 0.04);
+  --sp-shadow-md: 0 4px 16px -2px rgba(38, 13, 3, 0.08);
+  --sp-shadow-lg: 0 12px 36px -4px rgba(38, 13, 3, 0.12);
+  --sp-shadow-pill: 0 4px 20px rgba(91, 32, 9, 0.10);
+  --sp-shadow-dark-card: 0 12px 40px rgba(38, 13, 3, 0.35);
+
+  /* Radii */
+  --sp-radius-sm: 8px;
+  --sp-radius-md: 14px;
+  --sp-radius-lg: 20px;
+  --sp-radius-xl: 28px;
+  --sp-radius-pill: 9999px;
+
+  /* Spatial Scale */
+  --sp-space-1: 4px;
+  --sp-space-2: 8px;
+  --sp-space-3: 12px;
+  --sp-space-4: 16px;
+  --sp-space-5: 20px;
+  --sp-space-6: 24px;
+  --sp-space-8: 32px;
+  --sp-space-10: 40px;
+  --sp-space-12: 48px;
+  --sp-space-16: 64px;
+  --sp-space-20: 80px;
+  --sp-space-24: 96px;
+
+  /* Layout Boundaries */
+  --sp-container-max: 1340px;
+  --sp-header-height: 70px;
+  --sp-utility-height: 38px;
+
+  /* Transitions */
+  --sp-transition-fast: 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  --sp-transition-smooth: 280ms cubic-bezier(0.16, 1, 0.3, 1);
+  --sp-transition-spring: 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 767px) {
+  :root {
+    --sp-header-height: 52px;
+    --sp-utility-height: 44px;
+  }
+}

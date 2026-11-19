@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personalized Treatment & Secure Checkout — PapayaMD</title>
+  <meta name="description" content="Complete your personalized physician consultation and secure order for physician-formulated GLP-1 weight care with PapayaMD.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+  <!-- Core Design Tokens & Component Stylesheets -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/typography.css">
+  <link rel="stylesheet" href="assets/css/checkout.css">
+</head>
+<body class="checkout-body">
+
+  <!-- TOP STRIP: PRICE DROP ALERT (LIGHT IVORY PILL + ALERT EMOJI + MATCHING PRICES) -->
+  <aside class="checkout-top-strip" aria-label="Price Alert">
+    <div class="checkout-price-drop-wrap">
+      <span class="checkout-price-drop-pill">
+        <span class="price-drop-emoji" aria-hidden="true">⚠️</span>
+        Price Drop Alert
+      </span>
+      <div class="checkout-price-drop-rates">
+        Semaglutide: <strong>from $199/mo</strong> &bull; Tirzepatide: <strong>from $299/mo</strong>
+      </div>
+    </div>
+  </aside>
+
+  <!-- STICKY SOLID WHITE HEADER BAR -->
+  <header class="checkout-header" role="banner">
+    <div class="checkout-header-inner">
+      <a href="index.html" class="checkout-brand-link" aria-label="PapayaMD Home">
+        <img src="assets/images/papayamd-logo.svg" alt="PapayaMD" class="checkout-brand-logo">
+      </a>
+      <div class="checkout-ssl-pill" role="status" aria-label="Security Status">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        <span>256-Bit SSL Encrypted</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CHECKOUT WORKSPACE (Single-Column Max 720px, Uniform 28px Gap) -->
+  <main class="checkout-container" role="main">
+
+    <!-- SECTION 01: HERO CONFIRMATION CARD (Bigger Headings & Overlapping Tilted Vials) -->
+    <section class="checkout-card checkout-hero-card" aria-labelledby="checkout-hero-title">
+      <div class="checkout-hero-stars-row">
+        <div class="checkout-stars" aria-label="5 stars rating">★★★★★</div>
+        <span class="checkout-review-badge">OVER 10,000+ VERIFIED PATIENT REVIEWS</span>
+      </div>
+
+      <div class="checkout-hero-grid">
+        <div class="checkout-hero-left">
+          <h1 class="checkout-hero-title" id="checkout-hero-title">
+            Weight Loss Plan confirmed<br>&amp;&nbsp;ready&nbsp;to&nbsp;start:
+          </h1>
+          <p class="checkout-hero-subtitle" id="checkout-hero-sub">
+            Physician-compounded GLP-1 therapy tailored to your metabolic markers.
+          </p>
+          <div class="checkout-hero-pills">
+            <span class="checkout-cadence-pill">
+              Month 1–3: <strong>From $159/mo</strong>
+            </span>
+            <span class="checkout-cadence-pill">
+              Month 4+: <strong>Dosage Titration Included</strong>
+            </span>
+          </div>
+        </div>
+
+        <!-- Overlapping Tilted Vials: Semaglutide Front (-8°), Tirzepatide Behind (+10°) -->
+        <div class="checkout-hero-visual-duo" aria-label="Prescription Medication Vials">
+          <img src="assets/images/prod-tirzepatide-vial.png" alt="Tirzepatide Injections Vial" class="checkout-hero-vial checkout-hero-vial--bg">
+          <img src="assets/images/prod-semaglutide-vial.png" alt="Semaglutide Injections Vial" class="checkout-hero-vial checkout-hero-vial--fg" id="checkout-hero-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 02: ANIMATED TRAJECTORY CHART CARD (Smooth, Slow 2.8s Path Animation) -->
+    <section class="checkout-card" aria-labelledby="checkout-chart-title">
+      <div class="checkout-chart-header">
+        <h2 class="checkout-section-heading" id="checkout-chart-title" style="margin-bottom: 0;">
+          Track Your Weight Loss Journey
+        </h2>
+        <span class="checkout-review-badge">12-Week Projection</span>
+      </div>
+      <p class="checkout-section-sub" style="margin-top: 6px;">
+        Projected total body weight reduction across clinical registry observations.
+      </p>
+
+      <div class="checkout-chart-container" id="checkout-chart-container">
+        <!-- Animated SVG Trajectory Chart with Luminous Gradient -->
+        <svg class="checkout-chart-svg" viewBox="0 0 700 170" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="chartTerracottaGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#5B2009" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#5B2009" stop-opacity="0.0"/>
+            </linearGradient>
+          </defs>
+          <path id="checkout-chart-fill" d="M 20 20 Q 140 35 260 75 T 500 130 T 680 145 L 680 160 L 20 160 Z" fill="url(#chartTerracottaGrad)"/>
+          <path id="checkout-chart-line" d="M 20 20 Q 140 35 260 75 T 500 130 T 680 145" fill="none" stroke="#5B2009" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="20" cy="20" r="5.5" class="checkout-chart-point"/>
+          <circle cx="260" cy="75" r="5" class="checkout-chart-point"/>
+          <circle cx="500" cy="130" r="5" class="checkout-chart-point"/>
+          <circle cx="680" cy="145" r="6" class="checkout-chart-point"/>
+        </svg>
+
+        <!-- Animated Number Labels -->
+        <div class="checkout-chart-axis-labels">
+          <span id="checkout-chart-ystart">210 lbs (Week 1)</span>
+          <span id="checkout-chart-ymid">190 lbs (Week 6)</span>
+          <span id="checkout-chart-yend">172 lbs (Week 12)</span>
+        </div>
+      </div>
+
+      <!-- Anchor CTA: Centered Text, No Arrow Disk -->
+      <div style="display: flex; justify-content: center; margin-top: 20px;">
+        <a href="#step-1-medication" class="checkout-btn-centered" aria-label="Choose Medication">
+          <span>Choose Medication</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- SECTION 03: FORMULATION SPOTLIGHT CARD (Bigger Bottle Imagery) -->
+    <section class="checkout-card" aria-labelledby="checkout-formulation-title">
+      <h2 class="checkout-section-heading" id="checkout-formulation-title">
+        Our Proven GLP-1 Formulation
+      </h2>
+
+      <div class="checkout-formulation-row">
+        <p class="checkout-formulation-text" id="checkout-formulation-text">
+          Our physician-formulated Semaglutide and Tirzepatide compounds include synergistic Vitamin B12 to optimize metabolic absorption and minimize gastrointestinal sensitivity.
+        </p>
+        <div class="checkout-formulation-visual">
+          <img src="assets/images/prod-tirzepatide-vial.png" alt="Clinical Formulation Bottle" class="checkout-formulation-img" id="checkout-formulation-img">
+        </div>
+      </div>
+
+      <div class="checkout-proof-callout-banner">
+        <span class="checkout-proof-stat" id="checkout-proof-stat">94.6%</span>
+        <p class="checkout-proof-label" id="checkout-proof-label">
+          of patients achieved sustained, medically meaningful weight reduction in clinical registry data.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 04: WHAT'S INCLUDED (Larger Image Boxes & More Bullet Gap) -->
+    <section class="checkout-card" aria-labelledby="checkout-included-heading">
+      <h2 class="checkout-section-heading" id="checkout-included-heading">
+        What's Included in Your Care Plan
+      </h2>
+
+      <!-- 2x2 Photo Grid with Enlarged Image Heights -->
+      <div class="checkout-included-grid">
+        <div class="checkout-included-tile">
+          <img src="assets/images/prod-semaglutide-vial.png" alt="Prescription Medication Vials" class="checkout-included-thumb">
+          <p class="checkout-included-title">Prescription Medication</p>
+        </div>
+        <div class="checkout-included-tile">
+          <img src="assets/images/step-1.png" alt="Syringes and Medical Supplies" class="checkout-included-thumb">
+          <p class="checkout-included-title">Sterile Syringes &amp; Supplies</p>
+        </div>
+        <div class="checkout-included-tile">
+          <img src="assets/images/step-2.png" alt="Doctor Consultation" class="checkout-included-thumb">
+          <p class="checkout-included-title">1-on-1 Doctor Consult</p>
+        </div>
+        <div class="checkout-included-tile">
+          <img src="assets/images/step-3.png" alt="Temperature Controlled Delivery Box" class="checkout-included-thumb">
+          <p class="checkout-included-title">Discreet Cold Shipping</p>
+        </div>
+      </div>
+
+      <!-- 5-Point Value Checkmarks (18px Gap) -->
+      <ul class="checkout-checklist">
+        <li class="checkout-checklist-item">
+          <span class="checkout-check-icon" aria-hidden="true">✓</span>
+          <span><strong>Free 2–3 Day Express Shipping</strong> in temperature-controlled, discreet packaging.</span>
+        </li>
+        <li class="checkout-checklist-item">
+          <span class="checkout-check-icon" aria-hidden="true">✓</span>
+          <span><strong>Licensed Physician Evaluation &amp; Dosage Adjustments</strong> throughout your entire program.</span>
+        </li>
+        <li class="checkout-checklist-item">
+          <span class="checkout-check-icon" aria-hidden="true">✓</span>
+          <span><strong>Complete Administration Supplies</strong> including sterile syringes, alcohol prep pads &amp; instructions.</span>
+        </li>
+        <li class="checkout-checklist-item">
+          <span class="checkout-check-icon" aria-hidden="true">✓</span>
+          <span><strong>100% Satisfaction Money-Back Guarantee</strong> if not clinically eligible for prescription.</span>
+        </li>
+        <li class="checkout-checklist-item">
+          <span class="checkout-check-icon" aria-hidden="true">✓</span>
+          <span><strong>Continuous Clinical Support</strong> via secure patient portal anytime questions arise.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- SECTION 05: STEP 1 — SELECT TREATMENT (INJECTABLE & ORAL TABS, SIDE-BY-SIDE CARDS) -->
+    <section class="checkout-card" id="step-1-medication" aria-labelledby="checkout-step1-title">
+      <h2 class="checkout-section-heading" id="checkout-step1-title">
+        <span class="checkout-step-badge">1</span> Select Treatment
+      </h2>
+
+      <div class="checkout-delivery-countdown-strip" role="status">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Order now for estimated delivery by <strong id="checkout-delivery-date-text">Fri, Nov 21</strong></span>
+      </div>
+
+      <!-- ADMINISTRATION METHOD TABS (Injectable vs Oral) -->
+      <div class="checkout-method-tabs" role="tablist" aria-label="Medication Administration Method">
+        <button type="button" class="checkout-method-tab is-active" role="tab" id="tab-injectable" aria-selected="true">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/></svg>
+          <span>Injectable</span>
+        </button>
+        <button type="button" class="checkout-method-tab" role="tab" id="tab-oral" aria-selected="false">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
+          <span>Oral (Daily / Sublingual)</span>
+        </button>
+      </div>
+
+      <!-- SIDE-BY-SIDE TREATMENT CARDS (2 in 1 Line, Centered Big Vial, Content Below) -->
+      <div class="checkout-medications-grid" id="checkout-medications-container" role="radiogroup" aria-label="Select Medication Option">
+        <!-- Populated by checkout.js -->
+      </div>
+
+      <!-- 4 CLINICAL PROOF METRICS (Larger Boxes & Bigger Numbers) -->
+      <div class="checkout-metrics-title">
+        <h3 class="checkout-section-heading" style="justify-content: center; text-align: center;">
+          Designed to deliver superior clinical outcomes
+        </h3>
+      </div>
+      <div class="checkout-metrics-grid" id="checkout-metrics-grid">
+        <!-- Populated by checkout.js with bigger boxes and numbers -->
+      </div>
+    </section>
+
+    <!-- SECTION 06: STEP 2 — CHOOSE YOUR PLAN (1px Light Border on Non-Selected) -->
+    <section class="checkout-card" id="step-2-plan" aria-labelledby="checkout-step2-title">
+      <h2 class="checkout-section-heading" id="checkout-step2-title">
+        <span class="checkout-step-badge">2</span> Choose Your Plan
+      </h2>
+
+      <div class="checkout-plan-options" role="radiogroup" aria-label="Select Billing Cadence">
+        <!-- Option A: Monthly Plan -->
+        <div class="checkout-plan-option" role="radio" aria-checked="false" tabindex="0" data-cadence="monthly">
+          <div class="checkout-plan-left">
+            <div class="checkout-radio-indicator" aria-hidden="true">
+              <span class="checkout-radio-indicator-dot"></span>
+            </div>
+            <div>
+              <h4 class="checkout-plan-name">Month-to-Month Plan</h4>
+              <p class="checkout-plan-details">Billed monthly • Cancel anytime</p>
+            </div>
+          </div>
+          <div class="checkout-plan-price-wrap">
+            <span class="checkout-plan-price" id="price-cadence-monthly">$199</span>
+            <span class="checkout-plan-freq">per month</span>
+          </div>
+        </div>
+
+        <!-- Option B: 3-Month Plan (Selected Default) -->
+        <div class="checkout-plan-option is-selected" role="radio" aria-checked="true" tabindex="0" data-cadence="3-month">
+          <span class="checkout-card-pill-tag">MOST POPULAR • BEST VALUE</span>
+          <div class="checkout-plan-left">
+            <div class="checkout-radio-indicator" aria-hidden="true">
+              <span class="checkout-radio-indicator-dot"></span>
+            </div>
+            <div>
+              <h4 class="checkout-plan-name">3-Month Protocol</h4>
+              <p class="checkout-plan-details">Billed quarterly • Complete course supplies</p>
+              <span class="checkout-plan-savings-pill">SAVE 20%</span>
+            </div>
+          </div>
+          <div class="checkout-plan-price-wrap">
+            <span class="checkout-plan-price" id="price-cadence-3mo">$159</span>
+            <span class="checkout-plan-freq">per month</span>
+          </div>
+        </div>
+
+        <!-- Option C: 6-Month Plan -->
+        <div class="checkout-plan-option" role="radio" aria-checked="false" tabindex="0" data-cadence="6-month">
+          <div class="checkout-plan-left">
+            <div class="checkout-radio-indicator" aria-hidden="true">
+              <span class="checkout-radio-indicator-dot"></span>
+            </div>
+            <div>
+              <h4 class="checkout-plan-name">6-Month Transformation</h4>
+              <p class="checkout-plan-details">Billed semi-annually • Maximum clinical results</p>
+              <span class="checkout-plan-savings-pill">SAVE 30%</span>
+            </div>
+          </div>
+          <div class="checkout-plan-price-wrap">
+            <span class="checkout-plan-price" id="price-cadence-6mo">$139</span>
+            <span class="checkout-plan-freq">per month</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 07: ORDER SUMMARY -->
+    <section class="checkout-card checkout-summary-card" aria-labelledby="checkout-summary-title">
+      <div class="checkout-summary-header">
+        <h2 class="checkout-summary-title" id="checkout-summary-title">Order Summary</h2>
+        <span class="checkout-review-badge" style="background: rgba(255,255,255,0.15); color: #FFEBC4;">Pre-Authorized</span>
+      </div>
+
+      <!-- COUPON SECTION (20% OFF Your First Order with Code WELCOME20) -->
+      <div class="checkout-coupon-banner">
+        <div class="checkout-coupon-left">
+          <span class="checkout-coupon-pill">20% OFF</span>
+          <span class="checkout-coupon-label">Discount Applied</span>
+        </div>
+        <span class="checkout-coupon-code">WELCOME20</span>
+      </div>
+
+      <!-- ITEMIZED PRODUCTS & SERVICES WITH THUMBNAILS & STRIKETHROUGHS -->
+      <div class="checkout-summary-items">
+        <!-- Item 1: Prescription Medication (Dynamic) -->
+        <div class="checkout-summary-item-row">
+          <div class="checkout-summary-item-left">
+            <div class="checkout-summary-thumb-box">
+              <img src="assets/images/prod-semaglutide-vial.png" alt="Medication Vial" class="checkout-summary-thumb checkout-summary-thumb--contain" id="checkout-receipt-med-img">
+            </div>
+            <div class="checkout-summary-item-details">
+              <h4 class="checkout-summary-item-title" id="checkout-receipt-med-title">Semaglutide</h4>
+              <p class="checkout-summary-item-sub" id="checkout-receipt-med-sub">Compounded w/ B12 • 3-Month Protocol</p>
+            </div>
+          </div>
+          <div class="checkout-summary-item-price-col">
+            <span class="checkout-price-strike" id="checkout-receipt-med-strike">$597.00</span>
+            <span class="checkout-price-final" id="checkout-receipt-med-final">$477.00</span>
+          </div>
+        </div>
+
+        <!-- Item 2: Online Doctor's Prescription -->
+        <div class="checkout-summary-item-row">
+          <div class="checkout-summary-item-left">
+            <div class="checkout-summary-thumb-box">
+              <img src="assets/images/step-1.png" alt="Online Doctor's Prescription" class="checkout-summary-thumb">
+            </div>
+            <div class="checkout-summary-item-details">
+              <h4 class="checkout-summary-item-title">Online Doctor's Prescription</h4>
+              <p class="checkout-summary-item-sub">Get Prescribed by a Licensed Physician Online</p>
+            </div>
+          </div>
+          <div class="checkout-summary-item-price-col">
+            <span class="checkout-price-strike">$49.00</span>
+            <span class="checkout-price-badge">included</span>
+          </div>
+        </div>
+
+        <!-- Item 3: Virtual Doctor Consultation -->
+        <div class="checkout-summary-item-row">
+          <div class="checkout-summary-item-left">
+            <div class="checkout-summary-thumb-box">
+              <img src="assets/images/step-2.png" alt="Virtual Doctor Consultation" class="checkout-summary-thumb">
+            </div>
+            <div class="checkout-summary-item-details">
+              <h4 class="checkout-summary-item-title">Virtual Doctor Consultation</h4>
+              <p class="checkout-summary-item-sub">Meet 1:1 With a Licensed Physician</p>
+            </div>
+          </div>
+          <div class="checkout-summary-item-price-col">
+            <span class="checkout-price-strike">$19.99</span>
+            <span class="checkout-price-badge">included</span>
+          </div>
+        </div>
+
+        <!-- Item 4: Fast Home Delivery -->
+        <div class="checkout-summary-item-row">
+          <div class="checkout-summary-item-left">
+            <div class="checkout-summary-thumb-box">
+              <img src="assets/images/step-3.png" alt="Fast Home Delivery" class="checkout-summary-thumb">
+            </div>
+            <div class="checkout-summary-item-details">
+              <h4 class="checkout-summary-item-title">Fast Home Delivery</h4>
+              <p class="checkout-summary-item-sub">Expedited Shipping Right to Your Door</p>
+            </div>
+          </div>
+          <div class="checkout-summary-item-price-col">
+            <span class="checkout-price-strike">$9.10</span>
+            <span class="checkout-price-free">FREE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coupon Discount Applied Line -->
+      <div class="checkout-summary-discount-row">
+        <span>Coupon Discount (WELCOME20 - 20% OFF):</span>
+        <span id="checkout-receipt-discount">- $95.40</span>
+      </div>
+
+      <div class="checkout-summary-total">
+        <span>Total Due Today:</span>
+        <div style="text-align: right;">
+          <span class="checkout-price-strike" id="checkout-receipt-total-strike" style="font-size: 1.05rem; display: block; opacity: 0.65;">$477.00</span>
+          <span class="total-amount" id="checkout-receipt-total">$381.60</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- MULTI-STEP CHECKOUT FORM (Shipping & Payment) -->
+    <form id="checkout-multistep-form" onsubmit="return false;" novalidate>
+
+      <!-- SECTION 08: STEP 3 — SHIPPING INFORMATION FORM -->
+      <section class="checkout-card" id="step-3-shipping" aria-labelledby="checkout-step3-title">
+        <h2 class="checkout-section-heading" id="checkout-step3-title">
+          <span class="checkout-step-badge">3</span> Shipping Information
+        </h2>
+
+        <div class="checkout-form-grid">
+          <!-- Row 1: First Name & Last Name -->
+          <div class="checkout-form-row-2col">
+            <div class="checkout-input-group">
+              <label for="checkout-first-name" class="checkout-label">First Name *</label>
+              <input type="text" id="checkout-first-name" class="checkout-input" placeholder="Sarah" required autocomplete="given-name">
+            </div>
+            <div class="checkout-input-group">
+              <label for="checkout-last-name" class="checkout-label">Last Name *</label>
+              <input type="text" id="checkout-last-name" class="checkout-input" placeholder="Jenkins" required autocomplete="family-name">
+            </div>
+          </div>
+
+          <!-- Row 2: Email -->
+          <div class="checkout-input-group">
+            <label for="checkout-email" class="checkout-label">Email Address (for order &amp; clinician tracking) *</label>
+            <input type="email" id="checkout-email" class="checkout-input" placeholder="sarah.jenkins@example.com" required autocomplete="email">
+          </div>
+
+          <!-- Row 3: Street Address -->
+          <div class="checkout-input-group">
+            <label for="checkout-address" class="checkout-label">Street Address *</label>
+            <input type="text" id="checkout-address" class="checkout-input" placeholder="123 Wellness Way" required autocomplete="address-line1">
+          </div>
+
+          <!-- Row 4: Apt / Suite -->
+          <div class="checkout-input-group">
+            <label for="checkout-apt" class="checkout-label">Apt, Suite, Unit (optional)</label>
+            <input type="text" id="checkout-apt" class="checkout-input" placeholder="Apt 4B" autocomplete="address-line2">
+          </div>
+
+          <!-- Row 5: City, State, ZIP -->
+          <div class="checkout-form-row-2col">
+            <div class="checkout-input-group">
+              <label for="checkout-city" class="checkout-label">City *</label>
+              <input type="text" id="checkout-city" class="checkout-input" placeholder="Austin" required autocomplete="address-level2">
+            </div>
+            <div class="checkout-input-group">
+              <label for="checkout-state" class="checkout-label">State *</label>
+              <select id="checkout-state" class="checkout-select" required autocomplete="address-level1">
+                <option value="" disabled selected>Select state</option>
+                <option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="checkout-form-row-2col">
+            <div class="checkout-input-group">
+              <label for="checkout-zip" class="checkout-label">ZIP Code *</label>
+              <input type="text" id="checkout-zip" class="checkout-input" placeholder="78701" maxlength="5" required autocomplete="postal-code">
+            </div>
+            <div class="checkout-input-group">
+              <label for="checkout-phone" class="checkout-label">Phone Number *</label>
+              <input type="tel" id="checkout-phone" class="checkout-input" placeholder="(512) 555-0199" required autocomplete="tel">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 09: STEP 4 — PAYMENT INFORMATION (White Box & 1px Light Border) -->
+      <section class="checkout-card" id="step-4-payment" aria-labelledby="checkout-step4-title">
+        <h2 class="checkout-section-heading" id="checkout-step4-title">
+          <span class="checkout-step-badge">4</span> Payment Information
+        </h2>
+
+        <!-- White Box with 1px Light Border & Inline Credit Cards Image -->
+        <div class="checkout-card-box">
+          <div class="checkout-card-box-left">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+            <span>Credit or Debit Card</span>
+          </div>
+          <div class="checkout-card-brands" aria-label="Accepted Credit Cards">
+            <img src="assets/images/payment-cards-inline.png" alt="Visa, Mastercard, American Express, Discover" class="checkout-card-brands-img">
+          </div>
+        </div>
+
+        <div class="checkout-form-grid">
+          <!-- Card Number -->
+          <div class="checkout-input-group">
+            <label for="checkout-card-number" class="checkout-label">Card Number *</label>
+            <div style="position: relative;">
+              <input type="text" id="checkout-card-number" class="checkout-input" placeholder="4532 •••• •••• 8921" maxlength="19" required autocomplete="cc-number">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#7A6F62" stroke-width="2" style="position: absolute; right: 14px; top: 16px; pointer-events: none;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+          </div>
+
+          <!-- Expiry & CVV -->
+          <div class="checkout-form-row-2col">
+            <div class="checkout-input-group">
+              <label for="checkout-expiry" class="checkout-label">Expiration Date *</label>
+              <input type="text" id="checkout-expiry" class="checkout-input" placeholder="MM/YY" maxlength="5" required autocomplete="cc-exp">
+            </div>
+            <div class="checkout-input-group">
+              <label for="checkout-cvv" class="checkout-label">Security Code (CVV) *</label>
+              <input type="password" id="checkout-cvv" class="checkout-input" placeholder="123" maxlength="4" required autocomplete="cc-csc">
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 14px; display: flex; align-items: center; gap: 8px;">
+          <input type="checkbox" id="checkout-billing-same" checked style="width: 18px; height: 18px; accent-color: #5B2009; cursor: pointer;">
+          <label for="checkout-billing-same" style="font-size: 0.85rem; color: #41382E; cursor: pointer;">Billing address is the same as shipping</label>
+        </div>
+
+        <!-- PRIMARY SUBMIT CTA: Centered Text, No Arrow Disk -->
+        <button type="submit" class="checkout-btn-centered checkout-complete-btn" id="checkout-complete-submit-btn" aria-label="Pay &amp; Complete Order">
+          <span id="checkout-btn-total-text">Pay $477.00 &amp; Complete Order</span>
+        </button>
+
+        <!-- ATTACHED CREDIT CARDS & SECURITY TRUST LOGOS PNG -->
+        <div class="checkout-payment-trust-logos-wrap">
+          <img src="assets/images/payment-trust-badges.png" alt="Accepted Payment Methods: American Express, Discover, Visa, Mastercard, McAfee Secure, Norton Secured" class="checkout-payment-trust-badges-img">
+        </div>
+
+        <!-- Security Seals Row -->
+        <div class="checkout-security-logos" aria-label="Security Badges">
+          <span style="font-size: 0.72rem; font-weight: 600; color: #7A6F62; display: flex; align-items: center; gap: 4px;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#5B2009" stroke-width="2.4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            256-Bit SSL
+          </span>
+          <span style="font-size: 0.72rem; font-weight: 600; color: #7A6F62;">• HIPAA Security Standards</span>
+          <span style="font-size: 0.72rem; font-weight: 600; color: #7A6F62;">• 503A Licensed Pharmacy</span>
+        </div>
+      </section>
+
+    </form>
+    <!-- FORM END -->
+
+    <!-- SECTION 10: SINGLE UNIFIED TRUST CREDENTIALS BOX (Enlarged 80px × 80px Badges) -->
+    <section class="checkout-card checkout-unified-trust-card" aria-label="Clinical Credentials &amp; Guarantees">
+      <!-- Item 1: 503A/503B Pharmacy (Certification Badge - 80px) -->
+      <div class="checkout-unified-trust-item">
+        <div class="checkout-trust-icon-box" aria-hidden="true">
+          <img src="assets/images/trust-pharmacy-badge.png" alt="USA Licensed Pharmacy" class="checkout-trust-badge-img">
+        </div>
+        <div class="checkout-trust-info">
+          <h5>USA Licensed 503A/503B Pharmacy</h5>
+          <p>Every medication is prepared in sterile, FDA-inspected partner pharmacies upholding rigorous purity, sterility, and potency testing.</p>
+        </div>
+      </div>
+
+      <div class="checkout-unified-trust-divider" aria-hidden="true"></div>
+
+      <!-- Item 2: HIPAA Compliant (HIPAA 4 - 80px) -->
+      <div class="checkout-unified-trust-item">
+        <div class="checkout-trust-icon-box" aria-hidden="true">
+          <img src="assets/images/trust-hipaa-seal.png" alt="HIPAA Compliant" class="checkout-trust-badge-img">
+        </div>
+        <div class="checkout-trust-info">
+          <h5>HIPAA Compliant Medical Privacy</h5>
+          <p>Your health data and clinical records are guarded under bank-grade 256-bit encryption with zero third-party sharing.</p>
+        </div>
+      </div>
+
+      <div class="checkout-unified-trust-divider" aria-hidden="true"></div>
+
+      <!-- Item 3: Free Discreet Cold Shipping (Layer_1 - 80px) -->
+      <div class="checkout-unified-trust-item">
+        <div class="checkout-trust-icon-box" aria-hidden="true">
+          <img src="assets/images/trust-discreet-box.png" alt="Discreet Delivery" class="checkout-trust-badge-img">
+        </div>
+        <div class="checkout-trust-info">
+          <h5>Free Discreet Cold-Chain Delivery</h5>
+          <p>Shipped directly to your doorstep in unmarked, temperature-monitored insulation with express courier tracking.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: FAQ ACCORDION -->
+    <section class="checkout-card" aria-labelledby="checkout-faq-heading">
+      <h2 class="checkout-section-heading" id="checkout-faq-heading">Frequently Asked Questions</h2>
+
+      <div class="checkout-faq-accordion">
+        <div class="checkout-faq-item">
+          <button type="button" class="checkout-faq-trigger" aria-expanded="false">
+            <span>How does physician evaluation work?</span>
+            <svg class="checkout-faq-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="checkout-faq-body">
+            <div class="checkout-faq-content">
+              After you submit your order and complete health profile, a licensed physician in your state evaluates your medical history. If eligible, your prescription is sent directly to our partner pharmacy. If you are not clinically eligible, you are refunded 100% immediately.
+            </div>
+          </div>
+        </div>
+
+        <div class="checkout-faq-item">
+          <button type="button" class="checkout-faq-trigger" aria-expanded="false">
+            <span>What is included with my delivery?</span>
+            <svg class="checkout-faq-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="checkout-faq-body">
+            <div class="checkout-faq-content">
+              Every shipment arrives in discreet, temperature-controlled cold-chain packaging containing your medication, sterile administration supplies, alcohol prep pads, step-by-step instructions, and physician direct messaging access.
+            </div>
+          </div>
+        </div>
+
+        <div class="checkout-faq-item">
+          <button type="button" class="checkout-faq-trigger" aria-expanded="false">
+            <span>Can I pause or cancel my subscription?</span>
+            <svg class="checkout-faq-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="checkout-faq-body">
+            <div class="checkout-faq-content">
+              Yes. You have total autonomy. You can pause, reschedule, or cancel your protocol anytime directly from your PapayaMD patient portal before your next shipment window.
+            </div>
+          </div>
+        </div>
+
+        <div class="checkout-faq-item">
+          <button type="button" class="checkout-faq-trigger" aria-expanded="false">
+            <span>What if I have questions during my treatment?</span>
+            <svg class="checkout-faq-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="checkout-faq-body">
+            <div class="checkout-faq-content">
+              Our clinical support team and licensed physicians are available 7 days a week via direct secure messaging inside your patient dashboard with average response times under 2 hours.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- REGULATORY FOOTER (Centered Logo & Text Alignment) -->
+  <footer class="checkout-footer" role="contentinfo">
+    <div class="checkout-footer-inner">
+      <img src="assets/images/papayamd-logo.svg" alt="PapayaMD" class="checkout-footer-logo">
+      <div class="checkout-footer-links">
+        <a href="index.html">Home</a>
+        <a href="#step-1-medication">Treatments</a>
+        <a href="login.html">Patient Portal</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Care</a>
+      </div>
+      <p class="checkout-footer-disclaimer">
+        * Prescription treatments require online consultation with a licensed healthcare provider who determines eligibility. Compound medications are prepared by state-licensed 503A/503B compounding pharmacies. Compounded drugs are not reviewed or approved by the FDA for safety, efficacy, or quality.
+      </p>
+      <p class="checkout-footer-disclaimer" style="margin-top: 6px;">
+        &copy; 2026 PapayaMD Telehealth Services. All rights reserved. 256-Bit SSL Encrypted.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Checkout Logic Module -->
+  <script src="assets/js/modules/checkout.js"></script>
+</body>
+</html>

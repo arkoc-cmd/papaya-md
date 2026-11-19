@@ -1,0 +1,2457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>PapayaMD | Physician-Led Precision Telehealth</title>
+  <meta name="description"
+    content="Personalized, evidence-based telehealth treatments for metabolic health, hair restoration, and hormonal vitality. Doctor-prescribed, delivered discreetly.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PapayaMD | Your New Health Membership">
+  <meta property="og:description"
+    content="Personalized, evidence-based medical care tailored to your biology. Prescribed online, delivered discreetly.">
+  <meta property="og:image" content="assets/images/hero-vitality.jpg">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Speculative Prefetch for Instant Subpage Transition -->
+  <link rel="prefetch" href="treatments/weight-loss.html">
+  <link rel="prefetch" href="treatments/hormone-women.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+  <!-- Stylesheets (Direct Parallel Loading, Strict Cascade Order) -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/typography.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+  <link rel="stylesheet" href="assets/css/intake.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+
+  
+
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top Utility & Promotional Notice Bar with Text Slider -->
+  <aside class="sp-utility-bar" role="region" aria-label="Special Announcements and Support">
+    <div class="sp-utility-slider" id="sp-utility-slider">
+      <!-- Slide 1: Welcome Offer -->
+      <div class="sp-utility-slide active">
+        <div class="sp-utility-content">
+          <div class="sp-utility-line sp-utility-line-1">
+            <span>Get 20% OFF Your First Order with Code</span>
+            <strong class="sp-promo-tag">WELCOME20</strong>
+          </div>
+          <span class="sp-utility-divider" aria-hidden="true">—</span>
+          <div class="sp-utility-line sp-utility-line-2">
+            <span class="sp-utility-subtext">Available This Month Only!</span>
+            <a href="#intake-entry" data-intake-trigger class="sp-utility-link">Book Your FREE Consultation Today →</a>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 2: Help & Hotline Slider -->
+      <div class="sp-utility-slide">
+        <div class="sp-utility-content">
+          <div class="sp-utility-line">
+            <svg class="sp-utility-phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+              </path>
+            </svg>
+            <span>Need help or have questions about your order?</span>
+          </div>
+          <span class="sp-utility-divider" aria-hidden="true">—</span>
+          <div class="sp-utility-line">
+            <span>Call</span>
+            <a href="tel:19992548461" class="sp-utility-link sp-utility-phone-link">1-999-PAPAYA-1</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Floating Header & Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="nav-pill-container">
+      <!-- Brand Wordmark / Logo -->
+      <a href="#" class="brand-wordmark" aria-label="PapayaMD Homepage">
+        <svg class="brand-logo-svg" viewBox="0 0 235 49" width="182" height="38" aria-hidden="true" fill="currentColor"><path d="M101.789 18.9482C107.081 18.9482 111.149 22.9085 111.149 29.0645C111.149 35.1842 107.081 39.3242 101.789 39.3242C98.1892 39.3241 95.6332 37.3802 94.4092 35.3643V48.3604H91.1338V19.2725H94.4092V22.9082C95.5972 20.8203 98.1892 18.9483 101.789 18.9482ZM145.277 35.2559L151.397 19.2725H154.781L142.901 48.2881H139.518L143.405 38.7842L135.449 19.2725H139.086L145.277 35.2559ZM26.7549 8C34.0588 8.00025 39.9999 13.9974 40 21.3721C40 24.9391 38.622 28.2971 36.1201 30.8262C33.6139 33.352 30.2889 34.744 26.7549 34.7441C26.7223 34.7441 23.3001 34.7819 20.0205 36.1982C16.147 37.8703 14.2647 40.6611 14.2646 44.7246V45H8V25.9434H14.2646V32.2168C15.3074 31.4781 16.4744 30.8365 17.7393 30.3057C22.1727 28.4406 26.5712 28.418 26.7549 28.418C28.6196 28.4179 30.3717 27.685 31.6885 26.3525C33.0083 25.0214 33.7344 23.2535 33.7344 21.3721C33.7343 17.4867 30.6044 14.3254 26.7549 14.3252H25.7676V8H26.7549ZM75.9414 18.9482C79.6133 18.9483 82.1332 20.8201 83.2852 22.8721V19.2725H86.5977V39H83.2852V35.3281C82.0972 37.4521 79.5412 39.3242 75.9053 39.3242C70.6494 39.3242 66.5812 35.1842 66.5811 29.0645C66.5811 22.9085 70.6494 18.9482 75.9414 18.9482ZM122.598 18.9482C126.27 18.9483 128.789 20.8201 129.941 22.8721V19.2725H133.254V39H129.941V35.3281C128.753 37.4521 126.197 39.3242 122.562 39.3242C117.306 39.3242 113.237 35.1842 113.237 29.0645C113.237 22.9085 117.306 18.9482 122.598 18.9482ZM165.211 18.9482C168.883 18.9483 171.403 20.8201 172.555 22.8721V19.2725H175.867V39H172.555V35.3281C171.367 37.4521 168.811 39.3242 165.175 39.3242C159.919 39.3242 155.851 35.1842 155.851 29.0645C155.851 22.9085 159.919 18.9482 165.211 18.9482ZM56.0576 13.9082C61.9615 13.9082 64.7333 17.148 64.7334 21.252C64.7334 25.0679 62.2855 28.5244 56.0576 28.5244H51.2334V39H47.958V13.9082H56.0576ZM193.831 32.5557L201.823 13.8721H207.511V39H202.471V22.6562L195.739 39H191.923L185.155 22.6562V39H180.115V13.8721H185.839L193.831 32.5557ZM221.277 13.8721C229.305 13.8721 234.525 18.8399 234.525 26.4717C234.525 34.0677 229.305 39 221.277 39H212.494V13.8721H221.277ZM76.5889 21.792C72.989 21.7921 69.9287 24.4206 69.9287 29.0645C69.9289 33.7081 72.9891 36.4442 76.5889 36.4443C80.1889 36.4443 83.2852 33.7436 83.2852 29.0996C83.285 24.5279 80.1887 21.792 76.5889 21.792ZM101.105 21.792C97.5416 21.792 94.4094 24.5279 94.4092 29.0996C94.4092 33.7436 97.5415 36.4443 101.105 36.4443C104.741 36.4443 107.802 33.7081 107.802 29.0645C107.802 24.4205 104.741 21.7921 101.105 21.792ZM123.245 21.792C119.645 21.7921 116.585 24.4206 116.585 29.0645C116.585 33.7081 119.645 36.4442 123.245 36.4443C126.845 36.4443 129.941 33.7436 129.941 29.0996C129.941 24.5279 126.845 21.792 123.245 21.792ZM165.858 21.792C162.259 21.7921 159.198 24.4206 159.198 29.0645C159.198 33.7081 162.259 36.4442 165.858 36.4443C169.458 36.4443 172.555 33.7436 172.555 29.0996C172.554 24.5279 169.458 21.792 165.858 21.792ZM217.534 34.7158H221.098C226.39 34.7158 229.378 31.6917 229.378 26.4717C229.378 21.2519 226.39 18.1201 221.098 18.1201H217.534V34.7158ZM51.2334 25.8242H56.0576C59.8015 25.8242 61.3857 24.0599 61.3857 21.252C61.3857 18.3361 59.8015 16.6084 56.0576 16.6084H51.2334V25.8242ZM14.2363 7.76367H22V14.2344H14.2363V22H7.76367V14.2314H0V7.76367H7.76367V0H14.2363V7.76367Z"/></svg>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="#products" class="nav-link">Treatments</a>
+        <a href="#care-stories" class="nav-link">Our Approach</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <!-- Action Cluster -->
+      <div class="nav-actions">
+        <!-- Patient Login Icon Button (Desktop Only) -->
+        <a href="login.html" class="nav-user-icon-btn" aria-label="Patient Login" title="Patient Login">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+
+        <!-- Primary CTA: 2-Minute Assessment (Intake Trigger) -->
+        <a href="#intake" class="alivio-hero-primary-cta alivio-nav-primary-cta" data-intake-trigger
+          aria-label="2-Minute Assessment">
+          <span class="alivio-cta-label">2-Minute Assessment</span>
+          <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+        </a>
+
+        <!-- Mobile Hamburger Menu Button -->
+        <button type="button" class="menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false"
+          aria-controls="mobile-drawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" width="20" height="20" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Landmark -->
+  <main id="main-content">
+
+    <!-- Section 01: Hero Card Section (Hero As Container) -->
+    <section class="section_sp2-home-hero" aria-labelledby="hero-heading">
+      <div class="sp-hero-card">
+        <!-- Hero Cinematic Video Media Layer (Zero Image Flash) -->
+        <div class="sp-hero-bg-media" aria-hidden="true">
+          <video class="sp-hero-video" id="hero-bg-video" autoplay loop muted playsinline preload="auto">
+            <source src="assets/videos/gemini_generated_video_c44db851.mp4" type="video/mp4">
+          </video>
+          <div class="sp-hero-overlay"></div>
+        </div>
+
+        <!-- Hero Content (Editorial Text on Cinematic Amber Canvas) -->
+        <div class="sp-hero-content">
+          <!-- Trustpilot Rating and Stars (Clean Unboxed Inline) -->
+          <div class="sp-hero-badge">
+            <div class="alivio-hero-trustpilot"
+              aria-label="Rated 4.4 out of 5 stars based on 3,450+ verified patient reviews">
+              <div class="alivio-trustpilot-stars" aria-hidden="true">
+                <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              </div>
+              <span class="alivio-trustpilot-brand">Trustpilot</span>
+              <span class="alivio-trustpilot-score">4.4</span>
+              <span class="alivio-trustpilot-bullet" aria-hidden="true">•</span>
+              <span class="alivio-trustpilot-reviews">3,450+ patient reviews</span>
+            </div>
+          </div>
+
+          <!-- Hero Headline with Rotating Phrases -->
+          <h1 class="sp-hero-title sp-heading-h1" id="hero-heading">
+            <span class="sp-hero-title-fixed">The care your </span><span class="sp-hero-title-dynamic"
+              id="hero-dynamic-phrases" aria-live="polite" aria-atomic="true">
+              <span class="sp-rotating-phrase active" data-index="0">body deserves.</span>
+              <span class="sp-rotating-phrase" data-index="1">energy needs.</span>
+              <span class="sp-rotating-phrase" data-index="2">future deserves.</span>
+              <span class="sp-rotating-phrase" data-index="3">wellbeing deserves.</span>
+            </span>
+          </h1>
+
+          <!-- Hero Subtitle -->
+          <p class="sp-hero-subtitle">
+            Personalized treatment plans for weight loss, longevity, and metabolic vitality — prescribed by licensed US
+            physicians and delivered to your doorstep.
+          </p>
+
+          <!-- Hero CTA Group (Primary Filled + Secondary Glass) -->
+          <div class="sp-hero-actions sp-hero-buttons">
+            <a href="#intake" class="alivio-hero-primary-cta" data-intake-trigger
+              aria-label="See If You Qualify for Telehealth Care">
+              <span class="alivio-cta-label">See If You Qualify</span>
+              <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+            </a>
+            <a href="#protocols" class="alivio-hero-secondary-cta" aria-label="Explore Telehealth Treatments">
+              <span class="alivio-cta-label">Explore Treatments</span>
+              <span class="alivio-glass-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+            </a>
+          </div>
+
+          <!-- Trust-Feature Row Below CTAs (3 Badges) -->
+          <div class="sp-hero-trust-row" aria-label="Clinical and Service Credentials">
+            <div class="sp-trust-item">
+              <svg class="sp-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+              <span>100% Online Care</span>
+            </div>
+            <div class="sp-trust-item">
+              <svg class="sp-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+              <span>No Clinic Visits</span>
+            </div>
+            <div class="sp-trust-item">
+              <svg class="sp-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <polyline points="16 11 18 13 22 9" />
+              </svg>
+              <span>Licensed Providers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 02: As Seen In Media Marquee (Replacing Doctor Proof) -->
+    <section class="sp-as-seen-in" aria-label="Featured In Media">
+      <div class="container">
+        <div class="sp-as-seen-in__header">
+          <span class="sp-as-seen-in__title">AS SEEN IN</span>
+        </div>
+      </div>
+      <div class="sp-as-seen-in__marquee" aria-hidden="false">
+        <div class="sp-as-seen-in__track" role="region" aria-label="Media Publications">
+          <!-- Item 1: WebMD -->
+          <div class="sp-media-logo" title="WebMD">
+            <svg class="sp-media-svg" width="180" height="36" viewBox="0 4 180 36" fill="currentColor"
+              aria-label="WebMD">
+              <text x="0" y="34" font-family="'Times New Roman', Georgia, serif" font-size="42" font-weight="700"
+                letter-spacing="-0.5px">WebMD</text>
+            </svg>
+          </div>
+          <!-- Item 2: FORTUNE -->
+          <div class="sp-media-logo" title="Fortune">
+            <svg class="sp-media-svg" width="210" height="30" viewBox="0 6 210 30" fill="currentColor"
+              aria-label="Fortune">
+              <text x="0" y="31" font-family="'Times New Roman', Georgia, serif" font-size="33" font-weight="900"
+                letter-spacing="3px">FORTUNE</text>
+            </svg>
+          </div>
+          <!-- Item 3: FAST COMPANY -->
+          <div class="sp-media-logo" title="Fast Company">
+            <svg class="sp-media-svg" width="260" height="30" viewBox="0 5 260 30" fill="currentColor"
+              aria-label="Fast Company">
+              <text x="0" y="29" font-family="'Arial Black', -apple-system, sans-serif" font-size="27" font-weight="900"
+                letter-spacing="-0.5px">FAST COMPANY</text>
+            </svg>
+          </div>
+          <!-- Item 4: Bloomberg -->
+          <div class="sp-media-logo" title="Bloomberg">
+            <svg class="sp-media-svg" width="200" height="36" viewBox="0 4 200 36" fill="currentColor"
+              aria-label="Bloomberg">
+              <text x="0" y="31" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="700"
+                letter-spacing="-0.6px">Bloomberg</text>
+            </svg>
+          </div>
+          <!-- Item 5: Healthline -->
+          <div class="sp-media-logo" title="Healthline">
+            <svg class="sp-media-svg" width="190" height="32" viewBox="0 5 190 32" fill="currentColor"
+              aria-label="Healthline">
+              <text x="0" y="31" font-family="system-ui, -apple-system, sans-serif" font-size="35" font-weight="700"
+                letter-spacing="0.5px">healthline</text>
+            </svg>
+          </div>
+          <!-- Item 6: Forbes -->
+          <div class="sp-media-logo" title="Forbes">
+            <svg class="sp-media-svg" width="150" height="36" viewBox="0 4 150 36" fill="currentColor"
+              aria-label="Forbes">
+              <text x="0" y="34" font-family="'Times New Roman', Georgia, serif" font-size="42" font-weight="700"
+                font-style="italic" letter-spacing="0.5px">Forbes</text>
+            </svg>
+          </div>
+
+          <!-- Seamless Duplicate Loop for Infinite Scroll -->
+          <div class="sp-media-logo" aria-hidden="true">
+            <svg class="sp-media-svg" width="180" height="36" viewBox="0 4 180 36" fill="currentColor">
+              <text x="0" y="34" font-family="'Times New Roman', Georgia, serif" font-size="42" font-weight="700"
+                letter-spacing="-0.5px">WebMD</text>
+            </svg>
+          </div>
+          <div class="sp-media-logo" aria-hidden="true">
+            <svg class="sp-media-svg" width="210" height="30" viewBox="0 6 210 30" fill="currentColor">
+              <text x="0" y="31" font-family="'Times New Roman', Georgia, serif" font-size="33" font-weight="900"
+                letter-spacing="3px">FORTUNE</text>
+            </svg>
+          </div>
+          <div class="sp-media-logo" aria-hidden="true">
+            <svg class="sp-media-svg" width="260" height="30" viewBox="0 5 260 30" fill="currentColor">
+              <text x="0" y="29" font-family="'Arial Black', -apple-system, sans-serif" font-size="27" font-weight="900"
+                letter-spacing="-0.5px">FAST COMPANY</text>
+            </svg>
+          </div>
+          <div class="sp-media-logo" aria-hidden="true">
+            <svg class="sp-media-svg" width="200" height="36" viewBox="0 4 200 36" fill="currentColor">
+              <text x="0" y="31" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="700"
+                letter-spacing="-0.6px">Bloomberg</text>
+            </svg>
+          </div>
+          <div class="sp-media-logo" aria-hidden="true">
+            <svg class="sp-media-svg" width="190" height="32" viewBox="0 5 190 32" fill="currentColor">
+              <text x="0" y="31" font-family="system-ui, -apple-system, sans-serif" font-size="35" font-weight="700"
+                letter-spacing="0.5px">healthline</text>
+            </svg>
+          </div>
+          <div class="sp-media-logo" aria-hidden="true">
+            <svg class="sp-media-svg" width="150" height="36" viewBox="0 4 150 36" fill="currentColor">
+              <text x="0" y="34" font-family="'Times New Roman', Georgia, serif" font-size="42" font-weight="700"
+                font-style="italic" letter-spacing="0.5px">Forbes</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Section 04: Curved Treatment Discovery Carousel -->
+    <section class="section_protocols alivio-curved-discovery" id="protocols" aria-labelledby="protocols-heading">
+      <!-- Centered Header & Introduction (Option B: Badge and Heading Stay Same) -->
+      <div class="alivio-treatments-intro">
+        <!-- Centered Badge matching pill badge pattern -->
+        <div class="alivio-works-pill-badge" style="margin-bottom: 16px;">
+          <span class="alivio-works-badge-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+              <circle cx="10" cy="10" r="8" />
+              <path d="M7 10h6M10 7v6" />
+            </svg>
+          </span>
+          <span class="alivio-works-badge-text">EXPLORE TREATMENTS</span>
+        </div>
+
+        <!-- Main Heading: Regular weight, breaks into two lines after period on mobile -->
+        <h2 class="alivio-treatments-heading sp-heading-h1" id="protocols-heading">
+          <span class="alivio-heading-line">Care that fits you.</span><span class="alivio-heading-break"> </span><span
+            class="alivio-heading-line">Not the other way around.</span>
+        </h2>
+
+        <!-- Supporting Subheading -->
+        <p class="alivio-treatments-subheading">
+          Explore personalized treatment options designed around your goals, with guidance from a licensed healthcare
+          provider.
+        </p>
+      </div>
+
+      <!-- Alivio Horizontal Care Protocols Carousel -->
+      <div class="alivio-treatments-carousel-wrap" id="alivio-treatments-carousel" role="region" aria-label="Treatment categories slider">
+        <div class="alivio-treatments-track" id="alivio-treatments-track" tabindex="0">
+          <!-- Slide 1: Weight Loss (Direct link to weight-loss.html) -->
+          <article class="alivio-care-card">
+            <a href="treatments/weight-loss.html" class="alivio-care-card__link" aria-label="Explore Weight Loss treatments">
+              <img decoding="async" src="assets/images/weight-loss-woman.jpg" alt="Active woman smiling outdoors in natural sunlight" class="alivio-care-card__img" />
+              <div class="alivio-care-card__scrim" aria-hidden="true"></div>
+              <div class="alivio-care-card__content">
+                <div class="alivio-care-card__eyebrow">
+                  <span>Weight Loss</span>
+                </div>
+                <div class="alivio-care-card__footer">
+                  <div class="alivio-care-card__text-group">
+                    <h3 class="alivio-care-card__title">Lose weight, your way</h3>
+                    <span class="alivio-care-card__subtext">See your options &rarr;</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Slide 2: Women’s HRT (Direct link to hormone-women.html) -->
+          <article class="alivio-care-card">
+            <a href="treatments/hormone-women.html" class="alivio-care-card__link" aria-label="Explore Women’s Hormone Balance treatments">
+              <span class="alivio-care-card__popular-badge">Most Popular</span>
+              <img decoding="async" src="assets/images/hormone-balance-woman.jpg" alt="Woman enjoying a warm cup in a sunlit botanical living space" class="alivio-care-card__img" />
+              <div class="alivio-care-card__scrim" aria-hidden="true"></div>
+              <div class="alivio-care-card__content">
+                <div class="alivio-care-card__eyebrow">
+                  <span>Women’s HRT</span>
+                </div>
+                <div class="alivio-care-card__footer">
+                  <div class="alivio-care-card__text-group">
+                    <h3 class="alivio-care-card__title">Feel like yourself again</h3>
+                    <span class="alivio-care-card__subtext">See your options &rarr;</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Slide 3: Healthy Aging -->
+          <article class="alivio-care-card">
+            <a href="#intake" class="alivio-care-card__link" data-intake-trigger data-intake-goal="healthy-aging" aria-label="Explore Healthy Aging treatments">
+              <img decoding="async" src="assets/images/healthy-aging-senior.jpg" alt="Senior man smiling in morning sunlight outdoors" class="alivio-care-card__img" />
+              <div class="alivio-care-card__scrim" aria-hidden="true"></div>
+              <div class="alivio-care-card__content">
+                <div class="alivio-care-card__eyebrow">
+                  <span>Healthy Aging</span>
+                </div>
+                <div class="alivio-care-card__footer">
+                  <div class="alivio-care-card__text-group">
+                    <h3 class="alivio-care-card__title">Look and feel your best</h3>
+                    <span class="alivio-care-card__subtext">See your options &rarr;</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Slide 4: Sexual Wellness -->
+          <article class="alivio-care-card">
+            <a href="#intake" class="alivio-care-card__link" data-intake-trigger data-intake-goal="mens-health" aria-label="Explore Sexual Wellness treatments">
+              <img decoding="async" src="assets/images/sexual-wellness-couple.jpg" alt="Couple embracing tenderly in a sun-drenched living room" class="alivio-care-card__img" />
+              <div class="alivio-care-card__scrim" aria-hidden="true"></div>
+              <div class="alivio-care-card__content">
+                <div class="alivio-care-card__eyebrow">
+                  <span>Sexual Health</span>
+                </div>
+                <div class="alivio-care-card__footer">
+                  <div class="alivio-care-card__text-group">
+                    <h3 class="alivio-care-card__title">Confidence, restored</h3>
+                    <span class="alivio-care-card__subtext">See your options &rarr;</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Slide 5: Energy & Recovery -->
+          <article class="alivio-care-card">
+            <a href="#intake" class="alivio-care-card__link" data-intake-trigger data-intake-goal="energy" aria-label="Explore Energy and Recovery treatments">
+              <img decoding="async" src="assets/images/energy-recovery-man.jpg" alt="Man stretching outdoors after morning training in coastal mountain sunlight" class="alivio-care-card__img" />
+              <div class="alivio-care-card__scrim" aria-hidden="true"></div>
+              <div class="alivio-care-card__content">
+                <div class="alivio-care-card__eyebrow">
+                  <span>Energy &amp; Recovery</span>
+                </div>
+                <div class="alivio-care-card__footer">
+                  <div class="alivio-care-card__text-group">
+                    <h3 class="alivio-care-card__title">Vitality, sustained daily</h3>
+                    <span class="alivio-care-card__subtext">See your options &rarr;</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Slide 6: Sleep & Rest -->
+          <article class="alivio-care-card">
+            <a href="#intake" class="alivio-care-card__link" data-intake-trigger data-intake-goal="sleep" aria-label="Explore Sleep and Rest treatments">
+              <img decoding="async" src="assets/images/sleep-and-rest-woman.jpg" alt="Woman resting comfortably in white linen bedding under morning sunlight" class="alivio-care-card__img" />
+              <div class="alivio-care-card__scrim" aria-hidden="true"></div>
+              <div class="alivio-care-card__content">
+                <div class="alivio-care-card__eyebrow">
+                  <span>Sleep &amp; Rest</span>
+                </div>
+                <div class="alivio-care-card__footer">
+                  <div class="alivio-care-card__text-group">
+                    <h3 class="alivio-care-card__title">Deep rest, every night</h3>
+                    <span class="alivio-care-card__subtext">See your options &rarr;</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+
+      <!-- Navigation Arrows Below the Cards -->
+      <div class="alivio-care-controls" aria-label="Treatment carousel controls">
+        <button type="button" class="alivio-care-nav-btn alivio-care-nav-btn--prev" id="treatment-carousel-prev" aria-label="Scroll treatments left">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button type="button" class="alivio-care-nav-btn alivio-care-nav-btn--next" id="treatment-carousel-next" aria-label="Scroll treatments right">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Alivio Clinical Trust Metrics with Smooth Spinning Numbers -->
+      <div id="alivio-trust-metrics" class="alivio-trust-metrics" aria-label="Clinical Trust and Care Statistics">
+        <div class="alivio-trust-header">
+          <span class="alivio-trust-eyebrow">CLINICAL EXCELLENCE AT SCALE</span>
+          <h3 class="alivio-trust-heading">Proven clinical care, delivered nationwide.</h3>
+        </div>
+
+        <div class="alivio-trust-grid">
+          <!-- Stat 1: Licensed Doctors -->
+          <div class="alivio-trust-card">
+            <div class="alivio-trust-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <div class="alivio-trust-value">
+              <span class="alivio-spin-num" data-target="500" data-suffix="+">0</span>
+            </div>
+            <p class="alivio-trust-label">Licensed Medical Providers</p>
+          </div>
+
+          <!-- Stat 2: Treatments Prescribed -->
+          <div class="alivio-trust-card">
+            <div class="alivio-trust-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" />
+                <path d="m8.5 8.5 7 7" />
+              </svg>
+            </div>
+            <div class="alivio-trust-value">
+              <span class="alivio-spin-num" data-target="50" data-suffix="k+">0</span>
+            </div>
+            <p class="alivio-trust-label">Personalized Treatments</p>
+          </div>
+
+          <!-- Stat 3: Deliveries Completed -->
+          <div class="alivio-trust-card">
+            <div class="alivio-trust-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13" />
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                <circle cx="5.5" cy="18.5" r="2.5" />
+                <circle cx="18.5" cy="18.5" r="2.5" />
+              </svg>
+            </div>
+            <div class="alivio-trust-value">
+              <span class="alivio-spin-num" data-target="100" data-suffix="k+">0</span>
+            </div>
+            <p class="alivio-trust-label">Deliveries Completed</p>
+          </div>
+
+          <!-- Stat 4: Care Satisfaction -->
+          <div class="alivio-trust-card">
+            <div class="alivio-trust-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+            </div>
+            <div class="alivio-trust-value">
+              <span class="alivio-spin-num" data-target="98.4" data-decimals="1" data-suffix="%">0</span>
+            </div>
+            <p class="alivio-trust-label">Patient Care Satisfaction</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 04B: How PapayaMD Works (Stacking Cards Experience) -->
+    <section class="alivio-works-how-it-works" id="how-it-works" aria-labelledby="how-it-works-heading-1">
+      <div class="alivio-works-cards-stack">
+
+        <!-- CARD 01: Warm Linen (#FAF2DE) -->
+        <article class="alivio-works-step-card alivio-works-step-card--01" id="how-step-01">
+          <div class="alivio-works-card-container">
+            <!-- Header Group -->
+            <header class="alivio-works-card-header">
+              <div class="alivio-works-pill-badge">
+                <span class="alivio-works-badge-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+                    <circle cx="10" cy="10" r="8" />
+                    <path d="M7 10h6M10 7v6" />
+                  </svg>
+                </span>
+                <span class="alivio-works-badge-text">HOW PAPAYAMD WORKS</span>
+              </div>
+              <h2 class="alivio-works-card-title" id="how-it-works-heading-1">Your path to better health <br
+                  class="alivio-works-title-br" />starts here.</h2>
+            </header>
+
+            <!-- Card Body: Content Left, Image Right -->
+            <div class="alivio-works-card-body">
+              <!-- Left Content Column -->
+              <div class="alivio-works-content-col">
+                <div class="alivio-works-step-counter">
+                  <span class="alivio-works-step-num">Step 01</span>
+                </div>
+                <div class="alivio-works-content-main">
+                  <h3 class="alivio-works-step-headline">Tell us about you.</h3>
+                  <p class="alivio-works-step-summary">
+                    Share your health goals, lifestyle, and medical history through a simple online assessment. It takes
+                    just a few minutes to help us understand what matters most to you.
+                  </p>
+                  <ul class="alivio-works-check-list" aria-label="Step 1 Key Highlights">
+                    <li class="alivio-works-check-item">
+                      <span class="alivio-works-check-icon" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+                          <circle cx="8" cy="8" r="7.5" fill="none" stroke="currentColor" stroke-width="1.2" />
+                          <path d="M5 8.2l2.2 2.2 4-4.4" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      <span>Simple online assessment</span>
+                    </li>
+                    <li class="alivio-works-check-item">
+                      <span class="alivio-works-check-icon" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+                          <circle cx="8" cy="8" r="7.5" fill="none" stroke="currentColor" stroke-width="1.2" />
+                          <path d="M5 8.2l2.2 2.2 4-4.4" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      <span>Your goals, your priorities</span>
+                    </li>
+                    <li class="alivio-works-check-item">
+                      <span class="alivio-works-check-icon" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+                          <circle cx="8" cy="8" r="7.5" fill="none" stroke="currentColor" stroke-width="1.2" />
+                          <path d="M5 8.2l2.2 2.2 4-4.4" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      <span>Secure and confidential</span>
+                    </li>
+                  </ul>
+
+                  <div class="alivio-works-cta-row">
+                    <a href="#intake" class="alivio-hero-primary-cta" data-intake-trigger
+                      aria-label="Start Your Treatment Assessment">
+                      <span class="alivio-cta-label">Find Your Treatment</span>
+                      <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+                    </a>
+                    <span class="alivio-works-cta-note">100% online · No physical visit needed</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Image Column -->
+              <div class="alivio-works-image-col">
+                <div class="alivio-works-image-wrap">
+                  <img decoding="async" src="assets/images/step-1.png"
+                    alt="Patient comfortably completing PapayaMD health intake assessment on mobile"
+                    class="alivio-works-step-img" />
+                  <div class="alivio-works-image-glow" aria-hidden="true"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 02: Deep Forest Green (#2D3622) -->
+        <article class="alivio-works-step-card alivio-works-step-card--02" id="how-step-02">
+          <div class="alivio-works-card-container">
+            <!-- Header Group -->
+            <header class="alivio-works-card-header">
+              <div class="alivio-works-pill-badge">
+                <span class="alivio-works-badge-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+                    <circle cx="10" cy="10" r="8" />
+                    <path d="M7 10h6M10 7v6" />
+                  </svg>
+                </span>
+                <span class="alivio-works-badge-text">HOW PAPAYAMD WORKS</span>
+              </div>
+              <h2 class="alivio-works-card-title">A real provider reviews <br class="alivio-works-title-br" />your
+                health goals.</h2>
+            </header>
+
+            <!-- Card Body: Content Left, Image Right -->
+            <div class="alivio-works-card-body">
+              <!-- Left Content Column -->
+              <div class="alivio-works-content-col">
+                <div class="alivio-works-step-counter">
+                  <span class="alivio-works-step-num">Step 02</span>
+                </div>
+                <div class="alivio-works-content-main">
+                  <h3 class="alivio-works-step-headline">Not a bot. A licensed U.S. clinician.</h3>
+                  <p class="alivio-works-step-summary">
+                    A licensed healthcare provider reviews your information and evaluates your needs to determine the
+                    most appropriate next steps for your health journey.
+                  </p>
+                  <ul class="alivio-works-check-list" aria-label="Step 2 Key Highlights">
+                    <li class="alivio-works-check-item">
+                      <span class="alivio-works-check-icon" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+                          <circle cx="8" cy="8" r="7.5" fill="none" stroke="currentColor" stroke-width="1.2" />
+                          <path d="M5 8.2l2.2 2.2 4-4.4" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      <span>Provider-led evaluation</span>
+                    </li>
+                    <li class="alivio-works-check-item">
+                      <span class="alivio-works-check-icon" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+                          <circle cx="8" cy="8" r="7.5" fill="none" stroke="currentColor" stroke-width="1.2" />
+                          <path d="M5 8.2l2.2 2.2 4-4.4" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      <span>Care tailored to your needs</span>
+                    </li>
+                    <li class="alivio-works-check-item">
+                      <span class="alivio-works-check-icon" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+                          <circle cx="8" cy="8" r="7.5" fill="none" stroke="currentColor" stroke-width="1.2" />
+                          <path d="M5 8.2l2.2 2.2 4-4.4" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      <span>Clear guidance on next steps</span>
+                    </li>
+                  </ul>
+
+                  <div class="alivio-works-cta-row">
+                    <a href="#intake" class="alivio-hero-primary-cta" data-intake-trigger
+                      aria-label="Start Your Treatment Assessment">
+                      <span class="alivio-cta-label">Find Your Treatment</span>
+                      <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+                    </a>
+                    <span class="alivio-works-cta-note">Licensed US clinicians · Privacy-focused care</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Image Column -->
+              <div class="alivio-works-image-col">
+                <div class="alivio-works-image-wrap">
+                  <img decoding="async" src="assets/images/step-2.png"
+                    alt="Licensed physician consulting directly with patient via telehealth"
+                    class="alivio-works-step-img" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 03: Rich Terracotta Chestnut (#5B2008) -->
+        <article class="alivio-works-step-card alivio-works-step-card--03" id="how-step-03">
+          <div class="alivio-works-card-container">
+            <!-- Header Group -->
+            <header class="alivio-works-card-header">
+              <div class="alivio-works-pill-badge">
+                <span class="alivio-works-badge-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+                    <circle cx="10" cy="10" r="8" />
+                    <path d="M7 10h6M10 7v6" />
+                  </svg>
+                </span>
+                <span class="alivio-works-badge-text">HOW PAPAYAMD WORKS</span>
+              </div>
+              <h2 class="alivio-works-card-title">Your treatment ships <br class="alivio-works-title-br" />to your door.
+              </h2>
+            </header>
+
+            <!-- Card Body: Content Left, Image Right -->
+            <div class="alivio-works-card-body">
+              <!-- Left Content Column -->
+              <div class="alivio-works-content-col">
+                <div class="alivio-works-step-counter">
+                  <span class="alivio-works-step-num">Step 03</span>
+                </div>
+                <div class="alivio-works-content-main">
+                  <h3 class="alivio-works-step-headline">Free tracked delivery in 1–2 days.</h3>
+                  <p class="alivio-works-step-summary">
+                    If treatment is appropriate and prescribed, receive it discreetly at home, with ongoing guidance to
+                    help you navigate your personalized care journey.
+                  </p>
+                  <ul class="alivio-works-check-list" aria-label="Step 3 Key Highlights">
+                    <li class="alivio-works-check-item">
+                      <span class="alivio-works-check-icon" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+                          <circle cx="8" cy="8" r="7.5" fill="none" stroke="currentColor" stroke-width="1.2" />
+                          <path d="M5 8.2l2.2 2.2 4-4.4" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      <span>Convenient at-home delivery</span>
+                    </li>
+                    <li class="alivio-works-check-item">
+                      <span class="alivio-works-check-icon" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+                          <circle cx="8" cy="8" r="7.5" fill="none" stroke="currentColor" stroke-width="1.2" />
+                          <path d="M5 8.2l2.2 2.2 4-4.4" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      <span>Ongoing care and guidance</span>
+                    </li>
+                    <li class="alivio-works-check-item">
+                      <span class="alivio-works-check-icon" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+                          <circle cx="8" cy="8" r="7.5" fill="none" stroke="currentColor" stroke-width="1.2" />
+                          <path d="M5 8.2l2.2 2.2 4-4.4" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      <span>Support throughout your journey</span>
+                    </li>
+                  </ul>
+
+                  <div class="alivio-works-cta-row">
+                    <a href="#intake" class="alivio-hero-primary-cta" data-intake-trigger
+                      aria-label="Start Your Treatment Assessment">
+                      <span class="alivio-cta-label">Find Your Treatment</span>
+                      <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+                    </a>
+                    <span class="alivio-works-cta-note">Discreet packaging · Ongoing clinician support</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Image Column -->
+              <div class="alivio-works-image-col">
+                <div class="alivio-works-image-wrap">
+                  <img decoding="async" src="assets/images/step-3.png"
+                    alt="Patient happily holding discreet PapayaMD treatment delivery box" class="alivio-works-step-img" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Section 04C: Product Showcase Carousel (Alivio Treatment Products) -->
+    <section class="section_sp-products" id="products" aria-labelledby="products-heading">
+      <div class="sp-products-container">
+        <!-- Section Header: Eyebrow, Heading, Subheading, Category Tabs & Carousel Arrows -->
+        <div class="sp-products-header">
+          <div class="sp-products-header__text">
+            <div class="alivio-works-pill-badge" style="margin-bottom: 16px;">
+              <span class="alivio-works-badge-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+                  <circle cx="10" cy="10" r="8" />
+                  <path d="M7 10h6M10 7v6" />
+                </svg>
+              </span>
+              <span class="alivio-works-badge-text">TREATMENTS</span>
+            </div>
+            <h2 class="sp-products-heading" id="products-heading">Treatment that fits your real life.</h2>
+            <p class="sp-products-subheading">Explore treatment options by goal. A licensed provider determines what’s
+              right for you.</p>
+          </div>
+          <div class="sp-products-header__right">
+            <!-- Alivio Category Pill Tabs -->
+            <div class="sp-products-tabs" role="tablist" aria-label="Treatment Category Tabs"
+              id="products-category-tabs">
+              <button type="button" class="sp-product-tab is-active" role="tab" aria-selected="true"
+                data-category="weight-care">Weight care</button>
+              <button type="button" class="sp-product-tab" role="tab" aria-selected="false"
+                data-category="hormone-therapy">Hormone Therapy</button>
+              <button type="button" class="sp-product-tab" role="tab" aria-selected="false"
+                data-category="energy-focus">Energy + focus</button>
+              <button type="button" class="sp-product-tab" role="tab" aria-selected="false"
+                data-category="sleep-recovery">Sleep + recovery</button>
+              <button type="button" class="sp-product-tab" role="tab" aria-selected="false"
+                data-category="healthy-aging">Healthy aging</button>
+              <button type="button" class="sp-product-tab" role="tab" aria-selected="false"
+                data-category="skin-care">Skin care</button>
+            </div>
+            <!-- Prev / Next Carousel Navigation Arrows -->
+            <div class="sp-products-arrows">
+              <button type="button" class="sp-products-nav-btn sp-products-nav-btn--prev" id="products-carousel-prev"
+                aria-label="Previous products" disabled>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <button type="button" class="sp-products-nav-btn sp-products-nav-btn--next" id="products-carousel-next"
+                aria-label="Next products">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Horizontal Product Cards Carousel Track -->
+        <div class="sp-products-carousel-wrapper">
+          <div class="sp-products-track" id="products-track" role="region" aria-label="Product Showcase Carousel"
+            tabindex="0">
+
+            <!-- Card 00: Estradiol Transdermal Patch (Direct Link to PDP) -->
+            <article class="sp-product-card" data-product-id="estradiol-patch" data-href="treatments/estradiol-patch.html">
+              <span class="sp-product-pill-badge" style="background: rgba(91, 32, 9, 0.08); color: #5B2009; border: 1px solid rgba(91, 32, 9, 0.2);">Hormone Balance</span>
+              <div class="sp-product-card__image-box">
+                <a href="treatments/estradiol-patch.html" aria-label="View Estradiol Patch details">
+                  <img decoding="async" src="assets/images/prod-estradiol-patch.png" alt="PapayaMD Estradiol Transdermal Patch 0.05 mg/day"
+                    class="sp-product-card__img">
+                </a>
+              </div>
+              <div class="sp-product-card__footer">
+                <div class="sp-product-card__info">
+                  <h3 class="sp-product-card__title"><a href="treatments/estradiol-patch.html" style="color: inherit; text-decoration: none;">Estradiol Patch</a></h3>
+                  <p class="sp-product-card__price">From $89/mo*</p>
+                  <p class="sp-product-card__molecule">Twice weekly, if prescribed</p>
+                </div>
+                <a href="treatments/estradiol-patch.html" class="sp-product-card__arrow-btn" aria-label="View Estradiol Patch details">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Card 01: Tirzepatide -->
+            <article class="sp-product-card" data-product-id="tirzepatide">
+              <div class="sp-product-card__image-box">
+                <img decoding="async" src="assets/images/prod-tirzepatide-vial.png" alt="Compounded Tirzepatide Injection"
+                  class="sp-product-card__img">
+              </div>
+              <div class="sp-product-card__footer">
+                <div class="sp-product-card__info">
+                  <h3 class="sp-product-card__title">Tirzepatide</h3>
+                  <p class="sp-product-card__price">From $89/mo*</p>
+                  <p class="sp-product-card__molecule">Weekly, if prescribed</p>
+                </div>
+                <button type="button" class="sp-product-card__arrow-btn" data-intake-trigger
+                  data-intake-goal="weight-loss" aria-label="View Tirzepatide details">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- Card 02: Semaglutide -->
+            <article class="sp-product-card" data-product-id="semaglutide">
+              <div class="sp-product-card__image-box">
+                <img decoding="async" src="assets/images/prod-semaglutide-vial.png" alt="Compounded Semaglutide Injection"
+                  class="sp-product-card__img">
+              </div>
+              <div class="sp-product-card__footer">
+                <div class="sp-product-card__info">
+                  <h3 class="sp-product-card__title">Semaglutide</h3>
+                  <p class="sp-product-card__price">From $89/mo*</p>
+                  <p class="sp-product-card__molecule">Weekly, if prescribed</p>
+                </div>
+                <button type="button" class="sp-product-card__arrow-btn" data-intake-trigger
+                  data-intake-goal="weight-loss" aria-label="View Semaglutide details">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- Card 03: PapayaMD Oral -->
+            <article class="sp-product-card" data-product-id="papayamd-oral">
+              <div class="sp-product-card__image-box">
+                <img decoding="async" src="assets/images/prod-alivio-oral-pill.png" alt="PapayaMD Oral daily compound tablet"
+                  class="sp-product-card__img">
+              </div>
+              <div class="sp-product-card__footer">
+                <div class="sp-product-card__info">
+                  <h3 class="sp-product-card__title">PapayaMD Oral</h3>
+                  <p class="sp-product-card__price">From $89/mo*</p>
+                  <p class="sp-product-card__molecule">Daily, if prescribed</p>
+                </div>
+                <button type="button" class="sp-product-card__arrow-btn" data-intake-trigger
+                  data-intake-goal="weight-loss" aria-label="View PapayaMD Oral details">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- Card 04: Semaglutide Pen -->
+            <article class="sp-product-card" data-product-id="semaglutide-pen">
+              <span class="sp-product-pill-badge">High dose option</span>
+              <div class="sp-product-card__image-box">
+                <img decoding="async" src="assets/images/prod-semaglutide-pen.png" alt="PapayaMD Semaglutide Injection Pen"
+                  class="sp-product-card__img">
+              </div>
+              <div class="sp-product-card__footer">
+                <div class="sp-product-card__info">
+                  <h3 class="sp-product-card__title">Semaglutide Pen</h3>
+                  <p class="sp-product-card__price">From $89/mo*</p>
+                  <p class="sp-product-card__molecule">Weekly, if prescribed</p>
+                </div>
+                <button type="button" class="sp-product-card__arrow-btn" data-intake-trigger
+                  data-intake-goal="weight-loss" aria-label="View Semaglutide Pen details">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- Card 05: Tirzepatide Oral -->
+            <article class="sp-product-card" data-product-id="tirzepatide-oral">
+              <div class="sp-product-card__image-box">
+                <img decoding="async" src="assets/images/prod-tirzepatide-oral-pill.png" alt="Tirzepatide Oral daily compound tablet"
+                  class="sp-product-card__img">
+              </div>
+              <div class="sp-product-card__footer">
+                <div class="sp-product-card__info">
+                  <h3 class="sp-product-card__title">Tirzepatide Oral</h3>
+                  <p class="sp-product-card__price">From $89/mo*</p>
+                  <p class="sp-product-card__molecule">Daily, if prescribed</p>
+                </div>
+                <button type="button" class="sp-product-card__arrow-btn" data-intake-trigger
+                  data-intake-goal="weight-loss" aria-label="View Tirzepatide Oral details">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- Card 06: NAD+ Injection -->
+            <article class="sp-product-card" data-product-id="nad-plus-injection">
+              <span class="sp-product-pill-badge">Cellular Vitality</span>
+              <div class="sp-product-card__image-box">
+                <img decoding="async" src="assets/images/prod-nad-plus-vial.png" alt="Compounded NAD+ Injection Multi-Dose Vial"
+                  class="sp-product-card__img">
+              </div>
+              <div class="sp-product-card__footer">
+                <div class="sp-product-card__info">
+                  <h3 class="sp-product-card__title">NAD+ Injection</h3>
+                  <p class="sp-product-card__price">From $89/mo*</p>
+                  <p class="sp-product-card__molecule">Weekly, if prescribed</p>
+                </div>
+                <button type="button" class="sp-product-card__arrow-btn" data-intake-trigger
+                  data-intake-goal="longevity" aria-label="View NAD+ Injection details">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- Card 07: NAD+ Oral -->
+            <article class="sp-product-card" data-product-id="nad-oral">
+              <div class="sp-product-card__image-box">
+                <img decoding="async" src="assets/images/prod-nad-oral-pill.png" alt="Compounded NAD+ Oral Sage Green Embossed Tablet"
+                  class="sp-product-card__img">
+              </div>
+              <div class="sp-product-card__footer">
+                <div class="sp-product-card__info">
+                  <h3 class="sp-product-card__title">NAD+ Oral</h3>
+                  <p class="sp-product-card__price">From $89/mo*</p>
+                  <p class="sp-product-card__molecule">Daily, if prescribed</p>
+                </div>
+                <button type="button" class="sp-product-card__arrow-btn" data-intake-trigger
+                  data-intake-goal="longevity" aria-label="View NAD+ Oral details">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- Pagination Dots -->
+        <div class="sp-products-pagination" id="products-pagination" role="tablist"
+          aria-label="Product Showcase Navigation">
+          <button type="button" class="sp-products-dot is-active" role="tab" aria-selected="true" data-index="0"
+            aria-label="Slide 1"></button>
+          <button type="button" class="sp-products-dot" role="tab" aria-selected="false" data-index="1"
+            aria-label="Slide 2"></button>
+          <button type="button" class="sp-products-dot" role="tab" aria-selected="false" data-index="2"
+            aria-label="Slide 3"></button>
+          <button type="button" class="sp-products-dot" role="tab" aria-selected="false" data-index="3"
+            aria-label="Slide 4"></button>
+        </div>
+
+        <!-- Section Legal / Clinical Disclaimer -->
+        <p class="sp-products-disclaimer">
+          *Plans start at $89/month, including medication and membership for eligible treatment plans. Pricing varies by
+          treatment and selected plan. Prescription medication is provided only when clinically appropriate following an
+          evaluation by a licensed healthcare provider; a prescription is not guaranteed. Any additional costs will be
+          clearly disclosed before checkout.
+        </p>
+
+        <!-- Assessment Callout Banner Below Product Cards -->
+        <div class="sp-products-assessment" id="products-assessment">
+          <div class="sp-products-assessment__content">
+            <h3 class="sp-products-assessment__title">Not sure where to start?</h3>
+            <p class="sp-products-assessment__text">
+              Our assessment helps your provider understand your goals, health history, and preferences to recommend a
+              treatment path that’s right for you.
+            </p>
+          </div>
+          <div class="sp-products-assessment__action">
+            <a href="#intake" class="alivio-hero-primary-cta sp-products-assessment__btn" data-intake-trigger
+              aria-label="Find My Fit - Start personalized assessment">
+              <span class="alivio-cta-label">Find My Fit</span>
+              <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+    <!-- Section 07B: Personalized Hormone Care Slider -->
+    <section class="section_sp-care-slider" id="care-stories" aria-labelledby="care-stories-heading">
+      <div class="container sp-care-slider__container">
+
+        <!-- Section Header: Left-Aligned Headline + Top-Right Navigation Arrows -->
+        <header class="sp-care-slider__header">
+          <div class="sp-care-slider__header-left">
+            <div class="alivio-works-pill-badge" style="margin-bottom: 16px;">
+              <span class="alivio-works-badge-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+                  <circle cx="10" cy="10" r="8" />
+                  <path d="M7 10h6M10 7v6" />
+                </svg>
+              </span>
+              <span class="alivio-works-badge-text">OUR APPROACH</span>
+            </div>
+            <h2 class="sp-care-slider__title" id="care-stories-heading">
+              Personalized hormone care.<br />Made for you.
+            </h2>
+          </div>
+          <div class="sp-care-slider__header-right">
+            <div class="sp-care-arrows" aria-label="Slider Controls">
+              <button type="button" class="sp-care-nav-btn sp-care-nav-btn--prev" id="care-prev-btn"
+                aria-label="Previous Slide">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="18" height="18"
+                  aria-hidden="true">
+                  <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button type="button" class="sp-care-nav-btn sp-care-nav-btn--next" id="care-next-btn"
+                aria-label="Next Slide">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="18" height="18"
+                  aria-hidden="true">
+                  <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <!-- Slider Carousel Component (Single slide at a time) -->
+        <div class="sp-care-carousel" role="region" aria-roledescription="carousel"
+          aria-label="Personalized Hormone Care Protocols">
+
+          <div class="sp-care-carousel__track" id="care-slider-track">
+
+            <!-- SLIDE 01: Hormone care for women (#FAF2DE Warm Linen) -->
+            <article class="sp-care-slide active" role="group" aria-roledescription="slide"
+              aria-label="1 of 3: Hormone care for women" data-slide-index="0">
+              <div class="sp-care-card sp-care-card--women">
+
+                <!-- Left: Visual Image Frame -->
+                <div class="sp-care-card__media-col">
+                  <div class="sp-care-card__image-box">
+                    <img decoding="async" src="assets/images/care-women-hormone.png"
+                      alt="Woman smiling comfortably on couch, experiencing personalized hormone care"
+                      class="sp-care-card__img" />
+                  </div>
+                </div>
+
+                <!-- Right: Editorial Content Group -->
+                <div class="sp-care-card__content-col">
+                  <div class="sp-care-card__pill-wrap">
+                    <span class="sp-care-card__tag-pill">HORMONE CARE FOR WOMEN</span>
+                  </div>
+
+                  <h3 class="sp-care-card__step-title">Personalized support for hormonal changes</h3>
+
+                  <p class="sp-care-card__step-desc">
+                    Personalized support for hormonal changes through perimenopause and menopause, with care tailored to
+                    your symptoms and health goals.
+                  </p>
+
+                  <!-- Highlights Rows with Circular Graphic Icons -->
+                  <div class="sp-care-card__highlights-list" role="list">
+                    <div class="sp-care-card__highlight-row" role="listitem">
+                      <div class="sp-care-card__highlight-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18"
+                          height="18">
+                          <path
+                            d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.93V18h-2v-1.07A8 8 0 0 1 4.07 10H5v2a7 7 0 0 0 7 7 7 7 0 0 0 7-7v-2h.93A8 8 0 0 1 13 16.93z" />
+                          <circle cx="12" cy="10" r="3" />
+                        </svg>
+                      </div>
+                      <span class="sp-care-card__highlight-text">Support through perimenopause and menopause</span>
+                    </div>
+
+                    <div class="sp-care-card__highlight-row" role="listitem">
+                      <div class="sp-care-card__highlight-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18"
+                          height="18">
+                          <rect x="3" y="4" width="18" height="16" rx="3" />
+                          <line x1="8" y1="12" x2="16" y2="12" />
+                          <line x1="12" y1="8" x2="12" y2="16" />
+                        </svg>
+                      </div>
+                      <span class="sp-care-card__highlight-text">Individualized hormone therapy evaluation</span>
+                    </div>
+
+                    <div class="sp-care-card__highlight-row" role="listitem">
+                      <div class="sp-care-card__highlight-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18"
+                          height="18">
+                          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                          <circle cx="9" cy="7" r="4" />
+                          <polyline points="16 11 18 13 22 9" />
+                        </svg>
+                      </div>
+                      <span class="sp-care-card__highlight-text">Ongoing guidance from licensed providers</span>
+                    </div>
+                  </div>
+
+                  <!-- CTA Row (Matching Alivio Hero CTA) -->
+                  <div class="sp-care-card__cta-row">
+                    <a href="treatments/hormone-women.html" class="alivio-hero-primary-cta" aria-label="Explore Women’s Hormone Care">
+                      <span class="alivio-cta-label">Explore Women’s Hormone Care</span>
+                      <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </article>
+
+            <!-- SLIDE 02: Men's Health (#2D3622 Forest Green with Cream Text) -->
+            <article class="sp-care-slide" role="group" aria-roledescription="slide" aria-label="2 of 3: Men’s Health"
+              data-slide-index="1">
+              <div class="sp-care-card sp-care-card--mens">
+
+                <!-- Left: Visual Image Frame -->
+                <div class="sp-care-card__media-col">
+                  <div class="sp-care-card__image-box">
+                    <img decoding="async" src="assets/images/care-mens-sexual-health.png"
+                      alt="Couple smiling intimately together in bed, representing male vitality and sexual wellness"
+                      class="sp-care-card__img" />
+                  </div>
+                </div>
+
+                <!-- Right: Editorial Content Group -->
+                <div class="sp-care-card__content-col">
+                  <div class="sp-care-card__pill-wrap">
+                    <span class="sp-care-card__tag-pill">MEN’S HEALTH</span>
+                  </div>
+
+                  <h3 class="sp-care-card__step-title">Support for sexual wellness</h3>
+
+                  <p class="sp-care-card__step-desc">
+                    Get professional guidance for concerns affecting libido and sexual function, with care options based
+                    on your individual health needs.
+                  </p>
+
+                  <!-- Highlights Rows with Circular Graphic Icons -->
+                  <div class="sp-care-card__highlights-list" role="list">
+                    <div class="sp-care-card__highlight-row" role="listitem">
+                      <div class="sp-care-card__highlight-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18"
+                          height="18">
+                          <circle cx="12" cy="12" r="9" />
+                          <path d="M12 7v5l3 3" />
+                        </svg>
+                      </div>
+                      <span class="sp-care-card__highlight-text">Evaluation of sexual health concerns</span>
+                    </div>
+
+                    <div class="sp-care-card__highlight-row" role="listitem">
+                      <div class="sp-care-card__highlight-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18"
+                          height="18">
+                          <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                        </svg>
+                      </div>
+                      <span class="sp-care-card__highlight-text">Personalized treatment options</span>
+                    </div>
+
+                    <div class="sp-care-card__highlight-row" role="listitem">
+                      <div class="sp-care-card__highlight-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18"
+                          height="18">
+                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg>
+                      </div>
+                      <span class="sp-care-card__highlight-text">Confidential, provider-led care</span>
+                    </div>
+                  </div>
+
+                  <!-- CTA Row (Matching Alivio Hero CTA) -->
+                  <div class="sp-care-card__cta-row">
+                    <a href="#intake" class="alivio-hero-primary-cta" data-intake-trigger data-intake-goal="mens-health"
+                      aria-label="Explore Men’s Wellness">
+                      <span class="alivio-cta-label">Explore Men’s Wellness</span>
+                      <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </article>
+
+            <!-- SLIDE 03: Weight Management (#5C2008 Chestnut Terracotta with Cream Text) -->
+            <article class="sp-care-slide" role="group" aria-roledescription="slide"
+              aria-label="3 of 3: Weight Management" data-slide-index="2">
+              <div class="sp-care-card sp-care-card--weight">
+
+                <!-- Left: Visual Image Frame -->
+                <div class="sp-care-card__media-col">
+                  <div class="sp-care-card__image-box">
+                    <img decoding="async" src="assets/images/care-weightloss.png"
+                      alt="Active woman smiling confidently outdoors in athletic wear, personalized weight management"
+                      class="sp-care-card__img" />
+                  </div>
+                </div>
+
+                <!-- Right: Editorial Content Group -->
+                <div class="sp-care-card__content-col">
+                  <div class="sp-care-card__pill-wrap">
+                    <span class="sp-care-card__tag-pill">WEIGHT MANAGEMENT</span>
+                  </div>
+
+                  <h3 class="sp-care-card__step-title">A personalized approach to weight loss</h3>
+
+                  <p class="sp-care-card__step-desc">
+                    Explore medically guided weight management with a care plan informed by your health history, goals,
+                    and individual needs.
+                  </p>
+
+                  <!-- Highlights Rows with Circular Graphic Icons -->
+                  <div class="sp-care-card__highlights-list" role="list">
+                    <div class="sp-care-card__highlight-row" role="listitem">
+                      <div class="sp-care-card__highlight-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18"
+                          height="18">
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                          <polyline points="14 2 14 8 20 8" />
+                          <line x1="16" y1="13" x2="8" y2="13" />
+                          <line x1="16" y1="17" x2="8" y2="17" />
+                          <polyline points="10 9 9 9 8 9" />
+                        </svg>
+                      </div>
+                      <span class="sp-care-card__highlight-text">Individualized treatment planning</span>
+                    </div>
+
+                    <div class="sp-care-card__highlight-row" role="listitem">
+                      <div class="sp-care-card__highlight-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18"
+                          height="18">
+                          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                        </svg>
+                      </div>
+                      <span class="sp-care-card__highlight-text">Guidance on nutrition and lifestyle</span>
+                    </div>
+
+                    <div class="sp-care-card__highlight-row" role="listitem">
+                      <div class="sp-care-card__highlight-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18"
+                          height="18">
+                          <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                        </svg>
+                      </div>
+                      <span class="sp-care-card__highlight-text">Ongoing support from licensed providers</span>
+                    </div>
+                  </div>
+
+                  <!-- CTA Row (Matching Alivio Hero CTA) -->
+                  <div class="sp-care-card__cta-row">
+                    <a href="#intake" class="alivio-hero-primary-cta" data-intake-trigger data-intake-goal="weight-loss"
+                      aria-label="Explore Weight Loss Care">
+                      <span class="alivio-cta-label">Explore Weight Loss Care</span>
+                      <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </article>
+
+          </div>
+
+        </div>
+
+        <!-- Trust Points Strip Below Care Slider -->
+        <div class="sp-care-trust-strip" aria-label="Membership and Care Flexibility">
+          <div class="sp-care-trust-item">
+            <svg class="sp-care-trust-tick" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"
+              width="16" height="16" aria-hidden="true">
+              <circle cx="10" cy="10" r="9" stroke-width="1.5" stroke="currentColor" opacity="0.35" />
+              <path d="M6 10.2l2.6 2.6L14.2 7.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span class="sp-care-trust-label">Discreet Packaging</span>
+          </div>
+          <div class="sp-care-trust-item">
+            <svg class="sp-care-trust-tick" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"
+              width="16" height="16" aria-hidden="true">
+              <circle cx="10" cy="10" r="9" stroke-width="1.5" stroke="currentColor" opacity="0.35" />
+              <path d="M6 10.2l2.6 2.6L14.2 7.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span class="sp-care-trust-label">Pause or cancel any month</span>
+          </div>
+          <div class="sp-care-trust-item">
+            <svg class="sp-care-trust-tick" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"
+              width="16" height="16" aria-hidden="true">
+              <circle cx="10" cy="10" r="9" stroke-width="1.5" stroke="currentColor" opacity="0.35" />
+              <path d="M6 10.2l2.6 2.6L14.2 7.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span class="sp-care-trust-label">No initiation fees</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 07C: Testimonial Auto Slider Section (Full-Width White with Light Cream Faded Card Backing) -->
+    <section class="section_sp-testimonials" id="patient-testimonials" aria-labelledby="testimonials-heading">
+      <div class="container sp-testimonials__container">
+
+        <!-- Header -->
+        <header class="sp-testimonials__header">
+          <div class="alivio-works-pill-badge" style="margin-bottom: 16px;">
+            <span class="alivio-works-badge-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+                <circle cx="10" cy="10" r="8" />
+                <path d="M7 10h6M10 7v6" />
+              </svg>
+            </span>
+            <span class="alivio-works-badge-text">PATIENT STORIES</span>
+          </div>
+          <h2 class="sp-testimonials__title" id="testimonials-heading">
+            Real stories of growth,<br />healing, and lasting change.
+          </h2>
+
+          <!-- Trustpilot Rating Strip Below Heading -->
+          <div class="alivio-testimonials-trustpilot"
+            aria-label="Rated 4.4 out of 5 stars based on 3,450+ verified patient reviews on Trustpilot">
+            <span class="alivio-trustpilot-brand">Trustpilot</span>
+            <span class="alivio-trustpilot-score">4.4</span>
+            <div class="alivio-trustpilot-stars" aria-hidden="true">
+              <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            </div>
+            <span class="alivio-trustpilot-bullet" aria-hidden="true">•</span>
+            <span class="alivio-trustpilot-reviews">3,450+ patient reviews</span>
+          </div>
+
+          <p class="sp-testimonials__lead">
+            Hear directly from patients who took control of their vitality, metabolism, and health with PapayaMD.
+          </p>
+        </header>
+
+        <!-- Testimonials Auto Slider / Marquee -->
+        <div class="sp-testimonials-track-wrap" role="region" aria-label="Patient Testimonial Cards">
+          <div class="sp-testimonials-track" id="testimonials-track">
+
+            <!-- Card 1 Photo Placeholder -->
+            <div class="sp-testimonial-card sp-testimonial-card--photo">
+              <img decoding="async" src="assets/images/testimonial-female-1.jpg"
+                alt="Smiling female PapayaMD patient enjoying renewed wellness" class="sp-testimonial-photo-img" />
+            </div>
+
+            <!-- Card 1 Story -->
+            <div class="sp-testimonial-card">
+              <blockquote class="sp-testimonial-card__quote">
+                “Thank you! Consistency is key and I’m grateful for all the support and education I’ve received that put
+                me on the [right] path! Very excited and happy to share with others how well this has worked for me!”
+              </blockquote>
+              <div class="sp-testimonial-card__footer">
+                <div class="sp-testimonial-card__author-info">
+                  <div class="sp-testimonial-verified">
+                    <svg class="sp-testimonial-verified-icon" viewBox="0 0 24 24" fill="currentColor" width="14"
+                      height="14" aria-hidden="true">
+                      <path
+                        d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.67-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.75 4.5l-4-4 1.41-1.41L10.5 13.67l6.59-6.59 1.41 1.41-8 8z" />
+                    </svg>
+                    <span>VERIFIED PATIENT</span>
+                  </div>
+                  <span class="sp-testimonial-card__author-name">Tonia H.</span>
+                </div>
+                <div class="sp-testimonial-card__stars" aria-label="5 out of 5 stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 Photo Placeholder -->
+            <div class="sp-testimonial-card sp-testimonial-card--photo">
+              <img decoding="async" src="assets/images/testimonial-male-1.jpg"
+                alt="Confident male PapayaMD patient experiencing enhanced vitality" class="sp-testimonial-photo-img" />
+            </div>
+
+            <!-- Card 2 Story -->
+            <div class="sp-testimonial-card">
+              <blockquote class="sp-testimonial-card__quote">
+                “My sleep has changed DRAMATICALLY for the better since getting on accurate dosages of estradiol,
+                testosterone and progesterone. My gut health has also improved significantly - so much so that I can't
+                believe I used to live the way I was living.”
+              </blockquote>
+              <div class="sp-testimonial-card__footer">
+                <div class="sp-testimonial-card__author-info">
+                  <div class="sp-testimonial-verified">
+                    <svg class="sp-testimonial-verified-icon" viewBox="0 0 24 24" fill="currentColor" width="14"
+                      height="14" aria-hidden="true">
+                      <path
+                        d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.67-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.75 4.5l-4-4 1.41-1.41L10.5 13.67l6.59-6.59 1.41 1.41-8 8z" />
+                    </svg>
+                    <span>VERIFIED PATIENT</span>
+                  </div>
+                  <span class="sp-testimonial-card__author-name">Robyn C.</span>
+                </div>
+                <div class="sp-testimonial-card__stars" aria-label="5 out of 5 stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 Photo Placeholder -->
+            <div class="sp-testimonial-card sp-testimonial-card--photo">
+              <img decoding="async" src="assets/images/testimonial-female-2.jpg" alt="Happy female PapayaMD patient smiling comfortably"
+                class="sp-testimonial-photo-img" />
+            </div>
+
+            <!-- Card 3 Story -->
+            <div class="sp-testimonial-card">
+              <blockquote class="sp-testimonial-card__quote">
+                “Within 8 weeks of individualized hormone support, my brain fog cleared completely and my energy levels
+                returned to where they were in my 30s. The clinical team actually listens.”
+              </blockquote>
+              <div class="sp-testimonial-card__footer">
+                <div class="sp-testimonial-card__author-info">
+                  <div class="sp-testimonial-verified">
+                    <svg class="sp-testimonial-verified-icon" viewBox="0 0 24 24" fill="currentColor" width="14"
+                      height="14" aria-hidden="true">
+                      <path
+                        d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.67-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.75 4.5l-4-4 1.41-1.41L10.5 13.67l6.59-6.59 1.41 1.41-8 8z" />
+                    </svg>
+                    <span>VERIFIED PATIENT</span>
+                  </div>
+                  <span class="sp-testimonial-card__author-name">Elena R.</span>
+                </div>
+                <div class="sp-testimonial-card__stars" aria-label="5 out of 5 stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 Photo Placeholder -->
+            <div class="sp-testimonial-card sp-testimonial-card--photo">
+              <img decoding="async" src="assets/images/testimonial-male-2.jpg"
+                alt="Mature male PapayaMD patient feeling energized and healthy" class="sp-testimonial-photo-img" />
+            </div>
+
+            <!-- Card 4 Story -->
+            <div class="sp-testimonial-card">
+              <blockquote class="sp-testimonial-card__quote">
+                “Clear answers, discreet communication, and clinician advice that genuinely respected my privacy and
+                schedule. No clinic waiting rooms and prompt delivery.”
+              </blockquote>
+              <div class="sp-testimonial-card__footer">
+                <div class="sp-testimonial-card__author-info">
+                  <div class="sp-testimonial-verified">
+                    <svg class="sp-testimonial-verified-icon" viewBox="0 0 24 24" fill="currentColor" width="14"
+                      height="14" aria-hidden="true">
+                      <path
+                        d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.67-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.75 4.5l-4-4 1.41-1.41L10.5 13.67l6.59-6.59 1.41 1.41-8 8z" />
+                    </svg>
+                    <span>VERIFIED PATIENT</span>
+                  </div>
+                  <span class="sp-testimonial-card__author-name">Michael T.</span>
+                </div>
+                <div class="sp-testimonial-card__stars" aria-label="5 out of 5 stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Duplicate Set for Seamless Continuous Infinite Loop -->
+            <!-- Card 1 Photo Placeholder -->
+            <div class="sp-testimonial-card sp-testimonial-card--photo" aria-hidden="true">
+              <img decoding="async" src="assets/images/testimonial-female-1.jpg" alt="" class="sp-testimonial-photo-img" />
+            </div>
+
+            <!-- Card 1 Story -->
+            <div class="sp-testimonial-card" aria-hidden="true">
+              <blockquote class="sp-testimonial-card__quote">
+                “Thank you! Consistency is key and I’m grateful for all the support and education I’ve received that put
+                me on the [right] path! Very excited and happy to share with others how well this has worked for me!”
+              </blockquote>
+              <div class="sp-testimonial-card__footer">
+                <div class="sp-testimonial-card__author-info">
+                  <div class="sp-testimonial-verified">
+                    <svg class="sp-testimonial-verified-icon" viewBox="0 0 24 24" fill="currentColor" width="14"
+                      height="14" aria-hidden="true">
+                      <path
+                        d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.67-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.75 4.5l-4-4 1.41-1.41L10.5 13.67l6.59-6.59 1.41 1.41-8 8z" />
+                    </svg>
+                    <span>VERIFIED PATIENT</span>
+                  </div>
+                  <span class="sp-testimonial-card__author-name">Tonia H.</span>
+                </div>
+                <div class="sp-testimonial-card__stars" aria-label="5 out of 5 stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 Photo Placeholder -->
+            <div class="sp-testimonial-card sp-testimonial-card--photo" aria-hidden="true">
+              <img decoding="async" src="assets/images/testimonial-male-1.jpg" alt="" class="sp-testimonial-photo-img" />
+            </div>
+
+            <!-- Card 2 Story -->
+            <div class="sp-testimonial-card" aria-hidden="true">
+              <blockquote class="sp-testimonial-card__quote">
+                “My sleep has changed DRAMATICALLY for the better since getting on accurate dosages of estradiol,
+                testosterone and progesterone. My gut health has also improved significantly - so much so that I can't
+                believe I used to live the way I was living.”
+              </blockquote>
+              <div class="sp-testimonial-card__footer">
+                <div class="sp-testimonial-card__author-info">
+                  <div class="sp-testimonial-verified">
+                    <svg class="sp-testimonial-verified-icon" viewBox="0 0 24 24" fill="currentColor" width="14"
+                      height="14" aria-hidden="true">
+                      <path
+                        d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.67-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.75 4.5l-4-4 1.41-1.41L10.5 13.67l6.59-6.59 1.41 1.41-8 8z" />
+                    </svg>
+                    <span>VERIFIED PATIENT</span>
+                  </div>
+                  <span class="sp-testimonial-card__author-name">Robyn C.</span>
+                </div>
+                <div class="sp-testimonial-card__stars" aria-label="5 out of 5 stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 Photo Placeholder -->
+            <div class="sp-testimonial-card sp-testimonial-card--photo" aria-hidden="true">
+              <img decoding="async" src="assets/images/testimonial-female-2.jpg" alt="" class="sp-testimonial-photo-img" />
+            </div>
+
+            <!-- Card 3 Story -->
+            <div class="sp-testimonial-card" aria-hidden="true">
+              <blockquote class="sp-testimonial-card__quote">
+                “Within 8 weeks of individualized hormone support, my brain fog cleared completely and my energy levels
+                returned to where they were in my 30s. The clinical team actually listens.”
+              </blockquote>
+              <div class="sp-testimonial-card__footer">
+                <div class="sp-testimonial-card__author-info">
+                  <div class="sp-testimonial-verified">
+                    <svg class="sp-testimonial-verified-icon" viewBox="0 0 24 24" fill="currentColor" width="14"
+                      height="14" aria-hidden="true">
+                      <path
+                        d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.67-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.75 4.5l-4-4 1.41-1.41L10.5 13.67l6.59-6.59 1.41 1.41-8 8z" />
+                    </svg>
+                    <span>VERIFIED PATIENT</span>
+                  </div>
+                  <span class="sp-testimonial-card__author-name">Elena R.</span>
+                </div>
+                <div class="sp-testimonial-card__stars" aria-label="5 out of 5 stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 Photo Placeholder -->
+            <div class="sp-testimonial-card sp-testimonial-card--photo" aria-hidden="true">
+              <img decoding="async" src="assets/images/testimonial-male-2.jpg" alt="" class="sp-testimonial-photo-img" />
+            </div>
+
+            <!-- Card 4 Story -->
+            <div class="sp-testimonial-card" aria-hidden="true">
+              <blockquote class="sp-testimonial-card__quote">
+                “Clear answers, discreet communication, and clinician advice that genuinely respected my privacy and
+                schedule. No clinic waiting rooms and prompt delivery.”
+              </blockquote>
+              <div class="sp-testimonial-card__footer">
+                <div class="sp-testimonial-card__author-info">
+                  <div class="sp-testimonial-verified">
+                    <svg class="sp-testimonial-verified-icon" viewBox="0 0 24 24" fill="currentColor" width="14"
+                      height="14" aria-hidden="true">
+                      <path
+                        d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.67-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.75 4.5l-4-4 1.41-1.41L10.5 13.67l6.59-6.59 1.41 1.41-8 8z" />
+                    </svg>
+                    <span>VERIFIED PATIENT</span>
+                  </div>
+                  <span class="sp-testimonial-card__author-name">Michael T.</span>
+                </div>
+                <div class="sp-testimonial-card__stars" aria-label="5 out of 5 stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Find Your Treatment Bottom CTA Button -->
+        <div class="sp-testimonials-cta-wrap">
+          <a href="#protocols" class="alivio-hero-primary-cta" data-intake-trigger>
+            <span class="alivio-cta-label">Find Your Treatment</span>
+            <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+    <section class="section_faq" id="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="sp-section-header" style="margin-bottom: 36px; text-align: center;">
+          <h2 class="sp-heading-h2" id="faq-heading" style="margin-bottom: 12px;">Frequently asked questions</h2>
+          <p class="sp-lead" style="margin: 0 auto; max-width: 620px; color: #55504A;">
+            Everything you need to know before beginning your wellness journey.
+          </p>
+        </div>
+
+        <div class="sp-faq-container-card" role="region" aria-label="Frequently Asked Questions Accordion">
+          <!-- Item 1 -->
+          <div class="sp-accordion-item">
+            <button class="sp-accordion-trigger accordion-trigger" type="button" aria-expanded="false"
+              aria-controls="faq-ans-1" id="faq-q-1">
+              <span>What is PapayaMD?</span>
+              <span class="sp-accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="sp-accordion-panel accordion-panel" id="faq-ans-1" role="region" aria-labelledby="faq-q-1"
+              aria-hidden="true">
+              <div class="sp-accordion-panel-inner">
+                <p>PapayaMD is a modern telehealth platform providing personalized, provider-led care for hormone health,
+                  longevity, and metabolic wellness—delivered straight to your door with continuous medical guidance.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="sp-accordion-item">
+            <button class="sp-accordion-trigger accordion-trigger" type="button" aria-expanded="false"
+              aria-controls="faq-ans-2" id="faq-q-2">
+              <span>Who are PapayaMD Programs for?</span>
+              <span class="sp-accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="sp-accordion-panel accordion-panel" id="faq-ans-2" role="region" aria-labelledby="faq-q-2"
+              aria-hidden="true">
+              <div class="sp-accordion-panel-inner">
+                <p>Our programs are designed for adults seeking proactive, medically supervised support for hormone
+                  balance, perimenopause, menopause, sexual wellness, metabolic health, and weight management.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="sp-accordion-item">
+            <button class="sp-accordion-trigger accordion-trigger" type="button" aria-expanded="false"
+              aria-controls="faq-ans-3" id="faq-q-3">
+              <span>Do I need previous therapy or wellness experience?</span>
+              <span class="sp-accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="sp-accordion-panel accordion-panel" id="faq-ans-3" role="region" aria-labelledby="faq-q-3"
+              aria-hidden="true">
+              <div class="sp-accordion-panel-inner">
+                <p>No prior experience is necessary. Our straightforward online clinical assessment and licensed medical
+                  providers guide you through every step of your health evaluation.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="sp-accordion-item">
+            <button class="sp-accordion-trigger accordion-trigger" type="button" aria-expanded="false"
+              aria-controls="faq-ans-4" id="faq-q-4">
+              <span>Is my personal information kept confidential?</span>
+              <span class="sp-accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="sp-accordion-panel accordion-panel" id="faq-ans-4" role="region" aria-labelledby="faq-q-4"
+              aria-hidden="true">
+              <div class="sp-accordion-panel-inner">
+                <p>Yes. All personal health data is protected by industry-standard HIPAA-compliant encryption protocols
+                  and is only accessible by your licensed clinical care team.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="sp-accordion-item">
+            <button class="sp-accordion-trigger accordion-trigger" type="button" aria-expanded="false"
+              aria-controls="faq-ans-5" id="faq-q-5">
+              <span>Is this suitable for all age groups?</span>
+              <span class="sp-accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="sp-accordion-panel accordion-panel" id="faq-ans-5" role="region" aria-labelledby="faq-q-5"
+              aria-hidden="true">
+              <div class="sp-accordion-panel-inner">
+                <p>PapayaMD provides clinical treatments for qualifying adults aged 18 and older. Treatment suitability is
+                  individually determined during your provider-led clinical evaluation.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="sp-accordion-item">
+            <button class="sp-accordion-trigger accordion-trigger" type="button" aria-expanded="false"
+              aria-controls="faq-ans-6" id="faq-q-6">
+              <span>How do I know which program is right for me?</span>
+              <span class="sp-accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="sp-accordion-panel accordion-panel" id="faq-ans-6" role="region" aria-labelledby="faq-q-6"
+              aria-hidden="true">
+              <div class="sp-accordion-panel-inner">
+                <p>By completing our quick 2-minute online assessment, a licensed provider reviews your symptoms and
+                  health goals to recommend an individualized treatment plan tailored to your body.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer: Redesigned based on Alivio Wellness Reference -->
+  <footer class="alivio-custom-footer" role="contentinfo">
+    <!-- Top 50% Atmospheric Background Image (70% opacity with bottom fade) -->
+    <div class="alivio-footer-bg-image" aria-hidden="true"></div>
+    <div class="alivio-footer-inner">
+
+      <!-- Extended Top Hero Banner: "Come back to yourself." -->
+      <section class="alivio-footer-hero-banner" aria-label="Care Consultation Call to Action">
+        <div class="alivio-footer-hero-left">
+          <h2 class="alivio-footer-hero-title sp-heading-h1">
+            Come back to<br /><em class="alivio-footer-hero-italic">yourself.</em>
+          </h2>
+          <p class="alivio-footer-hero-desc">
+            Share what you want to change. We’ll help make the possible paths clearer from there.
+          </p>
+          <div class="alivio-footer-hero-cta-wrap">
+            <a href="#intake" class="alivio-hero-primary-cta" data-intake-trigger
+              aria-label="See If You Qualify for Telehealth Care">
+              <span class="alivio-cta-label">See If You Qualify</span>
+              <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div class="alivio-footer-divider-row" aria-hidden="true">
+        <div class="alivio-footer-divider-line"></div>
+        <div class="alivio-footer-divider-mark">
+          <svg viewBox="0 0 40 45" width="28" height="32" aria-hidden="true" fill="currentColor"><path d="M14.2363 7.76367H22V14.2344H14.2363V22H7.76367V14.2314H0V7.76367H7.76367V0H14.2363V7.76367ZM26.7549 8C34.0588 8.00025 39.9999 13.9974 40 21.3721C40 24.9391 38.622 28.2971 36.1201 30.8262C33.6139 33.352 30.2889 34.744 26.7549 34.7441C26.7223 34.7441 23.3001 34.7819 20.0205 36.1982C16.147 37.8703 14.2647 40.6611 14.2646 44.7246V45H8V25.9434H14.2646V32.2168C15.3074 31.4781 16.4744 30.8365 17.7393 30.3057C22.1727 28.4406 26.5712 28.418 26.7549 28.418C28.6196 28.4179 30.3717 27.685 31.6885 26.3525C33.0083 25.0214 33.7344 23.2535 33.7344 21.3721C33.7343 17.4867 30.6044 14.3254 26.7549 14.3252H25.7676V8H26.7549Z"/></svg>
+        </div>
+        <div class="alivio-footer-divider-line"></div>
+      </div>
+
+      <!-- Mid Row: 4 Column Navigation Grid -->
+      <div class="alivio-footer-grid">
+        <!-- Col 1: Our Treatments -->
+        <div class="alivio-footer-col">
+          <h3 class="alivio-footer-heading">OUR TREATMENTS</h3>
+          <ul class="alivio-footer-nav">
+            <li><a href="treatments/weight-loss.html">Weight Loss</a></li>
+            <li><a href="treatments/hormone-women.html">Hormone Health (Women)</a></li>
+            <li><a href="#protocols">Hormone Health (Men)</a></li>
+            <li><a href="#protocols">Sexual Wellness</a></li>
+            <li><a href="#protocols">Fertility Support</a></li>
+            <li><a href="#protocols">Hair Health</a></li>
+            <li><a href="#protocols">Daily Health</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Company -->
+        <div class="alivio-footer-col">
+          <h3 class="alivio-footer-heading">COMPANY</h3>
+          <ul class="alivio-footer-nav">
+            <li><a href="#clinical-team">About Us</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#protocols">Our Treatments</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#care-stories">Blog</a></li>
+            <li><a href="#contact" data-intake-trigger>Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Support -->
+        <div class="alivio-footer-col">
+          <h3 class="alivio-footer-heading">SUPPORT</h3>
+          <ul class="alivio-footer-nav">
+            <li><a href="#faq">FAQs</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#medical-disclaimer">Medical Disclaimer</a></li>
+            <li><a href="#">Accessibility</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Get In Touch & LegitScript -->
+        <div class="alivio-footer-col alivio-footer-col--contact">
+          <h3 class="alivio-footer-heading">GET IN TOUCH</h3>
+          <div class="alivio-footer-contact-items">
+            <div class="alivio-contact-item">
+              <span class="alivio-contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </span>
+              <a href="mailto:hello@papayamd.com" class="alivio-contact-text">hello@papayamd.com</a>
+            </div>
+            <div class="alivio-contact-item">
+              <span class="alivio-contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </span>
+              <a href="tel:+15551234567" class="alivio-contact-text">+1 (555) 123-4567</a>
+            </div>
+            <div class="alivio-contact-item">
+              <span class="alivio-contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </span>
+              <span class="alivio-contact-text">16192 Coastal Hwy,<br />Lewes, DE 19958</span>
+            </div>
+            <div class="alivio-contact-item">
+              <span class="alivio-contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </span>
+              <span class="alivio-contact-text">Mon – Fri, 9am – 6pm ET</span>
+            </div>
+          </div>
+
+          <!-- Social Media Icons Row -->
+          <div class="alivio-footer-socials">
+            <a href="#" class="alivio-social-btn" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+            <a href="#" class="alivio-social-btn" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
+            </a>
+            <a href="#" class="alivio-social-btn" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#240D05" />
+              </svg>
+            </a>
+            <a href="#" class="alivio-social-btn" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Watermark Section: Huge Alivio Logomark & Wordmark Overlay -->
+      <div class="alivio-footer-watermark-row" aria-hidden="true">
+        <svg class="alivio-footer-giant-logo" viewBox="0 0 235 49" fill="currentColor"><path d="M101.789 18.9482C107.081 18.9482 111.149 22.9085 111.149 29.0645C111.149 35.1842 107.081 39.3242 101.789 39.3242C98.1892 39.3241 95.6332 37.3802 94.4092 35.3643V48.3604H91.1338V19.2725H94.4092V22.9082C95.5972 20.8203 98.1892 18.9483 101.789 18.9482ZM145.277 35.2559L151.397 19.2725H154.781L142.901 48.2881H139.518L143.405 38.7842L135.449 19.2725H139.086L145.277 35.2559ZM26.7549 8C34.0588 8.00025 39.9999 13.9974 40 21.3721C40 24.9391 38.622 28.2971 36.1201 30.8262C33.6139 33.352 30.2889 34.744 26.7549 34.7441C26.7223 34.7441 23.3001 34.7819 20.0205 36.1982C16.147 37.8703 14.2647 40.6611 14.2646 44.7246V45H8V25.9434H14.2646V32.2168C15.3074 31.4781 16.4744 30.8365 17.7393 30.3057C22.1727 28.4406 26.5712 28.418 26.7549 28.418C28.6196 28.4179 30.3717 27.685 31.6885 26.3525C33.0083 25.0214 33.7344 23.2535 33.7344 21.3721C33.7343 17.4867 30.6044 14.3254 26.7549 14.3252H25.7676V8H26.7549ZM75.9414 18.9482C79.6133 18.9483 82.1332 20.8201 83.2852 22.8721V19.2725H86.5977V39H83.2852V35.3281C82.0972 37.4521 79.5412 39.3242 75.9053 39.3242C70.6494 39.3242 66.5812 35.1842 66.5811 29.0645C66.5811 22.9085 70.6494 18.9482 75.9414 18.9482ZM122.598 18.9482C126.27 18.9483 128.789 20.8201 129.941 22.8721V19.2725H133.254V39H129.941V35.3281C128.753 37.4521 126.197 39.3242 122.562 39.3242C117.306 39.3242 113.237 35.1842 113.237 29.0645C113.237 22.9085 117.306 18.9482 122.598 18.9482ZM165.211 18.9482C168.883 18.9483 171.403 20.8201 172.555 22.8721V19.2725H175.867V39H172.555V35.3281C171.367 37.4521 168.811 39.3242 165.175 39.3242C159.919 39.3242 155.851 35.1842 155.851 29.0645C155.851 22.9085 159.919 18.9482 165.211 18.9482ZM56.0576 13.9082C61.9615 13.9082 64.7333 17.148 64.7334 21.252C64.7334 25.0679 62.2855 28.5244 56.0576 28.5244H51.2334V39H47.958V13.9082H56.0576ZM193.831 32.5557L201.823 13.8721H207.511V39H202.471V22.6562L195.739 39H191.923L185.155 22.6562V39H180.115V13.8721H185.839L193.831 32.5557ZM221.277 13.8721C229.305 13.8721 234.525 18.8399 234.525 26.4717C234.525 34.0677 229.305 39 221.277 39H212.494V13.8721H221.277ZM76.5889 21.792C72.989 21.7921 69.9287 24.4206 69.9287 29.0645C69.9289 33.7081 72.9891 36.4442 76.5889 36.4443C80.1889 36.4443 83.2852 33.7436 83.2852 29.0996C83.285 24.5279 80.1887 21.792 76.5889 21.792ZM101.105 21.792C97.5416 21.792 94.4094 24.5279 94.4092 29.0996C94.4092 33.7436 97.5415 36.4443 101.105 36.4443C104.741 36.4443 107.802 33.7081 107.802 29.0645C107.802 24.4205 104.741 21.7921 101.105 21.792ZM123.245 21.792C119.645 21.7921 116.585 24.4206 116.585 29.0645C116.585 33.7081 119.645 36.4442 123.245 36.4443C126.845 36.4443 129.941 33.7436 129.941 29.0996C129.941 24.5279 126.845 21.792 123.245 21.792ZM165.858 21.792C162.259 21.7921 159.198 24.4206 159.198 29.0645C159.198 33.7081 162.259 36.4442 165.858 36.4443C169.458 36.4443 172.555 33.7436 172.555 29.0996C172.554 24.5279 169.458 21.792 165.858 21.792ZM217.534 34.7158H221.098C226.39 34.7158 229.378 31.6917 229.378 26.4717C229.378 21.2519 226.39 18.1201 221.098 18.1201H217.534V34.7158ZM51.2334 25.8242H56.0576C59.8015 25.8242 61.3857 24.0599 61.3857 21.252C61.3857 18.3361 59.8015 16.6084 56.0576 16.6084H51.2334V25.8242ZM14.2363 7.76367H22V14.2344H14.2363V22H7.76367V14.2314H0V7.76367H7.76367V0H14.2363V7.76367Z"/></svg>
+      </div>
+
+      <!-- Regulatory Medical Disclaimer -->
+      <div class="alivio-footer-disclaimer" id="medical-disclaimer">
+        <p>
+          <strong>Medical Disclaimer:</strong> PapayaMD is not an emergency medical service. If you are experiencing a
+          medical emergency, call 911 or go to the nearest emergency facility immediately. All medical consultations,
+          clinical evaluations, and prescription decisions are conducted exclusively by state-licensed healthcare
+          providers affiliated with the PapayaMD Clinical Infrastructure clinical network. Telehealth services are subject
+          to clinical appropriateness as determined by a licensed physician. Compounded medications described herein are
+          prepared by state-licensed 503A compounding pharmacies to fulfill individual patient prescriptions and are not
+          evaluated by the FDA in the same manner as commercially manufactured pharmaceuticals.
+        </p>
+      </div>
+
+      <!-- Bottom Bar: Copyright, PapayaMD Clinical Infrastructure powering, Legal Links, Leaf Motto -->
+      <div class="alivio-footer-bottom-bar">
+        <div class="alivio-footer-copyright">
+          <span>&copy; 2026 PapayaMD Inc. All rights reserved. Technology powered by PapayaMD Clinical
+            Infrastructure.</span>
+          <div class="alivio-footer-legal-links">
+            <a href="#">Privacy Policy</a>
+            <span class="alivio-legal-sep" aria-hidden="true">&bull;</span>
+            <a href="#">Terms of Service</a>
+            <span class="alivio-legal-sep" aria-hidden="true">&bull;</span>
+            <a href="#">Telehealth Consent</a>
+          </div>
+        </div>
+
+        <div class="alivio-footer-motto">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
+            <path d="M17 8C8 10 5 19 5 19C5 19 14 16 16 7C17 2.5 12 3 12 3C12 3 17 4 17 8Z" />
+          </svg>
+          <span>Science-backed. People-focused.</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Mobile Drawer Menu (Accessible Dialog) -->
+  <div class="sp-drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
+  <aside class="sp-drawer alivio-treatment-drawer" id="mobile-drawer" role="dialog" aria-modal="true"
+    aria-labelledby="drawer-heading" aria-hidden="true">
+    <div class="sp-drawer-header">
+      <a href="#" class="brand-wordmark" aria-label="PapayaMD Homepage">
+        <svg class="brand-logo-svg" viewBox="0 0 235 49" width="144" height="30" aria-hidden="true" fill="currentColor"><path d="M101.789 18.9482C107.081 18.9482 111.149 22.9085 111.149 29.0645C111.149 35.1842 107.081 39.3242 101.789 39.3242C98.1892 39.3241 95.6332 37.3802 94.4092 35.3643V48.3604H91.1338V19.2725H94.4092V22.9082C95.5972 20.8203 98.1892 18.9483 101.789 18.9482ZM145.277 35.2559L151.397 19.2725H154.781L142.901 48.2881H139.518L143.405 38.7842L135.449 19.2725H139.086L145.277 35.2559ZM26.7549 8C34.0588 8.00025 39.9999 13.9974 40 21.3721C40 24.9391 38.622 28.2971 36.1201 30.8262C33.6139 33.352 30.2889 34.744 26.7549 34.7441C26.7223 34.7441 23.3001 34.7819 20.0205 36.1982C16.147 37.8703 14.2647 40.6611 14.2646 44.7246V45H8V25.9434H14.2646V32.2168C15.3074 31.4781 16.4744 30.8365 17.7393 30.3057C22.1727 28.4406 26.5712 28.418 26.7549 28.418C28.6196 28.4179 30.3717 27.685 31.6885 26.3525C33.0083 25.0214 33.7344 23.2535 33.7344 21.3721C33.7343 17.4867 30.6044 14.3254 26.7549 14.3252H25.7676V8H26.7549ZM75.9414 18.9482C79.6133 18.9483 82.1332 20.8201 83.2852 22.8721V19.2725H86.5977V39H83.2852V35.3281C82.0972 37.4521 79.5412 39.3242 75.9053 39.3242C70.6494 39.3242 66.5812 35.1842 66.5811 29.0645C66.5811 22.9085 70.6494 18.9482 75.9414 18.9482ZM122.598 18.9482C126.27 18.9483 128.789 20.8201 129.941 22.8721V19.2725H133.254V39H129.941V35.3281C128.753 37.4521 126.197 39.3242 122.562 39.3242C117.306 39.3242 113.237 35.1842 113.237 29.0645C113.237 22.9085 117.306 18.9482 122.598 18.9482ZM165.211 18.9482C168.883 18.9483 171.403 20.8201 172.555 22.8721V19.2725H175.867V39H172.555V35.3281C171.367 37.4521 168.811 39.3242 165.175 39.3242C159.919 39.3242 155.851 35.1842 155.851 29.0645C155.851 22.9085 159.919 18.9482 165.211 18.9482ZM56.0576 13.9082C61.9615 13.9082 64.7333 17.148 64.7334 21.252C64.7334 25.0679 62.2855 28.5244 56.0576 28.5244H51.2334V39H47.958V13.9082H56.0576ZM193.831 32.5557L201.823 13.8721H207.511V39H202.471V22.6562L195.739 39H191.923L185.155 22.6562V39H180.115V13.8721H185.839L193.831 32.5557ZM221.277 13.8721C229.305 13.8721 234.525 18.8399 234.525 26.4717C234.525 34.0677 229.305 39 221.277 39H212.494V13.8721H221.277ZM76.5889 21.792C72.989 21.7921 69.9287 24.4206 69.9287 29.0645C69.9289 33.7081 72.9891 36.4442 76.5889 36.4443C80.1889 36.4443 83.2852 33.7436 83.2852 29.0996C83.285 24.5279 80.1887 21.792 76.5889 21.792ZM101.105 21.792C97.5416 21.792 94.4094 24.5279 94.4092 29.0996C94.4092 33.7436 97.5415 36.4443 101.105 36.4443C104.741 36.4443 107.802 33.7081 107.802 29.0645C107.802 24.4205 104.741 21.7921 101.105 21.792ZM123.245 21.792C119.645 21.7921 116.585 24.4206 116.585 29.0645C116.585 33.7081 119.645 36.4442 123.245 36.4443C126.845 36.4443 129.941 33.7436 129.941 29.0996C129.941 24.5279 126.845 21.792 123.245 21.792ZM165.858 21.792C162.259 21.7921 159.198 24.4206 159.198 29.0645C159.198 33.7081 162.259 36.4442 165.858 36.4443C169.458 36.4443 172.555 33.7436 172.555 29.0996C172.554 24.5279 169.458 21.792 165.858 21.792ZM217.534 34.7158H221.098C226.39 34.7158 229.378 31.6917 229.378 26.4717C229.378 21.2519 226.39 18.1201 221.098 18.1201H217.534V34.7158ZM51.2334 25.8242H56.0576C59.8015 25.8242 61.3857 24.0599 61.3857 21.252C61.3857 18.3361 59.8015 16.6084 56.0576 16.6084H51.2334V25.8242ZM14.2363 7.76367H22V14.2344H14.2363V22H7.76367V14.2314H0V7.76367H7.76367V0H14.2363V7.76367Z"/></svg>
+      </a>
+      <button type="button" class="drawer-close" aria-label="Close navigation menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" width="20" height="20" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Treatment Navigation Content -->
+    <div class="alivio-drawer-body">
+      <div class="alivio-drawer-header-content">
+        <h3 class="alivio-drawer-heading" id="drawer-heading">Who is this care for?</h3>
+        <!-- Gender Segmented Control -->
+        <div class="alivio-gender-tabs" role="tablist" aria-label="Care Audience">
+          <button type="button" class="alivio-gender-tab is-active" role="tab" id="gender-tab-women"
+            aria-selected="true" aria-controls="treatment-panel-women" data-gender="women">
+            Women
+          </button>
+          <button type="button" class="alivio-gender-tab" role="tab" id="gender-tab-men" aria-selected="false"
+            aria-controls="treatment-panel-men" data-gender="men">
+            Men
+          </button>
+        </div>
+      </div>
+
+      <!-- Treatment Panels Stack -->
+      <div class="alivio-treatment-panels">
+        <!-- Women Care List (Default Active) -->
+        <div class="alivio-treatment-list is-active" id="treatment-panel-women" role="tabpanel"
+          aria-labelledby="gender-tab-women">
+          <!-- 1. Weight Loss -->
+          <a href="treatments/weight-loss.html" class="alivio-treatment-row sp-drawer-link" data-treatment="women-weight-loss">
+            <div class="alivio-treatment-thumb-box" aria-hidden="true">
+              <img decoding="async" src="assets/images/care-weightloss.png" alt="Weight Loss treatment" class="alivio-treatment-thumb-img">
+            </div>
+            <span class="alivio-treatment-name">Weight Loss</span>
+            <svg class="alivio-treatment-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+
+          <!-- 2. Menopause -->
+          <a href="treatments/hormone-women.html" class="alivio-treatment-row sp-drawer-link" data-treatment="women-menopause">
+            <div class="alivio-treatment-thumb-box" aria-hidden="true">
+              <img decoding="async" src="assets/images/hormone-balance-woman.jpg" alt="Menopause Hormone Balance treatment" class="alivio-treatment-thumb-img">
+            </div>
+            <span class="alivio-treatment-name">Menopause</span>
+            <svg class="alivio-treatment-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+
+          <!-- 3. Hair Loss -->
+          <a href="#products" class="alivio-treatment-row sp-drawer-link" data-treatment="women-hair-loss">
+            <div class="alivio-treatment-thumb-box" aria-hidden="true">
+              <img decoding="async" src="assets/images/anti-aging-woman.png" alt="Hair Loss treatment" class="alivio-treatment-thumb-img">
+            </div>
+            <span class="alivio-treatment-name">Hair Loss</span>
+            <svg class="alivio-treatment-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+
+          <!-- 4. Sexual Health -->
+          <a href="#products" class="alivio-treatment-row sp-drawer-link" data-treatment="women-sexual-health">
+            <div class="alivio-treatment-thumb-box" aria-hidden="true">
+              <img decoding="async" src="assets/images/sexual-wellness-couple.jpg" alt="Sexual Health treatment" class="alivio-treatment-thumb-img">
+            </div>
+            <span class="alivio-treatment-name">Sexual Health</span>
+            <svg class="alivio-treatment-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Men Care List -->
+        <div class="alivio-treatment-list" id="treatment-panel-men" role="tabpanel" aria-labelledby="gender-tab-men"
+          hidden>
+          <!-- 1. Weight Loss -->
+          <a href="treatments/weight-loss.html" class="alivio-treatment-row sp-drawer-link" data-treatment="men-weight-loss">
+            <div class="alivio-treatment-thumb-box" aria-hidden="true">
+              <img decoding="async" src="assets/images/care-weightloss.png" alt="Weight Loss treatment" class="alivio-treatment-thumb-img">
+            </div>
+            <span class="alivio-treatment-name">Weight Loss</span>
+            <svg class="alivio-treatment-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+
+          <!-- 2. Testosterone -->
+          <a href="#products" class="alivio-treatment-row sp-drawer-link" data-treatment="men-testosterone">
+            <div class="alivio-treatment-thumb-box" aria-hidden="true">
+              <img decoding="async" src="assets/images/care-mens-sexual-health.png" alt="Testosterone treatment" class="alivio-treatment-thumb-img">
+            </div>
+            <span class="alivio-treatment-name">Testosterone</span>
+            <svg class="alivio-treatment-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+
+          <!-- 3. Hair Loss -->
+          <a href="#products" class="alivio-treatment-row sp-drawer-link" data-treatment="men-hair-loss">
+            <div class="alivio-treatment-thumb-box" aria-hidden="true">
+              <img decoding="async" src="assets/images/energy-recovery-man.jpg" alt="Hair Loss treatment" class="alivio-treatment-thumb-img">
+            </div>
+            <span class="alivio-treatment-name">Hair Loss</span>
+            <svg class="alivio-treatment-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+
+          <!-- 4. Sexual Health -->
+          <a href="#products" class="alivio-treatment-row sp-drawer-link" data-treatment="men-sexual-health">
+            <div class="alivio-treatment-thumb-box" aria-hidden="true">
+              <img decoding="async" src="assets/images/sexual-wellness-couple.jpg" alt="Sexual Health treatment" class="alivio-treatment-thumb-img">
+            </div>
+            <span class="alivio-treatment-name">Sexual Health</span>
+            <svg class="alivio-treatment-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile & Tablet Navigation Links inside Drawer -->
+      <div class="alivio-drawer-site-nav" aria-label="Page Navigation">
+        <a href="#products" class="sp-drawer-link drawer-link">Treatments</a>
+        <a href="#care-stories" class="sp-drawer-link drawer-link">Our Approach</a>
+        <a href="#how-it-works" class="sp-drawer-link drawer-link">How It Works</a>
+        <a href="#faq" class="sp-drawer-link drawer-link">FAQ</a>
+        <a href="login.html" class="sp-drawer-link drawer-link alivio-drawer-account-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" width="16" height="16" aria-hidden="true">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          <span>Login</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Drawer Footer Assessment CTA -->
+    <div class="sp-drawer-footer">
+      <a href="#intake" class="alivio-hero-primary-cta" style="width: 100%; justify-content: space-between;"
+        data-intake-trigger aria-label="Start Assessment">
+        <span class="alivio-cta-label">Start Assessment</span>
+        <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       ALIVIO INTERACTIVE HEALTH ASSESSMENT INTAKE (One Question At A Time Flow)
+       ========================================================================== -->
+  <div id="alivio-intake-modal" class="alivio-intake-modal" role="dialog" aria-modal="true"
+    aria-labelledby="intake-main-title">
+    <div class="alivio-intake-window" role="document">
+
+      <!-- Top Actions (Close Button Only) -->
+      <header class="alivio-intake-header">
+        <div class="alivio-intake-actions-top">
+          <button type="button" class="alivio-intake-close-btn" data-intake-close aria-label="Close Assessment">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="18" height="18"
+              aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Question Body Viewport -->
+      <div class="alivio-intake-body">
+
+        <!-- ================= STAGE 1: TREATMENT SELECTION ================= -->
+        <section class="alivio-stage active" id="stage-goal" aria-labelledby="heading-stage-1">
+          <div class="alivio-works-pill-badge" style="margin-bottom: 12px;">
+            <span class="alivio-works-badge-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="15" height="15">
+                <circle cx="10" cy="10" r="8" />
+                <path d="M7 10h6M10 7v6" />
+              </svg>
+            </span>
+            <span class="alivio-works-badge-text">START YOUR CARE</span>
+          </div>
+
+          <h2 class="alivio-stage-heading" id="heading-stage-1">What are you looking for support with?</h2>
+          <p class="alivio-stage-subhead">Choose an available program to begin. Other programs are not currently
+            available online.</p>
+
+          <div class="alivio-answer-grid" role="radiogroup" aria-label="Select treatment category">
+
+            <!-- Option 1: Weight Loss (Active & Clickable) -->
+            <div class="alivio-answer-card selected" data-single-choice data-group="treatmentGoal"
+              data-value="weight-loss" data-label="Weight Loss" role="radio" aria-checked="true"
+              tabindex="0">
+              <div class="alivio-answer-left">
+                <div class="alivio-treatment-card-media" aria-hidden="true">
+                  <img decoding="async" src="assets/images/care-weightloss.png" alt="" class="alivio-treatment-card-thumb">
+                </div>
+                <div class="alivio-answer-texts">
+                  <span class="alivio-answer-title">Weight Loss</span>
+                  <span class="alivio-answer-desc">Medically supervised GLP-1 and compounded metabolic therapies</span>
+                </div>
+              </div>
+              <div class="alivio-answer-arrow" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" width="14" height="14">
+                  <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Option 2: Women’s Hormone Care (Active & Clickable) -->
+            <div class="alivio-answer-card" data-single-choice data-group="treatmentGoal"
+              data-value="hormone-women" data-label="Women’s Hormone Care" role="radio" aria-checked="false"
+              tabindex="0">
+              <div class="alivio-answer-left">
+                <div class="alivio-treatment-card-media" aria-hidden="true">
+                  <img decoding="async" src="assets/images/care-women-hormone.png" alt="" class="alivio-treatment-card-thumb">
+                </div>
+                <div class="alivio-answer-texts">
+                  <span class="alivio-answer-title">Hormone Therapy (for women)</span>
+                  <span class="alivio-answer-desc">Perimenopause, menopause, hot flashes, sleep & mood balance</span>
+                </div>
+              </div>
+              <div class="alivio-answer-arrow" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" width="14" height="14">
+                  <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Option 3: Energy + Focus (Disabled) -->
+            <div class="alivio-answer-card is-disabled" role="radio" aria-checked="false" aria-disabled="true"
+              tabindex="-1">
+              <div class="alivio-answer-left">
+                <div class="alivio-treatment-card-media" aria-hidden="true">
+                  <img decoding="async" src="assets/images/energy-recovery-duo.png" alt="" class="alivio-treatment-card-thumb">
+                </div>
+                <div class="alivio-answer-texts">
+                  <span class="alivio-answer-title">Energy + Focus</span>
+                  <span class="alivio-answer-desc">Mitochondrial health, cognitive stamina, and daytime
+                    resilience</span>
+                </div>
+              </div>
+              <div class="alivio-treatment-status-badge">Not Currently Available</div>
+            </div>
+
+            <!-- Option 4: Sleep + Recovery (Disabled) -->
+            <div class="alivio-answer-card is-disabled" role="radio" aria-checked="false" aria-disabled="true"
+              tabindex="-1">
+              <div class="alivio-answer-left">
+                <div class="alivio-treatment-card-media" aria-hidden="true">
+                  <img decoding="async" src="assets/images/sleep-and-rest-woman.jpg" alt="" class="alivio-treatment-card-thumb">
+                </div>
+                <div class="alivio-answer-texts">
+                  <span class="alivio-answer-title">Sleep + Recovery</span>
+                  <span class="alivio-answer-desc">Restorative sleep architecture and evening nervous system
+                    calming</span>
+                </div>
+              </div>
+              <div class="alivio-treatment-status-badge">Not Currently Available</div>
+            </div>
+
+            <!-- Option 5: Healthy Aging (Disabled) -->
+            <div class="alivio-answer-card is-disabled" role="radio" aria-checked="false" aria-disabled="true"
+              tabindex="-1">
+              <div class="alivio-answer-left">
+                <div class="alivio-treatment-card-media" aria-hidden="true">
+                  <img decoding="async" src="assets/images/healthy-aging-senior.jpg" alt="" class="alivio-treatment-card-thumb">
+                </div>
+                <div class="alivio-answer-texts">
+                  <span class="alivio-answer-title">Healthy Aging</span>
+                  <span class="alivio-answer-desc">Cellular longevity, vitality, and metabolic health protocols</span>
+                </div>
+              </div>
+              <div class="alivio-treatment-status-badge">Not Currently Available</div>
+            </div>
+
+            <!-- Option 6: Skin Care (Disabled) -->
+            <div class="alivio-answer-card is-disabled" role="radio" aria-checked="false" aria-disabled="true"
+              tabindex="-1">
+              <div class="alivio-answer-left">
+                <div class="alivio-treatment-card-media" aria-hidden="true">
+                  <img decoding="async" src="assets/images/anti-aging-woman.png" alt="" class="alivio-treatment-card-thumb">
+                </div>
+                <div class="alivio-answer-texts">
+                  <span class="alivio-answer-title">Skin Care</span>
+                  <span class="alivio-answer-desc">Dermatologist-formulated anti-aging and skin barrier
+                    restoration</span>
+                </div>
+              </div>
+              <div class="alivio-treatment-status-badge">Not Currently Available</div>
+            </div>
+
+          </div>
+
+          <div class="alivio-clinical-context">
+            <span class="alivio-clinical-context-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                <path fill-rule="evenodd"
+                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                  clip-rule="evenodd" />
+              </svg>
+            </span>
+            <span class="alivio-clinical-context-text">
+              Licensed provider review is required. Treatment and medication are not guaranteed.
+            </span>
+          </div>
+        </section>
+      </div>
+
+      <!-- Bottom Sticky Navigation Footer -->
+      <footer class="alivio-intake-footer">
+        <div class="alivio-intake-trust-micro">
+          <div class="alivio-intake-trust-micro-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"
+              aria-hidden="true">
+              <rect x="2" y="3" width="12" height="9" rx="1.5" />
+              <line x1="5" y1="14" x2="11" y2="14" />
+              <line x1="8" y1="12" x2="8" y2="14" />
+            </svg>
+            <span>100% Online</span>
+          </div>
+          <div class="alivio-intake-trust-micro-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"
+              aria-hidden="true">
+              <path d="M8 1.5v13M1.5 8h13" />
+            </svg>
+            <span>Licensed Clinicians</span>
+          </div>
+          <div class="alivio-intake-trust-micro-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"
+              aria-hidden="true">
+              <path d="M8 14s5-2.5 5-6.5V3.5L8 1.5l-5 2V7.5c0 4 5 6.5 5 6.5z" />
+            </svg>
+            <span>Private & Encrypted</span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script defer src="assets/vendor/lucide.min.js"></script>
+
+  <!-- Application Logic (Universal Vanilla JS - Compatible with file:// and http://) -->
+  <script defer src="assets/js/modules/dev-api.js"></script>
+  <script defer src="assets/js/modules/telemetry.js"></script>
+  <script defer src="assets/js/modules/intake.js"></script>
+  <script defer src="assets/js/modules/cinematic-experience.js"></script>
+  <script defer src="assets/js/app.js"></script>
+
+
+
+
+</body>
+
+</html>

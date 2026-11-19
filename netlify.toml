@@ -1,0 +1,26 @@
+# Netlify Static Configuration for Alivio Health (Vanilla HTML/CSS/JS)
+[build]
+  publish = "."
+
+# Clean URL Rewrites for Static Pages
+[[redirects]]
+  from = "/login"
+  to = "/login.html"
+  status = 200
+
+[[redirects]]
+  from = "/register"
+  to = "/register.html"
+  status = 200
+
+[[redirects]]
+  from = "/forgot-password"
+  to = "/forgot-password.html"
+  status = 200
+
+# Canonical redirects
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true

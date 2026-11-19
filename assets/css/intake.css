@@ -1,0 +1,845 @@
+/* ==========================================================================
+   ALIVIO INTERACTIVE HEALTH ASSESSMENT INTAKE
+   Design: Warm cream (#FAF2DE / #FBF7EE), Espresso (#240D05 / #1C0903),
+   Soft terracotta accent (#5B2008 / #8A3008), Clean typography,
+   Progressive disclosure, Accessible, Zero frameworks, High-trust.
+   ========================================================================== */
+
+/* Fullscreen Modal Backdrop */
+.alivio-intake-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background-color: rgba(24, 9, 3, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(12px, 2.5vw, 24px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 320ms cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 320ms ease;
+  overflow-y: auto;
+}
+
+.alivio-intake-modal.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Modal Window Card */
+.alivio-intake-window {
+  width: 100%;
+  max-width: 680px;
+  background-color: #FAF6ED;
+  background-image: 
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(255, 235, 196, 0.35) 0%, transparent 80%),
+    linear-gradient(180deg, #FBF7EE 0%, #F5EEDC 100%);
+  border: 1px solid rgba(36, 13, 5, 0.12);
+  border-radius: 28px;
+  box-shadow: 
+    0 32px 80px -16px rgba(24, 9, 3, 0.38),
+    0 12px 32px -8px rgba(24, 9, 3, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  max-height: calc(100vh - 40px);
+  transform: translateY(24px) scale(0.98);
+  transition: transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.alivio-intake-modal.active .alivio-intake-window {
+  transform: translateY(0) scale(1);
+}
+
+/* Top Sticky Navigation Bar */
+.alivio-intake-header {
+  padding: 14px 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: none;
+  background-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.alivio-intake-brand-badge {
+  display: none;
+}
+
+.alivio-intake-actions-top {
+  display: flex;
+  align-items: center;
+}
+
+.alivio-intake-close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(36, 13, 5, 0.16);
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #240D05;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 200ms ease;
+  box-shadow: 0 1px 4px rgba(36, 13, 5, 0.06);
+}
+
+.alivio-intake-close-btn:hover {
+  background-color: #240D05;
+  color: #FFEBC4;
+  border-color: #240D05;
+  transform: rotate(90deg);
+}
+
+/* Persistent Progress Header */
+.alivio-intake-progress-wrap {
+  padding: 14px 28px 0;
+}
+
+.alivio-intake-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--sp-font-mono, monospace);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6B4E3D;
+  margin-bottom: 8px;
+}
+
+.alivio-intake-progress-track {
+  width: 100%;
+  height: 6px;
+  background-color: rgba(36, 13, 5, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.alivio-intake-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #8A3008 0%, #D46722 100%);
+  border-radius: 999px;
+  transition: width 360ms cubic-bezier(0.16, 1, 0.3, 1);
+  width: 14%;
+}
+
+/* Body / Question Stage Viewport */
+.alivio-intake-body {
+  padding: 24px 28px 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Individual Question Stage Container */
+.alivio-stage {
+  display: none;
+  opacity: 0;
+  transform: translateX(18px);
+  transition: opacity 300ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.alivio-stage.active {
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Question Header Typography */
+.alivio-stage-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  background-color: rgba(91, 32, 8, 0.08);
+  border: 1px solid rgba(91, 32, 8, 0.16);
+  font-family: var(--sp-font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5B2008;
+  margin-bottom: 8px;
+}
+
+.alivio-stage-heading {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+  font-weight: 400 !important;
+  line-height: 1.18;
+  letter-spacing: -0.03em !important;
+  color: #1C0903;
+  margin: 0 0 6px 0;
+}
+
+.alivio-stage-subhead {
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #5A4032;
+  margin: 0 0 16px 0;
+}
+
+/* Interactive Answer Options (Cards Grid) */
+.alivio-answer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 600px) {
+  .alivio-answer-grid.two-col {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Answer Card Button */
+.alivio-answer-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 9px 14px;
+  min-height: 58px;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  border: 1.5px solid rgba(36, 13, 5, 0.12);
+  border-radius: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(36, 13, 5, 0.03);
+  position: relative;
+  user-select: none;
+}
+
+.alivio-answer-card:hover {
+  border-color: rgba(91, 32, 8, 0.4);
+  background-color: #FFFDF9;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(36, 13, 5, 0.06);
+}
+
+.alivio-answer-card:focus-visible {
+  outline: 2px solid #5B2008;
+  outline-offset: 2px;
+}
+
+/* Selected State */
+.alivio-answer-card.selected {
+  border-color: #5B2008;
+  background-color: #FDF9F0;
+  box-shadow: 0 0 0 1px #5B2008, 0 6px 20px rgba(91, 32, 8, 0.08);
+}
+
+.alivio-answer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+  gap: 14px;
+  min-width: 0;
+  flex: 1;
+}
+
+.alivio-answer-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: #F8F3E6;
+  color: #5B2008;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 200ms ease;
+}
+
+.alivio-answer-card.selected .alivio-answer-icon {
+  background-color: #5B2008;
+  color: #FFEBC4;
+}
+
+.alivio-answer-texts {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.alivio-answer-title {
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.98rem;
+  font-weight: 550;
+  color: #1C0903;
+  line-height: 1.3;
+}
+
+.alivio-answer-desc {
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.82rem;
+  color: #6C5546;
+  line-height: 1.35;
+}
+
+/* Right Selection Tick Indicator */
+.alivio-answer-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(36, 13, 5, 0.22);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 200ms ease;
+  color: transparent;
+}
+
+.alivio-answer-card.selected .alivio-answer-check {
+  border-color: #5B2008;
+  background-color: #5B2008;
+  color: #FFFFFF;
+}
+
+/* Form Input Elements (Text, Number, Date, Select) */
+.alivio-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.alivio-input-label {
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.88rem;
+  font-weight: 550;
+  color: #1C0903;
+}
+
+.alivio-input-field {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  background-color: #FFFFFF;
+  border: 1.5px solid rgba(36, 13, 5, 0.16);
+  border-radius: 14px;
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 1rem;
+  color: #1C0903;
+  outline: none;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+  box-sizing: border-box;
+}
+
+.alivio-input-field:focus {
+  border-color: #5B2008;
+  box-shadow: 0 0 0 3px rgba(91, 32, 8, 0.12);
+}
+
+.alivio-input-field::placeholder {
+  color: rgba(36, 13, 5, 0.38);
+}
+
+.alivio-input-hint {
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.78rem;
+  color: #6E5343;
+}
+
+.alivio-input-error {
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.78rem;
+  color: #B3261E;
+  display: none;
+}
+
+.alivio-input-group.has-error .alivio-input-field {
+  border-color: #B3261E;
+}
+
+.alivio-input-group.has-error .alivio-input-error {
+  display: block;
+}
+
+/* Two-column Input Row */
+.alivio-input-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 520px) {
+  .alivio-input-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Sensitive Clinical Context Callout */
+.alivio-clinical-context {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background-color: rgba(91, 32, 8, 0.04);
+  border: 1px dashed rgba(91, 32, 8, 0.2);
+  margin-bottom: 0;
+}
+
+.alivio-clinical-context-icon {
+  color: #5B2008;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.alivio-clinical-context-text {
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: #4A3326;
+}
+
+/* Review Answers Summary Box */
+.alivio-review-box {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(36, 13, 5, 0.12);
+  border-radius: 18px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.alivio-review-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed rgba(36, 13, 5, 0.1);
+}
+
+.alivio-review-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.alivio-review-label {
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.84rem;
+  color: #6C5546;
+  font-weight: 500;
+}
+
+.alivio-review-value {
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.92rem;
+  color: #1C0903;
+  font-weight: 600;
+  text-align: right;
+}
+
+.alivio-review-edit-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #5B2008;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 2px;
+}
+
+/* Bottom Navigation Controls */
+.alivio-intake-footer {
+  padding: 10px 24px 14px;
+  border-top: 1px solid rgba(36, 13, 5, 0.08);
+  background-color: rgba(251, 247, 238, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.alivio-intake-trust-micro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #6B4E3D;
+  flex-wrap: wrap;
+}
+
+.alivio-intake-trust-micro-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.alivio-intake-nav-btns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+/* Intake Button Styles */
+.alivio-btn-back {
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(36, 13, 5, 0.16);
+  background-color: transparent;
+  color: #3C2216;
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.88rem;
+  font-weight: 550;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 200ms ease;
+}
+
+.alivio-btn-back:hover {
+  background-color: rgba(36, 13, 5, 0.05);
+  border-color: rgba(36, 13, 5, 0.28);
+}
+
+.alivio-btn-continue {
+  height: 44px;
+  padding: 0 24px;
+  border-radius: 999px;
+  border: 1px solid #5B2008;
+  background-color: #5B2008;
+  color: #FFFFFF;
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 200ms ease;
+  box-shadow: 0 4px 12px rgba(91, 32, 8, 0.2);
+}
+
+.alivio-btn-continue:hover {
+  background-color: #240D05;
+  border-color: #240D05;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(36, 13, 5, 0.25);
+}
+
+.alivio-btn-continue:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Submission Loading State */
+.alivio-intake-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #FFFFFF;
+  border-radius: 50%;
+  animation: alivioSpin 0.7s linear infinite;
+  display: none;
+}
+
+@keyframes alivioSpin {
+  to { transform: rotate(360deg); }
+}
+
+.alivio-btn-continue.loading .alivio-intake-spinner {
+  display: inline-block;
+}
+
+.alivio-btn-continue.loading .alivio-btn-continue-label {
+  display: none;
+}
+
+/* Success / Next Steps Screen */
+.alivio-success-card {
+  text-align: center;
+  padding: 24px 12px;
+}
+
+.alivio-success-icon-wrap {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FAF2DE 0%, #EEDBBE 100%);
+  border: 2px solid #5B2008;
+  color: #5B2008;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 24px rgba(91, 32, 8, 0.12);
+}
+
+.alivio-timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+  max-width: 440px;
+  margin: 28px auto;
+}
+
+.alivio-timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.alivio-timeline-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #5B2008;
+  color: #FFFFFF;
+  font-family: var(--sp-font-mono, monospace);
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.alivio-timeline-title {
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: #1C0903;
+  margin-bottom: 2px;
+}
+
+.alivio-timeline-desc {
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.82rem;
+  color: #6C5546;
+  line-height: 1.4;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .alivio-intake-window {
+    border-radius: 20px;
+    max-height: calc(100vh - 20px);
+  }
+
+  .alivio-intake-header {
+    padding: 16px 20px 12px;
+  }
+
+  .alivio-intake-progress-wrap {
+    padding: 12px 20px 0;
+  }
+
+  .alivio-intake-body {
+    padding: 20px;
+  }
+
+  .alivio-intake-footer {
+    padding: 12px 18px 16px;
+    justify-content: center;
+  }
+
+  .alivio-intake-trust-micro {
+    display: flex; /* Keep visible and centered */
+    gap: 12px;
+    font-size: 0.72rem;
+  }
+
+  .alivio-intake-nav-btns {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .alivio-btn-back,
+  .alivio-btn-continue {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+/* Treatment Selection Card Visual Enhancements */
+.alivio-treatment-card-media {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 10px;
+  background-color: #F4EFE6;
+  border: 1px solid rgba(36, 13, 5, 0.1);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 220ms ease;
+}
+
+.alivio-treatment-card-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.alivio-answer-card.selected .alivio-treatment-card-media {
+  border-color: #5B2008;
+  box-shadow: 0 2px 8px rgba(91, 32, 8, 0.15);
+}
+
+.alivio-treatment-card-media--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5B2008;
+  background-color: #F8F3E6;
+}
+
+.alivio-answer-card.selected .alivio-treatment-card-media--placeholder {
+  background-color: #5B2008;
+  color: #FFEBC4;
+}
+
+/* Disabled & Unavailable Treatment Cards */
+.alivio-answer-card.is-disabled {
+  opacity: 0.82;
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: #FFFFFF;
+  border-color: rgba(36, 13, 5, 0.14);
+  box-shadow: 0 1px 3px rgba(36, 13, 5, 0.02) !important;
+  transform: none !important;
+}
+
+.alivio-answer-card.is-disabled:hover {
+  background-color: #FFFFFF;
+  border-color: rgba(36, 13, 5, 0.14);
+  transform: none !important;
+  box-shadow: 0 1px 3px rgba(36, 13, 5, 0.02) !important;
+}
+
+.alivio-answer-card.is-disabled .alivio-answer-title {
+  color: #2D1810;
+  font-weight: 550;
+}
+
+.alivio-answer-card.is-disabled .alivio-answer-desc {
+  color: #6C5546;
+}
+
+.alivio-answer-card.is-disabled .alivio-treatment-card-media {
+  opacity: 0.9;
+  filter: contrast(0.96);
+}
+
+.alivio-treatment-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.7rem;
+  font-weight: 550;
+  letter-spacing: 0.02em;
+  background-color: rgba(36, 13, 5, 0.06);
+  color: #5B2008;
+  border: 1px solid rgba(36, 13, 5, 0.14);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Arrow indicator on active treatment cards */
+.alivio-answer-arrow {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  border-radius: 50%;
+  background-color: rgba(91, 32, 8, 0.08);
+  color: #5B2008;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 200ms ease;
+}
+
+.alivio-answer-card:hover .alivio-answer-arrow,
+.alivio-answer-card.selected .alivio-answer-arrow {
+  background-color: #5B2008;
+  color: #FFEBC4;
+  transform: translateX(2px);
+}
+
+/* Radio-style pill selection circle indicator (retained for backward compatibility) */
+.alivio-answer-radio-circle {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(36, 13, 5, 0.24);
+  background-color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 200ms ease;
+}
+
+.alivio-answer-radio-circle::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #5B2008;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 180ms ease;
+}
+
+.alivio-answer-card.selected .alivio-answer-radio-circle {
+  border-color: #5B2008;
+}
+
+.alivio-answer-card.selected .alivio-answer-radio-circle::after {
+  opacity: 1;
+  transform: scale(1);
+}

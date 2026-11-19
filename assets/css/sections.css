@@ -1,0 +1,5946 @@
+/* ==========================================================================
+   ALIVIO SECTION LAYOUTS
+   ========================================================================== */
+
+/* Utility Bar & Sliding Text Animation */
+.sp-utility-bar {
+  background-color: var(--color-espresso-dark, #260D03);
+  color: #FFFFFF;
+  padding: 6px 16px;
+  text-align: center;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.35;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 101;
+  overflow: hidden;
+}
+
+.sp-utility-slider {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sp-utility-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.sp-utility-slide.active {
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.sp-utility-slide.exit {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(-14px);
+  pointer-events: none;
+}
+
+.sp-utility-content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sp-utility-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sp-promo-tag {
+  background-color: var(--color-apricot-cream, #FFEBC4);
+  color: var(--color-rust-terracotta, #5B2008);
+  padding: 1px 7px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+.sp-utility-divider {
+  opacity: 0.5;
+}
+
+.sp-utility-subtext {
+  opacity: 0.95;
+}
+
+.sp-utility-link {
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  margin-left: 4px;
+  cursor: pointer;
+  transition: opacity var(--sp-transition-fast);
+}
+
+.sp-utility-link:hover {
+  opacity: 0.85;
+  color: var(--color-apricot-cream, #FFEBC4);
+}
+
+.sp-utility-phone-icon {
+  color: var(--color-apricot-cream, #FFEBC4);
+  flex-shrink: 0;
+}
+
+.sp-utility-phone-link {
+  color: var(--color-apricot-cream, #FFEBC4) !important;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Mobile: break into two lines, shorter height, smaller font size */
+@media (max-width: 767px) {
+  .sp-utility-bar {
+    padding: 5px 10px;
+    font-size: 0.715rem;
+    line-height: 1.25;
+    min-height: auto;
+  }
+
+  .sp-utility-content {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .sp-utility-divider {
+    display: none;
+  }
+
+  .sp-utility-line {
+    gap: 4px;
+    font-size: 0.715rem;
+    justify-content: center;
+  }
+
+  .sp-promo-tag {
+    padding: 0 5px;
+    font-size: 0.675rem;
+  }
+
+  .sp-utility-link {
+    font-size: 0.715rem;
+    margin-left: 2px;
+  }
+}
+
+/* ==========================================================================
+   STICKY FLOATING HEADER & NAVIGATION
+   Initial: Seamless full-bleed integration with hero canvas (Option A).
+   On Scroll: Smoothly reveals frosted pill bar with shadow.
+   ========================================================================== */
+.site-header {
+  position: absolute;
+  top: var(--sp-utility-height, 38px);
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  transition: padding var(--sp-transition-smooth), background-color var(--sp-transition-smooth);
+}
+
+.nav-pill-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  background-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 1px solid transparent;
+  border-radius: var(--sp-radius-pill);
+  padding: 16px clamp(24px, 4.5vw, 64px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: none;
+  transition: all 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .desktop-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: clamp(18px, 2.2vw, 34px);
+  }
+}
+
+.site-header.scrolled {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 8px clamp(12px, 2vw, 24px);
+}
+
+.site-header.scrolled .nav-pill-container {
+  max-width: var(--sp-container-max);
+  margin: 0 auto;
+  background-color: var(--color-linen-warm, #FAF2DE);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(38, 13, 3, 0.12);
+  box-shadow: none;
+  padding: 10px clamp(18px, 2.5vw, 28px);
+}
+
+/* Resting State: Over Cinematic Amber/Terracotta Hero Canvas */
+.site-header:not(.scrolled) .brand-wordmark {
+  color: var(--color-apricot-cream, #FFEBC4);
+}
+
+.site-header.scrolled .brand-wordmark {
+  color: var(--color-espresso-dark, #260D03);
+}
+
+.site-header:not(.scrolled) .nav-link {
+  color: var(--color-apricot-cream, #FFEBC4);
+  opacity: 0.92;
+}
+
+.site-header:not(.scrolled) .nav-link:hover {
+  color: #FFFFFF;
+  opacity: 1;
+}
+
+.site-header.scrolled .nav-link {
+  color: var(--color-charcoal-earth, #41382E);
+}
+
+.site-header.scrolled .nav-link:hover {
+  color: var(--color-espresso-dark, #260D03);
+}
+
+.site-header:not(.scrolled) .nav-user-icon-btn {
+  color: var(--color-apricot-cream, #FFEBC4);
+  border-color: rgba(255, 235, 196, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.site-header:not(.scrolled) .nav-user-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: var(--color-apricot-cream, #FFEBC4);
+  color: #FFFFFF;
+}
+
+.site-header.scrolled .nav-user-icon-btn {
+  color: var(--color-espresso-dark, #260D03);
+  border-color: rgba(38, 13, 3, 0.18);
+  background: rgba(38, 13, 3, 0.05);
+}
+
+.site-header.scrolled .nav-user-icon-btn:hover {
+  color: #FFFFFF;
+  background: var(--color-espresso-dark, #260D03);
+  border-color: var(--color-espresso-dark, #260D03);
+}
+
+.site-header:not(.scrolled) .nav-actions .sp-btn-sm {
+  background-color: #FFFFFF;
+  color: var(--color-rust-terracotta, #5B2008);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 4px 14px rgba(38, 13, 3, 0.25);
+  font-weight: 600;
+}
+
+.site-header:not(.scrolled) .nav-actions .sp-btn-sm:hover {
+  background-color: #FFFDF5;
+  color: var(--color-espresso-dark, #260D03);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(38, 13, 3, 0.32);
+}
+
+.site-header.scrolled .nav-actions .sp-btn-sm {
+  background-color: var(--color-linen-warm, #FAF2DE);
+  color: var(--color-espresso-dark, #260D03);
+  border: 1px solid rgba(38, 13, 3, 0.15);
+  box-shadow: 0 2px 8px rgba(38, 13, 3, 0.06);
+  font-weight: 600;
+}
+
+.site-header.scrolled .nav-actions .sp-btn-sm:hover {
+  background-color: #FFFFFF;
+  color: var(--color-espresso-dark, #260D03);
+  border-color: rgba(38, 13, 3, 0.25);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(38, 13, 3, 0.12);
+}
+
+.site-header:not(.scrolled) .menu-toggle {
+  color: var(--color-apricot-cream, #FFEBC4);
+  border-color: rgba(255, 235, 196, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.site-header.scrolled .menu-toggle {
+  background-color: var(--color-linen-warm, #FAF2DE);
+  color: var(--color-espresso-dark, #260D03);
+  border: 1px solid rgba(38, 13, 3, 0.18);
+}
+
+.nav-user-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: var(--color-ink-charcoal);
+  border: 1px solid rgba(23, 63, 53, 0.12);
+  background: rgba(255, 255, 255, 0.75);
+  transition: all var(--sp-transition-fast);
+  text-decoration: none;
+  margin-right: 2px;
+}
+
+.nav-user-icon-btn:hover {
+  color: var(--color-deep-forest);
+  border-color: var(--color-deep-forest);
+  background: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(23, 63, 53, 0.12);
+}
+
+.nav-user-icon-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 767px) {
+  .site-header {
+    position: absolute;
+    top: var(--sp-utility-height, 44px);
+    left: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-pill-container {
+    padding: 8px 16px;
+    gap: 8px;
+  }
+
+  .site-header.scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 4px 8px;
+  }
+
+  .site-header.scrolled .nav-pill-container {
+    padding: 6px 12px;
+  }
+
+  .brand-wordmark {
+    font-size: 1.35rem;
+  }
+
+  .nav-actions {
+    gap: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-actions .nav-user-icon-btn {
+    display: none; /* Login icon moved into mobile/tablet hamburger menu under ACCOUNT */
+  }
+
+  .nav-actions .sp-btn-sm {
+    display: inline-flex;
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1;
+    min-height: 34px;
+    border-radius: var(--sp-radius-pill, 9999px);
+    gap: 6px;
+    align-items: center;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .nav-actions .sp-btn-sm .sp-btn-icon {
+    width: 12px;
+    height: 12px;
+    stroke-width: 2.2;
+  }
+
+  .menu-toggle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: var(--color-apricot-cream, #FFEBC4);
+    color: var(--color-rust-terracotta, #5B2008);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform var(--sp-transition-fast), background-color var(--sp-transition-fast);
+  }
+
+  .menu-toggle:hover {
+    background-color: #FFFFFF;
+    transform: scale(1.05);
+  }
+
+  .site-header:not(.scrolled) .menu-toggle {
+    background-color: var(--color-apricot-cream, #FFEBC4);
+    color: var(--color-rust-terracotta, #5B2008);
+    border: none;
+  }
+}
+
+/* Brand Wordmark & Logo */
+.brand-wordmark {
+  font-family: var(--sp-font-display);
+  font-size: 1.625rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--sp-text-primary);
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  text-decoration: none;
+  transition: opacity var(--sp-transition-fast), color var(--sp-transition-fast);
+}
+
+.brand-wordmark {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.brand-wordmark:hover {
+  opacity: 0.88;
+}
+
+.brand-logo-svg {
+  height: 38px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+@media (max-width: 991px) {
+  .brand-logo-svg {
+    height: 30px;
+    width: auto;
+    flex-shrink: 0;
+  }
+}
+
+/* Desktop Nav Links */
+.desktop-nav {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(18px, 2vw, 32px);
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--sp-text-secondary);
+    transition: color var(--sp-transition-fast);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 0;
+  }
+
+  .nav-link:hover {
+    color: var(--sp-text-primary);
+  }
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (min-width: 768px) {
+  .nav-actions .sp-btn-sm {
+    height: 38px;
+    min-height: 38px;
+    padding: 0 18px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Hamburger Trigger */
+.menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--sp-border-light);
+  background: var(--sp-canvas-white);
+  color: var(--sp-text-primary);
+  cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  .menu-toggle {
+    display: inline-flex;
+  }
+}
+
+/* ==========================================================================
+   ALIVIO TREATMENT DRAWER & HAMBURGER SYSTEM
+   Inspired by Voy interaction architecture: gender tabs, treatment rows, smooth slide-out
+   ========================================================================== */
+
+/* Target section scroll margins for sticky header alignment */
+#products,
+#care-stories,
+#how-it-works,
+#faq {
+  scroll-margin-top: calc(var(--sp-header-height, 68px) + 24px);
+}
+
+.sp-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(22, 13, 8, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sp-drawer-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sp-drawer.alivio-treatment-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(92vw, 420px);
+  background-color: #FFFFFF;
+  border-left: 1px solid rgba(38, 13, 3, 0.08);
+  box-shadow: none;
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.sp-drawer.alivio-treatment-drawer.active {
+  transform: translateX(0);
+}
+
+/* Drawer Header */
+.alivio-treatment-drawer .sp-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px 20px;
+  border-bottom: 1px solid rgba(38, 13, 3, 0.08);
+  flex-shrink: 0;
+}
+
+.alivio-treatment-drawer .drawer-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(38, 13, 3, 0.12);
+  background-color: #FAF6F0;
+  color: var(--color-espresso-dark, #260D03);
+  cursor: pointer;
+  transition: all var(--sp-transition-fast, 180ms ease);
+}
+
+.alivio-treatment-drawer .drawer-close:hover {
+  background-color: #FFFFFF;
+  border-color: rgba(38, 13, 3, 0.25);
+  transform: scale(1.05);
+}
+
+.alivio-treatment-drawer .drawer-close:focus-visible {
+  outline: 2px solid var(--color-deep-forest, #173F35);
+  outline-offset: 2px;
+}
+
+/* Drawer Body (Scrollable) */
+.alivio-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Heading & Gender Segmented Tabs */
+.alivio-drawer-header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.alivio-drawer-heading {
+  font-family: var(--sp-font-display, inherit);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-espresso-dark, #260D03);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* Segmented Control */
+.alivio-gender-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
+  background-color: #F5EFE6;
+  border-radius: var(--sp-radius-pill, 9999px);
+  gap: 4px;
+}
+
+.alivio-gender-tab {
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: var(--sp-radius-pill, 9999px);
+  border: none;
+  background: transparent;
+  color: var(--color-charcoal-muted, #5A6863);
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
+}
+
+.alivio-gender-tab:hover:not(.is-active) {
+  color: var(--color-espresso-dark, #260D03);
+}
+
+.alivio-gender-tab.is-active {
+  background-color: var(--color-rust-terracotta, #5B2008);
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(91, 32, 8, 0.16);
+}
+
+.alivio-gender-tab:focus-visible {
+  outline: 2px solid var(--color-rust-terracotta, #5B2008);
+  outline-offset: 2px;
+}
+
+/* Treatment List & Row Items */
+.alivio-treatment-panels {
+  display: flex;
+  flex-direction: column;
+}
+
+.alivio-treatment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.alivio-treatment-list[hidden] {
+  display: none;
+}
+
+.alivio-treatment-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 0;
+  border-radius: 0;
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+  color: var(--color-espresso-dark, #260D03);
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.alivio-treatment-row:hover {
+  background-color: transparent;
+  border-color: transparent;
+  transform: translateX(3px);
+  box-shadow: none;
+}
+
+.alivio-treatment-row:focus-visible {
+  outline: 2px solid var(--color-rust-terracotta, #5B2008);
+  outline-offset: 2px;
+}
+
+/* Treatment Image Box (Clean, rounded, subtle warm border) */
+.alivio-treatment-thumb-box {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 12px;
+  background-color: #EFE8DC;
+  border: 1px solid rgba(38, 13, 3, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 200ms ease, border-color 200ms ease;
+}
+
+.alivio-treatment-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.alivio-treatment-row:hover .alivio-treatment-thumb-box {
+  border-color: rgba(91, 32, 8, 0.28);
+  transform: scale(1.04);
+}
+
+.alivio-treatment-name {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-espresso-dark, #260D03);
+  flex: 1;
+  letter-spacing: -0.01em;
+}
+
+.alivio-treatment-arrow {
+  width: 16px;
+  height: 16px;
+  color: rgba(38, 13, 3, 0.4);
+  transition: transform 200ms ease, color 200ms ease;
+  flex-shrink: 0;
+}
+
+.alivio-treatment-row:hover .alivio-treatment-arrow {
+  color: var(--color-rust-terracotta, #5B2008);
+  transform: translateX(2px);
+}
+
+/* Mobile & Drawer Navigation Links Below Treatments */
+.alivio-drawer-site-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 24px;
+  margin-top: 18px;
+  border-top: 1px solid rgba(38, 13, 3, 0.09); /* Subtle divider between treatments and nav links */
+}
+
+.alivio-drawer-section-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-charcoal-muted, #5A6863);
+  margin-bottom: 4px;
+}
+
+.alivio-drawer-site-nav .sp-drawer-link {
+  font-family: inherit;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--color-espresso-dark, #260D03);
+  text-decoration: none;
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+  transition: color var(--sp-transition-fast, 180ms ease), transform 180ms ease;
+}
+
+.alivio-drawer-site-nav .sp-drawer-link:hover {
+  color: var(--color-rust-terracotta, #5B2008);
+  transform: translateX(3px);
+}
+
+.alivio-drawer-divider {
+  border: none;
+  border-top: 1px solid rgba(38, 13, 3, 0.08);
+  margin: 12px 0 8px 0;
+  width: 100%;
+}
+
+.alivio-drawer-account-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.alivio-drawer-account-link svg {
+  color: var(--color-espresso-dark, #260D03);
+  transition: color var(--sp-transition-fast, 180ms ease);
+}
+
+.alivio-drawer-account-link:hover svg {
+  color: var(--color-rust-terracotta, #5B2008);
+}
+
+/* Drawer Footer */
+.alivio-treatment-drawer .sp-drawer-footer {
+  padding: 20px 28px 28px;
+  border-top: 1px solid rgba(38, 13, 3, 0.08);
+  background-color: #FAF7F2;
+  flex-shrink: 0;
+}
+
+.alivio-treatment-drawer .sp-drawer-footer .alivio-hero-primary-cta {
+  background-color: #5B2008 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #5B2008 !important;
+  width: 100% !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  max-height: 48px !important;
+  padding: 0 6px 0 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  border-radius: var(--sp-radius-pill, 9999px) !important;
+  box-shadow: 0 4px 14px rgba(91, 32, 8, 0.16) !important;
+}
+
+.alivio-treatment-drawer .sp-drawer-footer .alivio-hero-primary-cta .alivio-cta-label {
+  flex: 1 !important;
+  text-align: center !important;
+  font-family: var(--sp-font-sans, 'Inter', sans-serif) !important;
+  font-size: 0.92rem !important;
+  font-weight: 600 !important;
+  color: #FFFFFF !important;
+  letter-spacing: -0.01em !important;
+}
+
+.alivio-treatment-drawer .sp-drawer-footer .alivio-hero-primary-cta .alivio-cta-disk {
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  min-height: 32px !important;
+  border-radius: 50% !important;
+  background-color: #FFEBC4 !important;
+  color: #5B2008 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  margin-left: 8px !important;
+}
+
+.alivio-treatment-drawer .sp-drawer-footer .alivio-hero-primary-cta .alivio-cta-disk svg {
+  stroke: #5B2008 !important;
+  color: #5B2008 !important;
+}
+
+.alivio-treatment-drawer .sp-drawer-footer .alivio-hero-primary-cta:hover {
+  background-color: #3D1404 !important;
+  border-color: #3D1404 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Ensure drawer site navigation links are always visible on all viewports (desktop, tablet, mobile) */
+.alivio-drawer-site-nav {
+  display: flex !important;
+}
+
+/* ==========================================================================
+   ALIVIO HERO SECTION (.section_sp2-home-hero)
+   Cinematic edge-to-edge layout inspired by Alivio Wellness
+   ========================================================================== */
+.section_sp2-home-hero {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.sp-hero-card {
+  position: relative;
+  border-radius: 0;
+  overflow: hidden;
+  background-color: var(--color-rust-terracotta, #5B2008);
+  border: none;
+  width: 100%;
+  height: calc(100svh - var(--sp-utility-height, 38px));
+  min-height: calc(100svh - var(--sp-utility-height, 38px));
+  max-height: calc(100svh - var(--sp-utility-height, 38px));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: calc(var(--sp-header-height) + clamp(16px, 2.5vw, 36px));
+  padding-bottom: clamp(24px, 3.5vw, 48px);
+  padding-left: 0;
+  padding-right: 0;
+  box-shadow: none;
+}
+
+.sp-hero-bg-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  background-color: #723418;
+}
+
+.sp-hero-img,
+.sp-hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  opacity: 1;
+  display: block;
+  transform-origin: top center;
+}
+
+@media (min-width: 992px) {
+  .sp-hero-img,
+  .sp-hero-video {
+    object-position: 85% center; /* Ensure both woman and mother/doctor are in frame */
+  }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .sp-hero-img,
+  .sp-hero-video {
+    object-position: 78% center;
+  }
+}
+
+@media (max-width: 767px) {
+  .sp-hero-img,
+  .sp-hero-video {
+    object-position: 62% 16%; /* Perfect balance showing both subjects together on mobile */
+  }
+}
+
+/* Directional Scrim Overlay: Guaranteed WCAG AAA Legibility Without Darkening Subject */
+.sp-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(38, 13, 3, 0.70) 0%,
+    rgba(91, 32, 8, 0.45) 42%,
+    rgba(91, 32, 8, 0.12) 68%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+@media (max-width: 767px) {
+  .sp-hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(38, 13, 3, 0.35) 0%,
+      rgba(38, 13, 3, 0.08) 26%,
+      rgba(38, 13, 3, 0.48) 50%,
+      rgba(91, 32, 8, 0.88) 72%,
+      rgba(38, 13, 3, 0.98) 100%
+    );
+  }
+}
+
+.sp-hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 clamp(24px, 4.5vw, 64px);
+}
+
+@media (max-width: 767px) {
+  .sp-hero-card {
+    height: auto;
+    min-height: calc(100svh - var(--sp-utility-height, 44px));
+    max-height: none;
+    padding-top: calc(var(--sp-header-height, 52px) + 12px);
+    padding-bottom: max(16px, env(safe-area-inset-bottom, 16px));
+    justify-content: flex-end; /* Mobile hero text content positioned toward bottom */
+  }
+
+  .sp-hero-content {
+    padding: 0 20px;
+    margin-top: auto;
+  }
+}
+
+/* Unboxed Clean Inline Trustpilot Rating */
+.sp-hero-badge {
+  margin-bottom: var(--sp-space-5, 20px);
+}
+
+.alivio-hero-trustpilot {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  font-family: var(--sp-font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-apricot-cream, #FFEBC4);
+}
+
+.alivio-trustpilot-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--color-apricot-cream, #FFEBC4);
+}
+
+.alivio-star-icon {
+  width: 15px;
+  height: 15px;
+  color: var(--color-apricot-cream, #FFEBC4);
+  fill: var(--color-apricot-cream, #FFEBC4);
+  flex-shrink: 0;
+}
+
+.alivio-trustpilot-brand {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-apricot-cream, #FFEBC4);
+}
+
+.alivio-trustpilot-score {
+  font-weight: 700;
+  color: var(--color-apricot-cream, #FFEBC4);
+}
+
+.alivio-trustpilot-bullet {
+  opacity: 0.7;
+  color: var(--color-apricot-cream, #FFEBC4);
+}
+
+.alivio-trustpilot-reviews {
+  color: var(--color-apricot-cream, #FFEBC4);
+  font-weight: 400;
+  opacity: 0.95;
+}
+
+/* Hero Typography: Inter Display with -0.03em letter-spacing & Regular Font Weight (400) */
+.sp-hero-title {
+  color: var(--color-apricot-cream, #FFEBC4);
+  font-family: var(--sp-font-display);
+  font-optical-sizing: auto;
+  font-size: clamp(2.95rem, 5.5vw + 0.6rem, 5.25rem); /* A bit larger on desktop */
+  font-weight: 400; /* Regular per requirement */
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  margin-top: 0;
+  margin-bottom: var(--sp-space-5, 20px);
+  max-width: 780px;
+  text-wrap: balance;
+}
+
+.sp-hero-title-fixed {
+  display: inline;
+  line-height: inherit;
+}
+
+/* Stable dynamic phrase container prevents layout shifts */
+.sp-hero-title-dynamic {
+  display: inline-grid;
+  grid-template-areas: "phrase";
+  vertical-align: top;
+  position: relative;
+  min-width: 14ch; /* Accommodates longest phrase: wellbeing deserves. */
+  line-height: inherit;
+}
+
+.sp-rotating-phrase {
+  grid-area: phrase;
+  opacity: 0;
+  transform: translateY(12px);
+  visibility: hidden;
+  pointer-events: none;
+  white-space: nowrap;
+  line-height: inherit;
+  font-size: inherit;
+  font-weight: 300; /* Medium-thin / light weight per requirement */
+  font-style: italic; /* Italic per requirement */
+  letter-spacing: inherit;
+  margin: 0;
+  padding: 0;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+}
+
+.sp-rotating-phrase.active {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.sp-rotating-phrase.exit {
+  opacity: 0;
+  transform: translateY(-12px);
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-rotating-phrase {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .sp-hero-badge {
+    margin-bottom: 6px;
+  }
+
+  .sp-hero-title {
+    font-size: clamp(44px, 11vw, 48px) !important; /* Bigger mobile heading (46px baseline) */
+    line-height: 1.12 !important;
+    letter-spacing: -0.035em !important;
+    margin-bottom: 8px;
+    max-width: 100%;
+  }
+
+  .sp-hero-title-fixed {
+    display: inline;
+    line-height: 1.12 !important;
+  }
+
+  .sp-hero-title-dynamic {
+    display: inline-grid !important;
+    grid-template-areas: "phrase" !important;
+    min-width: 0;
+    vertical-align: baseline;
+    line-height: 1.12 !important;
+  }
+
+  .sp-rotating-phrase {
+    grid-area: phrase !important;
+    line-height: 1.12 !important;
+    font-size: clamp(44px, 11vw, 48px) !important;
+    font-weight: 300 !important; /* Medium-thin on mobile */
+    font-style: italic !important;
+    letter-spacing: -0.035em !important;
+  }
+}
+
+.sp-hero-subtitle {
+  color: var(--color-apricot-cream, #FFEBC4);
+  font-family: var(--sp-font-sans);
+  font-size: clamp(1.05rem, 1vw + 0.6rem, 1.22rem);
+  font-weight: 400;
+  line-height: 1.58;
+  letter-spacing: -0.01em;
+  max-width: 530px;
+  margin-top: 0;
+  margin-bottom: var(--sp-space-8, 32px);
+  opacity: 0.95;
+}
+
+@media (max-width: 767px) {
+  .sp-hero-subtitle {
+    font-size: 0.88rem;
+    line-height: 1.42;
+    margin-bottom: 14px;
+    max-width: 100%;
+  }
+}
+
+/* Hero CTA Group: Primary Filled + Secondary Glass-Morphism */
+.sp-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Primary Filled CTA (White Pill with Terracotta Disk) - Refined subtle shadow */
+.alivio-hero-primary-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  background-color: #FFFFFF;
+  color: var(--color-rust-terracotta, #5B2008);
+  font-family: var(--sp-font-sans);
+  font-size: 0.94rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 6px 6px 6px 20px;
+  border-radius: var(--sp-radius-pill, 9999px);
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(38, 13, 3, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: all 260ms cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  height: 48px;
+  min-height: 48px;
+  max-height: 48px;
+  box-sizing: border-box;
+}
+
+.alivio-hero-primary-cta:hover {
+  background-color: #FFFDF5;
+  color: var(--color-espresso-dark, #260D03);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(38, 13, 3, 0.12), 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.alivio-hero-primary-cta:active {
+  transform: translateY(0);
+}
+
+.alivio-hero-primary-cta:focus-visible {
+  outline: 3px solid var(--color-apricot-cream, #FFEBC4);
+  outline-offset: 3px;
+}
+
+.alivio-cta-disk {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-rust-terracotta, #5B2008);
+  color: var(--color-apricot-cream, #FFEBC4);
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), background-color 200ms ease;
+  flex-shrink: 0;
+}
+
+.alivio-hero-primary-cta:hover .alivio-cta-disk {
+  background-color: var(--color-espresso-dark, #260D03);
+  transform: scale(1.08) translateX(2px);
+}
+
+/* Secondary Glass-Morphism CTA (Alivio Wellness Reference) - strictly 44px height matching primary */
+.alivio-hero-secondary-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  background-color: rgba(255, 235, 196, 0.12);
+  color: var(--color-apricot-cream, #FFEBC4);
+  font-family: var(--sp-font-sans);
+  font-size: 0.94rem;
+  font-weight: 500;
+  line-height: 1;
+  padding: 6px 6px 6px 20px;
+  border-radius: var(--sp-radius-pill, 9999px);
+  text-decoration: none;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 235, 196, 0.35);
+  box-shadow: 0 2px 8px rgba(38, 13, 3, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: all 260ms cubic-bezier(0.16, 1, 0.3, 1);
+  height: 48px;
+  min-height: 48px;
+  max-height: 48px;
+  box-sizing: border-box;
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+  .alivio-hero-secondary-cta {
+    background-color: rgba(91, 32, 8, 0.85);
+  }
+}
+
+.alivio-hero-secondary-cta:hover {
+  background-color: rgba(255, 235, 196, 0.22);
+  border-color: rgba(255, 235, 196, 0.65);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(38, 13, 3, 0.12), 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.alivio-hero-secondary-cta:active {
+  transform: translateY(0);
+}
+
+.alivio-hero-secondary-cta:focus-visible {
+  outline: 3px solid var(--color-apricot-cream, #FFEBC4);
+  outline-offset: 3px;
+}
+
+.alivio-glass-disk {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(255, 235, 196, 0.22);
+  color: var(--color-apricot-cream, #FFEBC4);
+  border: 1px solid rgba(255, 235, 196, 0.35);
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), background-color 200ms ease, color 200ms ease;
+  flex-shrink: 0;
+}
+
+.alivio-hero-secondary-cta:hover .alivio-glass-disk {
+  background-color: var(--color-apricot-cream, #FFEBC4);
+  color: var(--color-espresso-dark, #260D03);
+  transform: scale(1.08) translateX(2px);
+}
+
+@media (max-width: 767px) {
+  .sp-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    width: auto;
+  }
+
+  .alivio-hero-primary-cta,
+  .alivio-hero-secondary-cta {
+    width: auto !important;
+    max-width: max-content !important;
+    height: 44px;
+    min-height: 44px;
+    max-height: 44px;
+    box-sizing: border-box;
+    padding: 0 6px 0 20px !important;
+    font-size: 0.875rem;
+    font-weight: 600;
+    justify-content: center;
+    gap: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .alivio-cta-disk,
+  .alivio-glass-disk {
+    width: 26px;
+    height: 26px;
+  }
+
+  .alivio-cta-disk svg,
+  .alivio-glass-disk svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* Trust-Feature Row Below CTAs */
+.sp-hero-trust-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 1.8vw, 28px);
+  margin-top: clamp(20px, 2.8vw, 36px);
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.sp-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-apricot-cream, #FFEBC4);
+  font-family: var(--sp-font-sans);
+  font-size: 0.775rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.92;
+  user-select: none;
+}
+
+.sp-trust-icon {
+  width: 16px;
+  height: 16px;
+  stroke: var(--color-apricot-cream, #FFEBC4);
+  flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+  .sp-hero-trust-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 235, 196, 0.18);
+    width: 100%;
+  }
+
+  .sp-trust-item {
+    font-size: clamp(0.64rem, 2.4vw, 0.72rem);
+    gap: 4px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .sp-trust-icon {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+/* ==========================================================================
+   AS SEEN IN MEDIA MARQUEE (.sp-as-seen-in)
+   Replaces doctor proof section. Seamless infinite slow linear scroll.
+   ========================================================================== */
+.sp-as-seen-in {
+  padding: 36px 0 50px;
+  background-color: var(--sp-canvas-bg, #FFFFFF);
+  overflow: hidden;
+  position: relative;
+  margin-top: 0;
+}
+
+.sp-as-seen-in__header {
+  text-align: center;
+  margin-bottom: clamp(10px, 1.4vw, 16px);
+}
+
+.sp-as-seen-in__title {
+  font-family: var(--sp-font-sans);
+  font-size: 0.775rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-charcoal-subtle, #75837E);
+  display: inline-block;
+}
+
+.sp-as-seen-in__marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.sp-as-seen-in__track {
+  display: flex;
+  align-items: center;
+  gap: clamp(44px, 5vw, 76px);
+  width: max-content;
+  white-space: nowrap;
+  animation: sp-marquee-scroll 28s linear infinite;
+  padding: 6px 0;
+}
+
+.sp-as-seen-in__marquee:hover .sp-as-seen-in__track {
+  animation-play-state: paused;
+}
+
+.sp-media-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-ink-charcoal, #1C2724);
+  opacity: 0.88;
+  transition: opacity var(--sp-transition-fast), color var(--sp-transition-fast), transform var(--sp-transition-fast);
+  cursor: default;
+  user-select: none;
+}
+
+.sp-media-logo:hover {
+  opacity: 1;
+  color: var(--color-deep-forest, #0B2B24);
+  transform: translateY(-2px);
+}
+
+.sp-media-svg {
+  height: clamp(20px, 2.2vw, 28px);
+  width: auto;
+  max-width: none;
+  flex-shrink: 0;
+  display: block;
+}
+
+.sp-media-svg text {
+  fill: currentColor;
+}
+
+@keyframes sp-marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-as-seen-in__track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 32px;
+  }
+}
+
+/* ==========================================================================
+   HOW-IT-WORKS INTERACTIVE SECTION (.section_hiws)
+   ========================================================================== */
+.section_hiws {
+  padding: clamp(64px, 8vw, 108px) 0;
+}
+
+.sp-section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto clamp(36px, 6vw, 60px);
+}
+
+.hiws_content_grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .hiws_content_grid {
+    grid-template-columns: 1.05fr 1fr;
+    gap: 64px;
+  }
+}
+
+.hiws_copy {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hiws_copy h3 {
+  font-size: clamp(1.6rem, 2.2vw + 0.5rem, 2.35rem);
+  line-height: 1.2;
+}
+
+.hiws_faq_pills {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.hiws_faq_btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background-color: var(--sp-canvas-white);
+  border: 1px solid var(--sp-border-light);
+  border-radius: var(--sp-radius-md);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--sp-text-primary);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--sp-transition-fast);
+}
+
+.hiws_faq_btn:hover {
+  border-color: var(--sp-border-strong);
+  background-color: #FBFBFA;
+}
+
+.hiws_faq_icon {
+  font-size: 1.15rem;
+  color: var(--sp-text-tertiary);
+}
+
+/* Device Mockup Visual Frame */
+.hiws_visual_frame {
+  position: relative;
+  border-radius: var(--sp-radius-xl);
+  overflow: hidden;
+  background-color: #0D0D0E;
+  box-shadow: none;
+  border: 1px solid var(--sp-border-light);
+}
+
+.hiws_visual_img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hiws_visual_frame:hover .hiws_visual_img {
+  transform: scale(1.02);
+}
+
+.hiws_floating_note {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  border-radius: var(--sp-radius-lg);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.hiws_note_icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--sp-accent-primary);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.hiws_note_text h5 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.hiws_note_text p {
+  font-size: 0.8125rem;
+  color: var(--sp-text-secondary);
+}
+
+/* ==========================================================================
+   ALIVIO CURVED TREATMENT DISCOVERY CAROUSEL (.alivio-curved-discovery)
+   Alivio-Inspired Editorial Arched Auto-Scrolling Card Composition
+   Pure White Canvas (#FFFFFF), Radial Tick Arc Guide, 6 Treatment Categories
+   ========================================================================== */
+.alivio-curved-discovery {
+  background-color: #FFFFFF;
+  padding-top: 40px;
+  padding-bottom: 80px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Centered Header & Introduction */
+/* ==========================================================================
+   ALIVIO CARE TREATMENTS CAROUSEL (Alivio Flat Layout)
+   ========================================================================== */
+
+/* Centered Header & Introduction */
+.alivio-treatments-intro {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto clamp(24px, 3.2vw, 40px);
+  padding: 0 clamp(16px, 4vw, 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* Main Heading: Regular font-weight (400), clean editorial Inter typography */
+.alivio-treatments-heading {
+  font-family: var(--sp-font-display, "Inter", sans-serif);
+  font-size: clamp(2.1rem, 4.2vw, 3.5rem);
+  font-weight: 400 !important;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--color-ink-charcoal, #1F2937);
+  margin: 0 0 clamp(12px, 1.6vw, 18px);
+  max-width: 680px;
+  text-align: center;
+}
+
+.alivio-treatments-subheading {
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: clamp(0.98rem, 1.35vw, 1.12rem);
+  line-height: 1.55;
+  color: var(--sp-text-secondary, #4B5563);
+  margin: 0;
+  max-width: 580px;
+  text-align: center;
+}
+
+/* Treatments Carousel Stage & Scroll Track */
+.alivio-treatments-carousel-wrap {
+  max-width: 1360px; /* Matching OUR APPROACH (.sp-care-slider__container) */
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  padding: 12px 32px 20px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .alivio-treatments-carousel-wrap {
+    padding: 12px 20px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .alivio-treatments-carousel-wrap {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
+  }
+}
+
+.alivio-treatments-track {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 8px 4px 16px;
+  scrollbar-width: none;
+  cursor: grab;
+}
+
+.alivio-treatments-track::-webkit-scrollbar {
+  display: none;
+}
+
+.alivio-treatments-track:active {
+  cursor: grabbing;
+}
+
+/* Individual Care Card (Alivio 309px x 478px ratio, 24px radius) */
+.alivio-care-card {
+  flex: 0 0 304px;
+  width: 304px;
+  height: 468px;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background-color: #FAF2DE;
+  box-shadow: none;
+  transition: none;
+  user-select: none;
+}
+
+@media (max-width: 600px) {
+  .alivio-care-card {
+    flex: 0 0 270px;
+    width: 270px;
+    height: 420px;
+    border-radius: 20px;
+  }
+}
+
+.alivio-care-card:hover {
+  /* Card container remains completely static with zero shadow */
+  box-shadow: none !important;
+}
+
+.alivio-care-card__link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+.alivio-care-card__link:focus-visible {
+  outline: 2px solid var(--color-rust-terracotta, #5B2008);
+  outline-offset: 4px;
+}
+
+.alivio-care-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.alivio-care-card:hover .alivio-care-card__img {
+  transform: scale(1.05);
+}
+
+/* Alivio Scrim Gradient: Clean dark fade at bottom for contrast */
+.alivio-care-card__scrim {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 60%;
+  background: linear-gradient(
+    180deg,
+    rgba(91, 32, 8, 0) 0%,
+    rgba(91, 32, 8, 0.28) 20%,
+    rgba(91, 32, 8, 0.65) 50%,
+    rgba(68, 22, 5, 0.88) 78%,
+    rgba(38, 13, 3, 0.98) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  transition: opacity 0.3s ease;
+}
+
+/* Card Content Overlay at bottom */
+.alivio-care-card__content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Reduced to 6px for unified compact spacing from small heading to main heading */
+  z-index: 3;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 600px) {
+  .alivio-care-card__content {
+    padding: 22px 18px 18px;
+    gap: 8px;
+  }
+}
+
+.alivio-care-card:hover .alivio-care-card__content {
+  transform: none;
+}
+
+/* Eyebrow Pill Badge (Small Heading increased by 3px: 0.74rem/11.84px -> ~15px / 0.94rem, font-weight 500) */
+.alivio-care-card__eyebrow {
+  display: block;
+  align-self: flex-start;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  color: #FFEBC4; /* Clean Alivio peach text accent */
+  font-family: var(--sp-font-mono, monospace);
+  font-size: clamp(0.92rem, 1.1vw, 0.95rem); /* Increased by 3px for high legibility */
+  font-weight: 500; /* Set from 600 to 500 */
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Card Title and Circle Action Button */
+
+.alivio-care-card__text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Reduced gap between main heading and see your options (more compact & consistent) */
+}
+
+@media (max-width: 600px) {
+  .alivio-care-card__text-group {
+    gap: 5px;
+  }
+}
+
+.alivio-care-card__subtext {
+  font-family: var(--sp-font-sans, Inter, sans-serif);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.88); /* Warm white */
+  letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.alivio-care-card:hover .alivio-care-card__subtext {
+  color: #FFFFFF;
+  transform: none !important; /* Ensure it stays completely static with zero movement */
+}
+
+.alivio-care-card__footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.alivio-care-card__title {
+  font-family: var(--sp-font-display, "Inter", sans-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 600px) {
+  .alivio-care-card__title {
+    font-size: 1.15rem;
+  }
+}
+
+/* Circular Action Arrow Button (Alivio style disc) */
+.alivio-care-card__action-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.alivio-care-card:hover .alivio-care-card__action-btn {
+  transform: translateX(3px);
+  background-color: #5B2008;
+  border-color: #5B2008;
+  color: #FFFFFF;
+}
+
+/* Carousel Navigation Controls Below */
+.alivio-care-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px auto 40px; /* Exact 40px bottom margin directly separating arrows from trust metrics */
+  position: relative;
+  z-index: 5;
+}
+
+.alivio-care-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--sp-border-light, #E5E7EB);
+  background-color: #FFFFFF;
+  color: var(--color-ink-charcoal, #111827);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.alivio-care-nav-btn:hover {
+  background-color: #FAF2DE;
+  border-color: #5B2008;
+  color: #5B2008;
+  transform: scale(1.06);
+}
+
+.alivio-care-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.alivio-care-nav-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ==========================================================================
+   ALIVIO CLINICAL TRUST METRICS & SPINNING NUMBER COUNTERS
+   Section: CLINICAL EXCELLENCE AT SCALE
+   Pure White (#FFFFFF) Canvas, Full Width Section, 60px Numbers, Brand Brown (#5B2009)
+   ========================================================================== */
+.section_clinical-metrics {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding: 80px 0 !important;
+  position: relative;
+  z-index: 5;
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.alivio-trust-metrics,
+#alivio-trust-metrics {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 80px 24px !important;
+  position: relative;
+  z-index: 5;
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.section_clinical-metrics .alivio-trust-metrics {
+  padding: 0 24px !important;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.alivio-trust-metrics *,
+#alivio-trust-metrics *,
+.section_clinical-metrics * {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+@media (max-width: 767px) {
+  .section_clinical-metrics {
+    padding: 50px 0 !important;
+  }
+
+  .alivio-trust-metrics,
+  #alivio-trust-metrics {
+    padding: 50px 16px !important;
+  }
+
+  .section_clinical-metrics .alivio-trust-metrics {
+    padding: 0 16px !important;
+  }
+}
+
+.alivio-trust-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.alivio-trust-eyebrow {
+  display: inline-block;
+  font-family: var(--sp-font-mono, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-rust-terracotta, #5B2008);
+  margin-bottom: 8px;
+}
+
+.alivio-trust-heading {
+  font-family: var(--sp-font-display, "Inter", sans-serif);
+  font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--color-ink-charcoal, #111827);
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* 4-Column Responsive Metric Grid: Pure White, Zero Shadow, Increased Gap Between Cards */
+.alivio-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(28px, 4vw, 56px) !important; /* Increased gap between metric items */
+  max-width: 1240px !important;
+  margin: 0 auto;
+  box-shadow: none !important;
+}
+
+.alivio-trust-card {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0;
+  padding: 8px 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: none !important;
+  filter: none !important;
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.alivio-trust-card:hover {
+  transform: translateY(-2px);
+  box-shadow: none !important;
+  border: none !important;
+  filter: none !important;
+}
+
+.alivio-trust-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #FAF2DE;
+  border: 1px solid rgba(233, 223, 208, 0.6);
+  color: #260D03;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  box-shadow: none !important;
+  filter: none !important;
+  transition: transform 260ms ease, background-color 260ms ease;
+}
+
+.alivio-trust-card:hover .alivio-trust-icon-box {
+  transform: scale(1.06);
+  background-color: #FFEBC4;
+  box-shadow: none !important;
+}
+
+.alivio-trust-icon-box svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 1.3;
+}
+
+/* Clinical Excellence Number: Exactly 60px & Brand Brown (#5B2009) */
+.alivio-trust-value {
+  font-family: var(--sp-font-display, "Inter", sans-serif) !important;
+  font-size: 60px !important; /* Exact 60px requirement */
+  font-weight: 400 !important;
+  letter-spacing: -0.035em !important;
+  color: #5B2009 !important; /* Brand Brown */
+  line-height: 1.05 !important;
+  margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+.alivio-trust-value .alivio-spin-num {
+  font-family: inherit !important;
+  font-size: 60px !important;
+  font-weight: inherit !important;
+  color: #5B2009 !important;
+  letter-spacing: inherit !important;
+  line-height: inherit !important;
+  text-shadow: none !important;
+}
+
+.alivio-trust-label {
+  font-family: var(--sp-font-body, "Inter", sans-serif);
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: #5A6863;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Tablet Media Query (600px - 899px) */
+@media (max-width: 899px) and (min-width: 600px) {
+  .alivio-trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 24px !important;
+  }
+
+  .alivio-trust-metrics {
+    margin-top: 0;
+  }
+}
+
+/* Mobile Media Query (< 600px) */
+@media (max-width: 599px) {
+  .alivio-trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 16px !important;
+  }
+
+  .alivio-trust-metrics {
+    margin-top: 0;
+    padding: 0 16px;
+  }
+
+  .alivio-trust-card {
+    padding: 6px 4px;
+  }
+
+  .alivio-trust-icon-box {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 8px;
+  }
+
+  .alivio-trust-icon-box svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.3;
+  }
+
+  .alivio-trust-value {
+    font-size: clamp(42px, 10.5vw, 60px) !important;
+    line-height: 1.1 !important;
+    color: #5B2009 !important;
+    margin-bottom: 4px;
+  }
+
+  .alivio-trust-value .alivio-spin-num {
+    font-size: inherit !important;
+  }
+
+  .alivio-trust-label {
+    font-size: 0.8rem;
+    line-height: 1.25;
+  }
+
+  .alivio-trust-header {
+    margin-bottom: 18px;
+  }
+}
+
+/* ==========================================================================
+   SECTION 04B: HOW ALIVIO WORKS (.alivio-works-how-it-works)
+   Exact Alivio Wellness Stacking Full-Bleed Cards Experience
+   - Desktop: Sticky stacking cards (top: 0), image right (553px x 442px, radius 24px), content left
+   - Colors: Step 1 #FAF2DE, Step 2 #2D3622, Step 3 #5B2008
+   - Typography: Regular font headings, exact Alivio badge & bullet styling
+   - Hero CTA: Identical to Alivio hero button
+   ========================================================================== */
+.alivio-works-how-it-works {
+  position: relative;
+  width: 100%;
+  z-index: 6;
+  background-color: #FAF2DE;
+  padding: 0;
+}
+
+.alivio-works-cards-stack {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Individual Sticky Full-Bleed Cards - Responsive Vertical Spacing */
+.alivio-works-step-card {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(36px, 4.5vh, 60px) clamp(24px, 4vw, 48px);
+  will-change: transform;
+  overflow: hidden;
+}
+
+/* Colorway Theme 01: Warm Linen (#FAF2DE) */
+.alivio-works-step-card--01 {
+  background-color: #FAF2DE;
+  color: #070706;
+  z-index: 1;
+}
+
+.alivio-works-step-card--01 .alivio-works-pill-badge {
+  color: #070706;
+  border-color: rgba(7, 7, 6, 0.18);
+  background-color: rgba(7, 7, 6, 0.04);
+}
+
+.alivio-works-step-card--01 .alivio-works-card-title {
+  color: #070706;
+}
+
+.alivio-works-step-card--01 .alivio-works-step-counter {
+  background-color: #FFFFFF;
+  color: #070706;
+  box-shadow: 0 2px 10px rgba(7, 7, 6, 0.06);
+}
+
+.alivio-works-step-card--01 .alivio-works-step-headline {
+  color: #070706;
+}
+
+.alivio-works-step-card--01 .alivio-works-step-summary {
+  color: #41382E;
+}
+
+.alivio-works-step-card--01 .alivio-works-check-item {
+  color: #41382E;
+}
+
+.alivio-works-step-card--01 .alivio-works-check-icon {
+  color: #5B2008;
+}
+
+.alivio-works-step-card--01 .alivio-works-cta-note {
+  color: #6C5E4E;
+}
+
+/* Colorway Theme 02: Deep Forest Green (#2D3622) */
+.alivio-works-step-card--02 {
+  background-color: #2D3622;
+  color: #FFEBC4;
+  z-index: 2;
+  box-shadow: none;
+  border-top: 1px solid rgba(255, 235, 196, 0.12);
+}
+
+.alivio-works-step-card--02 .alivio-works-pill-badge {
+  color: #FFEBC4;
+  border-color: rgba(255, 235, 196, 0.22);
+  background-color: rgba(255, 235, 196, 0.06);
+}
+
+.alivio-works-step-card--02 .alivio-works-card-title {
+  color: #FFEBC4;
+}
+
+.alivio-works-step-card--02 .alivio-works-step-counter {
+  background-color: rgba(255, 235, 196, 0.12);
+  color: #FFEBC4;
+  border: 1px solid rgba(255, 235, 196, 0.2);
+}
+
+.alivio-works-step-card--02 .alivio-works-step-headline {
+  color: #FFEBC4;
+}
+
+.alivio-works-step-card--02 .alivio-works-step-summary {
+  color: rgba(255, 235, 196, 0.85);
+}
+
+.alivio-works-step-card--02 .alivio-works-check-item {
+  color: rgba(255, 235, 196, 0.92);
+}
+
+.alivio-works-step-card--02 .alivio-works-check-icon {
+  color: #FFEBC4;
+}
+
+.alivio-works-step-card--02 .alivio-works-cta-note {
+  color: rgba(255, 235, 196, 0.7);
+}
+
+/* Colorway Theme 03: Rich Terracotta Chestnut (#5B2008) */
+.alivio-works-step-card--03 {
+  background-color: #5B2008;
+  color: #FFEBC4;
+  z-index: 3;
+  box-shadow: none;
+  border-top: 1px solid rgba(255, 235, 196, 0.12);
+  overflow: visible !important; /* Never crop image */
+}
+
+.alivio-works-step-card--03 .alivio-works-card-container,
+.alivio-works-step-card--03 .alivio-works-card-body,
+.alivio-works-step-card--03 .alivio-works-image-col,
+.alivio-works-step-card--03 .alivio-works-image-wrap {
+  overflow: visible !important;
+}
+
+/* Step 03 Image Enhancement: Enlarged, perfectly grounded, zero drop shadow */
+.alivio-works-step-card--03 .alivio-works-image-wrap {
+  height: min(610px, calc(100vh - 165px)) !important;
+  margin-top: -95px !important;
+  transform: scale(1.10);
+  transform-origin: left bottom;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.alivio-works-step-card--03 .alivio-works-step-img {
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.alivio-works-step-card--03 .alivio-works-pill-badge {
+  color: #FFEBC4;
+  border-color: rgba(255, 235, 196, 0.24);
+  background-color: rgba(255, 235, 196, 0.08);
+}
+
+.alivio-works-step-card--03 .alivio-works-card-title {
+  color: #FFEBC4;
+}
+
+.alivio-works-step-card--03 .alivio-works-step-counter {
+  background-color: rgba(255, 235, 196, 0.12);
+  color: #FFEBC4;
+  border: 1px solid rgba(255, 235, 196, 0.2);
+}
+
+.alivio-works-step-card--03 .alivio-works-step-headline {
+  color: #FFEBC4;
+}
+
+.alivio-works-step-card--03 .alivio-works-step-summary {
+  color: rgba(255, 235, 196, 0.88);
+}
+
+.alivio-works-step-card--03 .alivio-works-check-item {
+  color: rgba(255, 235, 196, 0.92);
+}
+
+.alivio-works-step-card--03 .alivio-works-check-icon {
+  color: #FFEBC4;
+}
+
+.alivio-works-step-card--03 .alivio-works-cta-note {
+  color: rgba(255, 235, 196, 0.7);
+}
+
+/* Inner Container - matching Alivio max-width 1360px */
+.alivio-works-card-container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Top Section Header */
+.alivio-works-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.alivio-works-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 13px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-family: var(--sp-font-mono, monospace);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.alivio-works-badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alivio-works-card-title {
+  font-family: var(--sp-font-display, "Inter", sans-serif);
+  font-size: clamp(2.1rem, 3.6vw, 3.4rem);
+  font-weight: 400; /* Regular per requirement */
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* Line-break utility for desktop heading control */
+.alivio-works-title-br,
+.alivio-works-heading-br {
+  display: inline;
+}
+
+@media (max-width: 767px) {
+  .alivio-works-title-br,
+  .alivio-works-heading-br {
+    display: none;
+  }
+}
+
+/* Card Body: Content Left, Image Right */
+.alivio-works-card-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: clamp(36px, 4.5vw, 64px);
+  align-items: start;
+}
+
+/* Left Content Column */
+.alivio-works-content-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 8px;
+}
+
+.alivio-works-step-counter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.alivio-works-step-num {
+  font-family: var(--sp-font-display, "Inter", sans-serif);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Main Content Block (From Headline to CTA Button) */
+.alivio-works-content-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.alivio-works-step-headline {
+  font-family: var(--sp-font-display, "Inter", sans-serif);
+  font-size: clamp(1.65rem, 2.4vw, 2.25rem);
+  font-weight: 400; /* Regular per requirement */
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0 0 16px 0;
+}
+
+.alivio-works-step-summary {
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: clamp(0.96rem, 1.1vw, 1.06rem);
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+  max-width: 530px;
+}
+
+/* Checkmarks List */
+.alivio-works-check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.alivio-works-check-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: clamp(0.92rem, 1.05vw, 1rem);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.alivio-works-check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Action CTA Row */
+.alivio-works-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 2px;
+}
+
+.alivio-works-cta-note {
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.82rem;
+  font-weight: 400;
+}
+
+/* Right Image Column - Aligned to top to eliminate top gap */
+.alivio-works-image-col {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  align-self: flex-start;
+  margin-top: 0;
+}
+
+.alivio-works-image-wrap {
+  position: relative;
+  width: auto;
+  height: min(545px, calc(100vh - 230px));
+  aspect-ratio: 455 / 654;
+  max-width: 100%;
+  max-height: 100%;
+  margin-top: -80px; /* Moved up to -80px per directive */
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.alivio-works-step-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left top;
+  display: block;
+  border: none;
+  box-shadow: none;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.alivio-works-step-card:hover .alivio-works-step-img {
+  transform: scale(1.02);
+}
+
+.alivio-works-image-glow {
+  display: none;
+}
+
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVE BEHAVIOR (MATCHING Alivio MOBILE)
+   Natural unpinned scrolling, compact 350px image, stacked content
+   ========================================================================== */
+@media (max-width: 991px) {
+  .alivio-works-step-card {
+    position: relative;
+    top: auto;
+    min-height: auto;
+    padding: 50px 20px !important; /* Uniform 50px padding matching homepage rhythm */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  /* Step 03: remove bottom border and let image overflow naturally without crop */
+  .alivio-works-step-card--03 {
+    border-bottom: none !important;
+    padding-bottom: 16px !important;
+    overflow: visible !important;
+  }
+
+  .alivio-works-step-card--03 .alivio-works-image-col,
+  .alivio-works-step-card--03 .alivio-works-image-wrap {
+    overflow: visible !important;
+  }
+
+  .alivio-works-step-card--02,
+  .alivio-works-step-card--03 {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .alivio-works-card-container {
+    gap: 20px;
+    width: 100%;
+  }
+
+  .alivio-works-card-title {
+    font-size: 2.1rem;
+    line-height: 1.15;
+  }
+
+  .alivio-works-card-body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    width: 100%;
+  }
+
+  .alivio-works-content-col {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .alivio-works-content-main {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* On mobile, image sits below the content with breathing room gap */
+  .alivio-works-image-col {
+    order: 1;
+    margin-top: 16px !important;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .alivio-works-image-wrap {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    aspect-ratio: 455 / 654;
+    margin-top: 0 !important;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+  }
+
+  /* Step 03 image sits completely flush at the bottom of the card on mobile */
+  .alivio-works-step-card--03 .alivio-works-image-col {
+    margin-bottom: -20px !important; /* Cancels bottom padding so the image base grounds cleanly */
+  }
+
+  .alivio-works-step-card--03 .alivio-works-step-img {
+    vertical-align: bottom;
+    display: block;
+  }
+
+  .alivio-works-step-headline {
+    font-size: 1.7rem;
+    word-break: normal;
+    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+
+  .alivio-works-step-summary {
+    font-size: 0.95rem;
+    margin-bottom: 22px;
+    max-width: 100%;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  .alivio-works-check-list {
+    margin-bottom: 26px;
+    gap: 12px;
+  }
+
+  .alivio-works-cta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* ==========================================================================
+   MEMBERSHIP COMPARISON SECTION (.sp2-membership)
+   ========================================================================== */
+.section_sp2_membership {
+  padding: 95px 0;
+  scroll-margin-top: 100px;
+}
+
+@media (max-width: 991px) {
+  .section_sp2_membership {
+    padding: 75px 0;
+  }
+}
+
+.sp-membership-intro {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto clamp(36px, 6vw, 56px);
+}
+
+.sp-membership-cta-bottom {
+  text-align: center;
+  margin-top: var(--sp-space-8);
+}
+
+/* ==========================================================================
+   CLINICAL GOVERNANCE & DOCTOR LEADERSHIP (.section_clinicians-1)
+   ========================================================================== */
+.section_clinicians_1 {
+  padding: 95px 0;
+}
+
+@media (max-width: 991px) {
+  .section_clinicians_1 {
+    padding: 75px 0;
+  }
+}
+
+.sp-clinicians-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .sp-clinicians-grid {
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 64px;
+  }
+}
+
+.sp-doctor-frame {
+  position: relative;
+  border-radius: var(--sp-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--sp-shadow-lg);
+  border: 1px solid var(--sp-border-light);
+  height: 480px;
+}
+
+.sp-doctor-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sp-doctor-quote-box {
+  background-color: var(--color-warm-sand);
+  border: 1px solid rgba(23, 63, 53, 0.12);
+  border-radius: var(--sp-radius-lg);
+  padding: 24px;
+  margin-top: 24px;
+  box-shadow: var(--sp-shadow-sm);
+}
+
+.sp-doctor-quote-box p {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--sp-text-primary);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.sp-doctor-quote-author {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--sp-text-secondary);
+}
+
+/* ==========================================================================
+   FAQ SECTION
+   ========================================================================== */
+.section_faq {
+  padding: 80px 0;
+  background-color: #FCF9F2;
+}
+
+@media (max-width: 991px) {
+  .section_faq {
+    padding: 80px 0;
+  }
+}
+
+/* ==========================================================================
+   HOMEPAGE FAQ ACCORDION (.sp-faq-container-card)
+   Matches attached reference: Rounded warm card enclosure, crisp white tabs,
+   perfect left-middle alignment, strictly hidden closed panels with smooth expansion.
+   ========================================================================== */
+.sp-faq-container-card {
+  max-width: 860px;
+  margin: 0 auto;
+  background-color: #F8EFE0;
+  border-radius: 24px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+.sp-faq-container-card .sp-accordion-item {
+  background-color: #FFFFFF !important;
+  border-radius: 18px !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  transition: all 0.25s ease !important;
+}
+
+.sp-faq-container-card .sp-accordion-item:first-child {
+  border-top: none !important;
+}
+
+.sp-faq-container-card .sp-accordion-trigger {
+  width: 100% !important;
+  min-height: 80px !important;
+  display: grid !important;
+  grid-template-columns: 1fr 32px !important;
+  align-items: center !important;
+  gap: 20px !important;
+  background: transparent !important;
+  border: none !important;
+  text-align: left !important;
+  font-family: var(--sp-font-display, "Inter", sans-serif) !important;
+  font-size: clamp(1.05rem, 1.25vw, 1.25rem) !important;
+  font-weight: 450 !important;
+  letter-spacing: -0.01em !important;
+  color: #111111 !important;
+  cursor: pointer !important;
+  padding: 20px 32px !important;
+  margin: 0 !important;
+  line-height: 1.35 !important;
+  box-sizing: border-box !important;
+  transition: color 0.2s ease !important;
+}
+
+.sp-faq-container-card .sp-accordion-trigger > span:first-child {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+  line-height: 1.35 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+.sp-faq-container-card .sp-accordion-trigger:hover {
+  color: #5C2008 !important;
+}
+
+.sp-faq-container-card .sp-accordion-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  border-radius: 50% !important;
+  background-color: #5C2008 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  font-size: 1.35rem !important;
+  font-weight: 400 !important;
+  line-height: 0 !important;
+  text-align: center !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  align-self: center !important;
+  transition: transform 0.25s ease, background-color 0.25s ease !important;
+}
+
+.sp-faq-container-card .sp-accordion-trigger[aria-expanded="true"] .sp-accordion-icon {
+  transform: rotate(45deg) !important;
+  background-color: #3F1404 !important;
+  color: #FFFFFF !important;
+}
+
+/* Panel hidden state when closed */
+.sp-faq-container-card .sp-accordion-panel {
+  display: block;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  pointer-events: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Panel visible state when opened (GSAP controls height & opacity inline) */
+.sp-faq-container-card .sp-accordion-panel.is-open,
+.sp-faq-container-card .sp-accordion-panel[aria-hidden="false"] {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.sp-faq-container-card .sp-accordion-panel-inner {
+  padding: 0 32px 24px 32px !important;
+  box-sizing: border-box !important;
+}
+
+.sp-faq-container-card .sp-accordion-panel-inner p {
+  color: #5A544C !important;
+  font-size: 0.98rem !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 640px) {
+  .sp-faq-container-card {
+    padding: 12px !important;
+    gap: 8px !important;
+    border-radius: 20px !important;
+  }
+
+  .sp-faq-container-card .sp-accordion-item {
+    border-radius: 14px !important;
+  }
+
+  .sp-faq-container-card .sp-accordion-trigger {
+    min-height: 64px !important;
+    grid-template-columns: 1fr 28px !important;
+    padding: 14px 18px !important;
+    font-size: 0.98rem !important;
+    gap: 14px !important;
+  }
+
+  .sp-faq-container-card .sp-accordion-icon {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    font-size: 1.15rem !important;
+  }
+
+  .sp-faq-container-card .sp-accordion-panel-inner {
+    padding: 0 18px 16px 18px !important;
+  }
+}
+
+/* ==========================================================================
+   ALIVIO WELLNESS NEWSLETTER & FULL-WIDTH EDITORIAL FOOTER
+   Matches reference: Deep espresso gradient (#240D05 -> #782909 -> #DF7822),
+   Pill newsletter subscribe form, central logo mark divider line, 4-column nav,
+   LegitScript badge, massive bottom watermark logo, and medical disclaimer bar.
+   ========================================================================== */
+
+.alivio-custom-footer {
+  width: 100%;
+  background-color: #140702;
+  background-image:
+    /* Layer 1: Soft warm golden-amber core highlight at bottom center */
+    radial-gradient(ellipse 55% 42% at 50% 102%, rgba(246, 166, 68, 0.95) 0%, rgba(228, 128, 38, 0.85) 30%, rgba(196, 88, 18, 0.5) 60%, transparent 100%),
+    /* Layer 2: Rich burnt-orange & glowing amber ambient wash across lower-mid area */
+    radial-gradient(ellipse 85% 65% at 50% 95%, rgba(184, 77, 13, 0.75) 0%, rgba(138, 48, 8, 0.6) 40%, rgba(70, 22, 4, 0.4) 75%, transparent 100%),
+    /* Layer 3: Glowing chocolate-brown to deep espresso transition */
+    radial-gradient(ellipse 110% 85% at 50% 75%, rgba(90, 30, 6, 0.5) 0%, rgba(45, 14, 3, 0.8) 55%, transparent 95%),
+    /* Layer 4: Base deep chocolate to espresso tone */
+    linear-gradient(180deg, #1C0903 0%, #200B04 35%, #290E05 60%, #170702 100%);
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: clamp(52px, 5.5vw, 76px) clamp(24px, 5vw, 64px) clamp(28px, 3vw, 40px);
+  margin-top: 0;
+}
+
+/* Atmospheric Couple Background Image across top 35% of footer */
+.alivio-footer-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: clamp(480px, 58vw, 680px);
+  background-image: url('../images/footer-couple-bg.jpg');
+  background-size: cover;
+  background-position: right 15%; /* Anchors the smiling couple clearly to the right */
+  background-repeat: no-repeat;
+  opacity: 0.72; /* Full natural golden-hour warmth and visible radiance */
+  pointer-events: none;
+  z-index: 1;
+  /* Soft dark dissolve on the text side (left) and bottom fade */
+  -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 65%, rgba(0,0,0,0) 100%),
+                      linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.2) 80%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 65%, rgba(0,0,0,0) 100%),
+              linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.2) 80%, rgba(0,0,0,0) 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  filter: contrast(1.04) brightness(0.96);
+}
+
+.alivio-footer-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Top Row: Newsletter Headline + Pill Form --- */
+.alivio-footer-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: clamp(28px, 3.5vw, 44px);
+}
+
+.alivio-footer-headline-group {
+  max-width: 580px;
+}
+
+.alivio-footer-eyebrow {
+  display: block;
+  font-family: var(--sp-font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 12px;
+}
+
+.alivio-footer-title {
+  font-family: var(--sp-font-display, "Inter", sans-serif);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin: 0 0 14px 0;
+}
+
+.alivio-footer-subtitle {
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  max-width: 480px;
+}
+
+/* Pill Subscribe Input Form */
+.alivio-footer-subscribe-wrapper {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 490px;
+}
+
+.alivio-footer-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: rgba(20, 8, 3, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  padding: 6px 6px 6px 24px;
+  box-sizing: border-box;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.alivio-footer-form:focus-within {
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
+}
+
+.alivio-footer-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.94rem;
+  padding: 8px 0;
+}
+
+.alivio-footer-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.alivio-footer-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #FAF2DE;
+  color: #1A0A03;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 14px 10px 22px;
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.alivio-footer-submit:hover {
+  background-color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.alivio-footer-submit-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #2D1005;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+
+/* --- Central Divider Line with Alivio Logo Mark --- */
+.alivio-footer-divider-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  margin: clamp(14px, 2vw, 24px) 0 clamp(24px, 3vw, 36px);
+}
+
+.alivio-footer-divider-line {
+  flex: 1;
+  height: 0;
+  border: none;
+  border-top: 1px dashed rgba(250, 242, 222, 0.24);
+}
+
+.alivio-footer-divider-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(250, 242, 222, 0.85);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+/* --- 4-Column Navigation Grid with Thin Divider Separators --- */
+.alivio-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.3fr;
+  gap: clamp(24px, 3.5vw, 48px);
+  position: relative;
+  margin-bottom: clamp(48px, 6vw, 72px);
+}
+
+.alivio-footer-col {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Subtle vertical dividers between columns per design */
+.alivio-footer-col:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  left: calc(clamp(24px, 3.5vw, 48px) * -0.5);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.alivio-footer-heading {
+  font-family: var(--sp-font-mono, monospace);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #FAF2DE;
+  margin: 0 0 20px 0;
+}
+
+.alivio-footer-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.alivio-footer-nav a {
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.alivio-footer-nav a:hover {
+  color: #FFFFFF;
+  transform: translateX(2px);
+}
+
+/* Get In Touch Column Styling */
+.alivio-footer-contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.alivio-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.alivio-contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.85);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.alivio-contact-text {
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  line-height: 1.45;
+}
+
+a.alivio-contact-text:hover {
+  color: #FFFFFF;
+}
+
+/* Social Icon Buttons (Circular frosted style) */
+.alivio-footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.alivio-social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.alivio-social-btn:hover {
+  background-color: #FAF2DE;
+  color: #240D05;
+  border-color: #FAF2DE;
+  transform: translateY(-2px);
+}
+
+/* LegitScript Badge */
+.alivio-legitscript-badge {
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.alivio-legitscript-img {
+  width: 96px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+}
+
+/* --- Giant Watermark Row --- */
+.alivio-footer-watermark-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+}
+
+.alivio-footer-giant-logo {
+  width: 100%;
+  max-width: 1120px;
+  height: auto;
+  opacity: 0.18;
+  color: #FFFFFF;
+  mix-blend-mode: screen;
+}
+
+/* --- Regulatory Medical Disclaimer --- */
+.alivio-footer-disclaimer {
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: 24px;
+}
+
+.alivio-footer-disclaimer p {
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.74rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.52);
+  margin: 0;
+}
+
+.alivio-footer-disclaimer strong {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* --- Bottom Bar: Copyright, Legal Links, Leaf Motto --- */
+.alivio-footer-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.alivio-footer-copyright {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.alivio-footer-legal-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.alivio-footer-legal-links a {
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.alivio-footer-legal-links a:hover {
+  color: #FFFFFF;
+}
+
+.alivio-legal-sep {
+  opacity: 0.4;
+  font-size: 0.7rem;
+}
+
+.alivio-footer-motto {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.82rem;
+  font-style: normal;
+}
+
+.alivio-footer-motto svg {
+  color: #F0A356;
+}
+
+/* Responsive behavior for mobile & tablet */
+@media (max-width: 1024px) {
+  .alivio-footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+  }
+
+  .alivio-footer-col:not(:first-child)::before {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .alivio-footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 20px;
+  }
+
+  .alivio-footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .alivio-footer-subscribe-wrapper {
+    max-width: 100%;
+  }
+
+  .alivio-footer-form {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px;
+    border-radius: 20px;
+    gap: 8px;
+  }
+
+  .alivio-footer-input {
+    padding: 8px 12px;
+  }
+
+  .alivio-footer-submit {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .alivio-footer-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+
+/* ==========================================================================
+   SECTION 04B: PRODUCT SHOWCASE CAROUSEL SECTION
+   Treatment that fits your real life.
+   Editorial white product cards inside a large rounded container with horizontal scrolling.
+   ========================================================================== */
+
+.section_sp-products {
+  padding: 80px 0;
+  position: relative;
+  width: 100%;
+  background-color: #FFFBEF;
+  z-index: 7; /* Sits above sticky step card to create natural smooth scroll upward */
+  margin-top: 0;
+}
+
+@media (min-width: 992px) {
+  /* On desktop: move upward so the uncropped step 3 transitions seamlessly */
+  .section_sp-products {
+    margin-top: -60px;
+    padding-top: 90px;
+    border-radius: 36px 36px 0 0;
+    box-shadow: none;
+    border-top: 1px solid rgba(38, 13, 3, 0.08);
+  }
+}
+
+@media (max-width: 991px) {
+  /* On mobile: move subsequent sections upward to eliminate crop and create seamless overlap */
+  .section_sp-products {
+    margin-top: -40px !important;
+    padding: 56px 0 60px 0 !important;
+    border-radius: 28px 28px 0 0 !important;
+    box-shadow: none !important;
+    border-top: 1px solid rgba(38, 13, 3, 0.08) !important;
+    position: relative !important;
+    z-index: 7 !important;
+  }
+
+  /* When following how-it-works on sub-pages (Clinical Experts) */
+  .section_clinical-experts {
+    margin-top: -40px !important;
+    padding-top: 56px !important;
+    border-radius: 28px 28px 0 0 !important;
+    box-shadow: none !important;
+    border-top: 1px solid rgba(38, 13, 3, 0.08) !important;
+    position: relative !important;
+    z-index: 7 !important;
+  }
+}
+
+.sp-products-container {
+  background-color: #FFFBEF;
+  border-radius: 0;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 clamp(20px, 4vw, 64px);
+  position: relative;
+  overflow: visible;
+  box-shadow: none;
+}
+
+/* Header with Eyebrow, Title, Subheading, Category Tabs & Carousel Controls */
+.sp-products-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: clamp(24px, 3vw, 36px);
+  position: relative;
+  z-index: 2;
+}
+
+.sp-products-header__text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.sp-products-eyebrow {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #5B2008;
+  margin-bottom: 8px;
+}
+
+.sp-products-heading {
+  font-family: var(--sp-font-display, var(--sp-font-sans));
+  font-size: clamp(1.6rem, 2.25vw, 2.45rem);
+  font-weight: 400; /* Regular per requirement */
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: #070706;
+  margin: 0 0 8px 0;
+  white-space: normal;
+  max-width: 100%;
+}
+
+@media (min-width: 992px) {
+  .sp-products-heading {
+    white-space: nowrap;
+  }
+}
+
+.sp-products-subheading {
+  font-size: clamp(0.85rem, 0.96vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.45;
+  color: #3D5A52;
+  margin: 0;
+  white-space: normal;
+  max-width: 540px;
+}
+
+.sp-products-header__right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+/* Alivio Category Pill Tabs */
+.sp-products-tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  background-color: rgba(91, 32, 8, 0.06);
+  padding: 4px;
+  border-radius: 999px;
+  height: 52px;
+  min-height: 52px;
+  box-sizing: border-box;
+}
+
+.sp-product-tab {
+  border: none;
+  background: transparent;
+  color: #6C5E4E;
+  font-family: var(--sp-font-sans, -apple-system, sans-serif);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  height: 44px;
+  min-height: 44px;
+  max-height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.sp-product-tab:hover:not(.is-active) {
+  color: #5B2008;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.sp-product-tab.is-active {
+  background-color: #5B2008;
+  color: #FFFFFF;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(91, 32, 8, 0.18);
+  cursor: default;
+}
+
+.sp-product-tab:focus-visible {
+  outline: 2px solid #5B2008;
+  outline-offset: 2px;
+}
+
+/* Header Prev / Next Arrow Navigation Controls */
+.sp-products-arrows {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.sp-products-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sp-products-nav-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  transition: transform 200ms ease;
+}
+
+.sp-products-nav-btn--prev {
+  background-color: #FFFFFF;
+  color: #5B2008;
+  border: 1px solid rgba(91, 32, 8, 0.2);
+  box-shadow: 0 2px 6px rgba(91, 32, 8, 0.05);
+}
+
+.sp-products-nav-btn--prev:hover:not(:disabled) {
+  background-color: #5B2008;
+  color: #FFFFFF;
+  border-color: #5B2008;
+  transform: scale(1.05);
+}
+
+.sp-products-nav-btn--prev:hover:not(:disabled) svg {
+  transform: translateX(-2px);
+}
+
+.sp-products-nav-btn--next {
+  background-color: #5B2008;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(91, 32, 8, 0.25);
+}
+
+.sp-products-nav-btn--next:hover:not(:disabled) {
+  background-color: #421605;
+  transform: scale(1.05);
+}
+
+.sp-products-nav-btn--next:hover:not(:disabled) svg {
+  transform: translateX(2px);
+}
+
+.sp-products-nav-btn:disabled {
+  opacity: 0.35;
+  background-color: rgba(23, 63, 53, 0.06);
+  color: #8A9D96;
+  border: 1px solid rgba(23, 63, 53, 0.08);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.sp-products-nav-btn:focus-visible {
+  outline: 2px solid #173F35;
+  outline-offset: 3px;
+}
+
+/* Horizontal Products Carousel Wrapper & Track */
+.sp-products-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.sp-products-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 12px 6px 36px; /* Generous bottom padding so product card drop shadow is never clipped */
+  -webkit-overflow-scrolling: touch;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.sp-products-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Product Card: 320x389, Pure White, Soft Blurry Depth Shadow, No Borders */
+.sp-product-card {
+  flex: 0 0 320px;
+  width: 320px;
+  height: 389px;
+  min-width: 320px;
+  max-width: 320px;
+  box-sizing: border-box;
+  scroll-snap-align: start;
+  background: #FFFFFF;
+  border: none;
+  border-radius: 20px;
+  padding: 22px 20px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: none;
+  border: 1px solid rgba(16, 42, 36, 0.08);
+  transition: box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1), transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sp-product-card:hover {
+  background: #FFFFFF;
+  border: none;
+  box-shadow: 0 18px 40px rgba(16, 42, 36, 0.12), 0 4px 12px rgba(16, 42, 36, 0.06);
+}
+
+/* Top-Right FDA Approved Badge (All Cards: 48px, High-Contrast Terracotta Stamp) */
+.sp-product-fda-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #5B2008;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  box-shadow: 0 4px 12px rgba(91, 32, 8, 0.22);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.sp-product-fda-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: none;
+}
+
+/* Top-Left Badge (Card 4 High dose option: #5B2008, Semi-Bold White Text, No Shadow) */
+.sp-product-pill-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background-color: #5B2008;
+  color: #FFFFFF;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  line-height: 1.3;
+  z-index: 10;
+  pointer-events: none;
+  text-shadow: none;
+  box-shadow: 0 2px 6px rgba(91, 32, 8, 0.12);
+}
+
+/* Product Image Canvas (3px smaller height: 182px within 389px card) */
+.sp-product-card__image-box {
+  width: 100%;
+  height: 182px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  background: transparent;
+}
+
+.sp-product-card__img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  /* 25px downward shift, 12 degree leftward tilt, slightly smaller scale (3px reduction) */
+  transform: translateY(25px) rotate(-12deg) scale(1.10);
+  transform-origin: center center;
+  /* Hims.com style snappy, fluid ease-out transition */
+  transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* Snappy, fluid Hims.com style subtle micro-lift on card hover */
+.sp-product-card:hover .sp-product-card__img {
+  transform: translateY(14px) rotate(-8deg) scale(1.12);
+}
+
+/* Card 00 Estradiol Patch Specific: Controlled scale & tilt to prevent badge overlap */
+.sp-product-card[data-product-id="estradiol-patch"] .sp-product-card__img {
+  max-height: 125px !important;
+  max-width: 165px !important;
+  transform: translateY(18px) rotate(-6deg) scale(0.96) !important;
+}
+
+.sp-product-card[data-product-id="estradiol-patch"]:hover .sp-product-card__img {
+  transform: translateY(12px) rotate(-4deg) scale(0.99) !important;
+}
+
+/* Card 3, 5 & 7 Pill Specific: Visibly smaller than the vial images */
+.sp-product-card[data-product-id="alivio-oral"] .sp-product-card__img,
+.sp-product-card[data-product-id="papayamd-oral"] .sp-product-card__img,
+.sp-product-card[data-product-id="tirzepatide-oral"] .sp-product-card__img,
+.sp-product-card[data-product-id="nad-oral"] .sp-product-card__img {
+  max-height: 142px;
+  transform: translateY(20px) rotate(-12deg) scale(0.92);
+}
+
+.sp-product-card[data-product-id="alivio-oral"]:hover .sp-product-card__img,
+.sp-product-card[data-product-id="papayamd-oral"]:hover .sp-product-card__img,
+.sp-product-card[data-product-id="tirzepatide-oral"]:hover .sp-product-card__img,
+.sp-product-card[data-product-id="nad-oral"]:hover .sp-product-card__img {
+  transform: translateY(11px) rotate(-8deg) scale(0.95);
+}
+
+/* Card 4 Semaglutide Pen Specific: Perfectly balanced diagonal injector pen */
+.sp-product-card[data-product-id="semaglutide-pen"] .sp-product-card__img {
+  max-height: 175px;
+  transform: translateY(14px) rotate(-10deg) scale(1.06);
+}
+
+.sp-product-card[data-product-id="semaglutide-pen"]:hover .sp-product-card__img {
+  transform: translateY(6px) rotate(-6deg) scale(1.09);
+}
+
+/* Card Footer & Typography */
+.sp-product-card__footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.sp-product-card__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.sp-product-card__title {
+  font-family: var(--sp-font-display, var(--sp-font-sans));
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #173F35;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
+}
+
+.sp-product-card__price {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1E293B;
+  line-height: 1.35;
+  margin: 0 0 3px 0;
+}
+
+.sp-product-card__molecule {
+  font-size: 0.75rem; /* 1px shorter (12px) for crisp hierarchy */
+  font-weight: 400;
+  color: #556B64;
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* Card Bottom-Right Arrow Button (Terracotta #5B2008 for crisp contrast matching hero CTA) */
+.sp-product-card__arrow-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #5B2008;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 220ms ease;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(91, 32, 8, 0.2);
+}
+
+.sp-product-card__arrow-btn svg {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  transition: transform 200ms ease;
+}
+
+.sp-product-card:hover .sp-product-card__arrow-btn {
+  background-color: #421605;
+  color: #FFFFFF;
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(91, 32, 8, 0.3);
+}
+
+.sp-product-card:hover .sp-product-card__arrow-btn svg {
+  transform: translateX(2px);
+}
+
+.sp-product-card__arrow-btn:focus-visible {
+  outline: 2px solid #173F35;
+  outline-offset: 2px;
+}
+
+/* Bottom Pagination Dots */
+.sp-products-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 26px;
+  position: relative;
+  z-index: 2;
+}
+
+.sp-products-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background-color: rgba(23, 63, 53, 0.20);
+  cursor: pointer;
+  transition: background-color 220ms ease, transform 220ms ease;
+}
+
+.sp-products-dot.is-active {
+  background-color: #173F35;
+  transform: scale(1.2);
+}
+
+/* Section Legal / Clinical Disclaimer Footnote */
+.sp-products-disclaimer {
+  max-width: 920px;
+  margin: 14px auto 0;
+  text-align: center;
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: #556B64;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 2;
+  padding: 0 16px;
+}
+
+/* Assessment Callout Banner Below Product Cards (Compact, Sleek) */
+.sp-products-assessment {
+  margin-top: clamp(18px, 2.2vw, 26px);
+  padding-top: clamp(16px, 1.8vw, 22px);
+  border-top: 1px solid rgba(23, 63, 53, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  position: relative;
+  z-index: 2;
+}
+
+.sp-products-assessment__content {
+  max-width: 760px;
+}
+
+.sp-products-assessment__title {
+  font-family: var(--sp-font-display, var(--sp-font-sans));
+  font-size: clamp(1.2rem, 1.45vw, 1.42rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #070706;
+  margin: 0 0 6px 0;
+}
+
+.sp-products-assessment__text {
+  font-size: clamp(0.84rem, 0.92vw, 0.94rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: #4A3326;
+  margin: 0;
+}
+
+.sp-products-assessment__action {
+  flex-shrink: 0;
+}
+
+.sp-products-assessment__btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  max-height: 48px !important;
+  box-sizing: border-box !important;
+  padding: 0 6px 0 20px !important;
+  font-size: 0.94rem !important;
+  font-weight: 600 !important;
+  border-radius: var(--sp-radius-pill, 9999px) !important;
+  background-color: #5B2009 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #5B2009 !important;
+  white-space: nowrap !important;
+  min-width: 196px !important;
+  text-align: center !important;
+  box-shadow: 0 4px 14px rgba(91, 32, 9, 0.22) !important;
+}
+
+.sp-products-assessment__btn:hover {
+  background-color: #3E1505 !important;
+  border-color: #3E1505 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(91, 32, 9, 0.32) !important;
+}
+
+.sp-products-assessment__btn .alivio-cta-label {
+  flex-grow: 1;
+  text-align: center;
+  margin-right: 6px;
+  color: #FFFFFF !important;
+}
+
+.sp-products-assessment__btn .alivio-cta-disk {
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  min-height: 32px !important;
+  border-radius: 50% !important;
+  background-color: rgba(255, 255, 255, 0.18) !important;
+  color: #FBF8F3 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0;
+}
+
+.sp-products-assessment__btn:hover .alivio-cta-disk {
+  background-color: rgba(255, 255, 255, 0.28) !important;
+}
+
+.sp-products-assessment__btn .alivio-cta-disk svg {
+  stroke: #FBF8F3 !important;
+  color: #FBF8F3 !important;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .sp-products-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .sp-products-header__right {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .sp-products-heading,
+  .sp-products-subheading {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 960px) {
+  .sp-products-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    max-width: calc(100% - 104px);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .sp-products-tabs::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .sp-products-assessment {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .sp-products-assessment__btn {
+    width: auto; /* Natural button width matching How Alivio Works on mobile */
+  }
+}
+
+@media (max-width: 640px) {
+  .sp-products-container {
+    padding: 32px 16px 24px;
+    border-radius: 24px;
+  }
+  .sp-products-header__right {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .sp-products-tabs {
+    max-width: 100%;
+    width: 100%;
+    padding: 4px;
+  }
+  .sp-products-arrows {
+    align-self: flex-end;
+  }
+  .sp-product-card {
+    flex: 0 0 calc(100vw - 64px);
+    width: calc(100vw - 64px);
+    max-width: 320px;
+    min-width: 270px;
+    height: 389px;
+    padding: 20px 16px;
+  }
+  .sp-product-card__image-box {
+    height: 175px;
+  }
+}
+
+/* ==========================================================================
+   ALIVIO TWO-CARD HRT TREATMENT SECTION (.section_sp-hrt-duo)
+   Left: Start HRT Treatment (55% width, soft lavender, rotating med UI cards, woman focal)
+   Right: Meet with a provider (45% width, warm neutral, 3 clinician portraits, static)
+   ========================================================================== */
+.section_sp-hrt-duo {
+  padding: 95px clamp(12px, 2vw, 24px);
+  position: relative;
+}
+
+@media (max-width: 991px) {
+  .section_sp-hrt-duo {
+    padding: 75px clamp(12px, 2vw, 24px);
+  }
+}
+
+.sp-hrt-grid {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  gap: clamp(16px, 2vw, 24px);
+  max-width: var(--sp-container-max);
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+/* Base Card Attributes */
+.sp-hrt-card {
+  border-radius: var(--sp-radius-xl, 28px);
+  position: relative;
+  overflow: hidden;
+  box-shadow: none;
+  border: 1px solid rgba(23, 63, 53, 0.08);
+  display: flex;
+  flex-direction: column;
+  min-height: 540px;
+  box-sizing: border-box;
+  transition: box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1), transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sp-hrt-card:hover {
+  box-shadow: 0 16px 42px rgba(23, 63, 53, 0.09), 0 4px 14px rgba(23, 63, 53, 0.04);
+}
+
+/* ==========================================================================
+   LEFT CARD: Start HRT Treatment (Soft Lavender #E8E1F0)
+   ========================================================================== */
+.sp-hrt-card--treatment {
+  background: linear-gradient(155deg, #ECE5F3 0%, #E8E1F0 42%, #DFD6E8 100%);
+  justify-content: flex-end;
+}
+
+/* Stage Area (holds rotating floating cards + woman image) */
+.sp-hrt-stage {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Floating Medication Cards Layer (Behind Woman: z-index 1) */
+.sp-hrt-floating-cards {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.sp-hrt-float-card {
+  position: absolute;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+/* Individual Card Positions (Confined to upper/central stage around woman) */
+.sp-hrt-float-card--1 {
+  top: 7%;
+  left: 6%;
+}
+
+.sp-hrt-float-card--2 {
+  top: 7%;
+  right: 6%;
+}
+
+.sp-hrt-float-card--3 {
+  top: 30%;
+  right: 3%;
+}
+
+.sp-hrt-float-card--4 {
+  top: 22%;
+  left: 6%;
+}
+
+/* Floating Card Pill Capsule Shape */
+.sp-hrt-float-card__inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: none;
+  border: 1px solid rgba(60, 42, 80, 0.08);
+  border-radius: 14px;
+  padding: 8px 12px 8px 8px;
+  transform-origin: center center;
+  will-change: transform;
+  user-select: none;
+  transition: box-shadow 220ms ease;
+}
+
+.sp-hrt-float-card__inner:hover {
+  box-shadow: 0 12px 30px rgba(60, 42, 80, 0.16);
+}
+
+.sp-hrt-float-card__icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: #F4EFF8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6C4B88;
+  flex-shrink: 0;
+}
+
+.sp-hrt-float-card__icon-box svg {
+  width: 17px;
+  height: 17px;
+}
+
+.sp-hrt-float-card__meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.sp-hrt-float-card__title {
+  font-family: var(--sp-font-sans);
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: #173F35;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.sp-hrt-float-card__tag {
+  font-family: var(--sp-font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: #7B6B8A;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.sp-hrt-float-card__arrow {
+  color: #8C7B9B;
+  font-size: 0.85rem;
+  line-height: 1;
+  margin-left: 2px;
+}
+
+/* Continuous, slow, endless rotations around own center (18-30s cycle, individual offsets) */
+.sp-hrt-float-card--1 .sp-hrt-float-card__inner {
+  animation: hrtRotateSlow1 22s ease-in-out infinite alternate;
+}
+
+.sp-hrt-float-card--2 .sp-hrt-float-card__inner {
+  animation: hrtRotateSlow2 28s ease-in-out infinite alternate;
+}
+
+.sp-hrt-float-card--3 .sp-hrt-float-card__inner {
+  animation: hrtRotateSlow3 25s ease-in-out infinite alternate;
+}
+
+.sp-hrt-float-card--4 .sp-hrt-float-card__inner {
+  animation: hrtRotateSlow4 20s ease-in-out infinite alternate;
+}
+
+@keyframes hrtRotateSlow1 {
+  0% {
+    transform: rotate(-10deg) translateY(0);
+  }
+  50% {
+    transform: rotate(2deg) translateY(-3px);
+  }
+  100% {
+    transform: rotate(-10deg) translateY(0);
+  }
+}
+
+@keyframes hrtRotateSlow2 {
+  0% {
+    transform: rotate(6deg) translateY(0);
+  }
+  50% {
+    transform: rotate(18deg) translateY(3px);
+  }
+  100% {
+    transform: rotate(6deg) translateY(0);
+  }
+}
+
+@keyframes hrtRotateSlow3 {
+  0% {
+    transform: rotate(-6deg) translateY(0);
+  }
+  50% {
+    transform: rotate(6deg) translateY(-2px);
+  }
+  100% {
+    transform: rotate(-6deg) translateY(0);
+  }
+}
+
+@keyframes hrtRotateSlow4 {
+  0% {
+    transform: rotate(2deg) translateY(0);
+  }
+  50% {
+    transform: rotate(14deg) translateY(3px);
+  }
+  100% {
+    transform: rotate(2deg) translateY(0);
+  }
+}
+
+/* Accessibility: Disable rotation under reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .sp-hrt-float-card__inner {
+    animation: none !important;
+  }
+}
+
+/* Woman Slot Layer (In Front of Cards: z-index 2) */
+.sp-hrt-woman-slot {
+  position: absolute;
+  top: 2%;
+  right: -2%;
+  width: 66%;
+  height: 94%;
+  z-index: 2;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.sp-hrt-woman-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: bottom right;
+  filter: drop-shadow(0 14px 34px rgba(40, 24, 56, 0.12));
+  display: block;
+}
+
+/* Readability Scrim (z-index 3) */
+.sp-hrt-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(232, 225, 240, 0.96) 0%,
+    rgba(232, 225, 240, 0.90) 32%,
+    rgba(232, 225, 240, 0.45) 55%,
+    rgba(232, 225, 240, 0) 75%
+  );
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Content Container (z-index 4) */
+.sp-hrt-card__copy {
+  position: relative;
+  z-index: 4;
+  padding: clamp(32px, 4vw, 50px);
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sp-hrt-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #583F72;
+  margin-bottom: 10px;
+}
+
+.sp-hrt-heading {
+  font-family: var(--sp-font-display, var(--sp-font-sans));
+  font-size: clamp(1.75rem, 2.3vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #173F35;
+  margin: 0 0 10px 0;
+}
+
+.sp-hrt-desc {
+  font-family: var(--sp-font-sans);
+  font-size: clamp(0.9rem, 1.05vw, 1rem);
+  line-height: 1.55;
+  color: #384A43;
+  margin: 0 0 24px 0;
+  max-width: 440px;
+}
+
+.sp-hrt-btn-dark {
+  background-color: #0E3B32;
+  color: #FFFFFF;
+  border-radius: var(--sp-radius-pill, 9999px);
+  padding: 12px 26px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(14, 59, 50, 0.22);
+  transition: all var(--sp-transition-fast, 180ms ease);
+}
+
+.sp-hrt-btn-dark:hover {
+  background-color: #082620;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(14, 59, 50, 0.32);
+}
+
+.sp-hrt-btn-dark .sp-btn-icon {
+  width: 14px;
+  height: 14px;
+  transition: transform 180ms ease;
+}
+
+.sp-hrt-btn-dark:hover .sp-btn-icon {
+  transform: translateX(3px);
+}
+
+.sp-hrt-btn-dark:focus-visible,
+.sp-hrt-btn-light:focus-visible {
+  outline: 2px solid #173F35;
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   RIGHT CARD: Meet with a provider (Warm Neutral #F3EDE7)
+   ========================================================================== */
+.sp-hrt-card--provider {
+  background: linear-gradient(160deg, #F6F1EC 0%, #F3EDE7 50%, #ECE4DC 100%);
+  padding: clamp(36px, 4vw, 50px) clamp(24px, 3vw, 44px);
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+/* Top Horizontal Composition of 3 Clinician Portraits */
+.sp-hrt-provider-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: clamp(8px, 1.5vw, 16px);
+  margin-bottom: 24px;
+}
+
+.sp-hrt-provider-cluster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 10px 0;
+}
+
+.sp-hrt-provider-frame {
+  width: clamp(96px, 9.5vw, 120px);
+  height: clamp(124px, 12.5vw, 158px);
+  border-radius: 24px;
+  border: 4px solid #FFFFFF;
+  box-shadow: none;
+  border: 1px solid rgba(45, 30, 20, 0.08);
+  overflow: hidden;
+  background: #E5DBD0;
+  position: relative;
+  transition: transform 260ms ease, box-shadow 260ms ease;
+}
+
+.sp-hrt-provider-frame:hover {
+  box-shadow: 0 14px 34px rgba(45, 30, 20, 0.18);
+}
+
+.sp-hrt-provider-frame--1 {
+  transform: rotate(-6deg) translateY(6px);
+  margin-right: -18px;
+  z-index: 1;
+}
+
+.sp-hrt-provider-frame--2 {
+  transform: translateY(-8px) scale(1.05);
+  z-index: 2;
+  box-shadow: 0 14px 34px rgba(45, 30, 20, 0.16);
+}
+
+.sp-hrt-provider-frame--3 {
+  transform: rotate(6deg) translateY(6px);
+  margin-left: -18px;
+  z-index: 1;
+}
+
+.sp-hrt-provider-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Provider Body Copy & CTA */
+.sp-hrt-provider-body {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sp-hrt-provider-heading {
+  font-family: var(--sp-font-display, var(--sp-font-sans));
+  font-size: clamp(1.75rem, 2.3vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: #173F35;
+  margin: 0 0 12px 0;
+}
+
+.sp-hrt-provider-text {
+  font-family: var(--sp-font-sans);
+  font-size: clamp(0.9rem, 1.05vw, 1rem);
+  line-height: 1.58;
+  color: #4A5652;
+  margin: 0 0 26px 0;
+  text-align: center;
+}
+
+.sp-hrt-btn-light {
+  background-color: #FFFFFF;
+  color: #173F35;
+  border-radius: var(--sp-radius-pill, 9999px);
+  padding: 12px 28px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(23, 63, 53, 0.14);
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(23, 63, 53, 0.08);
+  transition: all var(--sp-transition-fast, 180ms ease);
+}
+
+.sp-hrt-btn-light:hover {
+  background-color: #F8FBF9;
+  border-color: #173F35;
+  box-shadow: 0 8px 22px rgba(23, 63, 53, 0.14);
+  transform: translateY(-1px);
+}
+
+.sp-hrt-btn-light .sp-btn-icon {
+  width: 14px;
+  height: 14px;
+  transition: transform 180ms ease;
+}
+
+.sp-hrt-btn-light:hover .sp-btn-icon {
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   RESPONSIVE SCALING: Tablet & Mobile
+   ========================================================================== */
+@media (max-width: 991px) {
+  .sp-hrt-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .sp-hrt-card {
+    min-height: 480px;
+  }
+
+  .sp-hrt-woman-slot {
+    width: 60%;
+    right: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .sp-hrt-card {
+    border-radius: 24px;
+    min-height: auto;
+  }
+
+  .sp-hrt-card--treatment {
+    padding-top: 260px;
+  }
+
+  .sp-hrt-stage {
+    height: 320px;
+    inset: 0 0 auto 0;
+  }
+
+  .sp-hrt-woman-slot {
+    width: 75%;
+    height: 100%;
+    right: -5%;
+  }
+
+  .sp-hrt-float-card--1 {
+    top: 8%;
+    left: 4%;
+  }
+
+  .sp-hrt-float-card--2 {
+    top: 10%;
+    right: 4%;
+  }
+
+  .sp-hrt-float-card--3 {
+    top: 50%;
+    right: 2%;
+  }
+
+  .sp-hrt-float-card--4 {
+    top: 52%;
+    left: 2%;
+  }
+
+  .sp-hrt-float-card__inner {
+    padding: 6px 10px 6px 6px;
+    border-radius: 11px;
+  }
+
+  .sp-hrt-float-card__icon-box {
+    width: 26px;
+    height: 26px;
+  }
+
+  .sp-hrt-float-card__title {
+    font-size: 0.7rem;
+  }
+
+  .sp-hrt-float-card__tag {
+    font-size: 0.6rem;
+  }
+
+  .sp-hrt-card__copy {
+    padding: 28px 20px;
+    max-width: 100%;
+  }
+
+  .sp-hrt-card--provider {
+    padding: 36px 20px;
+  }
+
+  .sp-hrt-provider-frame {
+    width: 88px;
+    height: 116px;
+    border-radius: 18px;
+  }
+
+  .sp-hrt-btn-dark,
+  .sp-hrt-btn-light {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   HOMEPAGE SECTION HEADINGS UNIFICATION
+   All section titles share the exact same typography as "Your path to better health starts here."
+   ========================================================================== */
+.alivio-works-card-title,
+.sp-products-heading,
+.sp-care-slider__title,
+.sp-testimonials__title,
+.section_faq .sp-heading-h2,
+.alivio-footer-title {
+  font-family: var(--sp-font-display, "Inter", sans-serif) !important;
+  font-size: clamp(2.1rem, 3.6vw, 3.4rem) !important;
+  font-weight: 400 !important; /* Regular per requirement */
+  letter-spacing: -0.025em !important;
+  line-height: 1.1 !important;
+}
+
+/* ==========================================================================
+   SECTION 07B: PERSONALIZED HORMONE CARE SLIDER
+   Full-width pure white background (#FFFFFF) placed below Product Cards
+   ========================================================================== */
+
+.section_sp-care-slider {
+  width: 100%;
+  background-color: #FFFFFF;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.sp-care-slider__container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Section Header: Left-Aligned 2-Line Headline + Top-Right Navigation Arrows */
+.sp-care-slider__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.sp-care-slider__header-left {
+  max-width: 860px;
+}
+
+.sp-care-slider__title {
+  color: #070706;
+  margin: 0;
+}
+
+/* Header Prev / Next Navigation Arrows (Top Right) */
+.sp-care-slider__header-right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-bottom: 6px;
+}
+
+.sp-care-arrows {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sp-care-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #5B2008;
+  border: 1px solid #5B2008;
+  color: #FFEBC4;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(91, 32, 8, 0.22);
+  transition: all 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sp-care-nav-btn:hover {
+  background-color: #260D03;
+  border-color: #260D03;
+  color: #FFFFFF;
+  transform: scale(1.05);
+}
+
+.sp-care-nav-btn:active {
+  transform: scale(0.98);
+}
+
+.sp-care-nav-btn:focus-visible {
+  outline: 2px solid #5B2008;
+  outline-offset: 3px;
+}
+
+/* Carousel Container */
+.sp-care-carousel {
+  position: relative;
+  width: 100%;
+}
+
+/* Track holding slides */
+.sp-care-carousel__track {
+  position: relative;
+  min-height: 520px;
+}
+
+/* Individual Slide (1 visible at a time) */
+.sp-care-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(16px);
+  transition: opacity 420ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 420ms cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 420ms ease;
+  z-index: 1;
+}
+
+.sp-care-slide.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  z-index: 2;
+}
+
+/* Card Outer: Exact nested corner gap matching reference (26px card radius, 14px padding) */
+.sp-care-card {
+  display: grid;
+  grid-template-columns: minmax(340px, 460px) 1fr;
+  gap: clamp(36px, 4.5vw, 68px);
+  align-items: stretch;
+  border-radius: 26px;
+  padding: 14px 44px 14px 14px; /* 14px creates the exact nested corner gap */
+  box-shadow: none;
+  border: 1px solid rgba(38, 13, 3, 0.08);
+  transition: background-color 350ms ease;
+}
+
+/* Slide 1: Women's Care (Warm Linen #FAF2DE) */
+.sp-care-card--women {
+  background-color: #FAF2DE;
+  color: #070706;
+}
+
+.sp-care-card--women .sp-care-card__step-title {
+  color: #070706;
+}
+
+.sp-care-card--women .sp-care-card__step-desc {
+  color: rgba(7, 7, 6, 0.78);
+}
+
+.sp-care-card--women .sp-care-card__tag-pill {
+  border-color: rgba(7, 7, 6, 0.22);
+  color: #070706;
+}
+
+.sp-care-card--women .sp-care-card__highlight-row {
+  border-bottom: 1px dashed rgba(7, 7, 6, 0.16);
+}
+
+.sp-care-card--women .sp-care-card__highlight-text {
+  color: #070706;
+}
+
+.sp-care-card--women .sp-care-card__highlight-icon {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(7, 7, 6, 0.1);
+  color: #5B2008;
+}
+
+.sp-care-card--women .sp-care-card__cta-row .alivio-hero-primary-cta {
+  background-color: #5B2008;
+  color: #FFFFFF;
+  border: 1px solid #5B2008;
+}
+
+.sp-care-card--women .sp-care-card__cta-row .alivio-hero-primary-cta:hover {
+  background-color: #260D03;
+  color: #FFFFFF;
+}
+
+.sp-care-card--women .sp-care-card__cta-row .alivio-cta-disk {
+  background-color: #FFEBC4;
+  color: #5B2008;
+}
+
+/* Slide 2: Men's Health (Forest Green #2D3622 with Light Cream Font) */
+.sp-care-card--mens {
+  background-color: #2D3622;
+  color: #FFEBC4;
+}
+
+.sp-care-card--mens .sp-care-card__step-title {
+  color: #FFEBC4;
+}
+
+.sp-care-card--mens .sp-care-card__step-desc {
+  color: rgba(255, 235, 196, 0.85);
+}
+
+.sp-care-card--mens .sp-care-card__tag-pill {
+  border-color: rgba(255, 235, 196, 0.28);
+  background-color: rgba(255, 235, 196, 0.08);
+  color: #FFEBC4;
+}
+
+.sp-care-card--mens .sp-care-card__highlights-list {
+  border-top: 1px dashed rgba(255, 235, 196, 0.2);
+}
+
+.sp-care-card--mens .sp-care-card__highlight-row {
+  border-bottom: 1px dashed rgba(255, 235, 196, 0.2);
+}
+
+.sp-care-card--mens .sp-care-card__highlight-text {
+  color: #FFEBC4;
+}
+
+.sp-care-card--mens .sp-care-card__highlight-icon {
+  background-color: rgba(255, 235, 196, 0.12);
+  border: 1px solid rgba(255, 235, 196, 0.22);
+  color: #FFEBC4;
+}
+
+.sp-care-card--mens .sp-care-card__cta-row .alivio-hero-primary-cta {
+  background-color: #FFEBC4;
+  color: #2D3622;
+  border: 1px solid #FFEBC4;
+}
+
+.sp-care-card--mens .sp-care-card__cta-row .alivio-hero-primary-cta:hover {
+  background-color: #FFFFFF;
+  color: #260D03;
+}
+
+.sp-care-card--mens .sp-care-card__cta-row .alivio-cta-disk {
+  background-color: #2D3622;
+  color: #FFEBC4;
+}
+
+/* Slide 3: Weight Management (#5C2008 Chestnut Terracotta with Light Cream Font) */
+.sp-care-card--weight {
+  background-color: #5C2008;
+  color: #FFEBC4;
+}
+
+.sp-care-card--weight .sp-care-card__step-title {
+  color: #FFEBC4;
+}
+
+.sp-care-card--weight .sp-care-card__step-desc {
+  color: rgba(255, 235, 196, 0.88);
+}
+
+.sp-care-card--weight .sp-care-card__tag-pill {
+  border-color: rgba(255, 235, 196, 0.28);
+  background-color: rgba(255, 235, 196, 0.08);
+  color: #FFEBC4;
+}
+
+.sp-care-card--weight .sp-care-card__highlights-list {
+  border-top: 1px dashed rgba(255, 235, 196, 0.2);
+}
+
+.sp-care-card--weight .sp-care-card__highlight-row {
+  border-bottom: 1px dashed rgba(255, 235, 196, 0.2);
+}
+
+.sp-care-card--weight .sp-care-card__highlight-text {
+  color: #FFEBC4;
+}
+
+.sp-care-card--weight .sp-care-card__highlight-icon {
+  background-color: rgba(255, 235, 196, 0.12);
+  border: 1px solid rgba(255, 235, 196, 0.22);
+  color: #FFEBC4;
+}
+
+.sp-care-card--weight .sp-care-card__cta-row .alivio-hero-primary-cta {
+  background-color: #FFEBC4;
+  color: #5C2008;
+  border: 1px solid #FFEBC4;
+}
+
+.sp-care-card--weight .sp-care-card__cta-row .alivio-hero-primary-cta:hover {
+  background-color: #FFFFFF;
+  color: #260D03;
+}
+
+.sp-care-card--weight .sp-care-card__cta-row .alivio-cta-disk {
+  background-color: #5C2008;
+  color: #FFEBC4;
+}
+
+/* Left: Media Column with Image Box (Corner Radius 20px, Nested in 26px Card with 14px Gap) */
+.sp-care-card__media-col {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 480px;
+}
+
+.sp-care-card__image-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.sp-care-card__img {
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  border-radius: 20px;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sp-care-card:hover .sp-care-card__img {
+  transform: scale(1.02);
+}
+
+.sp-care-card__placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  background: linear-gradient(150deg, #E6DCBF 0%, #D8CCA8 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.sp-care-card__placeholder-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #5B2008;
+  box-shadow: 0 4px 14px rgba(38, 13, 3, 0.08);
+}
+
+.sp-care-card__placeholder-tag {
+  font-family: var(--sp-font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #5B2008;
+}
+
+/* Right: Editorial Content Group */
+.sp-care-card__content-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 18px 0;
+}
+
+.sp-care-card__pill-wrap {
+  margin-bottom: 18px;
+}
+
+.sp-care-card__tag-pill {
+  display: inline-block;
+  padding: 6px 14px;
+  background-color: transparent;
+  border-radius: 999px;
+  font-family: var(--sp-font-sans);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sp-care-card__step-title {
+  font-family: var(--sp-font-display, "Inter", sans-serif);
+  font-size: clamp(1.75rem, 2.5vw, 2.45rem);
+  font-weight: 400; /* Regular per Alivio & reference */
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin: 0 0 16px 0;
+}
+
+.sp-care-card__step-desc {
+  font-family: var(--sp-font-sans);
+  font-size: clamp(0.96rem, 1.1vw, 1.05rem);
+  line-height: 1.55;
+  margin: 0 0 28px 0;
+  max-width: 620px;
+}
+
+/* Highlights List with Dashed Separators */
+.sp-care-card__highlights-list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+  border-top: 1px dashed rgba(7, 7, 6, 0.16);
+}
+
+.sp-care-card__highlight-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.sp-care-card__highlight-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sp-care-card__highlight-text {
+  font-family: var(--sp-font-sans);
+  font-size: 0.98rem;
+  font-weight: 450;
+  line-height: 1.4;
+}
+
+/* CTA Row */
+.sp-care-card__cta-row {
+  margin-top: 4px;
+}
+
+/* Trust Points Strip Below Care Slider */
+.sp-care-trust-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px 38px;
+  margin-top: 36px;
+  padding-top: 10px;
+}
+
+.sp-care-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #3C2216;
+}
+
+.sp-care-trust-tick {
+  flex-shrink: 0;
+  color: #5B2008;
+}
+
+.sp-care-trust-label {
+  font-family: var(--sp-font-sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #4A3326;
+}
+
+/* ==========================================================================
+   SECTION 07C: TESTIMONIAL AUTO SLIDER SECTION
+   Full-width white background with compact, minimal cards and light cream faded background
+   Shifted upwards for smoother hierarchy
+   ========================================================================== */
+
+.section_sp-testimonials {
+  width: 100%;
+  background-color: #FFFFFF;
+  padding: 80px 0;
+  margin-top: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.sp-testimonials__container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.sp-testimonials__header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sp-testimonials__title {
+  color: #070706;
+  margin: 0 0 14px 0;
+}
+
+/* Trustpilot Rating Strip Below Heading */
+.alivio-testimonials-trustpilot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-family: var(--sp-font-sans);
+  font-size: 0.92rem;
+  color: #260D03;
+  margin-bottom: 12px;
+}
+
+.alivio-testimonials-trustpilot .alivio-trustpilot-brand {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #070706;
+}
+
+.alivio-testimonials-trustpilot .alivio-trustpilot-score {
+  font-weight: 700;
+  color: #070706;
+}
+
+.alivio-testimonials-trustpilot .alivio-trustpilot-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5px;
+  color: #00B67A; /* Official Trustpilot Green for distinct credibility */
+}
+
+.alivio-testimonials-trustpilot .alivio-star-icon {
+  width: 16px;
+  height: 16px;
+  fill: #00B67A;
+  color: #00B67A;
+  flex-shrink: 0;
+}
+
+.alivio-testimonials-trustpilot .alivio-trustpilot-bullet {
+  color: #8C7E72;
+  font-weight: bold;
+}
+
+.alivio-testimonials-trustpilot .alivio-trustpilot-reviews {
+  font-weight: 450;
+  color: #55504A;
+}
+
+.sp-testimonials__lead {
+  font-family: var(--sp-font-sans);
+  font-size: clamp(0.96rem, 1.1vw, 1.05rem);
+  line-height: 1.5;
+  color: rgba(7, 7, 6, 0.68);
+  margin: 0;
+  max-width: 600px;
+}
+
+/* Horizontal Track Wrapper - Full bleed edge-to-edge without faded mask */
+.sp-testimonials-track-wrap {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  overflow: hidden;
+  position: relative;
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+.sp-testimonials-track {
+  display: flex;
+  gap: 22px;
+  width: max-content;
+  animation: testimonialMarquee 90s linear infinite; /* Ultra-smooth, relaxed auto scrolling speed */
+  will-change: transform;
+}
+
+.sp-testimonials-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes testimonialMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Testimonial Card Layout Matching Reference */
+.sp-testimonial-card {
+  width: clamp(340px, 28vw, 420px);
+  min-height: 290px;
+  flex-shrink: 0;
+  background-color: #F7F4EF; /* Clean muted light cream faded backing */
+  border-radius: 20px;
+  padding: 32px 30px 24px;
+  border: none;
+  box-shadow: none;
+  border: 1px solid rgba(38, 13, 3, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 260ms ease, box-shadow 260ms ease;
+}
+
+.sp-testimonial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(38, 13, 3, 0.06);
+}
+
+/* Photo Card with Real Patient Image */
+.sp-testimonial-card--photo {
+  padding: 0;
+  overflow: hidden;
+  background: #EFE9DF;
+  width: clamp(240px, 22vw, 320px);
+}
+
+.sp-testimonial-photo-img {
+  width: 100%;
+  height: 100%;
+  min-height: 290px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 20px;
+}
+
+.sp-testimonial-card__quote {
+  font-family: var(--sp-font-sans);
+  font-size: 0.94rem;
+  line-height: 1.58;
+  color: #1A1816;
+  margin: 0 0 20px 0;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.sp-testimonial-card__footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 14px;
+}
+
+.sp-testimonial-card__author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sp-testimonial-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--sp-font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #9A9286;
+}
+
+.sp-testimonial-verified-icon {
+  color: #9A9286;
+  flex-shrink: 0;
+}
+
+.sp-testimonial-card__author-name {
+  font-family: var(--sp-font-sans);
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: #070706;
+}
+
+.sp-testimonial-card__stars {
+  display: flex;
+  gap: 3px;
+  color: #070706; /* Solid dark stars matching reference */
+  font-size: 0.88rem;
+}
+
+/* Bottom CTA Wrap */
+.sp-testimonials-cta-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 42px;
+}
+
+.sp-testimonials-cta-wrap .alivio-hero-primary-cta {
+  min-width: 220px;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 991px) {
+  .section_sp-care-slider,
+  .section_sp-testimonials {
+    padding: 80px 0;
+  }
+
+  .sp-care-slider__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .sp-care-card {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 12px 20px 24px 12px;
+    border-radius: 22px;
+  }
+
+  .sp-care-card__media-col {
+    min-height: 380px;
+  }
+
+  .sp-care-card__image-box {
+    min-height: 380px;
+  }
+
+  .sp-care-card__placeholder {
+    min-height: 380px;
+  }
+
+  .sp-testimonial-card {
+    width: 300px;
+    padding: 24px 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section_sp-care-slider {
+    padding: 50px 0;
+  }
+
+  .section_sp-testimonials {
+    padding: 50px 0;
+    margin-top: 0;
+  }
+
+  .sp-care-slider__container,
+  .sp-testimonials__container {
+    padding: 0 18px;
+  }
+
+  .sp-care-card {
+    padding: 10px 14px 20px 10px;
+    border-radius: 18px;
+  }
+
+  .sp-care-card__media-col {
+    min-height: 320px;
+  }
+
+  .sp-care-card__image-box {
+    min-height: 320px;
+  }
+
+  .sp-care-card__placeholder {
+    min-height: 320px;
+  }
+
+  .sp-care-card__cta-row .alivio-hero-primary-cta {
+    width: auto;
+    justify-content: flex-start;
+  }
+
+  .sp-testimonial-card {
+    width: 270px;
+    padding: 20px 18px;
+  }
+}
+
+/* ==========================================================================
+   HOMEPAGE SECTION VERTICAL RHYTHM STANDARDS
+   Strict: 80px Desktop / Tablet | 50px Mobile (<768px) with intentional section adjustments
+   ========================================================================== */
+.section_protocols,
+.section_sp-products,
+.section_faq {
+  padding-top: 80px !important;
+  padding-bottom: 80px !important;
+}
+
+/* EXPLORE TREATMENTS Arched Section: moved upwards */
+.alivio-curved-discovery {
+  padding-top: 40px !important;
+  padding-bottom: 80px !important;
+}
+
+/* AS SEEN IN Media Marquee: moved up closer to hero */
+.sp-as-seen-in {
+  padding-top: 36px !important;
+  padding-bottom: 50px !important;
+}
+
+/* HOW ALIVIO WORKS: seamless attachment to previous section (eliminates black bar gap) */
+.alivio-works-how-it-works {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  background-color: #FAF2DE !important;
+}
+
+/* CARE SLIDER: comfortable bottom spacing above trust strip */
+.section_sp-care-slider {
+  padding-top: 80px !important;
+  padding-bottom: 40px !important;
+}
+
+/* PATIENT STORIES (Testimonials): moved up towards the care trust strip */
+.section_sp-testimonials {
+  padding-top: 24px !important;
+  padding-bottom: 80px !important;
+}
+
+@media (max-width: 767px) {
+  .section_protocols,
+  .section_sp-products,
+  .section_faq {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+  }
+
+  .alivio-curved-discovery {
+    padding-top: 28px !important;
+    padding-bottom: 50px !important;
+  }
+
+  .sp-as-seen-in {
+    padding-top: 24px !important;
+    padding-bottom: 36px !important;
+  }
+
+  .alivio-works-how-it-works {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    background-color: #FAF2DE !important;
+  }
+
+  .section_sp-care-slider {
+    padding-top: 50px !important;
+    padding-bottom: 24px !important;
+  }
+
+  .section_sp-testimonials {
+    padding-top: 16px !important;
+    padding-bottom: 50px !important;
+  }
+}
+
+
+
+
+
+/* ==========================================================================
+   MOST POPULAR BADGE (Top-Right on Care Cards)
+   ========================================================================== */
+.alivio-care-card__popular-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background-color: rgba(38, 13, 3, 0.76);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 235, 196, 0.32);
+  color: #FFEBC4; /* Alivio warm peach */
+  font-family: var(--sp-font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   EXTENDED FOOTER HERO BANNER ("Come back to yourself.")
+   ========================================================================== */
+.alivio-footer-hero-banner {
+  display: block;
+  padding: clamp(60px, 8vw, 110px) 0 clamp(44px, 6vw, 76px);
+  position: relative;
+  z-index: 2;
+  max-width: 1320px;
+}
+
+.alivio-footer-hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 680px;
+}
+
+/* Matched with Hero Section Display Scale: clamp(2.95rem, 5.5vw, 5.25rem) */
+.alivio-footer-hero-title {
+  font-family: var(--sp-font-display, "Inter", sans-serif) !important;
+  font-size: clamp(2.95rem, 5.5vw + 0.6rem, 5.15rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.03em !important;
+  color: var(--color-apricot-cream, #FFEBC4) !important;
+  margin: 0 0 clamp(16px, 2vw, 24px) 0;
+  text-wrap: balance;
+}
+
+.alivio-footer-hero-italic {
+  font-style: italic !important;
+  font-family: inherit !important;
+  font-weight: 400 !important;
+  color: #FAF2DE !important;
+}
+
+.alivio-footer-hero-desc {
+  font-family: var(--sp-font-sans, "Inter", sans-serif);
+  font-size: clamp(1.08rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
+  color: rgba(250, 242, 222, 0.82);
+  margin: 0 0 clamp(28px, 3.5vw, 40px) 0;
+  max-width: 540px;
+}
+
+.alivio-footer-hero-cta-wrap {
+  display: inline-block;
+  width: auto;
+}
+
+/* Ensure footer CTA maintains inline-flex pill dimensions matching hero */
+.alivio-footer-hero-cta-wrap .alivio-hero-primary-cta {
+  width: auto !important;
+  min-width: 220px;
+}
+
+@media (max-width: 767px) {
+  .alivio-footer-hero-banner {
+    padding: 50px 0 36px;
+  }
+
+  .alivio-footer-hero-left {
+    align-items: flex-start;
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .alivio-footer-hero-title {
+    font-size: clamp(2.4rem, 9vw, 3.4rem) !important;
+    line-height: 1.1 !important;
+  }
+
+  .alivio-footer-hero-desc {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
+  .alivio-footer-hero-cta-wrap {
+    width: auto;
+  }
+
+  .alivio-footer-hero-cta-wrap .alivio-hero-primary-cta {
+    width: auto !important;
+    max-width: max-content !important;
+  }
+}
+
+
+
+/* ==========================================================================
+   MOBILE CTA BUTTON STANDARDS (MATCHING "2-MINUTES ASSESSMENT" PILL)
+   - Not full-width
+   - Centered label text
+   - Uniform height 44px, pill radius, circular action disk
+   ========================================================================== */
+@media (max-width: 767px) {
+  .alivio-hero-primary-cta {
+    width: auto !important;
+    max-width: max-content !important;
+    min-width: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    padding: 0 6px 0 20px !important;
+    box-sizing: border-box !important;
+    gap: 12px !important;
+  }
+
+  .alivio-hero-primary-cta .alivio-cta-label {
+    flex: 1 1 auto !important;
+    text-align: center !important;
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .alivio-hero-primary-cta .alivio-cta-disk {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .alivio-footer-hero-cta-wrap .alivio-hero-primary-cta {
+    width: auto !important;
+    max-width: max-content !important;
+  }
+
+  .sp-products-assessment__btn {
+    width: auto !important;
+    max-width: max-content !important;
+  }
+
+  .alivio-works-cta-row .alivio-hero-primary-cta {
+    width: auto !important;
+    max-width: max-content !important;
+  }
+}
+
+/* ==========================================================================
+   HOMEPAGE MOBILE HERO CTAs: Locked in Same Horizontal Line (Single Row)
+   ========================================================================== */
+@media (max-width: 767px) {
+  .sp-hero-actions,
+  .sp-hero-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .sp-hero-actions .alivio-hero-primary-cta,
+  .sp-hero-actions .alivio-hero-secondary-cta {
+    flex: 1 1 50% !important;
+    width: auto !important;
+    max-width: calc(50% - 4px) !important;
+    min-width: 0 !important;
+    height: 52px !important;
+    min-height: 52px !important;
+    max-height: 52px !important;
+    padding: 0 6px 0 12px !important;
+    gap: 4px !important;
+    box-sizing: border-box !important;
+    justify-content: space-between !important;
+  }
+
+  .sp-hero-actions .alivio-hero-primary-cta .alivio-cta-label,
+  .sp-hero-actions .alivio-hero-secondary-cta .alivio-cta-label {
+    font-size: clamp(0.70rem, 3.2vw, 0.82rem) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    text-align: center !important;
+    flex: 1 1 auto !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .sp-hero-actions .alivio-cta-disk,
+  .sp-hero-actions .alivio-glass-disk {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    flex-shrink: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .sp-hero-actions .alivio-cta-disk svg,
+  .sp-hero-actions .alivio-glass-disk svg {
+    width: 14px !important;
+    height: 14px !important;
+    stroke: currentColor !important;
+    fill: none !important;
+  }
+}

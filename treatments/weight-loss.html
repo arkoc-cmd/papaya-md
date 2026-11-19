@@ -1,0 +1,2233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>Medical Weight Loss with GLP-1 & Tirzepatide | PapayaMD Telehealth</title>
+  <meta name="description" content="Physician-prescribed compounded Semaglutide, Tirzepatide, and Oral GLP-1 tablets. 100% online telehealth, zero office visits, free discreet cold-chain delivery.">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Medical Weight Loss, Powered by GLP-1 Science | PapayaMD">
+  <meta property="og:description" content="Physician-prescribed compounded Semaglutide, Tirzepatide, and Oral GLP-1 tablets. 100% online telehealth.">
+  <meta property="og:image" content="../assets/images/prod-semaglutide-vial.png">
+  
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
+  
+  <!-- Preload Critical Assets -->
+  <link rel="prefetch" as="document" href="../index.html">
+  <link rel="preload" as="image" href="../assets/images/Analysis-output-1.png">
+  <link rel="preload" as="image" href="../assets/images/weight-loss-model-cutout.png">
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+  
+  <!-- Global Stylesheets (Strict Design System Cascade) -->
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/typography.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/sections.css">
+  <link rel="stylesheet" href="../assets/css/intake.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <style>
+    /* ==========================================================================
+       Weight Loss Page — Scoped Architectural Styling (Warm Linen & Terracotta)
+       ========================================================================== */
+    :root {
+      --color-wl-bg: #FEFAF1;
+      --color-wl-espresso: #1C0903;
+      --color-wl-text-subtle: #5C4A3E;
+      --color-wl-terracotta: #5B2008;
+      --color-wl-terracotta-hover: #3E1505;
+      --color-wl-accent-peach: #FFEBC4;
+      --color-wl-pill-bg: #FAF2DE;
+      --color-wl-pill-border: rgba(91, 32, 8, 0.16);
+      --color-wl-card-border: rgba(91, 32, 9, 0.08);
+    }
+
+    body {
+      background-color: var(--color-wl-bg);
+      color: var(--color-wl-espresso);
+      font-family: var(--sp-font-sans, "Inter", sans-serif);
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Fixed Top Navigation Bar */
+
+
+    /* ==========================================================================
+       Scoped Light Header Behavior (Exact Match with Menopause Page)
+       ========================================================================== */
+    .site-header.site-header--light:not(.scrolled) {
+      position: absolute;
+      top: var(--sp-utility-height, 38px);
+      left: 0;
+      width: 100%;
+      background: transparent;
+      padding: 0;
+      z-index: 100;
+    }
+
+    .site-header.site-header--light:not(.scrolled) .nav-pill-container {
+      background-color: transparent !important;
+      border: 1px solid transparent !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      padding: 6px clamp(24px, 4.5vw, 64px);
+    }
+
+    .site-header.site-header--light:not(.scrolled) .brand-wordmark {
+      color: var(--color-espresso-dark, #260D03) !important;
+    }
+
+    .site-header.site-header--light:not(.scrolled) .nav-link {
+      color: #41382E !important;
+      opacity: 0.9;
+    }
+
+    .site-header.site-header--light:not(.scrolled) .nav-link:hover {
+      color: var(--color-espresso-dark, #260D03) !important;
+      opacity: 1;
+    }
+
+    .site-header.site-header--light:not(.scrolled) .nav-user-icon-btn {
+      color: var(--color-espresso-dark, #260D03) !important;
+      border-color: rgba(91, 32, 8, 0.18);
+      background: rgba(91, 32, 8, 0.04);
+    }
+
+    .site-header.site-header--light:not(.scrolled) .nav-user-icon-btn:hover {
+      background: var(--color-espresso-dark, #260D03);
+      border-color: var(--color-espresso-dark, #260D03);
+      color: #FFFFFF !important;
+    }
+
+    .site-header.site-header--light:not(.scrolled) .menu-toggle {
+      color: var(--color-espresso-dark, #260D03) !important;
+      border-color: rgba(91, 32, 8, 0.18);
+      background: rgba(91, 32, 8, 0.04);
+    }
+
+    .site-header.site-header--light .alivio-nav-primary-cta {
+      height: 44px !important;
+      min-height: 44px !important;
+      max-height: 44px !important;
+      padding: 0 6px 0 18px !important;
+      font-size: 0.875rem !important;
+      font-weight: 600 !important;
+      box-sizing: border-box !important;
+    }
+
+    @media (min-width: 992px) {
+      .site-header.site-header--light .menu-toggle {
+        display: none !important;
+      }
+    }
+
+    .site-header.site-header--light .alivio-nav-primary-cta .alivio-cta-disk {
+      background-color: var(--color-golden-apricot, #FACA89);
+      color: var(--color-rust-terracotta, #5B2009);
+      width: 32px;
+      height: 32px;
+    }
+
+    .site-header.site-header--light .alivio-nav-primary-cta:hover {
+      background-color: var(--color-rust-terracotta-hover, #3E1505);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(91, 32, 8, 0.22);
+    }
+
+    /* When scrolled: Sticky floating pill appearance matching menopause page */
+    .site-header.site-header--light.scrolled {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 8px clamp(12px, 2vw, 24px);
+      z-index: 1000;
+    }
+
+    .site-header.site-header--light.scrolled .nav-pill-container {
+      background-color: var(--color-linen-warm, #FAF2DE) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border: 1px solid rgba(38, 13, 3, 0.12) !important;
+      box-shadow: 0 8px 24px rgba(38, 13, 3, 0.08) !important;
+      padding: 10px clamp(18px, 2.5vw, 28px);
+    }
+
+    .site-header.site-header--light.scrolled .brand-wordmark {
+      color: var(--color-espresso-dark, #260D03) !important;
+    }
+
+    .site-header.site-header--light.scrolled .nav-link {
+      color: var(--color-charcoal-earth, #41382E) !important;
+    }
+
+    .site-header.site-header--light.scrolled .nav-link:hover {
+      color: var(--color-espresso-dark, #260D03) !important;
+    }
+
+    .site-header.site-header--light.scrolled .nav-user-icon-btn {
+      color: var(--color-espresso-dark, #260D03) !important;
+      border-color: rgba(38, 13, 3, 0.18);
+      background: rgba(38, 13, 3, 0.05);
+    }
+
+    .site-header.site-header--light.scrolled .menu-toggle {
+      background-color: var(--color-linen-warm, #FAF2DE);
+      color: var(--color-espresso-dark, #260D03) !important;
+      border: 1px solid rgba(38, 13, 3, 0.18);
+    }
+
+    /* ==========================================================================
+       1. HERO FULL-WIDTH FIRST FOLD SECTION (EXACT PAPAYAMD SPECIFICATION)
+       ========================================================================== */
+    .section_wl-hero {
+      background-color: var(--color-canvas-light, #FFFDF5);
+      position: relative;
+      overflow: hidden;
+      min-height: 640px;
+      padding-top: calc(var(--sp-header-height, 70px) + var(--sp-utility-height, 38px) + clamp(12px, 1.6vw, 24px));
+      padding-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Soft curved organic linen backdrop behind the visual composition */
+    .wl-hero-organic-backdrop {
+      display: none !important;
+    }
+
+    /* Full-Width Grid Container: 100% width, ~5% from left, model flush to right */
+    .wl-hero-container {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 0 0 clamp(24px, 4.5vw, 64px) !important;
+      display: grid !important;
+      grid-template-columns: 1.15fr 0.75fr 1.25fr !important;
+      align-items: flex-end !important;
+      position: relative !important;
+      z-index: 2 !important;
+      flex: 1 !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Left Column: Entire Left Content Moved UPWARDS */
+    .wl-hero-content {
+      align-self: center !important;
+      padding-top: 0 !important;
+      padding-bottom: 20px !important;
+      margin-top: -54px !important;
+      z-index: 3 !important;
+    }
+
+    /* Trustpilot Rating Row: Stars, Trustpilot, 4.4, -, reviews in rich brown #260D03 */
+    .wl-hero__rating {
+      margin-bottom: 18px !important;
+    }
+
+    .wl-hero__rating .alivio-hero-trustpilot {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      font-size: 0.86rem !important;
+      font-weight: 500 !important;
+      color: #260D03 !important;
+    }
+
+    .wl-hero__rating .alivio-trustpilot-title {
+      font-weight: 500 !important;
+      color: #260D03 !important;
+    }
+
+    .wl-hero__rating .alivio-trustpilot-stars {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 2px !important;
+      color: #260D03 !important;
+    }
+
+    .wl-hero__rating .alivio-star-icon {
+      width: 15px !important;
+      height: 15px !important;
+      color: #260D03 !important;
+      fill: #260D03 !important;
+    }
+
+    .wl-hero__rating .alivio-trustpilot-brand {
+      font-weight: 700 !important;
+      letter-spacing: -0.01em !important;
+      color: #260D03 !important;
+    }
+
+    .wl-hero__rating .alivio-trustpilot-score {
+      font-weight: 700 !important;
+      color: #260D03 !important;
+    }
+
+    .wl-hero__rating .alivio-trustpilot-bullet {
+      opacity: 0.7 !important;
+      color: #260D03 !important;
+    }
+
+    .wl-hero__rating .alivio-trustpilot-reviews {
+      color: #260D03 !important;
+      opacity: 0.85 !important;
+    }
+
+    /* Hero Heading - Exact Menopause Scale & 2-Line Layout */
+    .wl-hero-heading {
+      font-family: var(--sp-font-display, "Inter", sans-serif) !important;
+      font-size: clamp(2.95rem, 5.5vw + 0.6rem, 5.25rem) !important;
+      font-weight: 400 !important;
+      line-height: 1.1 !important;
+      letter-spacing: -0.03em !important;
+      color: var(--color-espresso-dark, #260D03) !important;
+      margin: 0 0 clamp(16px, 2.2vw, 24px) 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      max-width: 680px !important;
+    }
+
+    .wl-hero-heading-line {
+      display: block !important;
+    }
+
+    .wl-hero-personalized {
+      color: var(--color-rust-terracotta, #5B2009) !important;
+      font-style: italic !important;
+      font-weight: 400 !important;
+    }
+
+    /* Hero Subheading Description */
+    .wl-hero-subheading {
+      font-family: var(--sp-font-sans, "Inter", sans-serif) !important;
+      font-size: clamp(1.02rem, 1.25vw, 1.15rem) !important;
+      line-height: 1.55 !important;
+      color: #41382E !important;
+      max-width: 490px !important;
+      margin: 0 0 24px 0 !important;
+    }
+
+    /* 3 Clinical Trust Pillars (Horizontal with Vertical Dividers) */
+    .wl-hero-pillars {
+      display: flex !important;
+      align-items: center !important;
+      gap: clamp(12px, 1.8vw, 20px) !important;
+      margin-bottom: 26px !important;
+      padding-bottom: 2px !important;
+    }
+
+    .wl-pillar-col {
+      display: flex !important;
+      align-items: center !important;
+      gap: 9px !important;
+    }
+
+    .wl-pillar-icon {
+      font-size: 1.15rem !important;
+      color: #260D03 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+    }
+
+    .wl-pillar-icon svg {
+      fill: #260D03 !important;
+      color: #260D03 !important;
+    }
+
+    .wl-pillar-text {
+      font-family: var(--sp-font-sans, "Inter", sans-serif) !important;
+      font-size: 0.875rem !important;
+      line-height: 1.3 !important;
+      font-weight: 600 !important;
+      color: #260D03 !important;
+      white-space: nowrap !important;
+    }
+
+    .wl-pillar-sep {
+      width: 1px !important;
+      height: 28px !important;
+      background-color: rgba(38, 13, 3, 0.16) !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* Primary CTA Button: Exact PapayaMD Homepage Style (alivio-hero-primary-cta) */
+    .wl-hero-cta-wrap {
+      margin-bottom: 18px !important;
+    }
+
+    .wl-hero-cta-wrap .alivio-hero-primary-cta {
+      background-color: var(--color-rust-terracotta, #5B2009) !important;
+      color: #FFFFFF !important;
+      border: 1px solid var(--color-rust-terracotta, #5B2009) !important;
+      height: 58px !important;
+      min-height: 58px !important;
+      max-height: 58px !important;
+      min-width: 400px !important;
+      max-width: 440px !important;
+      width: 100% !important;
+      padding: 0 8px 0 24px !important;
+      border-radius: 9999px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 16px !important;
+      font-size: 0.98rem !important;
+      font-weight: 600 !important;
+      text-decoration: none !important;
+      box-shadow: 0 4px 16px rgba(91, 32, 8, 0.16) !important;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      box-sizing: border-box !important;
+    }
+
+    .wl-hero-cta-wrap .alivio-hero-primary-cta .alivio-cta-label {
+      color: #FFFFFF !important;
+      font-family: var(--sp-font-sans, "Inter", sans-serif) !important;
+      font-size: 0.98rem !important;
+      font-weight: 600 !important;
+      letter-spacing: -0.01em !important;
+      flex: 1 !important;
+      text-align: center !important;
+      margin-left: 18px !important;
+    }
+
+    .wl-hero-cta-wrap .alivio-hero-primary-cta .alivio-cta-disk {
+      width: 44px !important;
+      height: 44px !important;
+      min-width: 44px !important;
+      min-height: 44px !important;
+      border-radius: 50% !important;
+      background-color: #FFFFFF !important;
+      color: var(--color-rust-terracotta, #5B2009) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+      transition: transform 0.25s ease !important;
+    }
+
+    .wl-hero-cta-wrap .alivio-hero-primary-cta .alivio-cta-disk svg {
+      stroke: var(--color-rust-terracotta, #5B2009) !important;
+    }
+
+    .wl-hero-cta-wrap .alivio-hero-primary-cta:hover {
+      background-color: var(--color-rust-terracotta-hover, #3E1505) !important;
+      border-color: var(--color-rust-terracotta-hover, #3E1505) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 20px rgba(91, 32, 8, 0.24) !important;
+    }
+
+    .wl-hero-cta-wrap .alivio-hero-primary-cta:hover .alivio-cta-disk {
+      transform: translate(2px, -2px) !important;
+    }
+
+    /* Guarantee Under CTA */
+    .wl-hero-guarantee {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      font-size: 0.88rem !important;
+      font-weight: 500 !important;
+      color: #41382E !important;
+    }
+
+    .wl-guarantee-icon {
+      color: var(--color-rust-terracotta, #5B2009) !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+
+    /* Centre-right Column: Animated Starburst & Dual Larger Vials Snug Together */
+    .wl-hero-vials-col {
+      position: relative !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: flex-end !important;
+      height: 100% !important;
+      z-index: 5 !important;
+      transform: translate(72px, -88px) !important;
+    }
+
+    /* Wheel rotation animation on the yellow starburst background layer only */
+    @keyframes wl-wheel-rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Starburst Price Badge Resting Directly on Larger Vial Caps with Zero Gap */
+    .wl-starburst-badge {
+      position: absolute !important;
+      bottom: calc(clamp(290px, 29vw, 395px) + 8px) !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 172px !important;
+      height: 172px !important;
+      z-index: 4 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      filter: drop-shadow(0 8px 24px rgba(36, 13, 5, 0.42)) !important;
+      pointer-events: none !important;
+    }
+
+    /* Only the yellow starburst layer animates like a spinning wheel */
+    .wl-starburst-bg {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      transform-origin: center center !important;
+      animation: wl-wheel-rotate 8s linear infinite !important;
+    }
+
+    .wl-starburst-content {
+      position: relative !important;
+      z-index: 2 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      line-height: 1.05 !important;
+    }
+
+    .wl-sb-top {
+      font-size: 0.82rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.06em !important;
+      color: #FFFFFF !important;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    .wl-sb-price {
+      font-size: 2.05rem !important;
+      font-weight: 900 !important;
+      color: #FFFFFF !important;
+      letter-spacing: -0.02em !important;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45) !important;
+    }
+
+    .wl-sb-bot {
+      font-size: 0.72rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.06em !important;
+      color: rgba(255, 255, 255, 0.92) !important;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    /* Vials Stage & Ground Shadow: Larger Vials & Reduced Gap (Snug Touching) */
+    .wl-vials-stage {
+      position: relative !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      width: 100% !important;
+      padding-bottom: 4px !important;
+      transform: translateY(-48px) !important;
+    }
+
+    .wl-vials-pair {
+      display: flex !important;
+      align-items: flex-end !important;
+      justify-content: center !important;
+      gap: 0px !important;
+      position: relative !important;
+      z-index: 2 !important;
+    }
+
+    .wl-vial-img {
+      height: clamp(290px, 29vw, 395px) !important;
+      width: auto !important;
+      max-width: 400px !important;
+      object-fit: contain !important;
+      display: block !important;
+      transform: none !important;
+      transition: none !important;
+      pointer-events: auto !important;
+    }
+
+    .wl-vial-img--dual {
+      width: 100% !important;
+      max-width: clamp(300px, 30vw, 400px) !important;
+      height: auto !important;
+      max-height: clamp(290px, 29vw, 395px) !important;
+      display: block !important;
+      margin: 0 auto !important;
+    }
+
+    .wl-vial-img:hover {
+      transform: none !important;
+    }
+
+    /* Ground Contact Shadow Beneath Larger Vials */
+    .wl-vials-ground-shadow {
+      position: absolute !important;
+      bottom: 0px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 400px !important;
+      height: 24px !important;
+      background: radial-gradient(ellipse at center, rgba(32, 13, 5, 0.48) 0%, rgba(32, 13, 5, 0.24) 42%, rgba(32, 13, 5, 0.05) 68%, transparent 80%) !important;
+      border-radius: 50% !important;
+      filter: blur(4px) !important;
+      z-index: 1 !important;
+      pointer-events: none !important;
+    }
+
+    /* Far-Right Column: Model prominently sized on right side, safely clear of nav links */
+    .wl-hero-model-col {
+      position: relative !important;
+      display: flex !important;
+      align-items: flex-end !important;
+      justify-content: flex-end !important;
+      height: 100% !important;
+      z-index: 2 !important;
+      overflow: visible !important;
+      margin-right: 0 !important;
+    }
+
+    .wl-model-wrapper {
+      position: relative !important;
+      display: flex !important;
+      align-items: flex-end !important;
+      justify-content: flex-end !important;
+      width: 100% !important;
+      max-width: clamp(700px, 62vw, 1140px) !important;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .wl-model-img {
+      width: 100% !important;
+      height: auto !important;
+      /* Max-height safely clamped to viewport to prevent touching nav link */
+      max-height: clamp(660px, 58vw, 980px) !important;
+      object-fit: contain !important;
+      object-position: bottom right !important;
+      display: block !important;
+      transform: none !important;
+      transition: none !important;
+    }
+
+    /* Floating Pill Badge: ↓ 20lbs (On the Right Side of the Model) */
+    .wl-model-drop-badge {
+      position: absolute !important;
+      top: 22% !important;
+      right: 2% !important;
+      left: auto !important;
+      background: #FFFFFF !important;
+      border: 1px solid rgba(0, 0, 0, 0.06) !important;
+      border-radius: 999px !important;
+      padding: 8px 20px !important;
+      box-shadow: 0 10px 28px rgba(45, 20, 9, 0.14) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      font-family: var(--sp-font-display, "Inter", sans-serif) !important;
+      font-size: 1.12rem !important;
+      font-weight: 700 !important;
+      color: #191919 !important;
+      z-index: 4 !important;
+      pointer-events: none !important;
+    }
+
+    .wl-drop-arrow {
+      color: #191919 !important;
+      font-size: 1.15rem !important;
+      font-weight: 900 !important;
+    }
+
+    .wl-drop-val {
+      letter-spacing: -0.01em !important;
+    }
+
+    /* Responsive Adjustments for Tablet and Mobile */
+    @media (max-width: 1120px) {
+      .wl-hero-container {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 0 20px 32px !important;
+        align-items: stretch !important;
+      }
+
+      /* Mobile: Main heading and content strictly LEFT ALIGNED */
+      .wl-hero-content {
+        margin-top: 0 !important;
+        text-align: left !important;
+        order: 1 !important;
+        padding-bottom: 0 !important;
+      }
+
+      .wl-hero-heading {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        text-align: left !important;
+      }
+
+      .wl-hero-subheading {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        text-align: left !important;
+      }
+
+      .wl-hero-pillars {
+        justify-content: flex-start !important;
+        flex-wrap: wrap !important;
+        gap: 12px 16px !important;
+      }
+
+      .wl-pillar-sep {
+        display: none !important;
+      }
+
+      /* Hide desktop CTA wrap inside content on mobile */
+      .wl-hero-content .wl-hero-cta-wrap,
+      .wl-hero-content .wl-hero-guarantee {
+        display: none !important;
+      }
+
+      /* Mobile: Vials and badge CENTERED, with ample clear spacing (does NOT touch content) */
+      .wl-hero-vials-col {
+        order: 2 !important;
+        transform: none !important;
+        margin: 48px auto 0 !important;
+        width: 100% !important;
+        max-width: 320px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      .wl-vials-stage {
+        transform: none !important;
+        padding-bottom: 0 !important;
+      }
+
+      .wl-vial-img {
+        height: auto !important;
+        max-height: 270px !important;
+        max-width: 270px !important;
+      }
+
+      .wl-starburst-badge {
+        position: absolute !important;
+        bottom: 240px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 128px !important;
+        height: 128px !important;
+      }
+
+      /* Mobile CTA Block positioned strictly BELOW the vials */
+      .wl-hero-mobile-cta-wrap {
+        order: 3 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        margin-top: 24px !important;
+        width: 100% !important;
+      }
+
+      .wl-hero-mobile-cta-wrap .alivio-hero-primary-cta {
+        width: 100% !important;
+        max-width: 380px !important;
+        min-width: 280px !important;
+      }
+
+      .wl-hero-mobile-cta-wrap .wl-hero-guarantee {
+        margin-top: 12px !important;
+        justify-content: center !important;
+      }
+
+      /* Model positioned below or tucked cleanly */
+      .wl-hero-model-col {
+        order: 4 !important;
+        margin: 28px auto 0 !important;
+        justify-content: center !important;
+        width: 100% !important;
+      }
+
+      .wl-model-wrapper {
+        justify-content: center !important;
+        max-width: 440px !important;
+        margin: 0 auto !important;
+      }
+
+      .wl-model-img {
+        max-height: 480px !important;
+        object-position: center bottom !important;
+        margin: 0 auto !important;
+      }
+    }
+
+    /* Desktop: Hide the mobile CTA block since desktop CTA is in .wl-hero-content */
+    @media (min-width: 1121px) {
+      .wl-hero-mobile-cta-wrap {
+        display: none !important;
+      }
+    }
+
+
+    
+    /* As Seen In Section: Pure White Background as specified */
+    .sp-as-seen-in {
+      background-color: #FFFFFF !important;
+      background: #FFFFFF !important;
+      padding: 16px 0 20px !important;
+      position: relative !important;
+      z-index: 10 !important;
+    }
+    .sp-as-seen-in__header {
+      margin-bottom: 8px !important;
+    }
+
+    /* Section: The Biology of Food Noise */
+    .section_wl-science {
+      padding: clamp(64px, 8vw, 108px) clamp(20px, 4vw, 48px);
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .wl-section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto clamp(40px, 5vw, 64px);
+    }
+
+    .wl-section-header .alivio-works-pill-badge {
+      margin-bottom: 16px;
+      display: inline-flex;
+    }
+
+    .wl-section-title {
+      font-family: var(--sp-font-display, "Inter", sans-serif);
+      font-size: clamp(2.1rem, 3.4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--color-wl-espresso);
+      margin: 0 0 16px 0;
+    }
+
+    .wl-section-sub {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--color-wl-text-subtle);
+      margin: 0;
+    }
+
+    .wl-science-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 860px) {
+      .wl-science-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .wl-science-card {
+      background: #FFFFFF;
+      border: 1px solid var(--color-wl-card-border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 4px 16px rgba(38, 13, 3, 0.03);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .wl-science-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(38, 13, 3, 0.07);
+    }
+
+    .wl-science-card__num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--color-wl-pill-bg);
+      color: var(--color-wl-terracotta);
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--color-wl-pill-border);
+    }
+
+    .wl-science-card__title {
+      font-family: var(--sp-font-display, "Inter", sans-serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      margin: 0;
+      color: var(--color-wl-espresso);
+    }
+
+    .wl-science-card__desc {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--color-wl-text-subtle);
+      margin: 0;
+    }
+
+    /* Section: 3 Formulations Showcase */
+    .section_wl-treatments {
+      padding: clamp(64px, 8vw, 100px) clamp(20px, 4vw, 48px);
+      background: #FAF2DE;
+      border-top: 1px solid var(--color-wl-card-border);
+      border-bottom: 1px solid var(--color-wl-card-border);
+    }
+
+    .wl-treatments-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .wl-products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    @media (max-width: 991px) {
+      .wl-products-grid {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+        margin: 0 auto;
+      }
+    }
+
+    .wl-product-card {
+      background: #FFFFFF;
+      border-radius: 24px;
+      border: 1px solid var(--color-wl-card-border);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(38, 13, 3, 0.05);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    }
+
+    .wl-product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(38, 13, 3, 0.1);
+    }
+
+    .wl-product-card--featured {
+      border: 2px solid var(--color-wl-terracotta);
+      box-shadow: 0 12px 32px rgba(91, 32, 8, 0.12);
+    }
+
+    .wl-product-badge {
+      align-self: flex-start;
+      background: var(--color-wl-terracotta);
+      color: #FFFFFF;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .wl-product-card__img-box {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      background: #FFFCF7;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .wl-product-card__img {
+      max-height: 155px;
+      max-width: 175px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .wl-product-card:hover .wl-product-card__img {
+      transform: scale(1.06);
+    }
+
+    .wl-product-card__title {
+      font-family: var(--sp-font-display, "Inter", sans-serif);
+      font-size: 1.45rem;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      margin: 0 0 6px 0;
+      color: var(--color-wl-espresso);
+    }
+
+    .wl-product-card__type {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-wl-terracotta);
+      margin: 0 0 14px 0;
+    }
+
+    .wl-product-pricing {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(91, 32, 9, 0.08);
+    }
+
+    .wl-product-price-main {
+      font-family: var(--sp-font-display, "Inter", sans-serif);
+      font-size: 1.85rem;
+      font-weight: 600;
+      color: var(--color-wl-espresso);
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+
+    .wl-product-price-sub {
+      font-size: 0.82rem;
+      color: var(--color-wl-text-subtle);
+      margin: 4px 0 0 0;
+    }
+
+    .wl-product-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--color-wl-text-subtle);
+    }
+
+    .wl-product-bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.45;
+    }
+
+    .wl-bullet-check {
+      color: var(--color-wl-terracotta);
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    /* Section: Comparison Matrix */
+    .section_wl-comparison {
+      padding: clamp(64px, 8vw, 100px) clamp(20px, 4vw, 48px);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .wl-table-container {
+      background: #FFFFFF;
+      border-radius: 20px;
+      border: 1px solid var(--color-wl-card-border);
+      box-shadow: 0 8px 30px rgba(38, 13, 3, 0.04);
+      overflow-x: auto;
+      margin-top: 36px;
+    }
+
+    .wl-comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    .wl-comparison-table th,
+    .wl-comparison-table td {
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(91, 32, 9, 0.08);
+      vertical-align: middle;
+    }
+
+    .wl-comparison-table th {
+      background: #FAF2DE;
+      color: var(--color-wl-espresso);
+      font-family: var(--sp-font-display, "Inter", sans-serif);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .wl-comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .wl-comparison-table tr:hover td {
+      background-color: #FEFAF1;
+    }
+
+    /* Section: FAQ Accordion */
+    .section_wl-faq {
+      padding: clamp(64px, 8vw, 100px) clamp(20px, 4vw, 48px);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .wl-faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .wl-faq-item {
+      background: #FFFFFF;
+      border: 1px solid var(--color-wl-card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .wl-faq-item[open] {
+      border-color: rgba(91, 32, 9, 0.25);
+      box-shadow: 0 6px 20px rgba(38, 13, 3, 0.05);
+    }
+
+    .wl-faq-trigger {
+      padding: 22px 24px;
+      cursor: pointer;
+      font-family: var(--sp-font-display, "Inter", sans-serif);
+      font-size: 1.12rem;
+      font-weight: 500;
+      color: var(--color-wl-espresso);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      user-select: none;
+    }
+
+    .wl-faq-trigger::-webkit-details-marker {
+      display: none;
+    }
+
+    .wl-faq-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: var(--color-wl-terracotta);
+      transition: transform 0.25s ease;
+    }
+
+    .wl-faq-item[open] .wl-faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .wl-faq-content {
+      padding: 0 24px 22px 24px;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--color-wl-text-subtle);
+    }
+
+    /* Final Intake Bottom CTA */
+    .section_wl-bottom-cta {
+      padding: clamp(64px, 8vw, 100px) clamp(20px, 4vw, 48px);
+      background: #5B2008;
+      color: #FFEBC4;
+      text-align: center;
+    }
+
+    .wl-bottom-cta-box {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .wl-bottom-cta-box .wl-section-title {
+      color: #FFEBC4;
+    }
+
+    .wl-bottom-cta-box .wl-section-sub {
+      color: rgba(255, 235, 196, 0.85);
+      margin-bottom: 32px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top Utility & Promotional Notice Bar with Text Slider (Exact Homepage Component) -->
+  <aside class="sp-utility-bar" role="region" aria-label="Special Announcements and Support">
+    <div class="sp-utility-slider" id="sp-utility-slider">
+      <!-- Slide 1: Welcome Offer -->
+      <div class="sp-utility-slide active">
+        <div class="sp-utility-content">
+          <div class="sp-utility-line sp-utility-line-1">
+            <span>Get 20% OFF Your First Order with Code</span>
+            <strong class="sp-promo-tag">WELCOME20</strong>
+          </div>
+          <span class="sp-utility-divider" aria-hidden="true">—</span>
+          <div class="sp-utility-line sp-utility-line-2">
+            <span class="sp-utility-subtext">Available This Month Only!</span>
+            <a href="#hero" data-intake-trigger data-intake-goal="weight-loss" class="sp-utility-link">Book Your FREE Consultation Today →</a>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 2: Help & Hotline Slider -->
+      <div class="sp-utility-slide">
+        <div class="sp-utility-content">
+          <div class="sp-utility-line">
+            <svg class="sp-utility-phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>Need help or have questions about your order?</span>
+          </div>
+          <span class="sp-utility-divider" aria-hidden="true">—</span>
+          <div class="sp-utility-line">
+            <span>Call</span>
+            <a href="tel:19992548461" class="sp-utility-link sp-utility-phone-link">1-999-PAPAYA-1</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Floating Header & Navigation (Light Variant for #FFFCF4) -->
+  <header class="site-header site-header--light" id="site-header">
+    <div class="nav-pill-container">
+      <!-- Brand Wordmark / Logo -->
+      <a href="../index.html" class="brand-wordmark" aria-label="PapayaMD Homepage">
+        <svg class="brand-logo-svg" viewBox="0 0 235 49" width="182" height="38" aria-hidden="true" fill="currentColor"><path d="M101.789 18.9482C107.081 18.9482 111.149 22.9085 111.149 29.0645C111.149 35.1842 107.081 39.3242 101.789 39.3242C98.1892 39.3241 95.6332 37.3802 94.4092 35.3643V48.3604H91.1338V19.2725H94.4092V22.9082C95.5972 20.8203 98.1892 18.9483 101.789 18.9482ZM145.277 35.2559L151.397 19.2725H154.781L142.901 48.2881H139.518L143.405 38.7842L135.449 19.2725H139.086L145.277 35.2559ZM26.7549 8C34.0588 8.00025 39.9999 13.9974 40 21.3721C40 24.9391 38.622 28.2971 36.1201 30.8262C33.6139 33.352 30.2889 34.744 26.7549 34.7441C26.7223 34.7441 23.3001 34.7819 20.0205 36.1982C16.147 37.8703 14.2647 40.6611 14.2646 44.7246V45H8V25.9434H14.2646V32.2168C15.3074 31.4781 16.4744 30.8365 17.7393 30.3057C22.1727 28.4406 26.5712 28.418 26.7549 28.418C28.6196 28.4179 30.3717 27.685 31.6885 26.3525C33.0083 25.0214 33.7344 23.2535 33.7344 21.3721C33.7343 17.4867 30.6044 14.3254 26.7549 14.3252H25.7676V8H26.7549ZM75.9414 18.9482C79.6133 18.9483 82.1332 20.8201 83.2852 22.8721V19.2725H86.5977V39H83.2852V35.3281C82.0972 37.4521 79.5412 39.3242 75.9053 39.3242C70.6494 39.3242 66.5812 35.1842 66.5811 29.0645C66.5811 22.9085 70.6494 18.9482 75.9414 18.9482ZM122.598 18.9482C126.27 18.9483 128.789 20.8201 129.941 22.8721V19.2725H133.254V39H129.941V35.3281C128.753 37.4521 126.197 39.3242 122.562 39.3242C117.306 39.3242 113.237 35.1842 113.237 29.0645C113.237 22.9085 117.306 18.9482 122.598 18.9482ZM165.211 18.9482C168.883 18.9483 171.403 20.8201 172.555 22.8721V19.2725H175.867V39H172.555V35.3281C171.367 37.4521 168.811 39.3242 165.175 39.3242C159.919 39.3242 155.851 35.1842 155.851 29.0645C155.851 22.9085 159.919 18.9482 165.211 18.9482ZM56.0576 13.9082C61.9615 13.9082 64.7333 17.148 64.7334 21.252C64.7334 25.0679 62.2855 28.5244 56.0576 28.5244H51.2334V39H47.958V13.9082H56.0576ZM193.831 32.5557L201.823 13.8721H207.511V39H202.471V22.6562L195.739 39H191.923L185.155 22.6562V39H180.115V13.8721H185.839L193.831 32.5557ZM221.277 13.8721C229.305 13.8721 234.525 18.8399 234.525 26.4717C234.525 34.0677 229.305 39 221.277 39H212.494V13.8721H221.277ZM76.5889 21.792C72.989 21.7921 69.9287 24.4206 69.9287 29.0645C69.9289 33.7081 72.9891 36.4442 76.5889 36.4443C80.1889 36.4443 83.2852 33.7436 83.2852 29.0996C83.285 24.5279 80.1887 21.792 76.5889 21.792ZM101.105 21.792C97.5416 21.792 94.4094 24.5279 94.4092 29.0996C94.4092 33.7436 97.5415 36.4443 101.105 36.4443C104.741 36.4443 107.802 33.7081 107.802 29.0645C107.802 24.4205 104.741 21.7921 101.105 21.792ZM123.245 21.792C119.645 21.7921 116.585 24.4206 116.585 29.0645C116.585 33.7081 119.645 36.4442 123.245 36.4443C126.845 36.4443 129.941 33.7436 129.941 29.0996C129.941 24.5279 126.845 21.792 123.245 21.792ZM165.858 21.792C162.259 21.7921 159.198 24.4206 159.198 29.0645C159.198 33.7081 162.259 36.4442 165.858 36.4443C169.458 36.4443 172.555 33.7436 172.555 29.0996C172.554 24.5279 169.458 21.792 165.858 21.792ZM217.534 34.7158H221.098C226.39 34.7158 229.378 31.6917 229.378 26.4717C229.378 21.2519 226.39 18.1201 221.098 18.1201H217.534V34.7158ZM51.2334 25.8242H56.0576C59.8015 25.8242 61.3857 24.0599 61.3857 21.252C61.3857 18.3361 59.8015 16.6084 56.0576 16.6084H51.2334V25.8242ZM14.2363 7.76367H22V14.2344H14.2363V22H7.76367V14.2314H0V7.76367H7.76367V0H14.2363V7.76367Z"/></svg>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="#how-it-works" class="nav-link">How it works</a>
+        <a href="#formulations" class="nav-link">Treatments</a>
+        <a href="#faq" class="nav-link">Faq</a>
+      </nav>
+
+      <!-- Action Cluster -->
+      <div class="nav-actions">
+        <!-- Patient Login Icon Button (Desktop Only) -->
+        <a href="../login.html" class="nav-user-icon-btn" aria-label="Patient Login" title="Patient Login">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="20" height="20">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+
+        <!-- Primary CTA: 2-Minute Assessment (Intake Trigger) -->
+        <button type="button" class="alivio-hero-primary-cta alivio-nav-primary-cta" data-intake-trigger data-intake-goal="weight-loss" aria-label="2-Minute Assessment">
+          <span class="alivio-cta-label">2-Minute Assessment</span>
+          <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+        </button>
+
+        <!-- Mobile Hamburger Menu Button -->
+        <button type="button" class="menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- 1. Hero Showcase Section -->
+    <section class="section_wl-hero" id="hero" aria-labelledby="hero-title">
+
+
+      <div class="wl-hero-container">
+        
+        <!-- Left Content Column (Moved UP) -->
+        <div class="wl-hero-content">
+          <!-- Trustpilot Rating Element: Stars, Trustpilot, 4.4, -, Reviews in Brown -->
+          <div class="wl-hero__rating">
+            <div class="alivio-hero-trustpilot" aria-label="Rated 4.4 out of 5 stars based on 3,450+ verified patient reviews">
+              <span class="alivio-trustpilot-title">Excellent</span>
+              <div class="alivio-trustpilot-stars" aria-hidden="true">
+                <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="#260D03">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+                <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="#260D03">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+                <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="#260D03">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+                <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="#260D03">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+                <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="#260D03">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+              </div>
+              <span class="alivio-trustpilot-brand">Trustpilot</span>
+              <span class="alivio-trustpilot-score">4.4</span>
+              <span class="alivio-trustpilot-bullet" aria-hidden="true">-</span>
+              <span class="alivio-trustpilot-reviews">3,450+ patient reviews</span>
+            </div>
+          </div>
+
+          <!-- Main Heading: Exact Menopause Scale & 2-Line Layout -->
+          <h1 class="wl-hero-heading" id="hero-title">
+            <span class="wl-hero-heading-line">Personalized Care,</span>
+            <span class="wl-hero-heading-line"><span class="wl-hero-personalized">Lose 2–3 lbs Weekly</span></span>
+          </h1>
+
+          <p class="wl-hero-subheading">
+            Drop up to 22% of body weight with the PapayaMD Medical Weight-Loss Program.
+          </p>
+
+          <!-- 3 Clinical Trust Pillars -->
+          <div class="wl-hero-pillars">
+            <div class="wl-pillar-col">
+              <span class="wl-pillar-icon" aria-hidden="true">★</span>
+              <span class="wl-pillar-text">US-Certified<br />Pharmacy</span>
+            </div>
+            <div class="wl-pillar-sep" aria-hidden="true"></div>
+            <div class="wl-pillar-col">
+              <span class="wl-pillar-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="currentColor">
+                  <path d="M4 3a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V3zm3 3a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2H7zm0 4a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2H7zm0 4a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H7z"/>
+                </svg>
+              </span>
+              <span class="wl-pillar-text">Personalized<br />Treatments</span>
+            </div>
+            <div class="wl-pillar-sep" aria-hidden="true"></div>
+            <div class="wl-pillar-col">
+              <span class="wl-pillar-icon" aria-hidden="true">✚</span>
+              <span class="wl-pillar-text">1:1 Medical<br />Support</span>
+            </div>
+          </div>
+
+          <!-- Primary CTA Button: Exact PapayaMD Homepage Design (alivio-hero-primary-cta) -->
+          <div class="wl-hero-cta-wrap">
+            <a href="#intake" class="alivio-hero-primary-cta" data-intake-trigger data-intake-goal="weight-loss" aria-label="Start My Free Visit">
+              <span class="alivio-cta-label">Start My Free Visit</span>
+              <span class="alivio-cta-disk" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true">
+                  <path d="M7 7h10v10"></path><path d="M7 17 17 7"></path>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Guarantee Under CTA -->
+          <div class="wl-hero-guarantee">
+            <span class="wl-guarantee-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 2a8 8 0 1 0 8 8"></path>
+                <path d="M18 2v8h-8"></path>
+              </svg>
+            </span>
+            <span>30 Day Money Back Guarantee</span>
+          </div>
+        </div>
+
+        <!-- Centre-Right Column: Animated Starburst & Dual Larger Upright Vials -->
+        <div class="wl-hero-vials-col">
+          <!-- Animated Starburst Price Sticker Badge Resting Directly on Larger Vial Caps -->
+          <div class="wl-starburst-badge" aria-label="Starts at $3.19 per day">
+            <svg class="wl-starburst-bg" viewBox="0 0 100 100" aria-hidden="true">
+              <defs>
+                <radialGradient id="wl-badge-amber-glow" cx="50%" cy="100%" r="90%">
+                  <stop offset="0%" stop-color="#F6A644" stop-opacity="0.95" />
+                  <stop offset="35%" stop-color="#E48026" stop-opacity="0.82" />
+                  <stop offset="65%" stop-color="#8A3008" stop-opacity="0.75" />
+                  <stop offset="100%" stop-color="#180702" stop-opacity="1" />
+                </radialGradient>
+                <linearGradient id="wl-badge-espresso-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#240D05" />
+                  <stop offset="45%" stop-color="#290E05" />
+                  <stop offset="100%" stop-color="#180702" />
+                </linearGradient>
+              </defs>
+              <path fill="url(#wl-badge-espresso-grad)" d="M 50.0 8.0 Q 59.9 0.1 66.1 11.2 Q 78.3 7.7 79.7 20.3 Q 92.3 21.7 88.8 33.9 Q 99.9 40.1 92.0 50.0 Q 99.9 59.9 88.8 66.1 Q 92.3 78.3 79.7 79.7 Q 78.3 92.3 66.1 88.8 Q 59.9 99.9 50.0 92.0 Q 40.1 99.9 33.9 88.8 Q 21.7 92.3 20.3 79.7 Q 7.7 78.3 11.2 66.1 Q 0.1 59.9 8.0 50.0 Q 0.1 40.1 11.2 33.9 Q 7.7 21.7 20.3 20.3 Q 21.7 7.7 33.9 11.2 Q 40.1 0.1 50.0 8.0 Z" />
+              <path fill="url(#wl-badge-amber-glow)" opacity="0.85" d="M 50.0 8.0 Q 59.9 0.1 66.1 11.2 Q 78.3 7.7 79.7 20.3 Q 92.3 21.7 88.8 33.9 Q 99.9 40.1 92.0 50.0 Q 99.9 59.9 88.8 66.1 Q 92.3 78.3 79.7 79.7 Q 78.3 92.3 66.1 88.8 Q 59.9 99.9 50.0 92.0 Q 40.1 99.9 33.9 88.8 Q 21.7 92.3 20.3 79.7 Q 7.7 78.3 11.2 66.1 Q 0.1 59.9 8.0 50.0 Q 0.1 40.1 11.2 33.9 Q 7.7 21.7 20.3 20.3 Q 21.7 7.7 33.9 11.2 Q 40.1 0.1 50.0 8.0 Z" />
+            </svg>
+            <div class="wl-starburst-content">
+              <span class="wl-sb-top">STARTS AT</span>
+              <span class="wl-sb-price">$3.19</span>
+              <span class="wl-sb-bot">/DAY</span>
+            </div>
+          </div>
+
+          <!-- Dual Upright Vials Stage (Larger Vials, Reduced Gap, Snug Touching) -->
+          <div class="wl-vials-stage">
+            <div class="wl-vials-pair">
+              <img src="../assets/images/Analysis-output-1.png" 
+                   alt="PapayaMD Compounded Semaglutide and Tirzepatide Multi-Dose Vials" 
+                   class="wl-vial-img wl-vial-img--dual" 
+                   width="459" height="462" />
+            </div>
+            <!-- Realistic grounded contact shadow beneath vials -->
+            <div class="wl-vials-ground-shadow" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <!-- Mobile-Only Dedicated CTA Block (Positioned Directly Below Vials on Mobile) -->
+        <div class="wl-hero-mobile-cta-wrap">
+          <a href="#intake" class="alivio-hero-primary-cta" data-intake-trigger data-intake-goal="weight-loss" aria-label="Start My Free Visit">
+            <span class="alivio-cta-label">Start My Free Visit</span>
+            <span class="alivio-cta-disk" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true">
+                <path d="M7 7h10v10"></path><path d="M7 17 17 7"></path>
+              </svg>
+            </span>
+          </a>
+          <div class="wl-hero-guarantee">
+            <span class="wl-guarantee-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 2a8 8 0 1 0 8 8"></path>
+                <path d="M18 2v8h-8"></path>
+              </svg>
+            </span>
+            <span>30 Day Money Back Guarantee</span>
+          </div>
+        </div>
+
+        <!-- Far-Right Column: Model Much Larger & Moved Towards Right Side -->
+        <div class="wl-hero-model-col">
+          <div class="wl-model-wrapper">
+            <img src="../assets/images/weight-loss-model-cutout.png" 
+                 alt="Patient weight loss transformation showing 20lbs down progress graph" 
+                 class="wl-model-img" 
+                 width="1038" height="1064" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- As Seen In Media Marquee Section -->
+    <section class="sp-as-seen-in" aria-label="Featured In Media">
+      <div class="container">
+        <div class="sp-as-seen-in__header">
+          <span class="sp-as-seen-in__title">AS SEEN IN</span>
+        </div>
+      </div>
+      <div class="sp-as-seen-in__marquee" aria-hidden="false">
+        <div class="sp-as-seen-in__track" role="region" aria-label="Media Publications">
+          <!-- Item 1: WebMD -->
+          <div class="sp-media-logo" title="WebMD">
+            <svg class="sp-media-svg" width="180" height="36" viewBox="0 4 180 36" fill="currentColor"
+              aria-label="WebMD">
+              <text x="0" y="34" font-family="'Times New Roman', Georgia, serif" font-size="42" font-weight="700"
+                letter-spacing="-0.5px">WebMD</text>
+            </svg>
+          </div>
+          <!-- Item 2: FORTUNE -->
+          <div class="sp-media-logo" title="Fortune">
+            <svg class="sp-media-svg" width="210" height="30" viewBox="0 6 210 30" fill="currentColor"
+              aria-label="Fortune">
+              <text x="0" y="31" font-family="'Times New Roman', Georgia, serif" font-size="33" font-weight="900"
+                letter-spacing="3px">FORTUNE</text>
+            </svg>
+          </div>
+          <!-- Item 3: FAST COMPANY -->
+          <div class="sp-media-logo" title="Fast Company">
+            <svg class="sp-media-svg" width="260" height="30" viewBox="0 5 260 30" fill="currentColor"
+              aria-label="Fast Company">
+              <text x="0" y="29" font-family="'Arial Black', -apple-system, sans-serif" font-size="27" font-weight="900"
+                letter-spacing="-0.5px">FAST COMPANY</text>
+            </svg>
+          </div>
+          <!-- Item 4: Bloomberg -->
+          <div class="sp-media-logo" title="Bloomberg">
+            <svg class="sp-media-svg" width="200" height="36" viewBox="0 4 200 36" fill="currentColor"
+              aria-label="Bloomberg">
+              <text x="0" y="31" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="700"
+                letter-spacing="-0.6px">Bloomberg</text>
+            </svg>
+          </div>
+          <!-- Item 5: Healthline -->
+          <div class="sp-media-logo" title="Healthline">
+            <svg class="sp-media-svg" width="190" height="32" viewBox="0 5 190 32" fill="currentColor"
+              aria-label="Healthline">
+              <text x="0" y="31" font-family="system-ui, -apple-system, sans-serif" font-size="35" font-weight="700"
+                letter-spacing="0.5px">healthline</text>
+            </svg>
+          </div>
+          <!-- Item 6: Forbes -->
+          <div class="sp-media-logo" title="Forbes">
+            <svg class="sp-media-svg" width="150" height="36" viewBox="0 4 150 36" fill="currentColor"
+              aria-label="Forbes">
+              <text x="0" y="34" font-family="'Times New Roman', Georgia, serif" font-size="42" font-weight="700"
+                font-style="italic" letter-spacing="0.5px">Forbes</text>
+            </svg>
+          </div>
+
+          <!-- Seamless Duplicate Loop for Infinite Scroll -->
+          <div class="sp-media-logo" aria-hidden="true">
+            <svg class="sp-media-svg" width="180" height="36" viewBox="0 4 180 36" fill="currentColor">
+              <text x="0" y="34" font-family="'Times New Roman', Georgia, serif" font-size="42" font-weight="700"
+                letter-spacing="-0.5px">WebMD</text>
+            </svg>
+          </div>
+          <div class="sp-media-logo" aria-hidden="true">
+            <svg class="sp-media-svg" width="210" height="30" viewBox="0 6 210 30" fill="currentColor">
+              <text x="0" y="31" font-family="'Times New Roman', Georgia, serif" font-size="33" font-weight="900"
+                letter-spacing="3px">FORTUNE</text>
+            </svg>
+          </div>
+          <div class="sp-media-logo" aria-hidden="true">
+            <svg class="sp-media-svg" width="260" height="30" viewBox="0 5 260 30" fill="currentColor">
+              <text x="0" y="29" font-family="'Arial Black', -apple-system, sans-serif" font-size="27" font-weight="900"
+                letter-spacing="-0.5px">FAST COMPANY</text>
+            </svg>
+          </div>
+          <div class="sp-media-logo" aria-hidden="true">
+            <svg class="sp-media-svg" width="200" height="36" viewBox="0 4 200 36" fill="currentColor">
+              <text x="0" y="31" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="700"
+                letter-spacing="-0.6px">Bloomberg</text>
+            </svg>
+          </div>
+          <div class="sp-media-logo" aria-hidden="true">
+            <svg class="sp-media-svg" width="190" height="32" viewBox="0 5 190 32" fill="currentColor">
+              <text x="0" y="31" font-family="system-ui, -apple-system, sans-serif" font-size="35" font-weight="700"
+                letter-spacing="0.5px">healthline</text>
+            </svg>
+          </div>
+          <div class="sp-media-logo" aria-hidden="true">
+            <svg class="sp-media-svg" width="150" height="36" viewBox="0 4 150 36" fill="currentColor">
+              <text x="0" y="34" font-family="'Times New Roman', Georgia, serif" font-size="42" font-weight="700"
+                font-style="italic" letter-spacing="0.5px">Forbes</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. The Science of Food Noise -->
+    <section class="section_wl-science" id="science" aria-labelledby="science-title">
+      <div class="wl-section-header">
+        <div class="alivio-works-pill-badge">
+          <span class="alivio-works-badge-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+              <circle cx="10" cy="10" r="8"></circle>
+              <path d="M7 10h6M10 7v6"></path>
+            </svg>
+          </span>
+          <span class="alivio-works-badge-text">THE SCIENCE OF GLP-1</span>
+        </div>
+        <h2 class="wl-section-title" id="science-title">Why willpower isn't enough. It's biology.</h2>
+        <p class="wl-section-sub">
+          GLP-1 is a natural gut hormone that controls satiety and appetite. By activating your GLP-1 receptors, modern clinical therapies silence persistent "food noise" so you feel full on fewer calories.
+        </p>
+      </div>
+
+      <div class="wl-science-grid">
+        <div class="wl-science-card">
+          <div class="wl-science-card__num">01</div>
+          <h3 class="wl-science-card__title">Silences Food Noise</h3>
+          <p class="wl-science-card__desc">
+            Signals the satiety centers of your brain, quieting constant background thoughts about meals and curtailing involuntary snacking urges.
+          </p>
+        </div>
+
+        <div class="wl-science-card">
+          <div class="wl-science-card__num">02</div>
+          <h3 class="wl-science-card__title">Slows Gastric Emptying</h3>
+          <p class="wl-science-card__desc">
+            Extends the time nutrients remain in your stomach, helping you reach satisfying fullness faster and stay comfortably satiated for hours.
+          </p>
+        </div>
+
+        <div class="wl-science-card">
+          <div class="wl-science-card__num">03</div>
+          <h3 class="wl-science-card__title">Resets Metabolic Set Point</h3>
+          <p class="wl-science-card__desc">
+            Helps normalize insulin sensitivity and steady glucose balance, protecting lean metabolic tissue while encouraging progressive fat loss.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Formulations Showcase (All 3 Formats) -->
+    <section class="section_wl-treatments" id="formulations" aria-labelledby="formulations-title">
+      <div class="wl-treatments-container">
+        <div class="wl-section-header">
+          <div class="alivio-works-pill-badge">
+            <span class="alivio-works-badge-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+                <circle cx="10" cy="10" r="8"></circle>
+                <path d="M7 10h6M10 7v6"></path>
+              </svg>
+            </span>
+            <span class="alivio-works-badge-text">TREATMENT FORMULATIONS</span>
+          </div>
+          <h2 class="wl-section-title" id="formulations-title">Three doctor-prescribed ways to succeed.</h2>
+          <p class="wl-section-sub">
+            Your dedicated US provider reviews your health intake to determine the most effective medication, format, and dosage titration protocol for your body.
+          </p>
+        </div>
+
+        <div class="wl-products-grid">
+          
+          <!-- Card 1: Semaglutide -->
+          <article class="wl-product-card wl-product-card--featured">
+            <span class="wl-product-badge">Most Popular</span>
+            <div class="wl-product-card__img-box">
+              <img src="../assets/images/prod-semaglutide-vial.png" alt="Compounded Semaglutide Vial" class="wl-product-card__img" />
+            </div>
+            <h3 class="wl-product-card__title">Compounded Semaglutide</h3>
+            <p class="wl-product-card__type">GLP-1 Receptor Agonist • Weekly Injection</p>
+            
+            <div class="wl-product-pricing">
+              <p class="wl-product-price-main">From $99<span style="font-size: 1rem; font-weight: normal; color: #5C4A3E;"> / first month*</span></p>
+              <p class="wl-product-price-sub">With code WELCOME20 • Reg. $159/mo (All-inclusive)</p>
+            </div>
+
+            <ul class="wl-product-bullets">
+              <li><span class="wl-bullet-check">✓</span> 15% average weight reduction</li>
+              <li><span class="wl-bullet-check">✓</span> Proven appetite suppression &amp; satiety</li>
+              <li><span class="wl-bullet-check">✓</span> Includes syringes, alcohol wipes &amp; doctor care</li>
+              <li><span class="wl-bullet-check">✓</span> Free express cold-chain delivery</li>
+            </ul>
+
+            <button type="button" class="alivio-hero-primary-cta" data-intake-trigger data-intake-goal="weight-loss" style="width: 100%; justify-content: center;" aria-label="Get Started with Semaglutide">
+              <span class="alivio-cta-label">Get Started</span>
+              <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" class="alivio-disk-arrow"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+            </button>
+          </article>
+
+          <!-- Card 2: Tirzepatide -->
+          <article class="wl-product-card">
+            <span class="wl-product-badge" style="background-color: #2D3622;">Dual GIP/GLP-1 Agonist</span>
+            <div class="wl-product-card__img-box">
+              <img src="../assets/images/prod-tirzepatide-vial.png" alt="Compounded Tirzepatide Vial" class="wl-product-card__img" />
+            </div>
+            <h3 class="wl-product-card__title">Compounded Tirzepatide</h3>
+            <p class="wl-product-card__type">Dual GIP &amp; GLP-1 • Weekly Injection</p>
+            
+            <div class="wl-product-pricing">
+              <p class="wl-product-price-main">From $159<span style="font-size: 1rem; font-weight: normal; color: #5C4A3E;"> / first month*</span></p>
+              <p class="wl-product-price-sub">With code WELCOME20 • Reg. $249/mo (All-inclusive)</p>
+            </div>
+
+            <ul class="wl-product-bullets">
+              <li><span class="wl-bullet-check">✓</span> Up to 20.9% average body weight loss</li>
+              <li><span class="wl-bullet-check">✓</span> Dual receptor action for enhanced metabolism</li>
+              <li><span class="wl-bullet-check">✓</span> Comprehensive dosage titration protocol</li>
+              <li><span class="wl-bullet-check">✓</span> Free express cold-chain delivery</li>
+            </ul>
+
+            <button type="button" class="alivio-hero-primary-cta" data-intake-trigger data-intake-goal="weight-loss" style="width: 100%; justify-content: center;" aria-label="Get Started with Tirzepatide">
+              <span class="alivio-cta-label">Get Started</span>
+              <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" class="alivio-disk-arrow"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+            </button>
+          </article>
+
+          <!-- Card 3: Oral GLP-1 Tablet -->
+          <article class="wl-product-card">
+            <span class="wl-product-badge" style="background-color: #41382E;">Needle-Free Option</span>
+            <div class="wl-product-card__img-box">
+              <img src="../assets/images/prod-alivio-oral-pill.png" alt="PapayaMD Oral Daily GLP-1 Tablet Bottle" class="wl-product-card__img" />
+            </div>
+            <h3 class="wl-product-card__title">PapayaMD Oral GLP-1</h3>
+            <p class="wl-product-card__type">Sublingual Dissolving Tablet • Daily</p>
+            
+            <div class="wl-product-pricing">
+              <p class="wl-product-price-main">From $89<span style="font-size: 1rem; font-weight: normal; color: #5C4A3E;"> / first month*</span></p>
+              <p class="wl-product-price-sub">With code WELCOME20 • Reg. $149/mo (All-inclusive)</p>
+            </div>
+
+            <ul class="wl-product-bullets">
+              <li><span class="wl-bullet-check">✓</span> 100% Needle-free daily oral administration</li>
+              <li><span class="wl-bullet-check">✓</span> Rapid sublingual absorption pathway</li>
+              <li><span class="wl-bullet-check">✓</span> Convenient, travel-friendly tablet form</li>
+              <li><span class="wl-bullet-check">✓</span> Free discreet express delivery</li>
+            </ul>
+
+            <button type="button" class="alivio-hero-primary-cta" data-intake-trigger data-intake-goal="weight-loss" style="width: 100%; justify-content: center;" aria-label="Get Started with Oral GLP-1">
+              <span class="alivio-cta-label">Get Started</span>
+              <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" class="alivio-disk-arrow"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+            </button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SkinnyRx-Style Comparison Matrix -->
+    <section class="section_wl-comparison" id="comparison" aria-labelledby="comparison-title">
+      <div class="wl-section-header">
+        <div class="alivio-works-pill-badge">
+          <span class="alivio-works-badge-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+              <circle cx="10" cy="10" r="8"></circle>
+              <path d="M7 10h6M10 7v6"></path>
+            </svg>
+          </span>
+          <span class="alivio-works-badge-text">FORMULATION COMPARISON</span>
+        </div>
+        <h2 class="wl-section-title" id="comparison-title">Compare our treatment pathways.</h2>
+        <p class="wl-section-sub">
+          Every plan includes physician oversight, medication, testing supplies, and cold-chain shipping with zero surprise membership fees.
+        </p>
+      </div>
+
+      <div class="wl-table-container">
+        <table class="wl-comparison-table" aria-label="Weight Loss Medication Comparison Matrix">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 25%;">Feature</th>
+              <th scope="col" style="width: 25%;">Compounded Semaglutide</th>
+              <th scope="col" style="width: 25%;">Compounded Tirzepatide</th>
+              <th scope="col" style="width: 25%;">PapayaMD Oral GLP-1</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Hormone Mechanism</strong></td>
+              <td>GLP-1 Receptor Agonist</td>
+              <td>Dual GIP + GLP-1 Agonist</td>
+              <td>GLP-1 Receptor Agonist</td>
+            </tr>
+            <tr>
+              <td><strong>Administration</strong></td>
+              <td>Weekly subcutaneous injection</td>
+              <td>Weekly subcutaneous injection</td>
+              <td>Daily sublingual tablet</td>
+            </tr>
+            <tr>
+              <td><strong>Needle-Free?</strong></td>
+              <td>No (Tiny micro-needle)</td>
+              <td>No (Tiny micro-needle)</td>
+              <td><strong style="color: #2E7D32;">✓ 100% Needle-Free</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Clinical Efficacy</strong></td>
+              <td>~15% body weight reduction</td>
+              <td>Up to 20.9% body weight reduction</td>
+              <td>Progressive sustained loss</td>
+            </tr>
+            <tr>
+              <td><strong>Introductory Price</strong></td>
+              <td><strong>$99 for Month 1</strong> (Code WELCOME20)</td>
+              <td><strong>$159 for Month 1</strong> (Code WELCOME20)</td>
+              <td><strong>$89 for Month 1</strong> (Code WELCOME20)</td>
+            </tr>
+            <tr>
+              <td><strong>Doctor Consultation</strong></td>
+              <td>Included ($0 extra)</td>
+              <td>Included ($0 extra)</td>
+              <td>Included ($0 extra)</td>
+            </tr>
+            <tr>
+              <td><strong>Shipping</strong></td>
+              <td>Free cold-chain delivery</td>
+              <td>Free cold-chain delivery</td>
+              <td>Free express delivery</td>
+            </tr>
+            <tr>
+              <td><strong>Commitment</strong></td>
+              <td>Cancel anytime</td>
+              <td>Cancel anytime</td>
+              <td>Cancel anytime</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 5. How PapayaMD Works (3-Step System) -->
+    <section class="alivio-works-how-it-works" id="how-it-works" aria-labelledby="how-it-works-heading">
+      <div class="alivio-works-cards-stack">
+        
+        <!-- STEP 01 -->
+        <article class="alivio-works-step-card alivio-works-step-card--01">
+          <div class="alivio-works-card-container">
+            <header class="alivio-works-card-header">
+              <div class="alivio-works-pill-badge">
+                <span class="alivio-works-badge-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16"><circle cx="10" cy="10" r="8"></circle><path d="M7 10h6M10 7v6"></path></svg>
+                </span>
+                <span class="alivio-works-badge-text">HOW PAPAYAMD WORKS</span>
+              </div>
+              <h2 class="alivio-works-card-title">Complete your 2-minute <br />health assessment.</h2>
+            </header>
+            <div class="alivio-works-card-body">
+              <div class="alivio-works-content-col">
+                <div class="alivio-works-step-counter">STEP 01</div>
+                <h3 class="alivio-works-step-headline">Tell us about your health history and weight goals.</h3>
+                <p class="alivio-works-step-summary">A fast, confidential intake quiz covering your medical background, lifestyle, and goals to determine GLP-1 eligibility.</p>
+                <div class="alivio-works-checklist">
+                  <div class="alivio-works-check-item"><span class="alivio-works-check-icon">✓</span><span>100% online from your phone or laptop</span></div>
+                  <div class="alivio-works-check-item"><span class="alivio-works-check-icon">✓</span><span>No insurance required &amp; zero waiting rooms</span></div>
+                </div>
+              </div>
+              <div class="alivio-works-image-col">
+                <div class="alivio-works-image-wrap">
+                  <img src="../assets/images/step-1.png" alt="Patient completing assessment on mobile" class="alivio-works-step-img" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- STEP 02 -->
+        <article class="alivio-works-step-card alivio-works-step-card--02">
+          <div class="alivio-works-card-container">
+            <header class="alivio-works-card-header">
+              <div class="alivio-works-pill-badge">
+                <span class="alivio-works-badge-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16"><circle cx="10" cy="10" r="8"></circle><path d="M7 10h6M10 7v6"></path></svg>
+                </span>
+                <span class="alivio-works-badge-text">HOW PAPAYAMD WORKS</span>
+              </div>
+              <h2 class="alivio-works-card-title">A US physician crafts <br />your custom protocol.</h2>
+            </header>
+            <div class="alivio-works-card-body">
+              <div class="alivio-works-content-col">
+                <div class="alivio-works-step-counter">STEP 02</div>
+                <h3 class="alivio-works-step-headline">Board-certified clinical review within 24 hours.</h3>
+                <p class="alivio-works-step-summary">A licensed medical provider reviews your intake, prescribes your tailored formulation, and outlines your dosage titration schedule.</p>
+                <div class="alivio-works-checklist">
+                  <div class="alivio-works-check-item"><span class="alivio-works-check-icon">✓</span><span>US-licensed medical doctors in all 50 states</span></div>
+                  <div class="alivio-works-check-item"><span class="alivio-works-check-icon">✓</span><span>Personalized dosage titration for maximum comfort</span></div>
+                </div>
+              </div>
+              <div class="alivio-works-image-col">
+                <div class="alivio-works-image-wrap">
+                  <img src="../assets/images/step-2.png" alt="Physicians consulting via telehealth" class="alivio-works-step-img" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- STEP 03 -->
+        <article class="alivio-works-step-card alivio-works-step-card--03">
+          <div class="alivio-works-card-container">
+            <header class="alivio-works-card-header">
+              <div class="alivio-works-pill-badge">
+                <span class="alivio-works-badge-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16"><circle cx="10" cy="10" r="8"></circle><path d="M7 10h6M10 7v6"></path></svg>
+                </span>
+                <span class="alivio-works-badge-text">HOW PAPAYAMD WORKS</span>
+              </div>
+              <h2 class="alivio-works-card-title">Your treatment ships <br />cold to your door.</h2>
+            </header>
+            <div class="alivio-works-card-body">
+              <div class="alivio-works-content-col">
+                <div class="alivio-works-step-counter">STEP 03</div>
+                <h3 class="alivio-works-step-headline">Discreet, temperature-controlled express fulfillment.</h3>
+                <p class="alivio-works-step-summary">Compounded at a regulated US pharmacy and shipped in insulated packaging with ice packs. Complete with supplies and ongoing support.</p>
+                <div class="alivio-works-checklist">
+                  <div class="alivio-works-check-item"><span class="alivio-works-check-icon">✓</span><span>Free express shipping in insulated cold-packs</span></div>
+                  <div class="alivio-works-check-item"><span class="alivio-works-check-icon">✓</span><span>Ongoing digital clinician messaging &amp; dosage check-ins</span></div>
+                </div>
+              </div>
+              <div class="alivio-works-image-col">
+                <div class="alivio-works-image-wrap">
+                  <img src="../assets/images/step-3.png" alt="Patient happily holding discreet delivery box" class="alivio-works-step-img" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 6. Comprehensive FAQ (SkinnyRx Benchmark Content) -->
+    <section class="section_wl-faq" id="faq" aria-labelledby="faq-title">
+      <div class="wl-section-header">
+        <div class="alivio-works-pill-badge">
+          <span class="alivio-works-badge-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+              <circle cx="10" cy="10" r="8"></circle>
+              <path d="M7 10h6M10 7v6"></path>
+            </svg>
+          </span>
+          <span class="alivio-works-badge-text">FREQUENTLY ASKED QUESTIONS</span>
+        </div>
+        <h2 class="wl-section-title" id="faq-title">Everything you need to know.</h2>
+        <p class="wl-section-sub">Transparent answers about our compounded medications, pricing, and clinical care.</p>
+      </div>
+
+      <div class="wl-faq-list">
+        
+        <details class="wl-faq-item" open>
+          <summary class="wl-faq-trigger">
+            <span>What is the difference between Semaglutide and Tirzepatide?</span>
+            <svg class="wl-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </summary>
+          <div class="wl-faq-content">
+            Semaglutide is a single GLP-1 receptor agonist that mimics the GLP-1 hormone, producing an average of ~15% body weight reduction in clinical trials. Tirzepatide is a dual GIP and GLP-1 receptor agonist that targets two distinct metabolic pathways, resulting in up to 20.9% average body weight loss. Your prescribing physician will evaluate which formulation matches your health history and goals best.
+          </div>
+        </details>
+
+        <details class="wl-faq-item">
+          <summary class="wl-faq-trigger">
+            <span>What if I am afraid of needles or injections?</span>
+            <svg class="wl-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </summary>
+          <div class="wl-faq-content">
+            PapayaMD offers a 100% needle-free alternative: our daily sublingual dissolving GLP-1 tablet. It dissolves comfortably under your tongue for rapid absorption into the bloodstream, bypassing the digestive breakdown of swallowed pills with zero injections required.
+          </div>
+        </details>
+
+        <details class="wl-faq-item">
+          <summary class="wl-faq-trigger">
+            <span>Are these brand-name drugs like Ozempic, Wegovy, or Mounjaro?</span>
+            <svg class="wl-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </summary>
+          <div class="wl-faq-content">
+            No. Our medications are compounded formulations prepared exclusively by accredited, state-licensed 503A and 503B compounding pharmacies in the United States. Compounded medications contain the same active pharmaceutical ingredients (Semaglutide or Tirzepatide base) as brand-name drugs, but are customized by pharmacies and are not FDA-approved brand-name products.
+          </div>
+        </details>
+
+        <details class="wl-faq-item">
+          <summary class="wl-faq-trigger">
+            <span>How does the introductory promo code WELCOME20 work?</span>
+            <svg class="wl-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </summary>
+          <div class="wl-faq-content">
+            Applying code <strong>WELCOME20</strong> at checkout automatically reduces your first month’s subscription to starting at $99 for Semaglutide (or $89 for Oral Tablets, $159 for Tirzepatide). Subsequent months renew at standard all-inclusive pricing ($149–$249/mo) with dosage titration and shipping included.
+          </div>
+        </details>
+
+        <details class="wl-faq-item">
+          <summary class="wl-faq-trigger">
+            <span>Can I use my FSA or HSA card?</span>
+            <svg class="wl-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </summary>
+          <div class="wl-faq-content">
+            Yes! In most cases, doctor-prescribed weight loss treatments qualify as eligible medical expenses under Flexible Spending Accounts (FSA) and Health Savings Accounts (HSA). You can use your FSA/HSA debit card directly at checkout or request an itemized receipt for reimbursement.
+          </div>
+        </details>
+
+        <details class="wl-faq-item">
+          <summary class="wl-faq-trigger">
+            <span>Can I cancel my subscription anytime?</span>
+            <svg class="wl-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </summary>
+          <div class="wl-faq-content">
+            Absolutely. There are zero long-term contracts, lock-in commitments, or cancellation fees. You can pause or cancel your subscription at any time directly through your patient portal prior to your next monthly pharmacy fulfillment cycle.
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- 7. Bottom Intake Conversion CTA -->
+    <section class="section_wl-bottom-cta">
+      <div class="wl-bottom-cta-box">
+        <h2 class="wl-section-title">Ready to take control of your health?</h2>
+        <p class="wl-section-sub">
+          Complete your 2-minute clinical assessment today. A US board-certified physician will determine if GLP-1 therapy is right for you.
+        </p>
+        <button type="button" class="alivio-hero-primary-cta" data-intake-trigger data-intake-goal="weight-loss" style="background-color: #FFEBC4; color: #5B2008;" aria-label="Start Your Weight Loss Assessment">
+          <span class="alivio-cta-label">Start Your Free Assessment</span>
+          <span class="alivio-cta-disk" style="background-color: #5B2008; color: #FFEBC4;" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" class="alivio-disk-arrow"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+          </span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Alivio Interactive Treatment Selection & Intake Modal -->
+  <div class="alivio-intake-modal" id="alivio-intake-modal" role="dialog" aria-modal="true"
+    aria-labelledby="modal-headline" aria-hidden="true">
+    <div class="alivio-intake-window">
+      <!-- Top Close Button -->
+      <button type="button" class="alivio-intake-close-btn" data-intake-close aria-label="Close dialog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Step Counter & Badge -->
+      <div class="alivio-intake-eyebrow">
+        <span class="alivio-intake-badge">TREATMENT INTAKE</span>
+        <span class="alivio-intake-step">Step 1 of 2</span>
+      </div>
+
+      <!-- Question Headline -->
+      <h2 class="alivio-intake-headline" id="modal-headline">
+        What is your primary health goal?
+      </h2>
+      <p class="alivio-intake-desc">
+        Select a clinical category to explore specialized prescription protocols, doctor consultations, and certified pharmacy delivery.
+      </p>
+
+      <!-- Selection List Container -->
+      <div class="alivio-intake-answers" role="radiogroup" aria-label="Treatment Goal Selection">
+
+        <!-- Option 1: Weight Loss (Active & Preselected) -->
+        <div class="alivio-answer-card selected" data-single-choice data-group="treatmentGoal"
+          data-value="weight-loss" data-label="Weight Loss" role="radio" aria-checked="true"
+          tabindex="0">
+          <div class="alivio-answer-left">
+            <div class="alivio-treatment-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M12 7v5l3 3"></path>
+              </svg>
+            </div>
+            <div class="alivio-answer-details">
+              <span class="alivio-answer-title">Weight Loss (GLP-1 &amp; GIP)</span>
+              <span class="alivio-answer-sub">Compounded Semaglutide, Tirzepatide, and Oral Formulations</span>
+            </div>
+          </div>
+          <div class="alivio-answer-action">
+            <svg class="alivio-answer-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Option 2: Women’s Hormone Care -->
+        <div class="alivio-answer-card" data-single-choice data-group="treatmentGoal"
+          data-value="hormone-women" data-label="Women’s Hormone Care" role="radio" aria-checked="false"
+          tabindex="0">
+          <div class="alivio-answer-left">
+            <div class="alivio-treatment-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 21a9 9 0 0 0 9-9 9 9 0 0 0-9-9 9 9 0 0 0-9 9c0 5 9 13 9 13z"></path>
+              </svg>
+            </div>
+            <div class="alivio-answer-details">
+              <span class="alivio-answer-title">Hormone Therapy (for women)</span>
+              <span class="alivio-answer-sub">Personalized bioidentical HRT for perimenopause and menopause</span>
+            </div>
+          </div>
+          <div class="alivio-answer-action">
+            <svg class="alivio-answer-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Trust Assurance Footer -->
+      <div class="alivio-intake-footer">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" class="alivio-lock-icon" aria-hidden="true">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        <span>Board-certified clinical care • 100% HIPAA compliant • Discreet delivery</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Global Footer -->
+  <footer class="alivio-footer" role="contentinfo" aria-label="Site Footer">
+    <div class="alivio-footer-inner">
+      <div class="alivio-footer-top-grid">
+        <div class="alivio-footer-col alivio-footer-brand-col">
+          <a href="../index.html" class="alivio-footer-logo-link" aria-label="PapayaMD Home">
+            <img src="../assets/images/papayamd-logo.svg" alt="PapayaMD Logo" class="alivio-footer-logo-img" width="148" height="38" />
+          </a>
+          <p class="alivio-footer-tagline">Clinical precision for everyday vitality. Physician-led telemedicine, compounding pharmacy care, and discreet home delivery nationwide.</p>
+        </div>
+
+        <div class="alivio-footer-col">
+          <h4 class="alivio-footer-heading">Treatments</h4>
+          <ul class="alivio-footer-links">
+            <li><a href="weight-loss.html">Weight Loss</a></li>
+            <li><a href="hormone-women.html">Hormone Health (Women)</a></li>
+            <li><a href="estradiol-patch.html">Estradiol Patch</a></li>
+            <li><a href="../index.html#protocols">Healthy Aging</a></li>
+            <li><a href="../index.html#protocols">Energy &amp; Focus</a></li>
+          </ul>
+        </div>
+
+        <div class="alivio-footer-col">
+          <h4 class="alivio-footer-heading">Company</h4>
+          <ul class="alivio-footer-links">
+            <li><a href="../index.html#how-it-works">How It Works</a></li>
+            <li><a href="../index.html#clinical-excellence">Clinical Excellence</a></li>
+            <li><a href="../index.html#faq">FAQ</a></li>
+            <li><a href="../login.html">Patient Login</a></li>
+          </ul>
+        </div>
+
+        <div class="alivio-footer-col">
+          <h4 class="alivio-footer-heading">Clinical Support</h4>
+          <p class="alivio-footer-support-text">Questions about your treatment plan?</p>
+          <a href="mailto:care@papayamd.com" class="alivio-footer-email">care@papayamd.com</a>
+          <span class="alivio-footer-hours">Mon – Fri, 9am – 6pm ET</span>
+        </div>
+      </div>
+
+      <div class="alivio-footer-disclaimer" id="medical-disclaimer">
+        <p><strong>Medical Disclaimer:</strong> Prescription treatments are subject to physician discretion and require an online medical consultation. Compounded medications are prepared by licensed 503A and 503B pharmacies to meet individual clinical needs; they are not FDA-approved brand-name drugs. Results vary by patient based on health history and adherence to protocol.</p>
+      </div>
+
+      <div class="alivio-footer-bottom-bar">
+        <div class="alivio-footer-copyright">
+          <span>&copy; 2026 PapayaMD Inc. All rights reserved. Technology powered by AsterMD Clinical Platform.</span>
+        </div>
+        <div class="alivio-footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <span class="alivio-legal-sep" aria-hidden="true">&bull;</span>
+          <a href="#">Terms of Service</a>
+          <span class="alivio-legal-sep" aria-hidden="true">&bull;</span>
+          <a href="#">Telehealth Consent</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Slideout Navigation Drawer -->
+  <aside class="sp-drawer alivio-treatment-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-heading" hidden>
+    <div class="sp-drawer-header">
+      <div class="sp-drawer-header-left">
+        <a href="../index.html" class="sp-drawer-logo" aria-label="PapayaMD Homepage">
+          <img src="../assets/images/papayamd-logo.svg" alt="PapayaMD Logo" class="brand-logo-img" width="120" height="28" />
+        </a>
+      </div>
+      <button type="button" class="sp-drawer-close drawer-close" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="alivio-drawer-body">
+      <div class="alivio-drawer-view" id="drawer-view-subpage">
+        <div class="alivio-drawer-header-content" style="margin-bottom: 14px;">
+          <h3 class="alivio-drawer-heading" id="drawer-heading">Weight Loss Protocols</h3>
+        </div>
+
+        <div class="alivio-drawer-subpage-nav" role="navigation" aria-label="Page Sections">
+          <a href="#science" class="alivio-drawer-subpage-link sp-drawer-link">
+            <span>The Science of GLP-1</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true"><path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+          <a href="#formulations" class="alivio-drawer-subpage-link sp-drawer-link">
+            <span>Treatment Formulations</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true"><path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+          <a href="#comparison" class="alivio-drawer-subpage-link sp-drawer-link">
+            <span>Medication Comparison</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true"><path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+          <a href="#how-it-works" class="alivio-drawer-subpage-link sp-drawer-link">
+            <span>How It Works</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true"><path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+          <a href="#faq" class="alivio-drawer-subpage-link sp-drawer-link">
+            <span>Clinical FAQ</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true"><path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+        </div>
+
+        <div style="margin-top: 24px;">
+          <button type="button" class="alivio-hero-primary-cta" data-intake-trigger data-intake-goal="weight-loss" style="width: 100%; justify-content: center;" aria-label="Start Free 2-Minute Assessment">
+            <span class="alivio-cta-label">2-Minute Assessment</span>
+            <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" class="alivio-disk-arrow"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sp-drawer-backdrop" aria-hidden="true"></div>
+
+  <!-- Modular Scripts -->
+  <script type="module" src="../assets/js/main.js"></script>
+  <script type="module" src="../assets/js/modules/intake.js"></script>
+
+  <!-- Mobile Drawer Toggle Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const drawer = document.getElementById('mobile-drawer');
+      const menuToggle = document.querySelector('.menu-toggle');
+      const closeBtn = drawer ? drawer.querySelector('.drawer-close') : null;
+      const drawerLinks = drawer ? drawer.querySelectorAll('.sp-drawer-link') : [];
+
+      if (!drawer || !menuToggle) return;
+
+      const openDrawer = () => {
+        drawer.removeAttribute('hidden');
+        drawer.classList.add('is-open');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('drawer-open');
+      };
+
+      const closeDrawer = () => {
+        drawer.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('drawer-open');
+        setTimeout(() => {
+          if (!drawer.classList.contains('is-open')) {
+            drawer.setAttribute('hidden', '');
+          }
+        }, 300);
+      };
+
+      menuToggle.addEventListener('click', () => {
+        if (drawer.classList.contains('is-open')) closeDrawer();
+        else openDrawer();
+      });
+
+      if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+      drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+    });
+  </script>
+
+
+  <!-- Standalone Sticky Header Controller (Guarantees sticky behavior like homepage and menopause page) -->
+  <script>
+    (function() {
+      const header = document.getElementById("site-header");
+      if (!header) return;
+      function onScroll() {
+        if (window.scrollY > 15) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+
+</body>
+</html>

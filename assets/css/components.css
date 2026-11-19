@@ -1,0 +1,1405 @@
+/* ==========================================================================
+   Navigation Bar 2-Minute Assessment CTA (Strict 44px - 6px Bigger on Desktop & Mobile)
+   ========================================================================== */
+.site-header .alivio-nav-primary-cta,
+.alivio-nav-primary-cta {
+  height: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+  padding: 0 6px 0 18px !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  border-radius: 9999px !important;
+  box-sizing: border-box !important;
+  gap: 10px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+@media (max-width: 767px) {
+  .site-header .alivio-nav-primary-cta,
+  .alivio-nav-primary-cta {
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    padding: 0 5px 0 14px !important;
+    font-size: 0.8125rem !important;
+  }
+}
+
+.site-header .alivio-nav-primary-cta .alivio-cta-disk,
+.alivio-nav-primary-cta .alivio-cta-disk {
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  min-height: 32px !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+.site-header .alivio-nav-primary-cta .alivio-cta-disk svg,
+.alivio-nav-primary-cta .alivio-cta-disk svg {
+  width: 14px !important;
+  height: 14px !important;
+  min-width: 14px !important;
+  min-height: 14px !important;
+  stroke-width: 2.4 !important;
+}
+
+/* ==========================================================================
+   ALIVIO COMPONENTS
+   ========================================================================== */
+
+/* Layout Container */
+.container {
+  width: 100%;
+  max-width: var(--sp-container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(16px, 4vw, 36px);
+  padding-right: clamp(16px, 4vw, 36px);
+}
+
+/* ==========================================================================
+   PRIMARY BUTTONS (.sp-btn)
+   ========================================================================== */
+.sp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--sp-font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1;
+  padding: 14px 26px;
+  border-radius: var(--sp-radius-pill);
+  transition: all var(--sp-transition-smooth);
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.sp-btn-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--sp-transition-fast);
+}
+
+.sp-btn:hover .sp-btn-icon {
+  transform: translateX(3px);
+}
+
+/* Primary Dark Pill Button */
+.sp-btn-primary {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--sp-accent-primary);
+  color: var(--sp-text-inverse);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.sp-btn-primary:hover {
+  background-color: var(--sp-accent-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+
+.sp-btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Unified shiny light sweep on all primary CTA buttons */
+.sp-btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 20%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.05) 80%,
+    transparent 100%
+  );
+  transform: skewX(-24deg);
+  pointer-events: none;
+  animation: sp-cta-shimmer 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes sp-cta-shimmer {
+  0% {
+    left: -130%;
+  }
+  24% {
+    left: 140%;
+  }
+  100% {
+    left: 140%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-btn-primary::after {
+    animation: none;
+    display: none;
+  }
+}
+
+/* Primary White Pill Button (for Dark Hero/Cards) */
+.sp-btn-white {
+  background-color: #FFFFFF;
+  color: #0D0D0E;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.sp-btn-white:hover {
+  background-color: #F4F4F2;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Secondary Glass-Morphism Pill Button */
+.sp-btn-glass {
+  position: relative;
+  background-color: rgba(255, 235, 196, 0.12);
+  color: var(--color-apricot-cream, #FFEBC4);
+  border: 1px solid rgba(255, 235, 196, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: var(--sp-radius-pill, 9999px);
+  box-shadow: 0 2px 8px rgba(38, 13, 3, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: all 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+  .sp-btn-glass {
+    background-color: rgba(91, 32, 8, 0.85);
+  }
+}
+
+.sp-btn-glass:hover {
+  background-color: rgba(255, 235, 196, 0.22);
+  box-shadow: 0 4px 14px rgba(38, 13, 3, 0.12);
+}
+  border-color: rgba(255, 235, 196, 0.65);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(38, 13, 3, 0.3), 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sp-btn-glass:active {
+  transform: translateY(0);
+}
+
+.sp-btn-glass:focus-visible {
+  outline: 3px solid var(--color-apricot-cream, #FFEBC4);
+  outline-offset: 3px;
+}
+
+/* Secondary Translucent / Frosted Pill Button */
+.sp-btn-frosted {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+}
+
+.sp-btn-frosted:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+/* Secondary Outline Pill Button (for Light Surfaces) */
+.sp-btn-outline {
+  background-color: transparent;
+  color: var(--sp-text-primary);
+  border: 1px solid var(--sp-border-strong);
+}
+
+.sp-btn-outline:hover {
+  background-color: var(--sp-canvas-white);
+  border-color: var(--sp-text-primary);
+  transform: translateY(-1px);
+}
+
+/* Minimal Ghost Link */
+.sp-btn-ghost {
+  background-color: transparent;
+  color: var(--sp-text-primary);
+  padding: 10px 16px;
+}
+
+.sp-btn-ghost:hover {
+  color: var(--sp-accent-warm);
+}
+
+/* Sizing */
+.sp-btn-sm {
+  padding: 10px 18px;
+  font-size: 0.875rem;
+}
+
+.sp-btn-lg {
+  padding: 18px 36px;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   HOW-IT-WORKS STEP PILL TRACK (.hiws_pill)
+   ========================================================================== */
+.hiws_subnav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--sp-space-10);
+  overflow-x: auto;
+  padding: 4px;
+}
+
+.hiws_pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--sp-canvas-white);
+  border: 1px solid var(--sp-border-light);
+  border-radius: var(--sp-radius-pill);
+  padding: 6px 10px;
+  box-shadow: var(--sp-shadow-sm);
+}
+
+.hiws_pill-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: var(--sp-radius-pill);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--sp-text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--sp-transition-fast);
+  white-space: nowrap;
+}
+
+.hiws_pill-step:hover {
+  color: var(--sp-text-primary);
+}
+
+.hiws_pill-step.is-active {
+  background-color: var(--sp-accent-primary);
+  color: var(--sp-text-inverse);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.hiws_pill-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.08);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--sp-text-primary);
+  transition: all var(--sp-transition-fast);
+}
+
+.hiws_pill-step.is-active .hiws_pill-dot {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+/* Line divider between steps */
+.hiws_pill-line {
+  width: 16px;
+  height: 1px;
+  background-color: var(--sp-border-strong);
+}
+
+/* ==========================================================================
+   MEMBERSHIP MATRIX TABLE (.sp2-membership)
+   ========================================================================== */
+.sp2-membership-table {
+  width: 100%;
+  border-radius: var(--sp-radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--sp-border-light);
+  background: var(--sp-canvas-white);
+  box-shadow: var(--sp-shadow-md);
+}
+
+.sp2-membership__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--sp-border-light);
+  transition: background-color var(--sp-transition-fast);
+}
+
+.sp2-membership__row:last-child {
+  border-bottom: none;
+}
+
+.sp2-membership__row--alt {
+  background-color: rgba(247, 247, 246, 0.6);
+}
+
+.sp2-membership__row:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.sp2-membership__label {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--sp-text-primary);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sp2-membership__label svg {
+  width: 18px;
+  height: 18px;
+  color: var(--sp-accent-success);
+}
+
+.sp2-membership__desc {
+  font-size: 0.95rem;
+  color: var(--sp-text-secondary);
+  text-align: right;
+  max-width: 420px;
+}
+
+@media (max-width: 767px) {
+  .sp2-membership__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 16px 20px;
+  }
+  .sp2-membership__desc {
+    text-align: left;
+    font-size: 0.875rem;
+  }
+}
+
+/* ==========================================================================
+   HERO TARGETED PRICING CARD & TRUST CHECKMARKS
+   Compact, clean, with breathing room between heading and buttons
+   ========================================================================== */
+.sp-hero-pricing-card {
+  width: 100%;
+  max-width: 535px;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(23, 63, 53, 0.11);
+  border-radius: 18px;
+  padding: 20px 24px;
+  box-shadow: 0 6px 24px rgba(23, 63, 53, 0.05);
+  display: grid;
+  grid-template-columns: auto 1px 1fr;
+  align-items: center;
+  gap: 20px;
+  margin: 0 0 24px 0;
+}
+
+.sp-hero-pricing-card .sp-pricing-card__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sp-hero-pricing-card .sp-pricing-card__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-charcoal-muted);
+  margin-bottom: 4px;
+}
+
+.sp-hero-pricing-card .sp-pricing-card__amount-row {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
+.sp-hero-pricing-card .sp-pricing-card__price {
+  font-family: var(--sp-font-sans);
+  font-size: clamp(2.55rem, 3.4vw, 3.05rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--color-deep-forest);
+}
+
+.sp-hero-pricing-card .sp-pricing-card__period {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-charcoal-muted);
+  margin-left: 2px;
+}
+
+.sp-hero-pricing-card .sp-pricing-card__divider {
+  width: 1px;
+  min-height: 60px;
+  background-color: rgba(23, 63, 53, 0.09);
+  align-self: stretch;
+}
+
+.sp-hero-pricing-card .sp-pricing-card__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sp-hero-pricing-card .sp-pricing-card__heading {
+  font-family: var(--sp-font-sans);
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--color-ink-charcoal);
+  margin-bottom: 5px;
+}
+
+.sp-hero-pricing-card .sp-pricing-card__desc {
+  font-size: 0.865rem;
+  line-height: 1.45;
+  color: var(--color-charcoal-muted);
+  margin: 0;
+}
+
+/* Hero CTA Cluster (Button + 12k+ Users Social Proof) */
+.sp-hero-cta-cluster {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+/* 12k+ Users Social Proof UI - Unboxed / No Pill Shape */
+.sp-hero-social-proof {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.sp-avatar-stack {
+  display: flex;
+  align-items: center;
+}
+
+.sp-user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #FFFFFF;
+  margin-left: -8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.sp-user-avatar:first-child {
+  margin-left: 0;
+}
+
+.sp-social-proof-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.sp-proof-count {
+  font-family: var(--sp-font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-ink-charcoal);
+  letter-spacing: -0.01em;
+}
+
+.sp-proof-label {
+  font-size: 0.825rem;
+  font-weight: 500;
+  color: var(--color-charcoal-muted);
+}
+
+/* Hero Trust Row */
+.sp-hero-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin-top: 0;
+  max-width: 535px;
+}
+
+.sp-hero-trust-row .sp-pricing-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.825rem;
+  font-weight: 500;
+  color: var(--color-ink-charcoal);
+  white-space: nowrap;
+}
+
+.sp-hero-trust-row .sp-pricing-trust-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-deep-forest);
+  stroke-width: 2.5;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   FLOATING HERO PRODUCT CARD (Auto-Rotating Mini-Carousel)
+   Compact horizontal card at bottom-right of hero (10px inset, 28px radius)
+   ========================================================================== */
+.sp-hero-product-card {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 10;
+  width: 375px;
+  max-width: calc(100% - 20px);
+  background: #FFFFFF;
+  border-radius: var(--sp-radius-xl, 28px);
+  border: 1px solid rgba(23, 63, 53, 0.08);
+  box-shadow: 0 10px 32px rgba(23, 63, 53, 0.12), 0 2px 8px rgba(23, 63, 53, 0.04);
+  padding: 14px 16px 14px 14px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: opacity 260ms ease, transform 260ms ease, box-shadow 220ms ease;
+}
+
+.sp-hero-product-card:hover {
+  box-shadow: 0 14px 38px rgba(23, 63, 53, 0.16), 0 3px 10px rgba(23, 63, 53, 0.06);
+}
+
+/* Close Control in Top-Right Corner */
+.sp-hero-product-card__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid rgba(23, 63, 53, 0.1);
+  background: rgba(255, 255, 255, 0.92);
+  color: #5A6561;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: all var(--sp-transition-fast, 180ms ease);
+  z-index: 4;
+}
+
+.sp-hero-product-card__close:hover {
+  background: rgba(23, 63, 53, 0.08);
+  color: var(--color-deep-forest, #173F35);
+  border-color: rgba(23, 63, 53, 0.22);
+  transform: scale(1.08);
+}
+
+.sp-hero-product-card__close:focus-visible {
+  outline: 2px solid var(--color-deep-forest, #173F35);
+  outline-offset: 2px;
+}
+
+.sp-hero-product-card__close svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Dynamic Carousel Content with Crossfade */
+.sp-hero-product-card__content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+  transition: opacity 220ms cubic-bezier(0.16, 1, 0.3, 1), transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.sp-hero-product-card__content.is-transitioning {
+  opacity: 0.15;
+  transform: translateY(2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-hero-product-card__content {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Left: Product Image Box */
+.sp-hero-product-card__media {
+  width: 68px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.sp-hero-product-card__img {
+  max-width: 100%;
+  max-height: 76px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(23, 63, 53, 0.08));
+  display: block;
+  user-select: none;
+}
+
+/* Center: Product Information */
+.sp-hero-product-card__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.sp-hero-product-card__badge {
+  display: inline-flex;
+  align-items: center;
+  background: #FBEBF3;
+  color: #7E3F74;
+  font-family: var(--sp-font-sans);
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 3px 8px;
+  border-radius: var(--sp-radius-pill, 9999px);
+  line-height: 1.1;
+}
+
+.sp-hero-product-card__name {
+  font-family: var(--sp-font-sans);
+  font-size: 0.935rem;
+  font-weight: 700;
+  color: var(--color-ink-charcoal, #173F35);
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.sp-hero-product-card__price {
+  font-family: var(--sp-font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-charcoal-muted, #5A6561);
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Right: CTA Action Button */
+.sp-hero-product-card__action {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  margin-top: 14px; /* leaves breathing room for the top-right close control */
+}
+
+.sp-hero-product-card__cta {
+  background-color: #0E3B32;
+  color: #FFFFFF;
+  font-family: var(--sp-font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: var(--sp-radius-pill, 9999px);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--sp-transition-fast, 180ms ease);
+  box-shadow: 0 2px 8px rgba(14, 59, 50, 0.2);
+}
+
+.sp-hero-product-card__cta:hover {
+  background-color: #082620;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(14, 59, 50, 0.28);
+}
+
+.sp-hero-product-card__cta:focus-visible {
+  outline: 2px solid var(--color-deep-forest, #173F35);
+  outline-offset: 2px;
+}
+
+/* Responsive Scaling: Tablet & Mobile */
+@media (max-width: 991px) and (min-width: 768px) {
+  .sp-hero-product-card {
+    right: 10px;
+    bottom: 10px;
+    width: 345px;
+    padding: 12px 14px 12px 12px;
+  }
+
+  .sp-hero-product-card__media {
+    width: 60px;
+    height: 74px;
+  }
+
+  .sp-hero-product-card__img {
+    max-height: 70px;
+  }
+
+  .sp-hero-product-card__name {
+    font-size: 0.88rem;
+  }
+
+  .sp-hero-product-card__cta {
+    padding: 7px 14px;
+    font-size: 0.775rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .sp-hero-product-card {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .sp-hero-pricing-card {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px 18px;
+    margin: 0 0 20px 0;
+    max-width: 100%;
+    border-radius: 16px;
+  }
+
+  .sp-hero-pricing-card .sp-pricing-card__divider {
+    display: none;
+  }
+
+  .sp-hero-pricing-card .sp-pricing-card__heading {
+    font-size: 1.05rem;
+  }
+
+  .sp-hero-pricing-card .sp-pricing-card__desc {
+    font-size: 0.825rem;
+  }
+
+  .sp-hero-cta-cluster {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    width: 100%;
+    margin-bottom: 18px;
+  }
+
+  .sp-hero-cta-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 15px 24px;
+    font-size: 0.985rem;
+  }
+
+  .sp-hero-social-proof {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sp-hero-trust-row {
+    gap: 8px 14px;
+    margin-top: 14px;
+    max-width: 100%;
+  }
+
+  .sp-hero-trust-row .sp-pricing-trust-item {
+    font-size: 0.775rem;
+    white-space: normal;
+  }
+}
+
+/* ==========================================================================
+   FAQ ACCORDION (.sp-accordion)
+   ========================================================================== */
+.sp-accordion-item {
+  border-bottom: 1px solid var(--sp-border-light);
+  padding: 24px 0;
+  transition: all var(--sp-transition-fast);
+}
+
+.sp-accordion-item:first-child {
+  border-top: 1px solid var(--sp-border-light);
+}
+
+.sp-accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-family: var(--sp-font-display);
+  font-size: clamp(1.15rem, 1.5vw + 0.4rem, 1.45rem);
+  font-weight: 600;
+  color: var(--sp-text-primary);
+  cursor: pointer;
+  padding: 0;
+}
+
+.sp-accordion-trigger:hover {
+  color: var(--sp-accent-warm);
+}
+
+.sp-accordion-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--sp-border-strong);
+  font-size: 1.25rem;
+  font-weight: 400;
+  flex-shrink: 0;
+  transition: all var(--sp-transition-fast);
+}
+
+.sp-accordion-trigger[aria-expanded="true"] .sp-accordion-icon {
+  transform: rotate(45deg);
+  background-color: var(--sp-accent-primary);
+  border-color: var(--sp-accent-primary);
+  color: #FFFFFF;
+}
+
+.sp-accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.sp-accordion-panel[aria-hidden="false"] {
+  grid-template-rows: 1fr;
+}
+
+.sp-accordion-panel-inner {
+  min-height: 0;
+  padding-top: var(--sp-space-4);
+  padding-right: var(--sp-space-12);
+}
+
+.sp-accordion-panel-inner p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--sp-text-secondary);
+}
+
+/* ==========================================================================
+   MODAL INTAKE DIALOG
+   ========================================================================== */
+.sp-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(13, 13, 14, 0.65);
+  backdrop-filter: blur(8px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 280ms ease;
+}
+
+.sp-modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sp-modal-card {
+  max-width: 540px;
+  width: 100%;
+  background: var(--sp-canvas-white);
+  border-radius: var(--sp-radius-xl);
+  border: 1px solid var(--sp-border-light);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.25);
+  padding: clamp(28px, 5vw, 44px);
+  text-align: center;
+  position: relative;
+  transform: translateY(20px) scale(0.98);
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sp-modal-backdrop.active .sp-modal-card {
+  transform: translateY(0) scale(1);
+}
+
+/* ==========================================================================
+   Lenis Smooth Scrolling
+   ========================================================================== */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Lucide Icon Standard Sizing & Integration
+   ========================================================================== */
+.lucide,
+[data-lucide],
+.lucide-icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.alivio-cta-disk .lucide,
+.alivio-cta-disk [data-lucide],
+.alivio-cta-disk svg,
+.alivio-glass-disk .lucide,
+.alivio-glass-disk [data-lucide],
+.alivio-glass-disk svg {
+  width: 15px;
+  height: 15px;
+  stroke-width: 2;
+}
+
+/* ==========================================================================
+   CTA Button Height Standardization (Strict 58px Desktop / 52px Mobile)
+   Applied strictly to all CTA buttons across all pages
+   ========================================================================== */
+.alivio-hero-primary-cta,
+.alivio-hero-secondary-cta,
+.clinical-experts__cta,
+.sp-products-assessment__btn,
+.sp-care-card-cta,
+.sp-care-card__cta-row .alivio-hero-primary-cta,
+.sp-testimonials-cta-wrap .alivio-hero-primary-cta,
+.alivio-works-card--01 .alivio-hero-primary-cta,
+.alivio-footer-hero-cta-wrap .alivio-hero-primary-cta,
+.section_sp-care-slider .alivio-hero-primary-cta,
+.sp-drawer-footer .alivio-hero-primary-cta,
+.menopause-online-care__btn {
+  height: 58px !important;
+  min-height: 58px !important;
+  max-height: 58px !important;
+  box-sizing: border-box !important;
+  padding: 0 8px 0 24px !important;
+  font-size: 0.98rem !important;
+}
+
+@media (max-width: 767px) {
+  .alivio-hero-primary-cta,
+  .alivio-hero-secondary-cta,
+  .clinical-experts__cta,
+  .sp-products-assessment__btn,
+  .sp-care-card-cta,
+  .sp-care-card__cta-row .alivio-hero-primary-cta,
+  .sp-testimonials-cta-wrap .alivio-hero-primary-cta,
+  .alivio-works-card--01 .alivio-hero-primary-cta,
+  .alivio-footer-hero-cta-wrap .alivio-hero-primary-cta,
+  .section_sp-care-slider .alivio-hero-primary-cta,
+  .sp-drawer-footer .alivio-hero-primary-cta,
+  .menopause-online-care__btn {
+    height: 52px !important;
+    min-height: 52px !important;
+    max-height: 52px !important;
+    box-sizing: border-box !important;
+    padding: 0 6px 0 20px !important;
+    font-size: 0.92rem !important;
+  }
+}
+
+.alivio-nav-primary-cta .alivio-cta-disk,
+.alivio-hero-primary-cta .alivio-cta-disk,
+.alivio-hero-secondary-cta .alivio-glass-disk,
+.clinical-experts__cta .alivio-cta-disk,
+.sp-products-assessment__btn .alivio-cta-disk,
+.sp-care-card-cta .alivio-cta-disk,
+.sp-testimonials-cta-wrap .alivio-hero-primary-cta .alivio-cta-disk,
+.menopause-online-care__btn .alivio-cta-disk {
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
+}
+
+@media (max-width: 767px) {
+  .alivio-nav-primary-cta .alivio-cta-disk,
+  .alivio-hero-primary-cta .alivio-cta-disk,
+  .alivio-hero-secondary-cta .alivio-glass-disk,
+  .clinical-experts__cta .alivio-cta-disk,
+  .sp-products-assessment__btn .alivio-cta-disk,
+  .sp-care-card-cta .alivio-cta-disk,
+  .sp-testimonials-cta-wrap .alivio-hero-primary-cta .alivio-cta-disk,
+  .menopause-online-care__btn .alivio-cta-disk {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+  }
+}
+
+/* ==========================================================================
+   Light Background CTA Styling (#5B2009 Fill & #FBF8F3 Arrow Disk)
+   ========================================================================== */
+.sp-products-assessment__btn.alivio-hero-primary-cta,
+.sp-products-container .alivio-hero-primary-cta,
+.sp-treatment-category--light .alivio-hero-primary-cta,
+.sp-care-card--light .alivio-hero-primary-cta,
+.alivio-works-step-card--01 .alivio-hero-primary-cta,
+.sp-science-container .alivio-hero-primary-cta,
+.sp-light-surface .alivio-hero-primary-cta {
+  background-color: #5B2009 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #5B2009 !important;
+  transition: all 240ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.sp-products-assessment__btn.alivio-hero-primary-cta .alivio-cta-label,
+.sp-products-container .alivio-hero-primary-cta .alivio-cta-label,
+.sp-treatment-category--light .alivio-hero-primary-cta .alivio-cta-label,
+.sp-care-card--light .alivio-hero-primary-cta .alivio-cta-label,
+.alivio-works-step-card--01 .alivio-hero-primary-cta .alivio-cta-label,
+.sp-science-container .alivio-hero-primary-cta .alivio-cta-label,
+.sp-light-surface .alivio-hero-primary-cta .alivio-cta-label {
+  color: #FFFFFF !important;
+}
+
+.sp-products-assessment__btn.alivio-hero-primary-cta .alivio-cta-disk,
+.sp-products-container .alivio-hero-primary-cta .alivio-cta-disk,
+.sp-treatment-category--light .alivio-hero-primary-cta .alivio-cta-disk,
+.sp-care-card--light .alivio-hero-primary-cta .alivio-cta-disk,
+.alivio-works-step-card--01 .alivio-hero-primary-cta .alivio-cta-disk,
+.sp-science-container .alivio-hero-primary-cta .alivio-cta-disk,
+.sp-light-surface .alivio-hero-primary-cta .alivio-cta-disk {
+  background-color: #FBF8F3 !important;
+  color: #5B2009 !important;
+  transition: background-color 200ms ease, transform 200ms ease !important;
+}
+
+.sp-products-assessment__btn.alivio-hero-primary-cta .alivio-cta-disk svg,
+.sp-products-assessment__btn.alivio-hero-primary-cta .alivio-cta-disk [data-lucide],
+.sp-products-assessment__btn.alivio-hero-primary-cta .alivio-cta-disk .lucide,
+.sp-products-container .alivio-hero-primary-cta .alivio-cta-disk svg,
+.sp-products-container .alivio-hero-primary-cta .alivio-cta-disk [data-lucide],
+.sp-treatment-category--light .alivio-hero-primary-cta .alivio-cta-disk svg,
+.sp-care-card--light .alivio-hero-primary-cta .alivio-cta-disk svg,
+.alivio-works-step-card--01 .alivio-hero-primary-cta .alivio-cta-disk svg,
+.sp-science-container .alivio-hero-primary-cta .alivio-cta-disk svg,
+.sp-light-surface .alivio-hero-primary-cta .alivio-cta-disk svg {
+  stroke: #5B2009 !important;
+  color: #5B2009 !important;
+  fill: none !important;
+}
+
+.sp-products-assessment__btn.alivio-hero-primary-cta:hover,
+.sp-products-container .alivio-hero-primary-cta:hover,
+.sp-treatment-category--light .alivio-hero-primary-cta:hover,
+.sp-care-card--light .alivio-hero-primary-cta:hover,
+.alivio-works-step-card--01 .alivio-hero-primary-cta:hover,
+.sp-science-container .alivio-hero-primary-cta:hover,
+.sp-light-surface .alivio-hero-primary-cta:hover {
+  background-color: #3E1505 !important;
+  border-color: #3E1505 !important;
+  transform: translateY(-2px) !important;
+}
+
+.sp-products-assessment__btn.alivio-hero-primary-cta:hover .alivio-cta-disk,
+.sp-products-container .alivio-hero-primary-cta:hover .alivio-cta-disk,
+.sp-treatment-category--light .alivio-hero-primary-cta:hover .alivio-cta-disk,
+.sp-care-card--light .alivio-hero-primary-cta:hover .alivio-cta-disk,
+.alivio-works-step-card--01 .alivio-hero-primary-cta:hover .alivio-cta-disk,
+.sp-science-container .alivio-hero-primary-cta:hover .alivio-cta-disk,
+.sp-light-surface .alivio-hero-primary-cta:hover .alivio-cta-disk {
+  background-color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   Dynamic Scroll-Triggered Navbar CTA ("2-Minute Assessment")
+   On scroll: morphs to #5B2009 fill with #FBF8F3 arrow disk
+   ========================================================================== */
+.site-header.scrolled .alivio-nav-primary-cta,
+.alivio-nav-primary-cta.is-scrolled {
+  background-color: #5B2009 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #5B2009 !important;
+  transition: background-color 240ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 240ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 200ms ease !important;
+}
+
+.site-header.scrolled .alivio-nav-primary-cta .alivio-cta-label,
+.alivio-nav-primary-cta.is-scrolled .alivio-cta-label {
+  color: #FFFFFF !important;
+}
+
+.site-header.scrolled .alivio-nav-primary-cta .alivio-cta-disk,
+.alivio-nav-primary-cta.is-scrolled .alivio-cta-disk {
+  background-color: #FBF8F3 !important;
+  color: #5B2009 !important;
+  transition: background-color 200ms ease !important;
+}
+
+.site-header.scrolled .alivio-nav-primary-cta .alivio-cta-disk svg,
+.site-header.scrolled .alivio-nav-primary-cta .alivio-cta-disk [data-lucide],
+.site-header.scrolled .alivio-nav-primary-cta .alivio-cta-disk .lucide,
+.alivio-nav-primary-cta.is-scrolled .alivio-cta-disk svg,
+.alivio-nav-primary-cta.is-scrolled .alivio-cta-disk [data-lucide],
+.alivio-nav-primary-cta.is-scrolled .alivio-cta-disk .lucide {
+  stroke: #5B2009 !important;
+  color: #5B2009 !important;
+  fill: none !important;
+}
+
+.site-header.scrolled .alivio-nav-primary-cta:hover,
+.alivio-nav-primary-cta.is-scrolled:hover {
+  background-color: #3E1505 !important;
+  border-color: #3E1505 !important;
+  transform: translateY(-1px) !important;
+}
+
+.site-header.scrolled .alivio-nav-primary-cta:hover .alivio-cta-disk,
+.alivio-nav-primary-cta.is-scrolled:hover .alivio-cta-disk {
+  background-color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   Clickable Product Cards
+   ========================================================================== */
+.sp-product-card,
+.menopause-product-card {
+  cursor: pointer;
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 260ms ease, border-color 200ms ease;
+  user-select: none;
+}
+
+.sp-product-card:hover,
+.menopause-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(38, 13, 3, 0.08);
+  border-color: rgba(91, 32, 9, 0.25);
+}
+
+.sp-product-card:hover .sp-product-card__arrow-btn,
+.menopause-product-card:hover .menopause-product-card__btn {
+  background-color: #5B2009 !important;
+  color: #FFFFFF !important;
+  transform: translateX(3px);
+}
+
+
+
+/* ==========================================================================
+   PATIENT STORIES CTA ("Find Your Treatment")
+   Must be #5B2009 fill with #FBF8F3 arrow disk matching light background CTAs
+   ========================================================================== */
+.sp-testimonials-cta-wrap .alivio-hero-primary-cta,
+.section_sp-testimonials .alivio-hero-primary-cta {
+  background-color: #5B2009 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #5B2009 !important;
+  transition: all 240ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.sp-testimonials-cta-wrap .alivio-hero-primary-cta .alivio-cta-label,
+.section_sp-testimonials .alivio-hero-primary-cta .alivio-cta-label {
+  color: #FFFFFF !important;
+}
+
+.sp-testimonials-cta-wrap .alivio-hero-primary-cta .alivio-cta-disk,
+.section_sp-testimonials .alivio-hero-primary-cta .alivio-cta-disk {
+  background-color: #FBF8F3 !important;
+  color: #5B2009 !important;
+  transition: background-color 200ms ease, transform 200ms ease !important;
+}
+
+.sp-testimonials-cta-wrap .alivio-hero-primary-cta .alivio-cta-disk svg,
+.sp-testimonials-cta-wrap .alivio-hero-primary-cta .alivio-cta-disk [data-lucide],
+.sp-testimonials-cta-wrap .alivio-hero-primary-cta .alivio-cta-disk .lucide,
+.section_sp-testimonials .alivio-hero-primary-cta .alivio-cta-disk svg,
+.section_sp-testimonials .alivio-hero-primary-cta .alivio-cta-disk [data-lucide],
+.section_sp-testimonials .alivio-hero-primary-cta .alivio-cta-disk .lucide {
+  stroke: #5B2009 !important;
+  color: #5B2009 !important;
+  fill: none !important;
+}
+
+.sp-testimonials-cta-wrap .alivio-hero-primary-cta:hover,
+.section_sp-testimonials .alivio-hero-primary-cta:hover {
+  background-color: #3E1505 !important;
+  border-color: #3E1505 !important;
+  transform: translateY(-2px) !important;
+}
+
+.sp-testimonials-cta-wrap .alivio-hero-primary-cta:hover .alivio-cta-disk,
+.section_sp-testimonials .alivio-hero-primary-cta:hover .alivio-cta-disk {
+  background-color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   Card Hover Standardization: Image-Only Scaling (Zero Text Movement)
+   ========================================================================== */
+.sp-product-card,
+.menopause-product-card,
+.alivio-care-card,
+.sp-testimonial-card,
+.alivio-trust-card {
+  transform: none !important;
+}
+
+.sp-product-card:hover,
+.menopause-product-card:hover,
+.alivio-care-card:hover,
+.sp-testimonial-card:hover,
+.alivio-trust-card:hover {
+  transform: none !important;
+}
+
+.sp-product-card .sp-product-card__title,
+.sp-product-card .sp-product-card__desc,
+.sp-product-card .sp-product-card__meta,
+.sp-product-card h3,
+.sp-product-card p,
+.menopause-product-card .menopause-product-card__title,
+.menopause-product-card .menopause-product-card__desc,
+.menopause-product-card h3,
+.menopause-product-card p,
+.alivio-care-card .alivio-care-card__title,
+.alivio-care-card .alivio-care-card__subtext,
+.alivio-care-card .alivio-care-card__eyebrow,
+.alivio-trust-card .alivio-trust-label {
+  transform: none !important;
+  font-size: inherit !important;
+}
+
+/* Clinical Excellence Metric Number: Exact 60px & Brand Brown (#5B2009), No Shadow */
+.alivio-trust-card .alivio-trust-value,
+.alivio-trust-value,
+.alivio-spin-num {
+  transform: none !important;
+  font-family: var(--sp-font-display, "Inter", sans-serif) !important;
+  font-size: 60px !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.05 !important;
+  color: #5B2009 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+@media (max-width: 767px) {
+  .alivio-trust-card .alivio-trust-value,
+  .alivio-trust-value,
+  .alivio-spin-num {
+    font-size: clamp(42px, 10.5vw, 60px) !important;
+    line-height: 1.1 !important;
+    color: #5B2009 !important;
+  }
+}
+
+.sp-product-card:hover .sp-product-card__arrow-btn,
+.menopause-product-card:hover .menopause-product-card__arrow-btn,
+.alivio-care-card:hover .alivio-care-card__action-btn {
+  transform: none !important;
+}
+
+.sp-product-card__img,
+.menopause-product-card__img,
+.alivio-care-card__img {
+  transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform;
+}
+
+.sp-product-card:hover .sp-product-card__img,
+.menopause-product-card:hover .menopause-product-card__img,
+.alivio-care-card:hover .alivio-care-card__img {
+  transform: scale(1.05) !important;
+}
+
+.alivio-cta-disk,
+.alivio-glass-disk {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.alivio-cta-disk svg,
+.alivio-glass-disk svg,
+.alivio-disk-arrow {
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
+  display: block !important;
+  stroke: currentColor !important;
+  fill: none !important;
+  stroke-width: 2.4 !important;
+}
