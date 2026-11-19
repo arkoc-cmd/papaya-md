@@ -1,15 +1,1450 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="prefetch" as="document" href="index.html">
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=treatments/intake-women.html">
-  <title>Redirecting to Women’s Health Assessment — PapayaMD</title>
-  <script>
-    window.location.replace("treatments/intake-women.html");
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Women's Hormone Therapy Clinical Assessment | PapayaMD</title>
+  <meta name="description" content="Complete your confidential clinical intake for bioidentical hormone therapy. Personalized, physician-guided care from home.">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+  <!-- Inter Display & Sans Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       DESIGN TOKENS & CANVAS SETUP (Strict Alivio Brand Palette)
+       Zero Purple, Zero Random Colors. 
+       Warm Canvas #FAF7F2, Alivio Chestnut Terracotta #5B2008, Apricot Peach #FFEBC4
+       ========================================================================== */
+    :root {
+      --sp-font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --sp-font-display: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      --color-canvas: #FAF7F2;
+      --color-card: #FFFFFF;
+      --color-text-main: #070706;
+      --color-text-muted: rgba(7, 7, 6, 0.68);
+      --color-text-subtle: rgba(7, 7, 6, 0.45);
+      
+      /* Alivio Signature Brand Tokens */
+      --color-terracotta: #5B2008;
+      --color-terracotta-hover: #3D1404;
+      --color-terracotta-light: rgba(91, 32, 8, 0.05);
+      --color-apricot-peach: #FFEBC4;
+      --color-border-card: rgba(91, 32, 8, 0.12);
+      --color-border-card-selected: #5B2008;
+      
+      --color-trustpilot-green: #00B67A;
+      --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
+      background-color: var(--color-canvas);
+      color: var(--color-text-main);
+      font-family: var(--sp-font-sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ==========================================================================
+       TOP PROGRESS BAR: Light-to-Warm Brown Animated Gradient Indicator
+       ========================================================================== */
+    .alivio-top-progress {
+      position: relative;
+      width: 100%;
+      height: 4px;
+      background: rgba(91, 32, 8, 0.08);
+      z-index: 50;
+      overflow: hidden;
+    }
+
+    .alivio-top-progress__fill {
+      height: 100%;
+      width: 33.33%; /* Initial Step 1 of 3 */
+      background: linear-gradient(90deg, #D97746 0%, #A35C3E 50%, #5B2008 100%);
+      background-size: 200% 100%;
+      animation: gradientFlow 3s ease infinite;
+      border-radius: 0 2px 2px 0;
+      transition: width 0.4s var(--ease-apple);
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ==========================================================================
+       TOP HEADER (Centered Alivio Logo + Trustpilot Rating Badge)
+       ========================================================================== */
+    .alivio-intake-header-wrap {
+      width: 100%;
+      background: #FFFFFF;
+      border-bottom: 1px solid rgba(7, 7, 6, 0.06);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 20;
+    }
+
+    .alivio-intake-brand-cluster {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(14px, 2.5vw, 24px);
+      text-decoration: none;
+      color: var(--color-text-main);
+    }
+
+    .alivio-intake-brand-logo {
+      display: inline-flex;
+      align-items: center;
+      color: #070706;
+      transition: opacity 0.2s ease;
+    }
+
+    .alivio-intake-brand-logo:hover {
+      opacity: 0.85;
+    }
+
+    .alivio-intake-brand-logo svg {
+      height: 40px;
+      width: auto;
+      max-width: 210px;
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      .alivio-intake-brand-logo svg {
+        height: 32px;
+        width: auto;
+        max-width: 165px;
+      }
+    }
+
+    /* Trustpilot Rating Widget: Excellent 4.6 + 5 Green Star Badges */
+    .alivio-header-trustpilot {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #070706;
+      border-left: 1px solid rgba(7, 7, 6, 0.14);
+      padding-left: clamp(12px, 2vw, 20px);
+    }
+
+    .alivio-trustpilot-label {
+      font-weight: 600;
+      color: #070706;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .alivio-trustpilot-stars-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 2.5px;
+    }
+
+    .alivio-tp-star-box {
+      width: 17px;
+      height: 17px;
+      background-color: var(--color-trustpilot-green);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2px;
+    }
+
+    .alivio-tp-star-box svg {
+      width: 11px;
+      height: 11px;
+      fill: #FFFFFF;
+    }
+
+    /* ==========================================================================
+       3-STEP TIMELINE STEPPER (1 About You — 2 Your Health — 3 Your Plan)
+       Generous vertical margin (36px top, 40px bottom) to guarantee ZERO overlap
+       ========================================================================== */
+    .alivio-timeline-section {
+      width: 100%;
+      background: var(--color-canvas);
+      padding: 36px 20px 40px 20px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .alivio-timeline-stepper {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      max-width: 520px;
+      width: 100%;
+      position: relative;
+    }
+
+    .alivio-timeline-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      text-align: center;
+    }
+
+    .alivio-timeline-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      color: #8C827A;
+      border: 1.5px solid rgba(91, 32, 8, 0.18);
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      margin-bottom: 8px;
+    }
+
+    .alivio-timeline-step.active .alivio-timeline-circle {
+      background: var(--color-terracotta);
+      border-color: var(--color-terracotta);
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(91, 32, 8, 0.22);
+    }
+
+    .alivio-timeline-step.completed .alivio-timeline-circle {
+      background: var(--color-terracotta);
+      border-color: var(--color-terracotta);
+      color: #FFFFFF;
+    }
+
+    .alivio-timeline-label {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      transition: color 0.3s ease, font-weight 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .alivio-timeline-step.active .alivio-timeline-label {
+      color: var(--color-terracotta);
+      font-weight: 600;
+    }
+
+    .alivio-timeline-step.completed .alivio-timeline-label {
+      color: var(--color-text-main);
+    }
+
+    /* Connecting lines between circles: Light brown gradient connector */
+    .alivio-timeline-connector {
+      flex: 1;
+      height: 2px;
+      background: rgba(91, 32, 8, 0.14);
+      margin-top: 18px;
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s ease;
+    }
+
+    .alivio-timeline-connector.active {
+      background: linear-gradient(90deg, #A35C3E, #5B2008);
+    }
+
+    /* ==========================================================================
+       MAIN CENTERED QUESTIONNAIRE VIEWPORT
+       Centered horizontally and vertically with comfortable padding
+       Container: 640px wide max
+       ========================================================================== */
+    .alivio-intake-viewport {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px 64px 20px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .alivio-intake-container {
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Step Card Animations */
+    .alivio-step-card {
+      display: none;
+      width: 100%;
+      animation: fadeInStep 0.35s var(--ease-apple) forwards;
+    }
+
+    .alivio-step-card.active {
+      display: block;
+    }
+
+    @keyframes fadeInStep {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Question Typography */
+    .alivio-step-title {
+      font-family: var(--sp-font-display);
+      font-size: clamp(1.65rem, 2.5vw, 2.15rem);
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      color: var(--color-text-main);
+      margin-bottom: 12px;
+    }
+
+    .alivio-step-subtitle {
+      font-family: var(--sp-font-sans);
+      font-size: 0.98rem;
+      line-height: 1.5;
+      color: var(--color-text-muted);
+      margin-bottom: 32px;
+    }
+
+    .alivio-group-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--color-text-main);
+      letter-spacing: -0.01em;
+      margin: 24px 0 12px 0;
+    }
+
+    .alivio-group-label:first-of-type {
+      margin-top: 0;
+    }
+
+    /* ==========================================================================
+       ANSWER CARDS: Stacked, Full-Width Clickable Cards with Rounded Corners
+       Zero Imagery, Subtle Border, High Contrast Selected State
+       ========================================================================== */
+    .alivio-cards-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .alivio-choice-card {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      background: var(--color-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: left;
+      text-decoration: none;
+      font-family: var(--sp-font-sans);
+      transition: all 0.2s var(--ease-apple);
+      user-select: none;
+      outline: none;
+    }
+
+    .alivio-choice-card:hover {
+      border-color: rgba(91, 32, 8, 0.32);
+      background: #FFFFFF;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(91, 32, 8, 0.05);
+    }
+
+    .alivio-choice-card:focus-visible {
+      outline: 2px solid var(--color-terracotta);
+      outline-offset: 2px;
+    }
+
+    /* Selected state */
+    .alivio-choice-card.selected {
+      border-color: var(--color-terracotta);
+      background: var(--color-terracotta-light);
+      box-shadow: 0 0 0 1px var(--color-terracotta);
+    }
+
+    /* Radio / Checkbox Indicator Box */
+    .alivio-choice-indicator {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      border-radius: 6px;
+      border: 1.5px solid rgba(7, 7, 6, 0.24);
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.18s ease;
+      flex-shrink: 0;
+    }
+
+    .alivio-choice-card[data-type="radio"] .alivio-choice-indicator {
+      border-radius: 50%;
+    }
+
+    .alivio-choice-indicator svg {
+      opacity: 0;
+      transform: scale(0.6);
+      transition: all 0.18s ease;
+      stroke: #FFFFFF;
+    }
+
+    .alivio-choice-card.selected .alivio-choice-indicator {
+      background: var(--color-terracotta);
+      border-color: var(--color-terracotta);
+    }
+
+    .alivio-choice-card.selected .alivio-choice-indicator svg {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .alivio-choice-label {
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--color-text-main);
+      flex: 1;
+    }
+
+    .alivio-choice-card.selected .alivio-choice-label {
+      font-weight: 600;
+      color: var(--color-terracotta);
+    }
+
+    .alivio-choice-desc {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      margin-top: 3px;
+    }
+
+    /* Clinical Warning Alert */
+    .alivio-inline-alert {
+      display: none;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px 18px;
+      background: #FFF9ED;
+      border: 1px solid rgba(180, 83, 9, 0.2);
+      border-radius: 12px;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: #92400E;
+      margin-bottom: 24px;
+    }
+
+    .alivio-inline-alert.visible {
+      display: flex;
+    }
+
+    .alivio-inline-alert svg {
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Form Inputs */
+    .alivio-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .alivio-input-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--color-text-main);
+    }
+
+    .alivio-input-field {
+      width: 100%;
+      height: 52px;
+      padding: 0 16px;
+      background: #FFFFFF;
+      border: 1px solid var(--color-border-card);
+      border-radius: 12px;
+      font-family: var(--sp-font-sans);
+      font-size: 0.98rem;
+      color: var(--color-text-main);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .alivio-input-field:focus {
+      border-color: var(--color-terracotta);
+      box-shadow: 0 0 0 3px rgba(91, 32, 8, 0.1);
+    }
+
+    .alivio-input-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .alivio-terms-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      background: #FFFFFF;
+      border: 1px solid var(--color-border-card);
+      border-radius: 12px;
+      margin-bottom: 28px;
+      cursor: pointer;
+    }
+
+    .alivio-terms-box input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: var(--color-terracotta);
+      cursor: pointer;
+    }
+
+    .alivio-terms-text {
+      font-size: 0.86rem;
+      line-height: 1.45;
+      color: var(--color-text-muted);
+    }
+
+    /* ==========================================================================
+       HOMEPAGE SIGNATURE TERRACOTTA CTA WITH CIRCULAR PEACH DISK (CENTERED)
+       Background: #5B2008, Circular Disk: #FFEBC4 with terracotta arrow
+       Followed by centered 'Back' text link underneath
+       ========================================================================== */
+    .alivio-step-action-cluster {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 32px;
+      padding-top: 16px;
+      width: 100%;
+    }
+
+    .alivio-intake-primary-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background-color: var(--color-terracotta);
+      color: #FFFFFF;
+      border: 1px solid var(--color-terracotta);
+      height: 52px;
+      min-height: 52px;
+      width: 100%;
+      max-width: 380px;
+      padding: 0 8px 0 28px;
+      border-radius: 9999px;
+      box-shadow: 0 4px 14px rgba(91, 32, 8, 0.18);
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    .alivio-intake-primary-cta:hover {
+      background-color: var(--color-terracotta-hover);
+      border-color: var(--color-terracotta-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(91, 32, 8, 0.26);
+    }
+
+    .alivio-intake-primary-cta:active {
+      transform: translateY(0);
+    }
+
+    .alivio-intake-primary-cta .alivio-cta-label {
+      font-family: var(--sp-font-sans);
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      letter-spacing: -0.01em;
+      flex: 1;
+      text-align: center;
+    }
+
+    .alivio-intake-primary-cta .alivio-cta-disk {
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      min-height: 38px;
+      border-radius: 50%;
+      background-color: var(--color-apricot-peach);
+      color: var(--color-terracotta);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.22s ease;
+      flex-shrink: 0;
+    }
+
+    .alivio-intake-primary-cta:hover .alivio-cta-disk {
+      transform: scale(1.08) translateX(2px);
+    }
+
+    .alivio-intake-primary-cta .alivio-cta-disk svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--color-terracotta);
+    }
+
+    /* Centered Text Link 'Back' Below CTA */
+    .alivio-link-back {
+      margin-top: 16px;
+      font-family: var(--sp-font-sans);
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      transition: color 0.2s ease;
+      padding: 6px 12px;
+    }
+
+    .alivio-link-back:hover {
+      color: var(--color-terracotta);
+    }
+
+    .alivio-link-back.hidden {
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* Completion Screen */
+    .alivio-completion-card {
+      display: none;
+      text-align: center;
+      padding: 44px 28px;
+      background: #FFFFFF;
+      border: 1px solid var(--color-border-card);
+      border-radius: 20px;
+      animation: fadeInStep 0.4s var(--ease-apple) forwards;
+    }
+
+    .alivio-completion-card.active {
+      display: block;
+    }
+
+    .alivio-completion-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--color-terracotta-light);
+      color: var(--color-terracotta);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE ADAPTATIONS
+       ========================================================================== */
+    @media (max-width: 768px) {
+      .alivio-intake-header-wrap {
+        padding: 14px 16px;
+      }
+      .alivio-header-trustpilot {
+        padding-left: 10px;
+        gap: 5px;
+        font-size: 0.78rem;
+      }
+      .alivio-tp-star-box {
+        width: 15px;
+        height: 15px;
+      }
+      .alivio-timeline-section {
+        padding: 24px 16px 28px 16px;
+      }
+      .alivio-intake-viewport {
+        padding: 0 16px 48px 16px;
+        align-items: flex-start;
+      }
+      .alivio-step-title {
+        font-size: 1.45rem;
+      }
+      .alivio-step-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 24px;
+      }
+      .alivio-choice-card {
+        padding: 16px;
+        border-radius: 12px;
+      }
+      .alivio-choice-label {
+        font-size: 0.94rem;
+      }
+      .alivio-input-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .alivio-intake-primary-cta {
+        max-width: 100%;
+        height: 50px;
+      }
+      .alivio-timeline-stepper {
+        max-width: 100%;
+      }
+      .alivio-timeline-circle {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+      }
+      .alivio-timeline-connector {
+        margin-top: 15px;
+      }
+      .alivio-timeline-label {
+        font-size: 0.74rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <p>Redirecting to <a href="treatments/intake-women.html">Women’s Health Assessment</a>...</p>
+
+  
+
+
+  <!-- Accessible Skip Link -->
+  <a href="#intake-content" class="sr-only">Skip to clinical intake form</a>
+
+  <!-- Top Progress Bar: Brown Gradient Animation -->
+  <div class="alivio-top-progress" role="progressbar" id="intake-progress" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">
+    <div class="alivio-top-progress__fill" id="progress-fill"></div>
+  </div>
+
+  <!-- Centered Top Header: Alivio Logo + Trustpilot Rating Badge -->
+  <header class="alivio-intake-header-wrap" role="banner">
+    <div class="alivio-intake-brand-cluster">
+      <a href="hormone-women.html" class="alivio-intake-brand-logo" aria-label="PapayaMD Homepage">
+        <svg class="brand-logo-svg" viewBox="0 0 235 49" width="192" height="40" aria-hidden="true" fill="currentColor"><path d="M101.789 18.9482C107.081 18.9482 111.149 22.9085 111.149 29.0645C111.149 35.1842 107.081 39.3242 101.789 39.3242C98.1892 39.3241 95.6332 37.3802 94.4092 35.3643V48.3604H91.1338V19.2725H94.4092V22.9082C95.5972 20.8203 98.1892 18.9483 101.789 18.9482ZM145.277 35.2559L151.397 19.2725H154.781L142.901 48.2881H139.518L143.405 38.7842L135.449 19.2725H139.086L145.277 35.2559ZM26.7549 8C34.0588 8.00025 39.9999 13.9974 40 21.3721C40 24.9391 38.622 28.2971 36.1201 30.8262C33.6139 33.352 30.2889 34.744 26.7549 34.7441C26.7223 34.7441 23.3001 34.7819 20.0205 36.1982C16.147 37.8703 14.2647 40.6611 14.2646 44.7246V45H8V25.9434H14.2646V32.2168C15.3074 31.4781 16.4744 30.8365 17.7393 30.3057C22.1727 28.4406 26.5712 28.418 26.7549 28.418C28.6196 28.4179 30.3717 27.685 31.6885 26.3525C33.0083 25.0214 33.7344 23.2535 33.7344 21.3721C33.7343 17.4867 30.6044 14.3254 26.7549 14.3252H25.7676V8H26.7549ZM75.9414 18.9482C79.6133 18.9483 82.1332 20.8201 83.2852 22.8721V19.2725H86.5977V39H83.2852V35.3281C82.0972 37.4521 79.5412 39.3242 75.9053 39.3242C70.6494 39.3242 66.5812 35.1842 66.5811 29.0645C66.5811 22.9085 70.6494 18.9482 75.9414 18.9482ZM122.598 18.9482C126.27 18.9483 128.789 20.8201 129.941 22.8721V19.2725H133.254V39H129.941V35.3281C128.753 37.4521 126.197 39.3242 122.562 39.3242C117.306 39.3242 113.237 35.1842 113.237 29.0645C113.237 22.9085 117.306 18.9482 122.598 18.9482ZM165.211 18.9482C168.883 18.9483 171.403 20.8201 172.555 22.8721V19.2725H175.867V39H172.555V35.3281C171.367 37.4521 168.811 39.3242 165.175 39.3242C159.919 39.3242 155.851 35.1842 155.851 29.0645C155.851 22.9085 159.919 18.9482 165.211 18.9482ZM56.0576 13.9082C61.9615 13.9082 64.7333 17.148 64.7334 21.252C64.7334 25.0679 62.2855 28.5244 56.0576 28.5244H51.2334V39H47.958V13.9082H56.0576ZM193.831 32.5557L201.823 13.8721H207.511V39H202.471V22.6562L195.739 39H191.923L185.155 22.6562V39H180.115V13.8721H185.839L193.831 32.5557ZM221.277 13.8721C229.305 13.8721 234.525 18.8399 234.525 26.4717C234.525 34.0677 229.305 39 221.277 39H212.494V13.8721H221.277ZM76.5889 21.792C72.989 21.7921 69.9287 24.4206 69.9287 29.0645C69.9289 33.7081 72.9891 36.4442 76.5889 36.4443C80.1889 36.4443 83.2852 33.7436 83.2852 29.0996C83.285 24.5279 80.1887 21.792 76.5889 21.792ZM101.105 21.792C97.5416 21.792 94.4094 24.5279 94.4092 29.0996C94.4092 33.7436 97.5415 36.4443 101.105 36.4443C104.741 36.4443 107.802 33.7081 107.802 29.0645C107.802 24.4205 104.741 21.7921 101.105 21.792ZM123.245 21.792C119.645 21.7921 116.585 24.4206 116.585 29.0645C116.585 33.7081 119.645 36.4442 123.245 36.4443C126.845 36.4443 129.941 33.7436 129.941 29.0996C129.941 24.5279 126.845 21.792 123.245 21.792ZM165.858 21.792C162.259 21.7921 159.198 24.4206 159.198 29.0645C159.198 33.7081 162.259 36.4442 165.858 36.4443C169.458 36.4443 172.555 33.7436 172.555 29.0996C172.554 24.5279 169.458 21.792 165.858 21.792ZM217.534 34.7158H221.098C226.39 34.7158 229.378 31.6917 229.378 26.4717C229.378 21.2519 226.39 18.1201 221.098 18.1201H217.534V34.7158ZM51.2334 25.8242H56.0576C59.8015 25.8242 61.3857 24.0599 61.3857 21.252C61.3857 18.3361 59.8015 16.6084 56.0576 16.6084H51.2334V25.8242ZM14.2363 7.76367H22V14.2344H14.2363V22H7.76367V14.2314H0V7.76367H7.76367V0H14.2363V7.76367Z"/></svg>
+      </a>
+
+      <!-- Trustpilot Badge: Excellent 4.6 + 5 Green Square Stars -->
+      <div class="alivio-header-trustpilot" aria-label="Rated Excellent 4.6 out of 5 on Trustpilot">
+        <span class="alivio-trustpilot-label">Excellent 4.6</span>
+        <div class="alivio-trustpilot-stars-group" aria-hidden="true">
+          <div class="alivio-tp-star-box">
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <div class="alivio-tp-star-box">
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <div class="alivio-tp-star-box">
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <div class="alivio-tp-star-box">
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <div class="alivio-tp-star-box">
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dynamic 3-Step Timeline Stepper: 1 About You — 2 Your Health — 3 Your Plan -->
+  <div class="alivio-timeline-section" aria-label="Intake Progress Steps">
+    <div class="alivio-timeline-stepper">
+      <!-- Step 1: About You -->
+      <div class="alivio-timeline-step active" id="timeline-step-1">
+        <div class="alivio-timeline-circle" aria-current="step">1</div>
+        <span class="alivio-timeline-label">About You</span>
+      </div>
+
+      <div class="alivio-timeline-connector" id="timeline-connector-1"></div>
+
+      <!-- Step 2: Your Health -->
+      <div class="alivio-timeline-step" id="timeline-step-2">
+        <div class="alivio-timeline-circle">2</div>
+        <span class="alivio-timeline-label">Your Health</span>
+      </div>
+
+      <div class="alivio-timeline-connector" id="timeline-connector-2"></div>
+
+      <!-- Step 3: Your Plan -->
+      <div class="alivio-timeline-step" id="timeline-step-3">
+        <div class="alivio-timeline-circle">3</div>
+        <span class="alivio-timeline-label">Your Plan</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Viewport (Centered 640px Questionnaire) -->
+  <main class="alivio-intake-viewport" id="intake-content">
+    <div class="alivio-intake-container">
+
+      <!-- ======================================================================
+           STEP 1: ABOUT YOU — SYMPTOMS & EXPERIENCES (Multi-Select)
+           ====================================================================== -->
+      <section class="alivio-step-card active" data-step="1" data-stage="1" aria-labelledby="step-1-title">
+        <h1 class="alivio-step-title" id="step-1-title">Have you noticed any of these symptoms or changes?</h1>
+        <p class="alivio-step-subtitle">Select as many as you have. The more you share, the better we can support you.</p>
+
+        <!-- Category A: Mental Health -->
+        <h2 class="alivio-group-label">Mental health</h2>
+        <div class="alivio-cards-stack">
+          <div class="alivio-choice-card" role="checkbox" aria-checked="false" tabindex="0" data-value="anxiety">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><polyline points="3 8 6.5 11.5 13 4.5"/></svg>
+            </span>
+            <span class="alivio-choice-label">Anxiety</span>
+          </div>
+
+          <div class="alivio-choice-card" role="checkbox" aria-checked="false" tabindex="0" data-value="low-mood">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><polyline points="3 8 6.5 11.5 13 4.5"/></svg>
+            </span>
+            <span class="alivio-choice-label">Low mood or mood swings</span>
+          </div>
+
+          <div class="alivio-choice-card" role="checkbox" aria-checked="false" tabindex="0" data-value="depression">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><polyline points="3 8 6.5 11.5 13 4.5"/></svg>
+            </span>
+            <span class="alivio-choice-label">Depression</span>
+          </div>
+        </div>
+
+        <!-- Category B: Psychological Changes -->
+        <h2 class="alivio-group-label">Psychological changes</h2>
+        <div class="alivio-cards-stack">
+          <div class="alivio-choice-card" role="checkbox" aria-checked="false" tabindex="0" data-value="brain-fog">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><polyline points="3 8 6.5 11.5 13 4.5"/></svg>
+            </span>
+            <span class="alivio-choice-label">Brain fog</span>
+          </div>
+
+          <div class="alivio-choice-card" role="checkbox" aria-checked="false" tabindex="0" data-value="migraines">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><polyline points="3 8 6.5 11.5 13 4.5"/></svg>
+            </span>
+            <span class="alivio-choice-label">Migraines</span>
+          </div>
+
+          <div class="alivio-choice-card" role="checkbox" aria-checked="false" tabindex="0" data-value="memory-changes">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><polyline points="3 8 6.5 11.5 13 4.5"/></svg>
+            </span>
+            <span class="alivio-choice-label">Memory changes</span>
+          </div>
+
+          <div class="alivio-choice-card" role="checkbox" aria-checked="false" tabindex="0" data-value="mental-tiredness">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><polyline points="3 8 6.5 11.5 13 4.5"/></svg>
+            </span>
+            <span class="alivio-choice-label">Mental tiredness</span>
+          </div>
+        </div>
+
+        <!-- Category C: Physical Symptoms -->
+        <h2 class="alivio-group-label">Physical symptoms</h2>
+        <div class="alivio-cards-stack">
+          <div class="alivio-choice-card" role="checkbox" aria-checked="false" tabindex="0" data-value="hot-flashes">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><polyline points="3 8 6.5 11.5 13 4.5"/></svg>
+            </span>
+            <span class="alivio-choice-label">Hot flashes & night sweats</span>
+          </div>
+
+          <div class="alivio-choice-card" role="checkbox" aria-checked="false" tabindex="0" data-value="sleep-disruptions">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><polyline points="3 8 6.5 11.5 13 4.5"/></svg>
+            </span>
+            <span class="alivio-choice-label">Sleep issues or frequent waking</span>
+          </div>
+
+          <div class="alivio-choice-card" role="checkbox" aria-checked="false" tabindex="0" data-value="low-libido">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><polyline points="3 8 6.5 11.5 13 4.5"/></svg>
+            </span>
+            <span class="alivio-choice-label">Low libido & vaginal dryness</span>
+          </div>
+
+          <div class="alivio-choice-card" role="checkbox" aria-checked="false" tabindex="0" data-value="weight-gain">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><polyline points="3 8 6.5 11.5 13 4.5"/></svg>
+            </span>
+            <span class="alivio-choice-label">Unexplained weight gain</span>
+          </div>
+        </div>
+
+        <!-- Homepage Signature Terracotta Centered CTA & Back Link -->
+        <div class="alivio-step-action-cluster">
+          <button type="button" class="alivio-intake-primary-cta" data-action="next">
+            <span class="alivio-cta-label">Continue</span>
+            <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+          </button>
+          <a href="hormone-women.html" class="alivio-link-back">Return to overview</a>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           STEP 2: YOUR HEALTH — CYCLE STATUS & UTERINE HEALTH
+           ====================================================================== -->
+      <section class="alivio-step-card" data-step="2" data-stage="2" aria-labelledby="step-2-title">
+        <h1 class="alivio-step-title" id="step-2-title">What best describes your menstrual cycle status?</h1>
+        <p class="alivio-step-subtitle">This helps determine whether estrogen-only or combined bioidentical progesterone therapy is medically appropriate.</p>
+
+        <div class="alivio-cards-stack">
+          <div class="alivio-choice-card" role="radio" aria-checked="false" tabindex="0" data-type="radio" data-group="cycle" data-value="regular">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><circle cx="8" cy="8" r="4" fill="currentColor"/></svg>
+            </span>
+            <div>
+              <span class="alivio-choice-label">Regular monthly periods</span>
+              <span class="alivio-choice-desc">Bleeding on a predictable monthly schedule</span>
+            </div>
+          </div>
+
+          <div class="alivio-choice-card" role="radio" aria-checked="false" tabindex="0" data-type="radio" data-group="cycle" data-value="irregular">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><circle cx="8" cy="8" r="4" fill="currentColor"/></svg>
+            </span>
+            <div>
+              <span class="alivio-choice-label">Irregular periods (Perimenopause)</span>
+              <span class="alivio-choice-desc">Cycles have become unpredictable, skipped months, or changed in heaviness</span>
+            </div>
+          </div>
+
+          <div class="alivio-choice-card" role="radio" aria-checked="false" tabindex="0" data-type="radio" data-group="cycle" data-value="post-menopause">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><circle cx="8" cy="8" r="4" fill="currentColor"/></svg>
+            </span>
+            <div>
+              <span class="alivio-choice-label">No period for 12+ consecutive months</span>
+              <span class="alivio-choice-desc">Post-menopausal transition</span>
+            </div>
+          </div>
+
+          <div class="alivio-choice-card" role="radio" aria-checked="false" tabindex="0" data-type="radio" data-group="cycle" data-value="surgical">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><circle cx="8" cy="8" r="4" fill="currentColor"/></svg>
+            </span>
+            <div>
+              <span class="alivio-choice-label">Surgical menopause</span>
+              <span class="alivio-choice-desc">Prior hysterectomy or oophorectomy</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="alivio-group-label">Do you currently have an intact uterus?</h2>
+        <div class="alivio-cards-stack">
+          <div class="alivio-choice-card" role="radio" aria-checked="false" tabindex="0" data-type="radio" data-group="uterus" data-value="yes">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><circle cx="8" cy="8" r="4" fill="currentColor"/></svg>
+            </span>
+            <span class="alivio-choice-label">Yes, my uterus is intact</span>
+          </div>
+
+          <div class="alivio-choice-card" role="radio" aria-checked="false" tabindex="0" data-type="radio" data-group="uterus" data-value="no">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><circle cx="8" cy="8" r="4" fill="currentColor"/></svg>
+            </span>
+            <span class="alivio-choice-label">No, I have had a hysterectomy</span>
+          </div>
+        </div>
+
+        <!-- Homepage Signature Terracotta Centered CTA & Back Link -->
+        <div class="alivio-step-action-cluster">
+          <button type="button" class="alivio-intake-primary-cta" data-action="next">
+            <span class="alivio-cta-label">Continue</span>
+            <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+          </button>
+          <button type="button" class="alivio-link-back" data-action="prev">Back</button>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           STEP 3: YOUR HEALTH — SAFETY SCREEN & CONTRAINDICATIONS
+           ====================================================================== -->
+      <section class="alivio-step-card" data-step="3" data-stage="2" aria-labelledby="step-3-title">
+        <h1 class="alivio-step-title" id="step-3-title">Medical History & Safety Screen</h1>
+        <p class="alivio-step-subtitle">To ensure hormone therapy is safe for you, please let us know if you have a personal history of any of the following:</p>
+
+        <div class="alivio-cards-stack">
+          <div class="alivio-choice-card" role="checkbox" aria-checked="false" tabindex="0" data-flag="safety" data-value="cancer">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><polyline points="3 8 6.5 11.5 13 4.5"/></svg>
+            </span>
+            <span class="alivio-choice-label">History of breast, uterine, or ovarian cancer</span>
+          </div>
+
+          <div class="alivio-choice-card" role="checkbox" aria-checked="false" tabindex="0" data-flag="safety" data-value="clots">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><polyline points="3 8 6.5 11.5 13 4.5"/></svg>
+            </span>
+            <span class="alivio-choice-label">History of blood clots, DVT, pulmonary embolism, or stroke</span>
+          </div>
+
+          <div class="alivio-choice-card" role="checkbox" aria-checked="false" tabindex="0" data-flag="safety" data-value="liver">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><polyline points="3 8 6.5 11.5 13 4.5"/></svg>
+            </span>
+            <span class="alivio-choice-label">Active liver disease or hepatic dysfunction</span>
+          </div>
+
+          <div class="alivio-choice-card" role="checkbox" aria-checked="false" tabindex="0" data-flag="safety" data-value="bleeding">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><polyline points="3 8 6.5 11.5 13 4.5"/></svg>
+            </span>
+            <span class="alivio-choice-label">Unexplained or undiagnosed vaginal bleeding</span>
+          </div>
+
+          <div class="alivio-choice-card" role="checkbox" aria-checked="false" tabindex="0" data-exclusive="none" data-value="none">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><polyline points="3 8 6.5 11.5 13 4.5"/></svg>
+            </span>
+            <span class="alivio-choice-label">None of the above apply to me</span>
+          </div>
+        </div>
+
+        <!-- Inline Clinical Warning Alert -->
+        <div class="alivio-inline-alert" id="safety-alert" role="alert">
+          <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18" aria-hidden="true">
+            <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+          </svg>
+          <div>
+            <strong>Important Clinical Notice:</strong> Based on your reported health history, systemic estrogen therapies may require specialized local treatment or non-hormonal management. A clinician will review safe alternatives with you.
+          </div>
+        </div>
+
+        <div class="alivio-input-group">
+          <label class="alivio-input-label" for="medications-input">Are you taking any current prescription medications or supplements?</label>
+          <input type="text" id="medications-input" class="alivio-input-field" placeholder="List medications, or type 'None'">
+        </div>
+
+        <!-- Homepage Signature Terracotta Centered CTA & Back Link -->
+        <div class="alivio-step-action-cluster">
+          <button type="button" class="alivio-intake-primary-cta" data-action="next">
+            <span class="alivio-cta-label">Continue</span>
+            <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+          </button>
+          <button type="button" class="alivio-link-back" data-action="prev">Back</button>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           STEP 4: YOUR PLAN — TREATMENT PREFERENCES & GOALS
+           ====================================================================== -->
+      <section class="alivio-step-card" data-step="4" data-stage="3" aria-labelledby="step-4-title">
+        <h1 class="alivio-step-title" id="step-4-title">Your Treatment Preferences & Goals</h1>
+        <p class="alivio-step-subtitle">Tell your physician your preferred delivery method and what relief matters most to you.</p>
+
+        <h2 class="alivio-group-label">Preferred delivery method</h2>
+        <div class="alivio-cards-stack">
+          <div class="alivio-choice-card" role="radio" aria-checked="false" tabindex="0" data-type="radio" data-group="format" data-value="patch">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><circle cx="8" cy="8" r="4" fill="currentColor"/></svg>
+            </span>
+            <div>
+              <span class="alivio-choice-label">Transdermal Patch</span>
+              <span class="alivio-choice-desc">Twice weekly application; steady bioidentical hormone absorption</span>
+            </div>
+          </div>
+
+          <div class="alivio-choice-card" role="radio" aria-checked="false" tabindex="0" data-type="radio" data-group="format" data-value="cream">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><circle cx="8" cy="8" r="4" fill="currentColor"/></svg>
+            </span>
+            <div>
+              <span class="alivio-choice-label">Bioidentical Topical Cream</span>
+              <span class="alivio-choice-desc">Daily metered dose applied to the skin</span>
+            </div>
+          </div>
+
+          <div class="alivio-choice-card" role="radio" aria-checked="false" tabindex="0" data-type="radio" data-group="format" data-value="oral">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><circle cx="8" cy="8" r="4" fill="currentColor"/></svg>
+            </span>
+            <div>
+              <span class="alivio-choice-label">Oral Capsule</span>
+              <span class="alivio-choice-desc">Nightly Micronized Progesterone or Oral HRT</span>
+            </div>
+          </div>
+
+          <div class="alivio-choice-card" role="radio" aria-checked="false" tabindex="0" data-type="radio" data-group="format" data-value="provider-decide">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><circle cx="8" cy="8" r="4" fill="currentColor"/></svg>
+            </span>
+            <div>
+              <span class="alivio-choice-label">Physician Recommendation</span>
+              <span class="alivio-choice-desc">Let my doctor recommend the most effective protocol for my symptoms</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="alivio-group-label">Primary health goal</h2>
+        <div class="alivio-cards-stack">
+          <div class="alivio-choice-card" role="radio" aria-checked="false" tabindex="0" data-type="radio" data-group="goal" data-value="hot-flashes">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><circle cx="8" cy="8" r="4" fill="currentColor"/></svg>
+            </span>
+            <span class="alivio-choice-label">Relief from hot flashes and night sweats</span>
+          </div>
+
+          <div class="alivio-choice-card" role="radio" aria-checked="false" tabindex="0" data-type="radio" data-group="goal" data-value="sleep-mood">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><circle cx="8" cy="8" r="4" fill="currentColor"/></svg>
+            </span>
+            <span class="alivio-choice-label">Better sleep, stable mood, and energy restoration</span>
+          </div>
+
+          <div class="alivio-choice-card" role="radio" aria-checked="false" tabindex="0" data-type="radio" data-group="goal" data-value="vitality">
+            <span class="alivio-choice-indicator" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" width="12" height="12"><circle cx="8" cy="8" r="4" fill="currentColor"/></svg>
+            </span>
+            <span class="alivio-choice-label">Long-term bone density, heart, and cellular vitality</span>
+          </div>
+        </div>
+
+        <!-- Homepage Signature Terracotta Centered CTA & Back Link -->
+        <div class="alivio-step-action-cluster">
+          <button type="button" class="alivio-intake-primary-cta" data-action="next">
+            <span class="alivio-cta-label">Continue</span>
+            <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+          </button>
+          <button type="button" class="alivio-link-back" data-action="prev">Back</button>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           STEP 5: YOUR PLAN — CONTACT, LICENSING & STATE VERIFICATION
+           ====================================================================== -->
+      <section class="alivio-step-card" data-step="5" data-stage="3" aria-labelledby="step-5-title">
+        <h1 class="alivio-step-title" id="step-5-title">Patient Information & Licensing</h1>
+        <p class="alivio-step-subtitle">Prescriptions must be reviewed by a board-certified physician licensed in your state of residence.</p>
+
+        <div class="alivio-input-group">
+          <label class="alivio-input-label" for="full-name">Legal Full Name</label>
+          <input type="text" id="full-name" class="alivio-input-field" placeholder="First and last name" required>
+        </div>
+
+        <div class="alivio-input-row">
+          <div class="alivio-input-group">
+            <label class="alivio-input-label" for="email">Email Address</label>
+            <input type="email" id="email" class="alivio-input-field" placeholder="name@example.com" required>
+          </div>
+          <div class="alivio-input-group">
+            <label class="alivio-input-label" for="phone">Phone Number</label>
+            <input type="tel" id="phone" class="alivio-input-field" placeholder="(555) 000-0000" required>
+          </div>
+        </div>
+
+        <div class="alivio-input-row">
+          <div class="alivio-input-group">
+            <label class="alivio-input-label" for="dob">Date of Birth</label>
+            <input type="date" id="dob" class="alivio-input-field" required>
+          </div>
+          <div class="alivio-input-group">
+            <label class="alivio-input-label" for="state">State of Residence</label>
+            <select id="state" class="alivio-input-field" required>
+              <option value="">Select State</option>
+              <option value="CA">California</option>
+              <option value="FL">Florida</option>
+              <option value="NY">New York</option>
+              <option value="TX">Texas</option>
+              <option value="IL">Illinois</option>
+              <option value="WA">Washington</option>
+              <option value="CO">Colorado</option>
+              <option value="GA">Georgia</option>
+              <option value="NC">North Carolina</option>
+              <option value="OH">Ohio</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="OTHER">Other US State</option>
+            </select>
+          </div>
+        </div>
+
+        <label class="alivio-terms-box" for="consent-check">
+          <input type="checkbox" id="consent-check" required>
+          <span class="alivio-terms-text">
+            I consent to telehealth medical consultation and understand that prescription therapies require licensed clinical evaluation and approval. All personal health data is encrypted and HIPAA protected.
+          </span>
+        </label>
+
+        <!-- Homepage Signature Terracotta Centered CTA & Back Link -->
+        <div class="alivio-step-action-cluster">
+          <button type="button" class="alivio-intake-primary-cta" id="submit-intake-btn">
+            <span class="alivio-cta-label">Submit Clinical Intake</span>
+            <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+          </button>
+          <button type="button" class="alivio-link-back" data-action="prev">Back</button>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           COMPLETION CONFIRMATION SCREEN
+           ====================================================================== -->
+      <section class="alivio-completion-card" id="completion-screen" aria-labelledby="completion-title">
+        <div class="alivio-completion-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" width="32" height="32">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h1 class="alivio-step-title" id="completion-title">Assessment Submitted Successfully</h1>
+        <p class="alivio-step-subtitle" style="max-width: 520px; margin: 0 auto 28px auto;">
+          Thank you! Your clinical profile has been reviewed and matched with <strong>Estradiol Transdermal Patch</strong>. Redirecting you to secure checkout...
+        </p>
+        <a href="checkout.html" class="alivio-intake-primary-cta" id="continue-checkout-btn" style="margin: 0 auto; text-decoration: none;">
+          <span class="alivio-cta-label">Proceed to Secure Checkout</span>
+          <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+        </a>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Modular Intake Engine -->
+  <script defer src="assets/vendor/lucide.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let currentStep = 1;
+      const totalSteps = 5;
+
+      const progressFill = document.getElementById('progress-fill');
+      const progressBar = document.getElementById('intake-progress');
+      const cards = document.querySelectorAll('.alivio-step-card');
+      const completionScreen = document.getElementById('completion-screen');
+      const safetyAlert = document.getElementById('safety-alert');
+
+      // Timeline Steps Mapping (5 Sub-steps mapped to 3 Main Timeline Milestones)
+      // Step 1 -> Stage 1 (About You)
+      // Step 2, 3 -> Stage 2 (Your Health)
+      // Step 4, 5 -> Stage 3 (Your Plan)
+      const updateTimeline = (stepNumber) => {
+        const stepToStage = { 1: 1, 2: 2, 3: 2, 4: 3, 5: 3 };
+        const stage = stepToStage[stepNumber] || 1;
+
+        for (let i = 1; i <= 3; i++) {
+          const stepEl = document.getElementById(`timeline-step-${i}`);
+          const circleEl = stepEl ? stepEl.querySelector('.alivio-timeline-circle') : null;
+          if (stepEl) {
+            stepEl.classList.remove('active', 'completed');
+            if (i < stage) {
+              stepEl.classList.add('completed');
+              if (circleEl) circleEl.innerHTML = '&#10003;'; // Checkmark
+            } else if (i === stage) {
+              stepEl.classList.add('active');
+              if (circleEl) circleEl.textContent = i.toString();
+            } else {
+              if (circleEl) circleEl.textContent = i.toString();
+            }
+          }
+        }
+
+        const conn1 = document.getElementById('timeline-connector-1');
+        const conn2 = document.getElementById('timeline-connector-2');
+        if (conn1) conn1.classList.toggle('active', stage >= 2);
+        if (conn2) conn2.classList.toggle('active', stage >= 3);
+      };
+
+      const updateProgress = () => {
+        const pct = (currentStep / totalSteps) * 100;
+        if (progressFill) progressFill.style.width = `${pct}%`;
+        if (progressBar) progressBar.setAttribute('aria-valuenow', Math.round(pct).toString());
+      };
+
+      const showStep = (stepNumber) => {
+        cards.forEach((card) => {
+          const cardStep = parseInt(card.getAttribute('data-step'), 10);
+          if (cardStep === stepNumber) {
+            card.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            card.classList.remove('active');
+          }
+        });
+        currentStep = stepNumber;
+        updateProgress();
+        updateTimeline(stepNumber);
+      };
+
+      // Choice Card Click & Selection Handlers
+      document.querySelectorAll('.alivio-choice-card').forEach((card) => {
+        const toggleSelection = () => {
+          const isRadio = card.getAttribute('data-type') === 'radio';
+          const groupName = card.getAttribute('data-group');
+          const isExclusiveNone = card.hasAttribute('data-exclusive');
+
+          if (isRadio && groupName) {
+            document.querySelectorAll(`.alivio-choice-card[data-group="${groupName}"]`).forEach((sibling) => {
+              sibling.classList.remove('selected');
+              sibling.setAttribute('aria-checked', 'false');
+            });
+            card.classList.add('selected');
+            card.setAttribute('aria-checked', 'true');
+          } else {
+            if (isExclusiveNone) {
+              const wasSelected = card.classList.contains('selected');
+              document.querySelectorAll('.alivio-step-card[data-step="3"] .alivio-choice-card').forEach((c) => {
+                c.classList.remove('selected');
+                c.setAttribute('aria-checked', 'false');
+              });
+              if (!wasSelected) {
+                card.classList.add('selected');
+                card.setAttribute('aria-checked', 'true');
+              }
+            } else {
+              const noneCard = document.querySelector('.alivio-choice-card[data-exclusive="none"]');
+              if (noneCard) {
+                noneCard.classList.remove('selected');
+                noneCard.setAttribute('aria-checked', 'false');
+              }
+              const isSelected = card.classList.toggle('selected');
+              card.setAttribute('aria-checked', isSelected ? 'true' : 'false');
+            }
+
+            // Flagged safety warning in Step 3
+            if (safetyAlert) {
+              const flaggedSelected = document.querySelectorAll('.alivio-step-card[data-step="3"] .alivio-choice-card[data-flag="safety"].selected');
+              if (flaggedSelected.length > 0) {
+                safetyAlert.classList.add('visible');
+              } else {
+                safetyAlert.classList.remove('visible');
+              }
+            }
+          }
+        };
+
+        card.addEventListener('click', toggleSelection);
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleSelection();
+          }
+        });
+      });
+
+      // Next & Back Navigation
+      document.querySelectorAll('[data-action="next"]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          if (currentStep < totalSteps) {
+            showStep(currentStep + 1);
+          }
+        });
+      });
+
+      document.querySelectorAll('[data-action="prev"]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          if (currentStep > 1) {
+            showStep(currentStep - 1);
+          }
+        });
+      });
+
+      // Submit Final Step
+      const submitBtn = document.getElementById('submit-intake-btn');
+      if (submitBtn) {
+        submitBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const nameInput = document.getElementById('full-name');
+          const emailInput = document.getElementById('email');
+          const consentCheck = document.getElementById('consent-check');
+
+          if (!nameInput.value.trim()) {
+            nameInput.focus();
+            alert('Please enter your legal full name.');
+            return;
+          }
+          if (!emailInput.value.trim() || !emailInput.value.includes('@')) {
+            emailInput.focus();
+            alert('Please provide a valid email address.');
+            return;
+          }
+          if (!consentCheck.checked) {
+            consentCheck.focus();
+            alert('Please agree to the telehealth consent to submit.');
+            return;
+          }
+
+          // Save intake info to sessionStorage for seamless checkout prefill
+          try {
+            sessionStorage.setItem('alivio_patient_name', nameInput.value.trim());
+            sessionStorage.setItem('alivio_patient_email', emailInput.value.trim());
+          } catch (err) {}
+
+          // Complete Intake & Navigate to Checkout
+          cards.forEach((c) => c.classList.remove('active'));
+          if (completionScreen) completionScreen.classList.add('active');
+          if (progressBar) progressBar.style.display = 'none';
+          const timelineSec = document.querySelector('.alivio-timeline-section');
+          if (timelineSec) timelineSec.style.display = 'none';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+
+          // Smooth automatic redirect to Checkout Page
+          setTimeout(() => {
+            window.location.href = 'checkout.html';
+          }, 1400);
+        });
+      }
+    });
+  </script>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script defer src="assets/js/modules/cinematic-experience.js"></script>
+
 </body>
 </html>
-

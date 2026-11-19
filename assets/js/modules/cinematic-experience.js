@@ -96,7 +96,7 @@
   // 2. Clickable Product Cards (Direct PDP navigation)
   function initClickableProductCards() {
     const isTreatmentsPath = window.location.pathname.includes('/treatments/');
-    const defaultPdpUrl = isTreatmentsPath ? 'estradiol-patch.html' : 'treatments/estradiol-patch.html';
+    const defaultPdpUrl = isTreatmentsPath ? 'estradiol-patch.html' : 'estradiol-patch.html';
 
     const cards = document.querySelectorAll('.sp-product-card, .menopause-product-card');
     cards.forEach((card) => {

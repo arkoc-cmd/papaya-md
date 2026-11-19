@@ -7,7 +7,7 @@
  * - Clean treatment listing modal adhering to Alivio apothecary design system
  * - Inter regular (400 weight, -0.03em letter spacing) typography
  * - Disabled treatment cards with clear "Not Currently Available" status badge
- * - Direct navigation on active "Hormone Therapy (for women)" to treatments/hormone-women.html
+ * - Direct navigation on active "Hormone Therapy (for women)" to hormone-women.html
  * - Full keyboard accessibility (Escape to close, enter/space trigger) & focus trapping
  */
 
@@ -16,8 +16,8 @@
 
   // Active treatment route mappings
   const TREATMENT_ROUTES = {
-    'weight-loss': 'treatments/weight-loss.html',
-    'hormone-women': 'treatments/hormone-women.html'
+    'weight-loss': 'weight-loss.html',
+    'hormone-women': 'hormone-women.html'
   };
 
   const STORAGE_KEY_SELECTED_TREATMENT = 'alivio_selected_treatment';
@@ -137,7 +137,7 @@
 
       const value = card.getAttribute('data-value') || 'hormone-women';
       const label = card.getAttribute('data-label') || 'Women’s Hormone Care';
-      const targetUrl = TREATMENT_ROUTES[value] || 'treatments/hormone-women.html';
+      const targetUrl = TREATMENT_ROUTES[value] || 'hormone-women.html';
 
       // Click handler
       card.addEventListener('click', (e) => {
