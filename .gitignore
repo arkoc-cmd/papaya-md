@@ -4,9 +4,9 @@
 .pnp.js
 .yarn/install-state.gz
 
-# Next.js build output
-/.next/
-/out/
+# Build artifacts
+/build
+/dist
 
 # Production build artifact
 /build

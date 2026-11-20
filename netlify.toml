@@ -1,8 +1,33 @@
-# Netlify Static Configuration for Alivio Health (Vanilla HTML/CSS/JS)
+# Netlify Static Configuration for PapayaMD (Pure Vanilla HTML5 / CSS3 / JS)
 [build]
   publish = "."
 
 # Clean URL Rewrites for Static Pages
+[[redirects]]
+  from = "/weight-loss"
+  to = "/weight-loss.html"
+  status = 200
+
+[[redirects]]
+  from = "/hormone-women"
+  to = "/hormone-women.html"
+  status = 200
+
+[[redirects]]
+  from = "/estradiol-patch"
+  to = "/estradiol-patch.html"
+  status = 200
+
+[[redirects]]
+  from = "/checkout"
+  to = "/checkout.html"
+  status = 200
+
+[[redirects]]
+  from = "/intake-women"
+  to = "/intake-women.html"
+  status = 200
+
 [[redirects]]
   from = "/login"
   to = "/login.html"
@@ -18,7 +43,7 @@
   to = "/forgot-password.html"
   status = 200
 
-# Canonical redirects
+# Canonical redirect for index
 [[redirects]]
   from = "/index.html"
   to = "/"
