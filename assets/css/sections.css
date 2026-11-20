@@ -1673,8 +1673,10 @@
    Alivio-Inspired Editorial Arched Auto-Scrolling Card Composition
    Pure White Canvas (#FFFFFF), Radial Tick Arc Guide, 6 Treatment Categories
    ========================================================================== */
-.alivio-curved-discovery {
-  background-color: #FFFFFF;
+.alivio-curved-discovery,
+.alivio-treatments-discovery {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
   padding-top: 40px;
   padding-bottom: 80px;
   position: relative;
