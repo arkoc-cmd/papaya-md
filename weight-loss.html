@@ -45,7 +45,7 @@
        Weight Loss Page — Scoped Architectural Styling (Warm Linen & Terracotta)
        ========================================================================== */
     :root {
-      --color-wl-bg: #FEFAF1;
+      --color-wl-bg: #FFFFFF;
       --color-wl-espresso: #1C0903;
       --color-wl-text-subtle: #5C4A3E;
       --color-wl-terracotta: #5B2008;
@@ -57,7 +57,7 @@
     }
 
     body {
-      background-color: var(--color-wl-bg);
+      background-color: #FFFFFF !important;
       color: var(--color-wl-espresso);
       font-family: var(--sp-font-sans, "Inter", sans-serif);
       margin: 0;
@@ -471,88 +471,171 @@
       transform: translate(72px, -88px) !important;
     }
 
-    /* Wheel rotation animation on the yellow starburst background layer only */
-    @keyframes wl-wheel-rotate {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    /* Starburst Price Badge Resting Directly on Larger Vial Caps with Zero Gap */
-    .wl-starburst-badge {
+    /* Clean UI Floating Telehealth Card (Logo at top, subtle shadow, borderless, more upward & right) */
+    .wl-hero-doctor-card {
       position: absolute !important;
-      bottom: calc(clamp(290px, 29vw, 395px) + 8px) !important;
-      left: 50% !important;
+      bottom: calc(clamp(290px, 29vw, 395px) + 75px) !important; /* Moved more upwards */
+      left: calc(50% + 140px) !important; /* Moved more towards right */
       transform: translateX(-50%) !important;
-      width: 172px !important;
-      height: 172px !important;
-      z-index: 4 !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      filter: drop-shadow(0 8px 24px rgba(36, 13, 5, 0.42)) !important;
-      pointer-events: none !important;
-    }
-
-    /* Only the yellow starburst layer animates like a spinning wheel */
-    .wl-starburst-bg {
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      transform-origin: center center !important;
-      animation: wl-wheel-rotate 8s linear infinite !important;
-    }
-
-    .wl-starburst-content {
-      position: relative !important;
-      z-index: 2 !important;
+      width: clamp(265px, 28vw, 295px) !important;
+      background: #FFFFFF !important;
+      border-radius: 20px !important;
+      padding: 15px 16px 14px !important;
+      box-shadow: 0 10px 28px -6px rgba(38, 13, 3, 0.08), 0 2px 8px -2px rgba(38, 13, 3, 0.04) !important; /* Subtle soft shadow */
+      border: none !important; /* Borderless card surface */
+      z-index: 1 !important; /* Placed in the back of the vial */
       display: flex !important;
       flex-direction: column !important;
+      user-select: none !important;
+      pointer-events: none !important; /* Not clickable */
+      cursor: default !important;
+    }
+
+    /* Top Brand Area: Exact PapayaMD SVG Logo */
+    .wl-hero-doctor-card__top-logo {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      margin-bottom: 11px !important;
+      color: var(--color-espresso-dark, #260D03) !important;
+    }
+
+    .wl-hero-doctor-card__brand-svg {
+      display: block !important;
+      height: 19px !important;
+      width: auto !important;
+      color: var(--color-espresso-dark, #260D03) !important;
+    }
+
+    /* Middle Profile Row: Doctor Information on left + Bigger Doctor Thumbnail on right */
+    .wl-hero-doctor-card__profile-row {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 12px !important;
+      margin-bottom: 12px !important;
+    }
+
+    /* Doctor information */
+    .wl-hero-doctor-card__info {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 2px !important;
+      text-align: left !important;
+    }
+
+    .wl-hero-doctor-card__name-row {
+      display: flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+    }
+
+    .wl-hero-doctor-card__name {
+      font-family: var(--sp-font-sans, "Inter", -apple-system, sans-serif) !important;
+      font-size: 0.82rem !important;
+      font-weight: 600 !important;
+      letter-spacing: -0.01em !important;
+      color: var(--color-espresso-dark, #260D03) !important;
+      line-height: 1.2 !important;
+    }
+
+    .wl-hero-doctor-card__status-dot {
+      width: 6px !important;
+      height: 6px !important;
+      border-radius: 50% !important;
+      background-color: #10B981 !important;
+      flex-shrink: 0 !important;
+    }
+
+    .wl-hero-doctor-card__spec {
+      font-family: var(--sp-font-sans, "Inter", -apple-system, sans-serif) !important;
+      font-size: 0.68rem !important;
+      font-weight: 400 !important;
+      color: #6B6259 !important;
+      line-height: 1.25 !important;
+    }
+
+    /* Bigger doctor thumbnail image without border and without shadow */
+    .wl-hero-doctor-card__avatar-wrap {
+      width: 62px !important;
+      height: 62px !important;
+      border-radius: 16px !important;
+      overflow: hidden !important;
+      background-color: transparent !important;
+      border: none !important; /* Without border */
+      box-shadow: none !important; /* Without shadow */
+      flex-shrink: 0 !important;
+    }
+
+    .wl-hero-doctor-card__avatar {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+    }
+
+    /* Subtle divider */
+    .wl-hero-doctor-card__divider {
+      border: none !important;
+      height: 1px !important;
+      background-color: rgba(229, 222, 210, 0.75) !important;
+      margin: 0 0 10px 0 !important;
+      width: 100% !important;
+    }
+
+    /* Bottom Action area: wide pill CTA + message icon */
+    .wl-hero-doctor-card__actions {
+      display: flex !important;
+      align-items: center !important;
+      gap: 7px !important;
+      width: 100% !important;
+    }
+
+    .wl-hero-doctor-card__cta {
+      flex: 1 !important;
+      height: 34px !important;
+      padding: 0 12px !important;
+      border-radius: 9999px !important;
+      background-color: var(--color-rust-terracotta, #5B2009) !important;
+      color: #FFFFFF !important;
+      font-family: var(--sp-font-sans, "Inter", -apple-system, sans-serif) !important;
+      font-size: 0.75rem !important;
+      font-weight: 500 !important;
+      text-decoration: none !important;
+      display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      text-align: center !important;
-      line-height: 1.05 !important;
+      gap: 5px !important;
+      box-shadow: none !important; /* No shadow on CTA */
+      white-space: nowrap !important;
     }
 
-    .wl-sb-top {
-      font-size: 0.82rem !important;
-      font-weight: 800 !important;
-      letter-spacing: 0.06em !important;
-      color: #FFFFFF !important;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+    .wl-hero-doctor-card__msg-btn {
+      width: 34px !important;
+      height: 34px !important;
+      border-radius: 50% !important;
+      background-color: #FAF2DE !important;
+      border: 1px solid rgba(215, 209, 195, 0.7) !important;
+      color: var(--color-espresso-dark, #260D03) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+      box-shadow: none !important; /* No shadow */
     }
 
-    .wl-sb-price {
-      font-size: 2.05rem !important;
-      font-weight: 900 !important;
-      color: #FFFFFF !important;
-      letter-spacing: -0.02em !important;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45) !important;
-    }
-
-    .wl-sb-bot {
-      font-size: 0.72rem !important;
-      font-weight: 800 !important;
-      letter-spacing: 0.06em !important;
-      color: rgba(255, 255, 255, 0.92) !important;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
-    }
-
-    /* Vials Stage & Ground Shadow: Larger Vials & Reduced Gap (Snug Touching) */
+    /* Dual Upright Vials Stage: moved down a little bit so ~10px gap exists between vials cap and card */
+    
+    /* Vials Stage & Ground Shadow: Moved down slightly so ~10px gap exists between vials and doctor card */
     .wl-vials-stage {
       position: relative !important;
+      z-index: 2 !important; /* Sits in front of the doctor card */
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
       width: 100% !important;
       padding-bottom: 4px !important;
-      transform: translateY(-48px) !important;
+      transform: translateY(-32px) !important; /* Moved down by 16px to create clear 10px gap below doctor card */
     }
 
     .wl-vials-pair {
@@ -739,13 +822,8 @@
         max-width: 270px !important;
       }
 
-      .wl-starburst-badge {
-        position: absolute !important;
-        bottom: 240px !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        width: 128px !important;
-        height: 128px !important;
+      .wl-hero-doctor-card {
+        display: none !important; /* Mobile version: remove ONLY the doctor UI card from hero section */
       }
 
       /* Mobile CTA Block positioned strictly BELOW the vials */
@@ -1441,31 +1519,46 @@
 
         <!-- Centre-Right Column: Animated Starburst & Dual Larger Upright Vials -->
         <div class="wl-hero-vials-col">
-          <!-- Animated Starburst Price Sticker Badge Resting Directly on Larger Vial Caps -->
-          <div class="wl-starburst-badge" aria-label="Starts at $3.19 per day">
-            <svg class="wl-starburst-bg" viewBox="0 0 100 100" aria-hidden="true">
-              <defs>
-                <radialGradient id="wl-badge-amber-glow" cx="50%" cy="100%" r="90%">
-                  <stop offset="0%" stop-color="#F6A644" stop-opacity="0.95" />
-                  <stop offset="35%" stop-color="#E48026" stop-opacity="0.82" />
-                  <stop offset="65%" stop-color="#8A3008" stop-opacity="0.75" />
-                  <stop offset="100%" stop-color="#180702" stop-opacity="1" />
-                </radialGradient>
-                <linearGradient id="wl-badge-espresso-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stop-color="#240D05" />
-                  <stop offset="45%" stop-color="#290E05" />
-                  <stop offset="100%" stop-color="#180702" />
-                </linearGradient>
-              </defs>
-              <path fill="url(#wl-badge-espresso-grad)"
-                d="M 50.0 8.0 Q 59.9 0.1 66.1 11.2 Q 78.3 7.7 79.7 20.3 Q 92.3 21.7 88.8 33.9 Q 99.9 40.1 92.0 50.0 Q 99.9 59.9 88.8 66.1 Q 92.3 78.3 79.7 79.7 Q 78.3 92.3 66.1 88.8 Q 59.9 99.9 50.0 92.0 Q 40.1 99.9 33.9 88.8 Q 21.7 92.3 20.3 79.7 Q 7.7 78.3 11.2 66.1 Q 0.1 59.9 8.0 50.0 Q 0.1 40.1 11.2 33.9 Q 7.7 21.7 20.3 20.3 Q 21.7 7.7 33.9 11.2 Q 40.1 0.1 50.0 8.0 Z" />
-              <path fill="url(#wl-badge-amber-glow)" opacity="0.85"
-                d="M 50.0 8.0 Q 59.9 0.1 66.1 11.2 Q 78.3 7.7 79.7 20.3 Q 92.3 21.7 88.8 33.9 Q 99.9 40.1 92.0 50.0 Q 99.9 59.9 88.8 66.1 Q 92.3 78.3 79.7 79.7 Q 78.3 92.3 66.1 88.8 Q 59.9 99.9 50.0 92.0 Q 40.1 99.9 33.9 88.8 Q 21.7 92.3 20.3 79.7 Q 7.7 78.3 11.2 66.1 Q 0.1 59.9 8.0 50.0 Q 0.1 40.1 11.2 33.9 Q 7.7 21.7 20.3 20.3 Q 21.7 7.7 33.9 11.2 Q 40.1 0.1 50.0 8.0 Z" />
-            </svg>
-            <div class="wl-starburst-content">
-              <span class="wl-sb-top">STARTS AT</span>
-              <span class="wl-sb-price">$3.19</span>
-              <span class="wl-sb-bot">/DAY</span>
+          <!-- Floating Clinical Doctor Card (Logo at top, subtle shadow, borderless, elevated & rightwards) -->
+          <div class="wl-hero-doctor-card" aria-label="Clinical Telehealth Provider Profile">
+            <!-- Top Area: Exact PapayaMD SVG Logo -->
+            <div class="wl-hero-doctor-card__top-logo">
+              <svg class="wl-hero-doctor-card__brand-svg" viewBox="0 0 235 49" width="98" height="20" aria-hidden="true" fill="currentColor">
+                <path d="M101.789 18.9482C107.081 18.9482 111.149 22.9085 111.149 29.0645C111.149 35.1842 107.081 39.3242 101.789 39.3242C98.1892 39.3241 95.6332 37.3802 94.4092 35.3643V48.3604H91.1338V19.2725H94.4092V22.9082C95.5972 20.8203 98.1892 18.9483 101.789 18.9482ZM145.277 35.2559L151.397 19.2725H154.781L142.901 48.2881H139.518L143.405 38.7842L135.449 19.2725H139.086L145.277 35.2559ZM26.7549 8C34.0588 8.00025 39.9999 13.9974 40 21.3721C40 24.9391 38.622 28.2971 36.1201 30.8262C33.6139 33.352 30.2889 34.744 26.7549 34.7441C26.7223 34.7441 23.3001 34.7819 20.0205 36.1982C16.147 37.8703 14.2647 40.6611 14.2646 44.7246V45H8V25.9434H14.2646V32.2168C15.3074 31.4781 16.4744 30.8365 17.7393 30.3057C22.1727 28.4406 26.5712 28.418 26.7549 28.418C28.6196 28.4179 30.3717 27.685 31.6885 26.3525C33.0083 25.0214 33.7344 23.2535 33.7344 21.3721C33.7343 17.4867 30.6044 14.3254 26.7549 14.3252H25.7676V8H26.7549ZM75.9414 18.9482C79.6133 18.9483 82.1332 20.8201 83.2852 22.8721V19.2725H86.5977V39H83.2852V35.3281C82.0972 37.4521 79.5412 39.3242 75.9053 39.3242C70.6494 39.3242 66.5812 35.1842 66.5811 29.0645C66.5811 22.9085 70.6494 18.9482 75.9414 18.9482ZM122.598 18.9482C126.27 18.9483 128.789 20.8201 129.941 22.8721V19.2725H133.254V39H129.941V35.3281C128.753 37.4521 126.197 39.3242 122.562 39.3242C117.306 39.3242 113.237 35.1842 113.237 29.0645C113.237 22.9085 117.306 18.9482 122.598 18.9482ZM165.211 18.9482C168.883 18.9483 171.403 20.8201 172.555 22.8721V19.2725H175.867V39H172.555V35.3281C171.367 37.4521 168.811 39.3242 165.175 39.3242C159.919 39.3242 155.851 35.1842 155.851 29.0645C155.851 22.9085 159.919 18.9482 165.211 18.9482ZM56.0576 13.9082C61.9615 13.9082 64.7333 17.148 64.7334 21.252C64.7334 25.0679 62.2855 28.5244 56.0576 28.5244H51.2334V39H47.958V13.9082H56.0576ZM193.831 32.5557L201.823 13.8721H207.511V39H202.471V22.6562L195.739 39H191.923L185.155 22.6562V39H180.115V13.8721H185.839L193.831 32.5557ZM221.277 13.8721C229.305 13.8721 234.525 18.8399 234.525 26.4717C234.525 34.0677 229.305 39 221.277 39H212.494V13.8721H221.277ZM76.5889 21.792C72.989 21.7921 69.9287 24.4206 69.9287 29.0645C69.9289 33.7081 72.9891 36.4442 76.5889 36.4443C80.1889 36.4443 83.2852 33.7436 83.2852 29.0996C83.285 24.5279 80.1887 21.792 76.5889 21.792ZM101.105 21.792C97.5416 21.792 94.4094 24.5279 94.4092 29.0996C94.4092 33.7436 97.5415 36.4443 101.105 36.4443C104.741 36.4443 107.802 33.7081 107.802 29.0645C107.802 24.4205 104.741 21.7921 101.105 21.792ZM123.245 21.792C119.645 21.7921 116.585 24.4206 116.585 29.0645C116.585 33.7081 119.645 36.4442 123.245 36.4443C126.845 36.4443 129.941 33.7436 129.941 29.0996C129.941 24.5279 126.845 21.792 123.245 21.792ZM165.858 21.792C162.259 21.7921 159.198 24.4206 159.198 29.0645C159.198 33.7081 162.259 36.4442 165.858 36.4443C169.458 36.4443 172.555 33.7436 172.555 29.0996C172.554 24.5279 169.458 21.792 165.858 21.792ZM217.534 34.7158H221.098C226.39 34.7158 229.378 31.6917 229.378 26.4717C229.378 21.2519 226.39 18.1201 221.098 18.1201H217.534V34.7158ZM51.2334 25.8242H56.0576C59.8015 25.8242 61.3857 24.0599 61.3857 21.252C61.3857 18.3361 59.8015 16.6084 56.0576 16.6084H51.2334V25.8242ZM14.2363 7.76367H22V14.2344H14.2363V22H7.76367V14.2314H0V7.76367H7.76367V0H14.2363V7.76367Z" />
+              </svg>
+            </div>
+
+            <!-- Doctor Profile Area: Information on left + Enlarged Doctor Thumbnail on right -->
+            <div class="wl-hero-doctor-card__profile-row">
+              <div class="wl-hero-doctor-card__info">
+                <div class="wl-hero-doctor-card__name-row">
+                  <span class="wl-hero-doctor-card__name">Dr. Sarah Mitchell</span>
+                  <span class="wl-hero-doctor-card__status-dot" title="Available for consultation" aria-hidden="true"></span>
+                </div>
+                <span class="wl-hero-doctor-card__spec">Weight Loss &amp; Metabolic Health</span>
+              </div>
+              <div class="wl-hero-doctor-card__avatar-wrap">
+                <img src="assets/images/doctor-lauren-cramer.jpg" alt="Dr. Sarah Mitchell, MD" class="wl-hero-doctor-card__avatar" width="62" height="62" loading="eager" />
+              </div>
+            </div>
+
+            <!-- Subtle Horizontal Divider -->
+            <hr class="wl-hero-doctor-card__divider" />
+
+            <!-- Action Area: Wide Pill CTA + Message Icon Button -->
+            <div class="wl-hero-doctor-card__actions">
+              <a href="#intake" class="wl-hero-doctor-card__cta" data-intake-trigger data-intake-goal="weight-loss" aria-label="Talk to a doctor">
+                <span>Talk to a doctor</span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+              <button type="button" class="wl-hero-doctor-card__msg-btn" data-intake-trigger aria-label="Message Dr. Mitchell">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </button>
             </div>
           </div>
 
@@ -1688,13 +1781,18 @@
                   </li>
                 </ul>
 
-                <a href="#intake" class="wl-treatment-card__cta" data-intake-trigger data-intake-goal="tirzepatide" aria-label="Get Started with Tirzepatide">
-                  <span>Get Started</span>
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
+                <div class="wl-treatment-card__btn-group">
+                  <a href="#intake" class="wl-treatment-card__cta" data-intake-trigger data-intake-goal="tirzepatide" aria-label="Get Started with Tirzepatide">
+                    <span>Get Started</span>
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </a>
+                  <a href="#protocols" class="wl-treatment-card__cta-secondary" aria-label="Learn more about Tirzepatide">
+                    <span>Learn More</span>
+                  </a>
+                </div>
               </div>
 
               <!-- Product Vial Visual: Right side, large & bottom clipped -->
@@ -1759,13 +1857,18 @@
                   </li>
                 </ul>
 
-                <a href="#intake" class="wl-treatment-card__cta" data-intake-trigger data-intake-goal="semaglutide" aria-label="Get Started with Semaglutide">
-                  <span>Get Started</span>
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
+                <div class="wl-treatment-card__btn-group">
+                  <a href="#intake" class="wl-treatment-card__cta" data-intake-trigger data-intake-goal="semaglutide" aria-label="Get Started with Semaglutide">
+                    <span>Get Started</span>
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </a>
+                  <a href="#protocols" class="wl-treatment-card__cta-secondary" aria-label="Learn more about Semaglutide">
+                    <span>Learn More</span>
+                  </a>
+                </div>
               </div>
 
               <!-- Product Vial Visual: Right side, large & bottom clipped -->
@@ -2112,7 +2215,964 @@
       </div>
     </section>
 
+    <!-- ==========================================================================
+         SECTION: YOUR RESULTS TIMELINE (Exact Jelly Health Structure & PapayaMD Tokens)
+         Placed directly below How PapayaMD Works
+         ========================================================================== -->
+    <section class="wl-results-timeline" id="results-timeline" aria-labelledby="results-timeline-heading">
+      <div class="wl-results-timeline__container">
+        
+        <!-- Header: Centered Title & Subtitle (Side arrows removed as requested) -->
+        <header class="wl-results-timeline__header wl-results-timeline__header--centered">
+          <div class="wl-results-timeline__header-text">
+            <h2 class="wl-results-timeline__title" id="results-timeline-heading">
+              Your results timeline
+            </h2>
+            <p class="wl-results-timeline__subtitle">
+              From personalized treatment to continuous medical support, we help you get—and stay—on track.
+            </p>
+          </div>
+        </header>
+
+        <!-- Timeline Cards Track -->
+        <div class="wl-results-timeline__track-wrap">
+          <div class="wl-results-timeline__track" id="timeline-track" role="region" aria-label="Results timeline cards" tabindex="0">
+            
+            <!-- Card 1: Week 1 -->
+            <article class="wl-results-timeline__card">
+              <span class="wl-results-timeline__badge">Week 1</span>
+              <h3 class="wl-results-timeline__card-title">Start treatment</h3>
+              <p class="wl-results-timeline__card-body">Consultation, prescription, medication shipped</p>
+              <div class="wl-results-timeline__media-wrap">
+                <img src="assets/images/timeline-week-1-box.jpg" alt="PapayaMD prescription treatment delivery box" class="wl-results-timeline__img" loading="lazy" width="600" height="400" />
+              </div>
+            </article>
+
+            <!-- Card 2: Week 4 -->
+            <article class="wl-results-timeline__card">
+              <span class="wl-results-timeline__badge">Week 4</span>
+              <h3 class="wl-results-timeline__card-title">Appetite shifts</h3>
+              <p class="wl-results-timeline__card-body">Food noise quiets, cravings reduce, energy improves</p>
+              <div class="wl-results-timeline__media-wrap">
+                <img src="assets/images/timeline-week-4-energy.jpg" alt="Patient feeling energized and refreshed" class="wl-results-timeline__img" loading="lazy" width="600" height="400" />
+              </div>
+            </article>
+
+            <!-- Card 3: Month 1 -->
+            <article class="wl-results-timeline__card">
+              <span class="wl-results-timeline__badge">Month 1</span>
+              <h3 class="wl-results-timeline__card-title">Visible results</h3>
+              <p class="wl-results-timeline__card-body">Consistent weight loss, clothes fit differently, labs improve</p>
+              <div class="wl-results-timeline__media-wrap">
+                <img src="assets/images/timeline-month-1-progress.jpg" alt="Weight loss progress tracking dashboard showing downward trend" class="wl-results-timeline__img" loading="lazy" width="600" height="400" />
+              </div>
+            </article>
+
+            <!-- Card 4: Month 6+ -->
+            <article class="wl-results-timeline__card">
+              <span class="wl-results-timeline__badge">Month 6+</span>
+              <h3 class="wl-results-timeline__card-title">Transformation</h3>
+              <p class="wl-results-timeline__card-body">15–25% body weight reduction, metabolic health restored</p>
+              <div class="wl-results-timeline__media-wrap">
+                <img src="assets/images/timeline-month-6-transformation.jpg" alt="Body weight transformation and healthy metabolic milestone" class="wl-results-timeline__img" loading="lazy" width="600" height="400" />
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- Dots Navigation (Mobile / Tablet) -->
+        <div class="wl-results-timeline__dots" role="group" aria-label="Timeline step indicators">
+          <button type="button" class="wl-results-timeline__dot is-active" data-index="0" aria-label="Show step 1: Week 1, Start treatment"></button>
+          <button type="button" class="wl-results-timeline__dot" data-index="1" aria-label="Show step 2: Week 4, Appetite shifts"></button>
+          <button type="button" class="wl-results-timeline__dot" data-index="2" aria-label="Show step 3: Month 1, Visible results"></button>
+          <button type="button" class="wl-results-timeline__dot" data-index="3" aria-label="Show step 4: Month 6+, Transformation"></button>
+        </div>
+
+        <!-- Disclaimer Below Cards -->
+        <div class="wl-results-timeline__disclaimer">
+          <p>* Self-reported energy and weight outcomes vary; not a clinical outcome claim. Select GLP-1 trials report ~15–25% average body-weight reduction. Individual results will vary. Compounded medications are prescribed at provider discretion.</p>
+        </div>
+
+        <!-- CTA Button Under Disclaimer -->
+        <div class="wl-results-timeline__cta-wrap">
+          <a href="#intake" class="alivio-hero-primary-cta" data-intake-trigger data-intake-goal="weight-loss" aria-label="Start My Free Visit">
+            <span class="alivio-cta-label">Start My Free Visit</span>
+            <span class="alivio-cta-disk" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="alivio-disk-arrow" aria-hidden="true">
+                <path d="M7 7h10v10"></path>
+                <path d="M7 17 17 7"></path>
+              </svg>
+            </span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Timeline Scroll Controller Script -->
+    <script>
+      (function() {
+        const track = document.getElementById("timeline-track");
+        const dots = document.querySelectorAll(".wl-results-timeline__dot");
+
+        if (!track) return;
+
+        function updateControls() {
+          const currentScroll = track.scrollLeft;
+          const cards = track.querySelectorAll(".wl-results-timeline__card");
+          if (!cards.length) return;
+          const cardWidth = cards[0].offsetWidth + 20;
+          const activeIdx = Math.min(dots.length - 1, Math.max(0, Math.round(currentScroll / cardWidth)));
+
+          dots.forEach((dot, i) => {
+            dot.classList.toggle("is-active", i === activeIdx);
+            dot.setAttribute("aria-current", i === activeIdx ? "true" : "false");
+          });
+        }
+
+        function scrollToStep(idx) {
+          const cards = track.querySelectorAll(".wl-results-timeline__card");
+          if (!cards[idx]) return;
+          track.scrollTo({ left: cards[idx].offsetLeft - track.offsetLeft, behavior: "smooth" });
+        }
+
+        dots.forEach(dot => {
+          dot.addEventListener("click", () => {
+            const idx = parseInt(dot.getAttribute("data-index"), 10);
+            scrollToStep(idx);
+          });
+        });
+
+        track.addEventListener("scroll", updateControls, { passive: true });
+        window.addEventListener("resize", updateControls, { passive: true });
+        updateControls();
+      })();
+    </script>
+
+    <!-- ==========================================================================
+         SECTION: THE SCIENCE BEHIND GLP-1
+         Order:
+         1. Headline "The Science Behind GLP-1" ABOVE 20%
+         2. Bigger animated 20%
+         3. Clinical trial descriptive copy
+         4. Bullet points (round circles removed)
+         Middle: Dual Tilted Vials
+         Right: Ro-Style Weight Loss Calculator with brown trigger slider and avatar ratings
+         ========================================================================== -->
+    <section class="wl-science-glp1-section" id="science-glp1" aria-labelledby="science-glp1-heading">
+      <div class="wl-science-glp1-container">
+        
+        <div class="wl-science-glp1-grid">
+          
+          <!-- Column 1: Left Content -->
+          <div class="wl-science-glp1-col wl-science-glp1-col--left">
+            
+            <!-- Headline placed ABOVE 20% -->
+            <h2 class="wl-science-glp1-title" id="science-glp1-heading">
+              The Science Behind GLP-1
+            </h2>
+
+            <!-- Bigger Animated 20% with Down Arrow on Left -->
+            <div class="wl-science-glp1-num-wrap">
+              <span class="wl-science-glp1-arrow" aria-hidden="true">↓</span>
+              <span class="wl-science-glp1-num" id="glp1-stat-counter" data-target="20">0%</span>
+            </div>
+
+            <p class="wl-science-glp1-desc">
+              On average, patients on GLP-1 clinical trials lose up to 15% to 20% of their total body weight when paired with clinician guidance.*
+            </p>
+
+            <!-- Bullet Points without round circle icons -->
+            <ul class="wl-science-glp1-bullets" aria-label="Key GLP-1 Benefits">
+              <li class="wl-science-glp1-bullet-item">
+                <span class="wl-science-glp1-bullet-check" aria-hidden="true">✓</span>
+                <span class="wl-science-glp1-bullet-text">Long-Term Health</span>
+              </li>
+              <li class="wl-science-glp1-bullet-item">
+                <span class="wl-science-glp1-bullet-check" aria-hidden="true">✓</span>
+                <span class="wl-science-glp1-bullet-text">Improved Mood</span>
+              </li>
+              <li class="wl-science-glp1-bullet-item">
+                <span class="wl-science-glp1-bullet-check" aria-hidden="true">✓</span>
+                <span class="wl-science-glp1-bullet-text">More Energy</span>
+              </li>
+              <li class="wl-science-glp1-bullet-item">
+                <span class="wl-science-glp1-bullet-check" aria-hidden="true">✓</span>
+                <span class="wl-science-glp1-bullet-text">Reduced appetite</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 2: Middle Content (Vials position exactly like attached image) -->
+          <div class="wl-science-glp1-col wl-science-glp1-col--middle" aria-label="Compounded Semaglutide and Tirzepatide Vials">
+            <div class="wl-science-vials-stage" aria-label="Semaglutide and Tirzepatide Vials">
+              <img src="assets/images/wl-science-tilted-vials.png" alt="PapayaMD Compounded Semaglutide and Tirzepatide Multi-Dose Vials" class="wl-science-vials-img" loading="lazy" width="360" height="500" />
+            </div>
+          </div>
+
+          <!-- Column 3: Right Content (Ro-style Weight Loss Calculator: no border, no shadow, #F5F1EF background) -->
+          <div class="wl-science-glp1-col wl-science-glp1-col--right">
+            <div class="wl-ro-calc-card">
+              
+              <!-- Calculator Row 1: Select your current weight & live lbs display -->
+              <div class="wl-ro-calc-row">
+                <div class="wl-ro-calc-label">Select your current weight</div>
+                <div class="wl-ro-calc-val-wrap">
+                  <span class="wl-ro-calc-big-num" id="wl-calc-start-weight">170</span>
+                  <span class="wl-ro-calc-lbs-label">lbs</span>
+                </div>
+              </div>
+
+              <!-- Calculator Row 2: Ro Slim Slider with Brown Trigger -->
+              <div class="wl-ro-slider-container">
+                <input type="range" min="130" max="360" value="170" step="1" id="wl-weight-range" class="wl-ro-slider" aria-label="Select your current weight in pounds" />
+                <div class="wl-ro-slider-track" id="wl-calc-slider-track"></div>
+              </div>
+
+              <!-- Calculator Row 3: Weight you could lose (lbs): & live calculated loss -->
+              <div class="wl-ro-calc-row wl-ro-calc-row--loss">
+                <div class="wl-ro-calc-label wl-ro-calc-label--loss">Weight you could lose (lbs):</div>
+                <div class="wl-ro-calc-val-wrap">
+                  <span class="wl-ro-calc-huge-loss-num" id="wl-calc-loss-lbs">34</span>
+                  <span class="wl-ro-calc-lbs-label">lbs</span>
+                </div>
+              </div>
+
+              <!-- Ro Disclaimer text -->
+              <p class="wl-ro-calc-disclaimer">
+                Based on manufacturer clinical trials studying the highest doses of Semaglutide and Tirzepatide in non-diabetics with obesity, or with overweight plus a weight-related condition, when paired with lifestyle and nutritional changes (vs ~2–4% with diet and exercise alone).
+              </p>
+
+              <!-- Patient Social Proof Ratings replaced CTA button -->
+              <div class="wl-ro-calc-social-proof">
+                <div class="wl-ro-calc-avatars" aria-hidden="true">
+                  <img src="assets/images/testimonial-female-1.jpg" alt="" class="wl-ro-calc-avatar" width="36" height="36" />
+                  <img src="assets/images/testimonial-male-1.jpg" alt="" class="wl-ro-calc-avatar" width="36" height="36" />
+                  <img src="assets/images/testimonial-female-2.jpg" alt="" class="wl-ro-calc-avatar" width="36" height="36" />
+                  <img src="assets/images/doctor-lauren-cramer.jpg" alt="" class="wl-ro-calc-avatar" width="36" height="36" />
+                </div>
+                <div class="wl-ro-calc-rating-info">
+                  <div class="wl-ro-calc-stars" aria-label="5 out of 5 stars">
+                    ★★★★★
+                  </div>
+                  <span class="wl-ro-calc-rating-text"><strong>4.9/5</strong> rating from 10,000+ patients</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Weight Loss Calculator & GLP-1 Counter Script -->
+    <script>
+      (function() {
+        // 1. Ro-Style Calculator Interaction (~20% weight loss)
+        const slider = document.getElementById("wl-weight-range");
+        const startWeightEl = document.getElementById("wl-calc-start-weight");
+        const lossLbsEl = document.getElementById("wl-calc-loss-lbs");
+        const trackFill = document.getElementById("wl-calc-slider-track");
+
+        function updateCalculator() {
+          if (!slider) return;
+          const val = parseInt(slider.value, 10);
+          const min = parseInt(slider.min, 10);
+          const max = parseInt(slider.max, 10);
+
+          // 20% calculation (matching Ro benchmark: 170 lbs -> 34 lbs)
+          const loss = Math.round(val * 0.20);
+
+          if (startWeightEl) startWeightEl.textContent = val;
+          if (lossLbsEl) lossLbsEl.textContent = loss;
+
+          // Slider visual track fill
+          const pct = ((val - min) / (max - min)) * 100;
+          if (trackFill) {
+            trackFill.style.width = pct + "%";
+          }
+        }
+
+        if (slider) {
+          slider.addEventListener("input", updateCalculator);
+          slider.addEventListener("change", updateCalculator);
+          updateCalculator();
+        }
+
+        // 2. Animated Number 20% starts animating strictly when scrolled into view
+        const section = document.getElementById("science-glp1");
+        const counterEl = document.getElementById("glp1-stat-counter");
+        let animated = false;
+
+        function checkScrollAndAnimate() {
+          if (!counterEl || animated) return;
+          const rect = (section || counterEl).getBoundingClientRect();
+          // Trigger when top of section enters 85% of viewport
+          if (rect.top <= window.innerHeight * 0.85 && rect.bottom >= 100) {
+            animated = true;
+            let current = 0;
+            const target = 20;
+            const duration = 1400; // Smooth 1.4s progression
+            const start = performance.now();
+
+            function step(time) {
+              const progress = Math.min((time - start) / duration, 1);
+              // Ease-out cubic curve
+              const ease = 1 - Math.pow(1 - progress, 3);
+              const val = Math.round(ease * target);
+              counterEl.textContent = val + "%";
+              if (progress < 1) {
+                requestAnimationFrame(step);
+              } else {
+                counterEl.textContent = "20%";
+              }
+            }
+            requestAnimationFrame(step);
+          }
+        }
+
+        window.addEventListener("scroll", checkScrollAndAnimate, { passive: true });
+        window.addEventListener("resize", checkScrollAndAnimate, { passive: true });
+        // Initial check in case page is already scrolled to section
+        checkScrollAndAnimate();
+      })();
+    </script>
+
+
+      <!-- Section 07C: Testimonial Auto Slider Section (Full-Width White with Light Cream Faded Card Backing) -->
+    <section class="section_sp-testimonials" id="patient-testimonials" aria-labelledby="testimonials-heading">
+      <div class="container sp-testimonials__container">
+
+        <!-- Header -->
+        <header class="sp-testimonials__header">
+          <h2 class="sp-testimonials__title" id="testimonials-heading">
+            Real stories of growth,<br />healing, and lasting change.
+          </h2>
+
+          <!-- Trustpilot Rating Strip Below Heading -->
+          <div class="alivio-testimonials-trustpilot"
+            aria-label="Rated 4.4 out of 5 stars based on 3,450+ verified patient reviews on Trustpilot">
+            <span class="alivio-trustpilot-brand">Trustpilot</span>
+            <span class="alivio-trustpilot-score">4.4</span>
+            <div class="alivio-trustpilot-stars" aria-hidden="true">
+              <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="alivio-star-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            </div>
+            <span class="alivio-trustpilot-bullet" aria-hidden="true">•</span>
+            <span class="alivio-trustpilot-reviews">3,450+ patient reviews</span>
+          </div>
+
+          <p class="sp-testimonials__lead">
+            Hear directly from patients who took control of their vitality, metabolism, and health with PapayaMD.
+          </p>
+        </header>
+
+        <!-- Testimonials Auto Slider / Marquee -->
+        <div class="sp-testimonials-track-wrap" role="region" aria-label="Patient Testimonial Cards">
+          <div class="sp-testimonials-track" id="testimonials-track">
+
+            <!-- Card 1 Photo Placeholder -->
+            <div class="sp-testimonial-card sp-testimonial-card--photo">
+              <img decoding="async" src="assets/images/testimonial-female-1.jpg"
+                alt="Smiling female PapayaMD patient enjoying renewed wellness" class="sp-testimonial-photo-img" />
+            </div>
+
+            <!-- Card 1 Story -->
+            <div class="sp-testimonial-card">
+              <blockquote class="sp-testimonial-card__quote">
+                “Thank you! Consistency is key and I’m grateful for all the support and education I’ve received that put
+                me on the [right] path! Very excited and happy to share with others how well this has worked for me!”
+              </blockquote>
+              <div class="sp-testimonial-card__footer">
+                <div class="sp-testimonial-card__author-info">
+                  <div class="sp-testimonial-verified">
+                    <svg class="sp-testimonial-verified-icon" viewBox="0 0 24 24" fill="currentColor" width="14"
+                      height="14" aria-hidden="true">
+                      <path
+                        d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.67-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.75 4.5l-4-4 1.41-1.41L10.5 13.67l6.59-6.59 1.41 1.41-8 8z" />
+                    </svg>
+                    <span>VERIFIED PATIENT</span>
+                  </div>
+                  <span class="sp-testimonial-card__author-name">Tonia H.</span>
+                </div>
+                <div class="sp-testimonial-card__stars" aria-label="5 out of 5 stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 Photo Placeholder -->
+            <div class="sp-testimonial-card sp-testimonial-card--photo">
+              <img decoding="async" src="assets/images/testimonial-male-1.jpg"
+                alt="Confident male PapayaMD patient experiencing enhanced vitality" class="sp-testimonial-photo-img" />
+            </div>
+
+            <!-- Card 2 Story -->
+            <div class="sp-testimonial-card">
+              <blockquote class="sp-testimonial-card__quote">
+                “My sleep has changed DRAMATICALLY for the better since getting on accurate dosages of estradiol,
+                testosterone and progesterone. My gut health has also improved significantly - so much so that I can't
+                believe I used to live the way I was living.”
+              </blockquote>
+              <div class="sp-testimonial-card__footer">
+                <div class="sp-testimonial-card__author-info">
+                  <div class="sp-testimonial-verified">
+                    <svg class="sp-testimonial-verified-icon" viewBox="0 0 24 24" fill="currentColor" width="14"
+                      height="14" aria-hidden="true">
+                      <path
+                        d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.67-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.75 4.5l-4-4 1.41-1.41L10.5 13.67l6.59-6.59 1.41 1.41-8 8z" />
+                    </svg>
+                    <span>VERIFIED PATIENT</span>
+                  </div>
+                  <span class="sp-testimonial-card__author-name">Robyn C.</span>
+                </div>
+                <div class="sp-testimonial-card__stars" aria-label="5 out of 5 stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 Photo Placeholder -->
+            <div class="sp-testimonial-card sp-testimonial-card--photo">
+              <img decoding="async" src="assets/images/testimonial-female-2.jpg"
+                alt="Happy female PapayaMD patient smiling comfortably" class="sp-testimonial-photo-img" />
+            </div>
+
+            <!-- Card 3 Story -->
+            <div class="sp-testimonial-card">
+              <blockquote class="sp-testimonial-card__quote">
+                “Within 8 weeks of individualized hormone support, my brain fog cleared completely and my energy levels
+                returned to where they were in my 30s. The clinical team actually listens.”
+              </blockquote>
+              <div class="sp-testimonial-card__footer">
+                <div class="sp-testimonial-card__author-info">
+                  <div class="sp-testimonial-verified">
+                    <svg class="sp-testimonial-verified-icon" viewBox="0 0 24 24" fill="currentColor" width="14"
+                      height="14" aria-hidden="true">
+                      <path
+                        d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.67-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.75 4.5l-4-4 1.41-1.41L10.5 13.67l6.59-6.59 1.41 1.41-8 8z" />
+                    </svg>
+                    <span>VERIFIED PATIENT</span>
+                  </div>
+                  <span class="sp-testimonial-card__author-name">Elena R.</span>
+                </div>
+                <div class="sp-testimonial-card__stars" aria-label="5 out of 5 stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 Photo Placeholder -->
+            <div class="sp-testimonial-card sp-testimonial-card--photo">
+              <img decoding="async" src="assets/images/testimonial-male-2.jpg"
+                alt="Mature male PapayaMD patient feeling energized and healthy" class="sp-testimonial-photo-img" />
+            </div>
+
+            <!-- Card 4 Story -->
+            <div class="sp-testimonial-card">
+              <blockquote class="sp-testimonial-card__quote">
+                “Clear answers, discreet communication, and clinician advice that genuinely respected my privacy and
+                schedule. No clinic waiting rooms and prompt delivery.”
+              </blockquote>
+              <div class="sp-testimonial-card__footer">
+                <div class="sp-testimonial-card__author-info">
+                  <div class="sp-testimonial-verified">
+                    <svg class="sp-testimonial-verified-icon" viewBox="0 0 24 24" fill="currentColor" width="14"
+                      height="14" aria-hidden="true">
+                      <path
+                        d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.67-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.75 4.5l-4-4 1.41-1.41L10.5 13.67l6.59-6.59 1.41 1.41-8 8z" />
+                    </svg>
+                    <span>VERIFIED PATIENT</span>
+                  </div>
+                  <span class="sp-testimonial-card__author-name">Michael T.</span>
+                </div>
+                <div class="sp-testimonial-card__stars" aria-label="5 out of 5 stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Duplicate Set for Seamless Continuous Infinite Loop -->
+            <!-- Card 1 Photo Placeholder -->
+            <div class="sp-testimonial-card sp-testimonial-card--photo" aria-hidden="true">
+              <img decoding="async" src="assets/images/testimonial-female-1.jpg" alt=""
+                class="sp-testimonial-photo-img" />
+            </div>
+
+            <!-- Card 1 Story -->
+            <div class="sp-testimonial-card" aria-hidden="true">
+              <blockquote class="sp-testimonial-card__quote">
+                “Thank you! Consistency is key and I’m grateful for all the support and education I’ve received that put
+                me on the [right] path! Very excited and happy to share with others how well this has worked for me!”
+              </blockquote>
+              <div class="sp-testimonial-card__footer">
+                <div class="sp-testimonial-card__author-info">
+                  <div class="sp-testimonial-verified">
+                    <svg class="sp-testimonial-verified-icon" viewBox="0 0 24 24" fill="currentColor" width="14"
+                      height="14" aria-hidden="true">
+                      <path
+                        d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.67-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.75 4.5l-4-4 1.41-1.41L10.5 13.67l6.59-6.59 1.41 1.41-8 8z" />
+                    </svg>
+                    <span>VERIFIED PATIENT</span>
+                  </div>
+                  <span class="sp-testimonial-card__author-name">Tonia H.</span>
+                </div>
+                <div class="sp-testimonial-card__stars" aria-label="5 out of 5 stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 Photo Placeholder -->
+            <div class="sp-testimonial-card sp-testimonial-card--photo" aria-hidden="true">
+              <img decoding="async" src="assets/images/testimonial-male-1.jpg" alt=""
+                class="sp-testimonial-photo-img" />
+            </div>
+
+            <!-- Card 2 Story -->
+            <div class="sp-testimonial-card" aria-hidden="true">
+              <blockquote class="sp-testimonial-card__quote">
+                “My sleep has changed DRAMATICALLY for the better since getting on accurate dosages of estradiol,
+                testosterone and progesterone. My gut health has also improved significantly - so much so that I can't
+                believe I used to live the way I was living.”
+              </blockquote>
+              <div class="sp-testimonial-card__footer">
+                <div class="sp-testimonial-card__author-info">
+                  <div class="sp-testimonial-verified">
+                    <svg class="sp-testimonial-verified-icon" viewBox="0 0 24 24" fill="currentColor" width="14"
+                      height="14" aria-hidden="true">
+                      <path
+                        d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.67-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.75 4.5l-4-4 1.41-1.41L10.5 13.67l6.59-6.59 1.41 1.41-8 8z" />
+                    </svg>
+                    <span>VERIFIED PATIENT</span>
+                  </div>
+                  <span class="sp-testimonial-card__author-name">Robyn C.</span>
+                </div>
+                <div class="sp-testimonial-card__stars" aria-label="5 out of 5 stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 Photo Placeholder -->
+            <div class="sp-testimonial-card sp-testimonial-card--photo" aria-hidden="true">
+              <img decoding="async" src="assets/images/testimonial-female-2.jpg" alt=""
+                class="sp-testimonial-photo-img" />
+            </div>
+
+            <!-- Card 3 Story -->
+            <div class="sp-testimonial-card" aria-hidden="true">
+              <blockquote class="sp-testimonial-card__quote">
+                “Within 8 weeks of individualized hormone support, my brain fog cleared completely and my energy levels
+                returned to where they were in my 30s. The clinical team actually listens.”
+              </blockquote>
+              <div class="sp-testimonial-card__footer">
+                <div class="sp-testimonial-card__author-info">
+                  <div class="sp-testimonial-verified">
+                    <svg class="sp-testimonial-verified-icon" viewBox="0 0 24 24" fill="currentColor" width="14"
+                      height="14" aria-hidden="true">
+                      <path
+                        d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.67-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.75 4.5l-4-4 1.41-1.41L10.5 13.67l6.59-6.59 1.41 1.41-8 8z" />
+                    </svg>
+                    <span>VERIFIED PATIENT</span>
+                  </div>
+                  <span class="sp-testimonial-card__author-name">Elena R.</span>
+                </div>
+                <div class="sp-testimonial-card__stars" aria-label="5 out of 5 stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 Photo Placeholder -->
+            <div class="sp-testimonial-card sp-testimonial-card--photo" aria-hidden="true">
+              <img decoding="async" src="assets/images/testimonial-male-2.jpg" alt=""
+                class="sp-testimonial-photo-img" />
+            </div>
+
+            <!-- Card 4 Story -->
+            <div class="sp-testimonial-card" aria-hidden="true">
+              <blockquote class="sp-testimonial-card__quote">
+                “Clear answers, discreet communication, and clinician advice that genuinely respected my privacy and
+                schedule. No clinic waiting rooms and prompt delivery.”
+              </blockquote>
+              <div class="sp-testimonial-card__footer">
+                <div class="sp-testimonial-card__author-info">
+                  <div class="sp-testimonial-verified">
+                    <svg class="sp-testimonial-verified-icon" viewBox="0 0 24 24" fill="currentColor" width="14"
+                      height="14" aria-hidden="true">
+                      <path
+                        d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.67-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.75 4.5l-4-4 1.41-1.41L10.5 13.67l6.59-6.59 1.41 1.41-8 8z" />
+                    </svg>
+                    <span>VERIFIED PATIENT</span>
+                  </div>
+                  <span class="sp-testimonial-card__author-name">Michael T.</span>
+                </div>
+                <div class="sp-testimonial-card__stars" aria-label="5 out of 5 stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Find Your Treatment Bottom CTA Button -->
+        <div class="sp-testimonials-cta-wrap">
+          <a href="#protocols" class="alivio-hero-primary-cta" data-intake-trigger>
+            <span class="alivio-cta-label">Find Your Treatment</span>
+            <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"
+                class="alivio-disk-arrow" aria-hidden="true">
+                <path d="M7 7h10v10"></path>
+                <path d="M7 17 17 7"></path>
+              </svg></span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+    <section class="section_faq" id="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="sp-section-header" style="margin-bottom: 36px; text-align: center;">
+          <h2 class="sp-heading-h2" id="faq-heading" style="margin-bottom: 12px;">Frequently asked questions</h2>
+          <p class="sp-lead" style="margin: 0 auto; max-width: 620px; color: #55504A;">
+            Everything you need to know before beginning your wellness journey.
+          </p>
+        </div>
+
+        <div class="sp-faq-container-card" role="region" aria-label="Frequently Asked Questions Accordion">
+          <!-- Item 1 -->
+          <div class="sp-accordion-item">
+            <button class="sp-accordion-trigger accordion-trigger" type="button" aria-expanded="false"
+              aria-controls="faq-ans-1" id="faq-q-1">
+              <span>What is PapayaMD?</span>
+              <span class="sp-accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="sp-accordion-panel accordion-panel" id="faq-ans-1" role="region" aria-labelledby="faq-q-1"
+              aria-hidden="true">
+              <div class="sp-accordion-panel-inner">
+                <p>PapayaMD is a modern telehealth platform providing personalized, provider-led care for hormone
+                  health,
+                  longevity, and metabolic wellness—delivered straight to your door with continuous medical guidance.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="sp-accordion-item">
+            <button class="sp-accordion-trigger accordion-trigger" type="button" aria-expanded="false"
+              aria-controls="faq-ans-2" id="faq-q-2">
+              <span>Who are PapayaMD Programs for?</span>
+              <span class="sp-accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="sp-accordion-panel accordion-panel" id="faq-ans-2" role="region" aria-labelledby="faq-q-2"
+              aria-hidden="true">
+              <div class="sp-accordion-panel-inner">
+                <p>Our programs are designed for adults seeking proactive, medically supervised support for hormone
+                  balance, perimenopause, menopause, sexual wellness, metabolic health, and weight management.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="sp-accordion-item">
+            <button class="sp-accordion-trigger accordion-trigger" type="button" aria-expanded="false"
+              aria-controls="faq-ans-3" id="faq-q-3">
+              <span>Do I need previous therapy or wellness experience?</span>
+              <span class="sp-accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="sp-accordion-panel accordion-panel" id="faq-ans-3" role="region" aria-labelledby="faq-q-3"
+              aria-hidden="true">
+              <div class="sp-accordion-panel-inner">
+                <p>No prior experience is necessary. Our straightforward online clinical assessment and licensed medical
+                  providers guide you through every step of your health evaluation.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="sp-accordion-item">
+            <button class="sp-accordion-trigger accordion-trigger" type="button" aria-expanded="false"
+              aria-controls="faq-ans-4" id="faq-q-4">
+              <span>Is my personal information kept confidential?</span>
+              <span class="sp-accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="sp-accordion-panel accordion-panel" id="faq-ans-4" role="region" aria-labelledby="faq-q-4"
+              aria-hidden="true">
+              <div class="sp-accordion-panel-inner">
+                <p>Yes. All personal health data is protected by industry-standard HIPAA-compliant encryption protocols
+                  and is only accessible by your licensed clinical care team.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="sp-accordion-item">
+            <button class="sp-accordion-trigger accordion-trigger" type="button" aria-expanded="false"
+              aria-controls="faq-ans-5" id="faq-q-5">
+              <span>Is this suitable for all age groups?</span>
+              <span class="sp-accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="sp-accordion-panel accordion-panel" id="faq-ans-5" role="region" aria-labelledby="faq-q-5"
+              aria-hidden="true">
+              <div class="sp-accordion-panel-inner">
+                <p>PapayaMD provides clinical treatments for qualifying adults aged 18 and older. Treatment suitability
+                  is
+                  individually determined during your provider-led clinical evaluation.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="sp-accordion-item">
+            <button class="sp-accordion-trigger accordion-trigger" type="button" aria-expanded="false"
+              aria-controls="faq-ans-6" id="faq-q-6">
+              <span>How do I know which program is right for me?</span>
+              <span class="sp-accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="sp-accordion-panel accordion-panel" id="faq-ans-6" role="region" aria-labelledby="faq-q-6"
+              aria-hidden="true">
+              <div class="sp-accordion-panel-inner">
+                <p>By completing our quick 2-minute online assessment, a licensed provider reviews your symptoms and
+                  health goals to recommend an individualized treatment plan tailored to your body.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
   </main>
+
+  <!-- Site Footer: Redesigned based on Alivio Wellness Reference -->
+  <footer class="alivio-custom-footer" role="contentinfo">
+    <!-- Top 50% Atmospheric Background Image (70% opacity with bottom fade) -->
+    <div class="alivio-footer-bg-image" aria-hidden="true"></div>
+    <div class="alivio-footer-inner">
+
+      <!-- Extended Top Hero Banner: "Come back to yourself." -->
+      <section class="alivio-footer-hero-banner" aria-label="Care Consultation Call to Action">
+        <div class="alivio-footer-hero-left">
+          <h2 class="alivio-footer-hero-title sp-heading-h1">
+            Come back to<br /><em class="alivio-footer-hero-italic">yourself.</em>
+          </h2>
+          <p class="alivio-footer-hero-desc">
+            Share what you want to change. We’ll help make the possible paths clearer from there.
+          </p>
+          <div class="alivio-footer-hero-cta-wrap">
+            <a href="#intake" class="alivio-hero-primary-cta" data-intake-trigger
+              aria-label="See If You Qualify for Telehealth Care">
+              <span class="alivio-cta-label">See If You Qualify</span>
+              <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"
+                  fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"
+                  class="alivio-disk-arrow" aria-hidden="true">
+                  <path d="M7 7h10v10"></path>
+                  <path d="M7 17 17 7"></path>
+                </svg></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div class="alivio-footer-divider-row" aria-hidden="true">
+        <div class="alivio-footer-divider-line"></div>
+        <div class="alivio-footer-divider-mark">
+          <svg viewBox="0 0 40 45" width="28" height="32" aria-hidden="true" fill="currentColor">
+            <path
+              d="M14.2363 7.76367H22V14.2344H14.2363V22H7.76367V14.2314H0V7.76367H7.76367V0H14.2363V7.76367ZM26.7549 8C34.0588 8.00025 39.9999 13.9974 40 21.3721C40 24.9391 38.622 28.2971 36.1201 30.8262C33.6139 33.352 30.2889 34.744 26.7549 34.7441C26.7223 34.7441 23.3001 34.7819 20.0205 36.1982C16.147 37.8703 14.2647 40.6611 14.2646 44.7246V45H8V25.9434H14.2646V32.2168C15.3074 31.4781 16.4744 30.8365 17.7393 30.3057C22.1727 28.4406 26.5712 28.418 26.7549 28.418C28.6196 28.4179 30.3717 27.685 31.6885 26.3525C33.0083 25.0214 33.7344 23.2535 33.7344 21.3721C33.7343 17.4867 30.6044 14.3254 26.7549 14.3252H25.7676V8H26.7549Z" />
+          </svg>
+        </div>
+        <div class="alivio-footer-divider-line"></div>
+      </div>
+
+      <!-- Mid Row: 4 Column Navigation Grid -->
+      <div class="alivio-footer-grid">
+        <!-- Col 1: Our Treatments -->
+        <div class="alivio-footer-col">
+          <h3 class="alivio-footer-heading">OUR TREATMENTS</h3>
+          <ul class="alivio-footer-nav">
+            <li><a href="weight-loss.html">Weight Loss</a></li>
+            <li><a href="hormone-women.html">Hormone Health (Women)</a></li>
+            <li><a href="#protocols">Hormone Health (Men)</a></li>
+            <li><a href="#protocols">Sexual Wellness</a></li>
+            <li><a href="#protocols">Fertility Support</a></li>
+            <li><a href="#protocols">Hair Health</a></li>
+            <li><a href="#protocols">Daily Health</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Company -->
+        <div class="alivio-footer-col">
+          <h3 class="alivio-footer-heading">COMPANY</h3>
+          <ul class="alivio-footer-nav">
+            <li><a href="#clinical-team">About Us</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#protocols">Our Treatments</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#care-stories">Blog</a></li>
+            <li><a href="#contact" data-intake-trigger>Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Support -->
+        <div class="alivio-footer-col">
+          <h3 class="alivio-footer-heading">SUPPORT</h3>
+          <ul class="alivio-footer-nav">
+            <li><a href="#faq">FAQs</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#medical-disclaimer">Medical Disclaimer</a></li>
+            <li><a href="#">Accessibility</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Get In Touch & LegitScript -->
+        <div class="alivio-footer-col alivio-footer-col--contact">
+          <h3 class="alivio-footer-heading">GET IN TOUCH</h3>
+          <div class="alivio-footer-contact-items">
+            <div class="alivio-contact-item">
+              <span class="alivio-contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </span>
+              <a href="mailto:hello@papayamd.com" class="alivio-contact-text">hello@papayamd.com</a>
+            </div>
+            <div class="alivio-contact-item">
+              <span class="alivio-contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </span>
+              <a href="tel:+15551234567" class="alivio-contact-text">+1 (555) 123-4567</a>
+            </div>
+            <div class="alivio-contact-item">
+              <span class="alivio-contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </span>
+              <span class="alivio-contact-text">16192 Coastal Hwy,<br />Lewes, DE 19958</span>
+            </div>
+            <div class="alivio-contact-item">
+              <span class="alivio-contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </span>
+              <span class="alivio-contact-text">Mon – Fri, 9am – 6pm ET</span>
+            </div>
+          </div>
+
+          <!-- Social Media Icons Row -->
+          <div class="alivio-footer-socials">
+            <a href="#" class="alivio-social-btn" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+            <a href="#" class="alivio-social-btn" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
+            </a>
+            <a href="#" class="alivio-social-btn" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#240D05" />
+              </svg>
+            </a>
+            <a href="#" class="alivio-social-btn" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Watermark Section: Huge Alivio Logomark & Wordmark Overlay -->
+      <div class="alivio-footer-watermark-row" aria-hidden="true">
+        <svg class="alivio-footer-giant-logo" viewBox="0 0 235 49" fill="currentColor">
+          <path
+            d="M101.789 18.9482C107.081 18.9482 111.149 22.9085 111.149 29.0645C111.149 35.1842 107.081 39.3242 101.789 39.3242C98.1892 39.3241 95.6332 37.3802 94.4092 35.3643V48.3604H91.1338V19.2725H94.4092V22.9082C95.5972 20.8203 98.1892 18.9483 101.789 18.9482ZM145.277 35.2559L151.397 19.2725H154.781L142.901 48.2881H139.518L143.405 38.7842L135.449 19.2725H139.086L145.277 35.2559ZM26.7549 8C34.0588 8.00025 39.9999 13.9974 40 21.3721C40 24.9391 38.622 28.2971 36.1201 30.8262C33.6139 33.352 30.2889 34.744 26.7549 34.7441C26.7223 34.7441 23.3001 34.7819 20.0205 36.1982C16.147 37.8703 14.2647 40.6611 14.2646 44.7246V45H8V25.9434H14.2646V32.2168C15.3074 31.4781 16.4744 30.8365 17.7393 30.3057C22.1727 28.4406 26.5712 28.418 26.7549 28.418C28.6196 28.4179 30.3717 27.685 31.6885 26.3525C33.0083 25.0214 33.7344 23.2535 33.7344 21.3721C33.7343 17.4867 30.6044 14.3254 26.7549 14.3252H25.7676V8H26.7549ZM75.9414 18.9482C79.6133 18.9483 82.1332 20.8201 83.2852 22.8721V19.2725H86.5977V39H83.2852V35.3281C82.0972 37.4521 79.5412 39.3242 75.9053 39.3242C70.6494 39.3242 66.5812 35.1842 66.5811 29.0645C66.5811 22.9085 70.6494 18.9482 75.9414 18.9482ZM122.598 18.9482C126.27 18.9483 128.789 20.8201 129.941 22.8721V19.2725H133.254V39H129.941V35.3281C128.753 37.4521 126.197 39.3242 122.562 39.3242C117.306 39.3242 113.237 35.1842 113.237 29.0645C113.237 22.9085 117.306 18.9482 122.598 18.9482ZM165.211 18.9482C168.883 18.9483 171.403 20.8201 172.555 22.8721V19.2725H175.867V39H172.555V35.3281C171.367 37.4521 168.811 39.3242 165.175 39.3242C159.919 39.3242 155.851 35.1842 155.851 29.0645C155.851 22.9085 159.919 18.9482 165.211 18.9482ZM56.0576 13.9082C61.9615 13.9082 64.7333 17.148 64.7334 21.252C64.7334 25.0679 62.2855 28.5244 56.0576 28.5244H51.2334V39H47.958V13.9082H56.0576ZM193.831 32.5557L201.823 13.8721H207.511V39H202.471V22.6562L195.739 39H191.923L185.155 22.6562V39H180.115V13.8721H185.839L193.831 32.5557ZM221.277 13.8721C229.305 13.8721 234.525 18.8399 234.525 26.4717C234.525 34.0677 229.305 39 221.277 39H212.494V13.8721H221.277ZM76.5889 21.792C72.989 21.7921 69.9287 24.4206 69.9287 29.0645C69.9289 33.7081 72.9891 36.4442 76.5889 36.4443C80.1889 36.4443 83.2852 33.7436 83.2852 29.0996C83.285 24.5279 80.1887 21.792 76.5889 21.792ZM101.105 21.792C97.5416 21.792 94.4094 24.5279 94.4092 29.0996C94.4092 33.7436 97.5415 36.4443 101.105 36.4443C104.741 36.4443 107.802 33.7081 107.802 29.0645C107.802 24.4205 104.741 21.7921 101.105 21.792ZM123.245 21.792C119.645 21.7921 116.585 24.4206 116.585 29.0645C116.585 33.7081 119.645 36.4442 123.245 36.4443C126.845 36.4443 129.941 33.7436 129.941 29.0996C129.941 24.5279 126.845 21.792 123.245 21.792ZM165.858 21.792C162.259 21.7921 159.198 24.4206 159.198 29.0645C159.198 33.7081 162.259 36.4442 165.858 36.4443C169.458 36.4443 172.555 33.7436 172.555 29.0996C172.554 24.5279 169.458 21.792 165.858 21.792ZM217.534 34.7158H221.098C226.39 34.7158 229.378 31.6917 229.378 26.4717C229.378 21.2519 226.39 18.1201 221.098 18.1201H217.534V34.7158ZM51.2334 25.8242H56.0576C59.8015 25.8242 61.3857 24.0599 61.3857 21.252C61.3857 18.3361 59.8015 16.6084 56.0576 16.6084H51.2334V25.8242ZM14.2363 7.76367H22V14.2344H14.2363V22H7.76367V14.2314H0V7.76367H7.76367V0H14.2363V7.76367Z" />
+        </svg>
+      </div>
+
+      <!-- Regulatory Medical Disclaimer -->
+      <div class="alivio-footer-disclaimer" id="medical-disclaimer">
+        <p>
+          <strong>Medical Disclaimer:</strong> PapayaMD is not an emergency medical service. If you are experiencing a
+          medical emergency, call 911 or go to the nearest emergency facility immediately. All medical consultations,
+          clinical evaluations, and prescription decisions are conducted exclusively by state-licensed healthcare
+          providers affiliated with the PapayaMD Clinical Infrastructure clinical network. Telehealth services are
+          subject
+          to clinical appropriateness as determined by a licensed physician. Compounded medications described herein are
+          prepared by state-licensed 503A compounding pharmacies to fulfill individual patient prescriptions and are not
+          evaluated by the FDA in the same manner as commercially manufactured pharmaceuticals.
+        </p>
+      </div>
+
+      <!-- Bottom Bar: Copyright, PapayaMD Clinical Infrastructure powering, Legal Links, Leaf Motto -->
+      <div class="alivio-footer-bottom-bar">
+        <div class="alivio-footer-copyright">
+          <span>&copy; 2026 PapayaMD Inc. All rights reserved. Technology powered by PapayaMD Clinical
+            Infrastructure.</span>
+          <div class="alivio-footer-legal-links">
+            <a href="#">Privacy Policy</a>
+            <span class="alivio-legal-sep" aria-hidden="true">&bull;</span>
+            <a href="#">Terms of Service</a>
+            <span class="alivio-legal-sep" aria-hidden="true">&bull;</span>
+            <a href="#">Telehealth Consent</a>
+          </div>
+        </div>
+
+        <div class="alivio-footer-motto">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
+            <path d="M17 8C8 10 5 19 5 19C5 19 14 16 16 7C17 2.5 12 3 12 3C12 3 17 4 17 8Z" />
+          </svg>
+          <span>Science-backed. People-focused.</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
 
   <!-- Alivio Interactive Treatment Selection & Intake Modal -->
   <div class="alivio-intake-modal" id="alivio-intake-modal" role="dialog" aria-modal="true"
@@ -2362,17 +3422,29 @@
     (function () {
       const stickyCta = document.getElementById("wl-sticky-cta");
       const hero = document.getElementById("hero") || document.querySelector(".section_wl-hero");
+      const footer = document.querySelector(".alivio-custom-footer") || document.querySelector("footer");
       if (!stickyCta) return;
 
       function updateStickyCta() {
-        // First fold threshold: either bottom of hero section or 75% of viewport height
-        let threshold = window.innerHeight * 0.75;
+        // 1. First fold threshold: appear after passing hero
+        let heroThreshold = window.innerHeight * 0.75;
         if (hero) {
           const heroRect = hero.getBoundingClientRect();
-          threshold = hero.offsetTop + (hero.offsetHeight * 0.75);
+          heroThreshold = hero.offsetTop + (hero.offsetHeight * 0.75);
         }
 
-        if (window.scrollY > threshold) {
+        const isScrolledPastHero = window.scrollY > heroThreshold;
+
+        // 2. Footer collision check: hide when CTA touches the footer section
+        let touchesFooter = false;
+        if (footer) {
+          const footerRect = footer.getBoundingClientRect();
+          const stickyRect = stickyCta.getBoundingClientRect();
+          // If the bottom or bounding area of sticky CTA overlaps top of footer
+          touchesFooter = footerRect.top <= (window.innerHeight - 10);
+        }
+
+        if (isScrolledPastHero && !touchesFooter) {
           stickyCta.classList.add("is-visible");
         } else {
           stickyCta.classList.remove("is-visible");

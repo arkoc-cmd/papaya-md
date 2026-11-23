@@ -271,29 +271,30 @@
   margin: 0 12px;
 }
 
-/* Card Bottom Split: Left Benefits & CTA, Right Vial */
+/* Card Bottom Split: Left Benefits & CTA in one line, Right Vial moved towards right */
 .wl-treatment-card__split {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.25fr 0.75fr; /* Increased left width for one-line CTAs */
   align-items: stretch;
   width: 100%;
   margin-top: 4px;
   position: relative;
-  min-height: 230px;
+  min-height: 235px;
 }
 
 .wl-treatment-card__left {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end; /* Move bullets point down towards CTA */
   padding-bottom: 24px;
   z-index: 2;
+  position: relative;
 }
 
 .wl-treatment-card__benefits {
   list-style: none;
   padding: 0;
-  margin: 0 0 20px 0;
+  margin: auto 0 14px 0; /* Pushed down towards CTA button */
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -317,30 +318,42 @@
   color: #10B981; /* Fresh green checkmark */
 }
 
-/* Get Started CTA Button inside Card */
+/* Card Button Group: Get Started + Learn More strictly in ONE LINE */
+.wl-treatment-card__btn-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap; /* Strictly one line */
+  gap: 8px;
+  margin-top: auto;
+  width: 100%;
+}
+
+/* Get Started CTA Button inside Card - No shadow */
 .wl-treatment-card__cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 5px;
   background-color: var(--color-rust-terracotta, #5B2009) !important;
   color: #FFFFFF !important;
   font-family: var(--sp-font-sans, "Inter", -apple-system, sans-serif);
-  font-size: 0.86rem;
+  font-size: 0.80rem;
   font-weight: 500;
   text-decoration: none;
-  padding: 10px 18px;
+  padding: 8px 14px;
   border-radius: 9999px;
-  width: fit-content;
-  box-shadow: 0 4px 12px rgba(91, 32, 8, 0.2);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  margin-top: auto;
+  white-space: nowrap;
+  box-shadow: none !important; /* No shadow on button */
+  border: 1px solid var(--color-rust-terracotta, #5B2009) !important;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
 }
 
 .wl-treatment-card__cta:hover {
   background-color: var(--color-rust-terracotta-hover, #3E1505) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(91, 32, 8, 0.28);
+  border-color: var(--color-rust-terracotta-hover, #3E1505) !important;
+  transform: translateY(-1px);
+  box-shadow: none !important;
 }
 
 .wl-treatment-card__cta svg {
@@ -351,35 +364,64 @@
   transform: translateX(3px);
 }
 
-/* Product Vial Visual Area: Right side, large & bottom clipped */
+/* Secondary CTA Button (Learn More) - In one line, no shadow on button */
+.wl-treatment-card__cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent !important;
+  color: var(--color-espresso-dark, #260D03) !important;
+  font-family: var(--sp-font-sans, "Inter", -apple-system, sans-serif);
+  font-size: 0.80rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  white-space: nowrap;
+  border: 1px solid rgba(107, 98, 89, 0.35) !important;
+  box-shadow: none !important; /* No shadow on button */
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.wl-treatment-card__cta-secondary:hover {
+  background-color: rgba(38, 13, 3, 0.05) !important;
+  border-color: var(--color-espresso-dark, #260D03) !important;
+  color: var(--color-espresso-dark, #260D03) !important;
+  transform: translateY(-1px);
+}
+
+/* Product Vial Visual Area: Right side, vial moved towards right to give space for CTAs, smooth natural shadow */
 .wl-treatment-card__visual {
   position: relative;
   width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  height: 230px;
+  height: 245px;
   overflow: hidden;
   margin-top: 0;
 }
 
 .wl-treatment-card__vial-img {
   width: auto;
-  height: 330px;
-  max-height: 330px;
+  height: 360px;
+  max-height: 360px;
   max-width: none;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 14px 22px rgba(38, 13, 3, 0.12));
+  /* Soft, continuous, multi-layered natural shadow without harsh boundary cutoff */
+  filter: drop-shadow(0 4px 8px rgba(38, 13, 3, 0.05)) drop-shadow(0 8px 16px rgba(38, 13, 3, 0.06));
   transition: none;
 }
 
+/* Precise offsets ensuring caps are never touched or cut off, shifted further right */
 .wl-treatment-card__vial-img--tirzepatide {
-  transform: translateY(12px) translateX(12px);
+  transform: translateY(14px) translateX(24px); /* Moved towards right to give space for CTA */
 }
 
 .wl-treatment-card__vial-img--semaglutide {
-  transform: translateY(-8px) translateX(12px);
+  transform: translateY(-6px) translateX(24px); /* Moved towards right to give space for CTA */
 }
 
 /* Trust Pillars (Moved up directly below cards with 40px top margin) */
@@ -461,7 +503,7 @@
   }
 
   .wl-treatment-card__split {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.25fr 0.75fr;
     min-height: 220px;
   }
 
@@ -475,11 +517,11 @@
   }
 
   .wl-treatment-card__vial-img--tirzepatide {
-    transform: translateY(10px) translateX(8px);
+    transform: translateY(10px) translateX(20px);
   }
 
   .wl-treatment-card__vial-img--semaglutide {
-    transform: translateY(-6px) translateX(8px);
+    transform: translateY(-6px) translateX(20px);
   }
 
   .wl-trust-pillars {
@@ -631,5 +673,753 @@
     width: 100%;
     padding: 13px 22px;
     font-size: 0.95rem;
+  }
+}
+
+/* ==========================================================================
+   SECTION: YOUR RESULTS TIMELINE (Exact Jelly Health Layout + PapayaMD Ivory Tokens)
+   - Background: #FFFBEF (Light ivory from Treatment that fits your real life section)
+   - Cards: Pure white without border and without shadow
+   - Image: Black placeholder
+   - Disclaimer: Subtle disclaimer below cards
+   ========================================================================== */
+.wl-results-timeline {
+  width: 100%;
+  position: relative;
+  background-color: #FFFFFF !important; /* Pure white main background */
+  padding: clamp(60px, 7vw, 90px) 24px clamp(40px, 5vw, 60px); /* Clean breathing room below CTA in pure white */
+  overflow-x: clip;
+}
+
+.wl-results-timeline__container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Header with Centered Title & Subtitle */
+.wl-results-timeline__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+.wl-results-timeline__header--centered {
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.wl-results-timeline__header-text {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.wl-results-timeline__title {
+  font-family: var(--sp-font-display, "Inter", -apple-system, sans-serif);
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--color-espresso-dark, #260D03);
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.wl-results-timeline__subtitle {
+  font-family: var(--sp-font-sans, "Inter", -apple-system, sans-serif);
+  font-size: clamp(0.95rem, 1.25vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--color-charcoal-earth, #41382E);
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Arrow Navigation Buttons */
+.wl-results-timeline__controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.wl-results-timeline__arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #FAF2DE;
+  border: 1px solid rgba(215, 209, 195, 0.7);
+  color: var(--color-espresso-dark, #260D03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wl-results-timeline__arrow-btn:hover:not(:disabled) {
+  background-color: #FFEBC4;
+  color: var(--color-rust-terracotta, #5B2009);
+  transform: scale(1.05);
+}
+
+.wl-results-timeline__arrow-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Track Wrapper & Horizontal Scrolling Track */
+.wl-results-timeline__track-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.wl-results-timeline__track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 4px 2px 16px;
+}
+
+.wl-results-timeline__track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Pure White Cards without border and without shadow */
+.wl-results-timeline__card {
+  background-color: #F9F9F9 !important; /* Requested F9F9F9 card color */
+  border: none !important; /* Without border */
+  box-shadow: none !important; /* Without shadow */
+  border-radius: 24px;
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  scroll-snap-align: start;
+  min-width: 0;
+}
+
+/* Badge (Week 1, Week 4, Month 1, Month 6+) */
+.wl-results-timeline__badge {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: #EBDCD6 !important; /* Requested EBDCD6 badge background */
+  color: #000000 !important; /* Requested black text */
+  font-family: var(--sp-font-sans, "Inter", -apple-system, sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 5px 13px;
+  border-radius: 9999px;
+  margin-bottom: 18px;
+}
+
+.wl-results-timeline__card-title {
+  font-family: var(--sp-font-sans, "Inter", -apple-system, sans-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: var(--color-espresso-dark, #260D03);
+  margin: 0 0 8px 0;
+}
+
+.wl-results-timeline__card-body {
+  font-family: var(--sp-font-sans, "Inter", -apple-system, sans-serif);
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #6B6259;
+  margin: 0 0 24px 0;
+  min-height: 42px;
+}
+
+/* Timeline Card Image Media Container */
+.wl-results-timeline__media-wrap {
+  width: 100%;
+  height: 218px;
+  border-radius: 16px;
+  margin-top: auto;
+  overflow: hidden;
+  background-color: #EFEFEF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wl-results-timeline__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wl-results-timeline__card:hover .wl-results-timeline__img {
+  transform: scale(1.03);
+}
+
+/* Dots Indicator */
+.wl-results-timeline__dots {
+  display: none; /* Desktop shows full 4-column grid */
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.wl-results-timeline__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(38, 13, 3, 0.2);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.wl-results-timeline__dot.is-active {
+  background-color: var(--color-rust-terracotta, #5B2009);
+  transform: scale(1.3);
+}
+
+/* Disclaimer Below Cards */
+.wl-results-timeline__disclaimer {
+  max-width: 820px;
+  margin: 32px auto 0;
+  text-align: center;
+}
+
+.wl-results-timeline__disclaimer p {
+  font-family: var(--sp-font-sans, "Inter", -apple-system, sans-serif);
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: #8C8074;
+  margin: 0;
+}
+
+/* CTA Wrap Directly Under Disclaimer */
+.wl-results-timeline__cta-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 28px;
+}
+
+.wl-results-timeline__cta-wrap .alivio-hero-primary-cta {
+  background-color: var(--color-rust-terracotta, #5B2009) !important;
+  color: #FFFFFF !important;
+  border: 1px solid var(--color-rust-terracotta, #5B2009) !important;
+  height: 56px !important;
+  min-height: 56px !important;
+  max-height: 56px !important;
+  min-width: 320px !important;
+  max-width: 380px !important;
+  width: auto !important;
+  padding: 0 8px 0 24px !important;
+  border-radius: 9999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  font-size: 0.98rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 16px rgba(91, 32, 8, 0.16) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.wl-results-timeline__cta-wrap .alivio-hero-primary-cta .alivio-cta-label {
+  color: #FFFFFF !important;
+  font-family: var(--sp-font-sans, "Inter", sans-serif) !important;
+  font-size: 0.98rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  flex: 1 !important;
+  text-align: center !important;
+  margin-left: 14px !important;
+}
+
+.wl-results-timeline__cta-wrap .alivio-hero-primary-cta .alivio-cta-disk {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  min-height: 42px !important;
+  border-radius: 50% !important;
+  background-color: #FFFFFF !important;
+  color: var(--color-rust-terracotta, #5B2009) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+/* ==========================================================================
+   SECTION: THE SCIENCE BEHIND GLP-1 & RO-STYLE CALCULATOR
+   ========================================================================== */
+.wl-science-glp1-section {
+  width: 100%;
+  position: relative;
+  background-color: #FFFFFF !important; /* Pure white background */
+  padding: 0 24px clamp(48px, 6vw, 76px);
+}
+
+/* Line dividers between sections: shortened and strictly matched with container width */
+.wl-science-glp1-section::before {
+  content: "";
+  display: block;
+  width: 100%;
+  max-width: 1280px;
+  height: 1px;
+  background-color: rgba(220, 212, 198, 0.45);
+  margin: 0 auto clamp(40px, 5vw, 60px);
+}
+
+.wl-science-glp1-section::after {
+  content: "";
+  display: block;
+  width: 100%;
+  max-width: 1280px;
+  height: 1px;
+  background-color: rgba(220, 212, 198, 0.45);
+  margin: clamp(48px, 6vw, 72px) auto 0;
+}
+
+.wl-science-glp1-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.wl-science-glp1-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr 1.15fr;
+  align-items: center;
+  gap: clamp(24px, 4vw, 52px);
+}
+
+/* --- Left Column: Headline ABOVE 20%, Huge 20%, Desc & Clean Bullets --- */
+.wl-science-glp1-col--left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wl-science-glp1-title {
+  font-family: var(--sp-font-display, "Inter", -apple-system, sans-serif);
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 400; /* Regular weight matching Results Timeline */
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--color-espresso-dark, #260D03);
+  margin: 0 0 16px 0;
+}
+
+.wl-science-glp1-num-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.wl-science-glp1-arrow {
+  font-family: var(--sp-font-display, "Inter", -apple-system, sans-serif);
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--color-espresso-dark, #161616);
+  display: inline-block;
+  transform: translateY(-2px);
+  user-select: none;
+}
+
+/* Make the 20% even bigger and prominent */
+.wl-science-glp1-num {
+  font-family: var(--sp-font-display, "Inter", -apple-system, sans-serif);
+  font-size: clamp(6.2rem, 11vw, 10.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+  color: var(--color-espresso-dark, #161616);
+  display: inline-block;
+}
+
+.wl-science-glp1-desc {
+  font-family: var(--sp-font-sans, "Inter", -apple-system, sans-serif);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.55;
+  color: #4A4A4A;
+  margin: 0 0 24px 0;
+  max-width: 440px;
+}
+
+/* Bullets without round circle icons */
+.wl-science-glp1-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wl-science-glp1-bullet-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wl-science-glp1-bullet-check {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #2D6B3E; /* Botanical green checkmark without background circle */
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.wl-science-glp1-bullet-text {
+  font-family: var(--sp-font-sans, "Inter", -apple-system, sans-serif);
+  font-size: 1.02rem;
+  font-weight: 500;
+  color: var(--color-espresso-dark, #260D03);
+}
+
+/* --- Middle Column: Dual Tilted Vials (Exact Attached Image) --- */
+.wl-science-glp1-col--middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.wl-science-vials-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.wl-science-vials-img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  max-height: 440px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 18px 30px rgba(38, 13, 3, 0.14));
+}
+
+.wl-science-glp1-vials-label {
+  font-family: var(--sp-font-sans, "Inter", -apple-system, sans-serif);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #8C8074;
+  margin-top: 16px;
+  text-align: center;
+}
+
+/* --- Right Column: Ro-Style Weight Loss Calculator --- */
+/* The UI calculator card will NOT have shadow and border. Background is #F5F1EF */
+.wl-science-glp1-col--right {
+  display: flex;
+  justify-content: center;
+}
+
+.wl-ro-calc-card {
+  background-color: #F5F1EF !important; /* Exact card background */
+  border: none !important; /* Will NOT have border */
+  box-shadow: none !important; /* Will NOT have shadow */
+  border-radius: 28px;
+  padding: clamp(32px, 3.5vw, 44px) clamp(28px, 3vw, 40px);
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Row 1: Select your current weight & live lbs display */
+.wl-ro-calc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.wl-ro-calc-label {
+  font-family: var(--sp-font-sans, "Inter", -apple-system, sans-serif);
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  font-weight: 500;
+  color: #1A1A1A;
+  line-height: 1.3;
+  max-width: 180px;
+}
+
+.wl-ro-calc-val-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.wl-ro-calc-big-num {
+  font-family: var(--sp-font-display, "Inter", -apple-system, sans-serif);
+  font-size: clamp(2.4rem, 3.4vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #1A1A1A;
+}
+
+.wl-ro-calc-lbs-label {
+  font-family: var(--sp-font-sans, "Inter", -apple-system, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+
+/* Ro Slim Slider with Rich Brown Trigger */
+.wl-ro-slider-container {
+  position: relative;
+  width: 100%;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.wl-ro-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: #DDD5CB;
+  border-radius: 9999px;
+  outline: none;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  margin: 0;
+}
+
+/* Round trigger is brown #5B2009 / #260D03 */
+.wl-ro-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 4px solid var(--color-rust-terracotta, #5B2009); /* Brown trigger */
+  box-shadow: 0 1px 4px rgba(38, 13, 3, 0.16);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.wl-ro-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.wl-ro-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 4px solid var(--color-rust-terracotta, #5B2009); /* Brown trigger */
+  box-shadow: 0 1px 4px rgba(38, 13, 3, 0.16);
+  cursor: pointer;
+}
+
+.wl-ro-slider-track {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  height: 4px;
+  background: var(--color-rust-terracotta, #5B2009); /* Brown track fill */
+  border-radius: 9999px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Row 3: Weight you could lose (lbs): and BIG NUMBER */
+.wl-ro-calc-row--loss {
+  margin-bottom: 24px;
+  padding-top: 4px;
+}
+
+.wl-ro-calc-label--loss {
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  font-weight: 500;
+  color: #1A1A1A;
+  max-width: 180px;
+  line-height: 1.35;
+}
+
+/* Number size is much bigger than lb number as requested */
+.wl-ro-calc-huge-loss-num {
+  font-family: var(--sp-font-display, "Inter", -apple-system, sans-serif);
+  font-size: clamp(3.4rem, 5.2vw, 4.6rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: #1A1A1A;
+}
+
+/* Ro Disclaimer Note */
+.wl-ro-calc-disclaimer {
+  font-family: var(--sp-font-sans, "Inter", -apple-system, sans-serif);
+  font-size: 0.72rem;
+  line-height: 1.55;
+  color: #595959;
+  margin: 0;
+}
+
+/* Patient Social Proof Ratings (Equal gap between body text, line divider, and avatars: 18px) */
+.wl-ro-calc-social-proof {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(215, 209, 195, 0.65);
+}
+
+.wl-ro-calc-avatars {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.wl-ro-calc-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #FFFFFF;
+  margin-left: -10px;
+  display: block;
+}
+
+.wl-ro-calc-avatar:first-child {
+  margin-left: 0;
+}
+
+.wl-ro-calc-rating-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wl-ro-calc-stars {
+  color: #E58A1F; /* Warm gold star rating */
+  font-size: 0.88rem;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.wl-ro-calc-rating-text {
+  font-family: var(--sp-font-sans, "Inter", -apple-system, sans-serif);
+  font-size: 0.78rem;
+  color: #4A4A4A;
+  line-height: 1.25;
+}
+
+.wl-ro-calc-rating-text strong {
+  color: #1A1A1A;
+  font-weight: 700;
+}
+
+/* Responsive adjustments for GLP-1 science section */
+@media (max-width: 1080px) {
+  .wl-science-glp1-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+  .wl-science-glp1-col--middle {
+    grid-column: 1 / -1;
+    order: 2;
+    margin: 20px 0;
+  }
+  .wl-science-glp1-col--left {
+    order: 1;
+  }
+  .wl-science-glp1-col--right {
+    order: 3;
+    grid-column: 1 / -1;
+  }
+  .wl-ro-calc-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .wl-science-glp1-section {
+    padding: 48px 16px 40px;
+  }
+  .wl-science-glp1-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .wl-science-glp1-num {
+    font-size: 5rem;
+  }
+  .wl-science-vials-img {
+    max-width: 260px;
+  }
+  .wl-ro-calc-card {
+    padding: 24px 18px;
+  }
+  .wl-ro-calc-huge-loss-num {
+    font-size: 3.2rem;
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .wl-results-timeline__track {
+    grid-template-columns: repeat(4, minmax(280px, 320px));
+  }
+  .wl-results-timeline__dots {
+    display: flex;
+  }
+}
+
+@media (max-width: 640px) {
+  .wl-results-timeline {
+    padding: 50px 16px 40px;
+  }
+  .wl-results-timeline__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .wl-results-timeline__controls {
+    display: none;
+  }
+  .wl-results-timeline__track {
+    grid-template-columns: repeat(4, minmax(260px, 85vw));
+    gap: 14px;
+  }
+  .wl-results-timeline__card {
+    padding: 22px 18px 18px;
+    border-radius: 20px;
+  }
+  .wl-results-timeline__media-wrap {
+    height: 180px;
   }
 }
