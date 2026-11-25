@@ -342,34 +342,65 @@
     top: var(--sp-utility-height, 44px);
     left: 0;
     width: 100%;
-    padding: 0;
+    padding: 6px 12px;
     margin: 0;
+    box-sizing: border-box;
   }
 
   .nav-pill-container {
-    padding: 8px 16px;
+    padding: 6px 10px;
     gap: 8px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-linen-warm, #FAF2DE);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(38, 13, 3, 0.12);
+    border-radius: 9999px;
+    box-shadow: 0 4px 16px rgba(38, 13, 3, 0.06);
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .site-header:not(.scrolled) .brand-wordmark {
+    color: var(--color-espresso-dark, #260D03);
+  }
+
+  .site-header:not(.scrolled) .menu-toggle {
+    background-color: var(--color-linen-warm, #FAF2DE);
+    color: var(--color-espresso-dark, #260D03);
+    border: 1px solid rgba(38, 13, 3, 0.18);
   }
 
   .site-header.scrolled {
     position: fixed;
     top: 0;
     left: 0;
-    padding: 4px 8px;
+    padding: 6px 12px;
   }
 
   .site-header.scrolled .nav-pill-container {
-    padding: 6px 12px;
+    padding: 6px 10px;
   }
 
   .brand-wordmark {
     font-size: 1.35rem;
+    flex-shrink: 0;
+  }
+
+  .brand-logo-svg {
+    height: 24px !important;
+    width: auto !important;
+    max-width: 120px !important;
   }
 
   .nav-actions {
-    gap: 8px;
+    gap: 6px;
     display: flex;
     align-items: center;
+    flex-shrink: 0;
   }
 
   .nav-actions .nav-user-icon-btn {
@@ -378,13 +409,13 @@
 
   .nav-actions .sp-btn-sm {
     display: inline-flex;
-    padding: 6px 12px;
-    font-size: 0.78rem;
+    padding: 6px 10px;
+    font-size: 0.74rem;
     font-weight: 600;
     line-height: 1;
-    min-height: 34px;
+    min-height: 32px;
     border-radius: var(--sp-radius-pill, 9999px);
-    gap: 6px;
+    gap: 5px;
     align-items: center;
     white-space: nowrap;
     text-decoration: none;
@@ -396,29 +427,63 @@
     stroke-width: 2.2;
   }
 
-  .menu-toggle {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background-color: var(--color-apricot-cream, #FFEBC4);
-    color: var(--color-rust-terracotta, #5B2008);
-    border: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: transform var(--sp-transition-fast), background-color var(--sp-transition-fast);
+  .site-header .alivio-nav-primary-cta,
+  .alivio-nav-primary-cta {
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    padding: 0 4px 0 10px !important;
+    font-size: 0.75rem !important;
+    gap: 6px !important;
   }
 
+  .site-header .alivio-nav-primary-cta .alivio-cta-disk,
+  .alivio-nav-primary-cta .alivio-cta-disk {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    min-height: 28px !important;
+  }
+
+  .site-header .alivio-nav-primary-cta .alivio-cta-disk svg,
+  .alivio-nav-primary-cta .alivio-cta-disk svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  .site-header .menu-toggle,
+  .menu-toggle {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    border-radius: 50% !important;
+    background-color: var(--color-apricot-cream, #FFEBC4) !important;
+    color: var(--color-rust-terracotta, #5B2008) !important;
+    border: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    transition: transform var(--sp-transition-fast), background-color var(--sp-transition-fast) !important;
+  }
+
+  .site-header .menu-toggle svg,
+  .menu-toggle svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .site-header .menu-toggle:hover,
   .menu-toggle:hover {
-    background-color: #FFFFFF;
-    transform: scale(1.05);
+    background-color: #FFFFFF !important;
+    transform: scale(1.05) !important;
   }
 
   .site-header:not(.scrolled) .menu-toggle {
-    background-color: var(--color-apricot-cream, #FFEBC4);
-    color: var(--color-rust-terracotta, #5B2008);
-    border: none;
+    background-color: var(--color-apricot-cream, #FFEBC4) !important;
+    color: var(--color-rust-terracotta, #5B2008) !important;
+    border: none !important;
   }
 }
 
@@ -2674,14 +2739,14 @@
     position: relative;
     top: auto;
     min-height: auto;
-    padding: 50px 20px !important; /* Uniform 50px padding matching homepage rhythm */
+    padding: 44px 16px !important; /* Uniform padding matching mobile rhythm */
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   }
 
-  /* Step 03: remove bottom border and let image overflow naturally without crop */
+  /* Step 03: consistent padding matching step 1 and 2 to eliminate huge bottom gap */
   .alivio-works-step-card--03 {
     border-bottom: none !important;
-    padding-bottom: 16px !important;
+    padding: 44px 16px !important;
     overflow: visible !important;
   }
 
@@ -2724,7 +2789,7 @@
   /* On mobile, image sits below the content with breathing room gap */
   .alivio-works-image-col {
     order: 1;
-    margin-top: 16px !important;
+    margin-top: 24px !important;
     justify-content: center;
     width: 100%;
     min-width: 0;
@@ -2732,7 +2797,7 @@
 
   .alivio-works-image-wrap {
     width: 100%;
-    max-width: 380px;
+    max-width: 320px;
     height: auto;
     aspect-ratio: 455 / 654;
     margin-top: 0 !important;
@@ -2742,14 +2807,27 @@
     background: transparent;
   }
 
-  /* Step 03 image sits completely flush at the bottom of the card on mobile */
+  /* Step 03 image sits cleanly below the text without negative margins or overlapping and no bottom gap */
+  .alivio-works-step-card--03 {
+    padding-bottom: 0 !important;
+  }
+
   .alivio-works-step-card--03 .alivio-works-image-col {
-    margin-bottom: -20px !important; /* Cancels bottom padding so the image base grounds cleanly */
+    margin-top: 20px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .alivio-works-step-card--03 .alivio-works-image-wrap {
+    margin-bottom: 0 !important;
   }
 
   .alivio-works-step-card--03 .alivio-works-step-img {
     vertical-align: bottom;
     display: block;
+    max-height: 380px;
+    width: auto;
+    margin: 0 auto;
+    margin-bottom: 0 !important;
   }
 
   .alivio-works-step-headline {
@@ -3016,10 +3094,22 @@
 }
 
 @media (max-width: 640px) {
+  .section_faq .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
   .sp-faq-container-card {
     padding: 12px !important;
     gap: 8px !important;
     border-radius: 20px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
   }
 
   .sp-faq-container-card .sp-accordion-item {

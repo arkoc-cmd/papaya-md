@@ -492,36 +492,42 @@
 
 /* Mobile Responsive Baseline */
 @media (max-width: 834px) {
+  .wl-solutions-section {
+    padding: 44px 16px 48px;
+  }
+
   .wl-solutions-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
   .wl-treatment-card {
-    padding: 22px 20px 0;
+    padding: 22px 18px 0;
     border-radius: 20px;
   }
 
   .wl-treatment-card__split {
-    grid-template-columns: 1.25fr 0.75fr;
+    grid-template-columns: 1.1fr 0.9fr;
     min-height: 220px;
   }
 
   .wl-treatment-card__visual {
     height: 220px;
+    overflow: visible;
   }
 
   .wl-treatment-card__vial-img {
-    height: 310px;
-    max-height: 310px;
+    height: 280px;
+    max-height: 280px;
   }
 
+  /* Keep vials strictly contained without left/right clipping on mobile */
   .wl-treatment-card__vial-img--tirzepatide {
-    transform: translateY(10px) translateX(20px);
+    transform: translateY(8px) translateX(6px);
   }
 
   .wl-treatment-card__vial-img--semaglutide {
-    transform: translateY(-6px) translateX(20px);
+    transform: translateY(-6px) translateX(6px);
   }
 
   .wl-trust-pillars {

@@ -20,11 +20,12 @@
 @media (max-width: 767px) {
   .site-header .alivio-nav-primary-cta,
   .alivio-nav-primary-cta {
-    height: 44px !important;
-    min-height: 44px !important;
-    max-height: 44px !important;
-    padding: 0 5px 0 14px !important;
-    font-size: 0.8125rem !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    padding: 0 4px 0 10px !important;
+    font-size: 0.75rem !important;
+    gap: 6px !important;
   }
 }
 
@@ -39,6 +40,16 @@
   align-items: center !important;
   justify-content: center !important;
   flex-shrink: 0 !important;
+}
+
+@media (max-width: 767px) {
+  .site-header .alivio-nav-primary-cta .alivio-cta-disk,
+  .alivio-nav-primary-cta .alivio-cta-disk {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    min-height: 28px !important;
+  }
 }
 
 .site-header .alivio-nav-primary-cta .alivio-cta-disk svg,
@@ -1091,7 +1102,14 @@ html {
 }
 
 @media (max-width: 767px) {
-  .alivio-nav-primary-cta .alivio-cta-disk,
+  .site-header .alivio-nav-primary-cta .alivio-cta-disk,
+  .alivio-nav-primary-cta .alivio-cta-disk {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    min-height: 28px !important;
+  }
+
   .alivio-hero-primary-cta .alivio-cta-disk,
   .alivio-hero-secondary-cta .alivio-glass-disk,
   .clinical-experts__cta .alivio-cta-disk,

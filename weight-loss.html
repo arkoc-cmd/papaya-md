@@ -69,7 +69,7 @@
 
 
     /* ==========================================================================
-       Scoped Light Header Behavior (Exact Match with Menopause Page)
+       Scoped Light Header Behavior (Exact Match with Homepage Pill Nav)
        ========================================================================== */
     .site-header.site-header--light:not(.scrolled) {
       position: absolute;
@@ -88,6 +88,76 @@
       backdrop-filter: none !important;
       -webkit-backdrop-filter: none !important;
       padding: 6px clamp(24px, 4.5vw, 64px);
+    }
+
+    /* Mobile Header (< 992px): Always pill-shaped bar with warm linen background matching homepage */
+    @media (max-width: 991px) {
+      .site-header.site-header--light:not(.scrolled) {
+        position: absolute;
+        top: var(--sp-utility-height, 44px);
+        left: 0;
+        width: 100%;
+        padding: 6px 12px !important;
+        box-sizing: border-box;
+      }
+
+      .site-header.site-header--light:not(.scrolled) .nav-pill-container {
+        background-color: var(--color-linen-warm, #FAF2DE) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        border: 1px solid rgba(38, 13, 3, 0.12) !important;
+        border-radius: 9999px !important;
+        box-shadow: 0 4px 16px rgba(38, 13, 3, 0.06) !important;
+        padding: 6px 10px !important;
+        margin: 0 auto !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .site-header.site-header--light .brand-logo-svg {
+        height: 24px !important;
+        width: auto !important;
+        max-width: 116px !important;
+      }
+
+      .site-header.site-header--light .alivio-nav-primary-cta {
+        height: 36px !important;
+        min-height: 36px !important;
+        max-height: 36px !important;
+        padding: 0 4px 0 10px !important;
+        font-size: 0.75rem !important;
+        gap: 6px !important;
+      }
+
+      .site-header.site-header--light .alivio-nav-primary-cta .alivio-cta-disk {
+        width: 28px !important;
+        height: 28px !important;
+        min-width: 28px !important;
+        min-height: 28px !important;
+      }
+
+      .site-header.site-header--light .alivio-nav-primary-cta .alivio-cta-disk svg {
+        width: 12px !important;
+        height: 12px !important;
+      }
+
+      .site-header.site-header--light .menu-toggle {
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        min-height: 36px !important;
+      }
+
+      .site-header.site-header--light .menu-toggle svg {
+        width: 18px !important;
+        height: 18px !important;
+      }
+
+      .site-header.site-header--light:not(.scrolled) .menu-toggle {
+        background-color: var(--color-linen-warm, #FAF2DE) !important;
+        color: var(--color-espresso-dark, #260D03) !important;
+        border: 1px solid rgba(38, 13, 3, 0.18) !important;
+      }
     }
 
     .site-header.site-header--light:not(.scrolled) .brand-wordmark {
@@ -122,17 +192,28 @@
       background: rgba(91, 32, 8, 0.04);
     }
 
-    .site-header.site-header--light .alivio-nav-primary-cta {
-      height: 44px !important;
-      min-height: 44px !important;
-      max-height: 44px !important;
-      padding: 0 6px 0 18px !important;
-      font-size: 0.875rem !important;
-      font-weight: 600 !important;
-      box-sizing: border-box !important;
+    @media (max-width: 991px) {
+      .site-header.site-header--light .alivio-nav-primary-cta {
+        height: 36px !important;
+        min-height: 36px !important;
+        max-height: 36px !important;
+        padding: 0 4px 0 10px !important;
+        font-size: 0.75rem !important;
+        gap: 6px !important;
+      }
     }
 
     @media (min-width: 992px) {
+      .site-header.site-header--light .alivio-nav-primary-cta {
+        height: 44px !important;
+        min-height: 44px !important;
+        max-height: 44px !important;
+        padding: 0 6px 0 18px !important;
+        font-size: 0.875rem !important;
+        font-weight: 600 !important;
+        box-sizing: border-box !important;
+      }
+
       .site-header.site-header--light .menu-toggle {
         display: none !important;
       }
@@ -756,11 +837,17 @@
 
     /* Responsive Adjustments for Tablet and Mobile */
     @media (max-width: 1120px) {
+      .section_wl-hero {
+        padding-top: calc(var(--sp-header-height, 60px) + var(--sp-utility-height, 36px) + 6px) !important;
+        min-height: auto !important;
+      }
+
       .wl-hero-container {
         display: flex !important;
         flex-direction: column !important;
-        padding: 0 20px 32px !important;
+        padding: 0 16px 16px !important;
         align-items: stretch !important;
+        box-sizing: border-box !important;
       }
 
       /* Mobile: Main heading and content strictly LEFT ALIGNED */
@@ -771,22 +858,31 @@
         padding-bottom: 0 !important;
       }
 
+      .wl-hero__rating {
+        margin-bottom: 8px !important;
+      }
+
       .wl-hero-heading {
         margin-left: 0 !important;
         margin-right: 0 !important;
         text-align: left !important;
+        font-size: clamp(2rem, 6.5vw, 2.7rem) !important;
+        line-height: 1.12 !important;
+        margin-bottom: 8px !important;
       }
 
       .wl-hero-subheading {
         margin-left: 0 !important;
         margin-right: 0 !important;
         text-align: left !important;
+        margin-bottom: 12px !important;
+        font-size: 0.95rem !important;
       }
 
       .wl-hero-pillars {
         justify-content: flex-start !important;
         flex-wrap: wrap !important;
-        gap: 12px 16px !important;
+        gap: 8px 14px !important;
       }
 
       .wl-pillar-sep {
@@ -799,13 +895,13 @@
         display: none !important;
       }
 
-      /* Mobile: Vials and badge CENTERED, with ample clear spacing (does NOT touch content) */
+      /* Mobile: Vials centered and moved UP closely towards trust icons/pillars */
       .wl-hero-vials-col {
         order: 2 !important;
         transform: none !important;
-        margin: 84px auto 0 !important;
+        margin: 12px auto 0 !important;
         width: 100% !important;
-        max-width: 320px !important;
+        max-width: 250px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -816,60 +912,73 @@
         padding-bottom: 0 !important;
       }
 
+      .wl-vials-ground-shadow {
+        width: 100% !important;
+        max-width: 240px !important;
+        height: 16px !important;
+      }
+
       .wl-vial-img {
         height: auto !important;
-        max-height: 270px !important;
-        max-width: 270px !important;
+        max-height: 200px !important;
+        max-width: 200px !important;
+      }
+
+      .wl-vial-img--dual {
+        max-height: 200px !important;
+        max-width: 220px !important;
       }
 
       .wl-hero-doctor-card {
         display: none !important; /* Mobile version: remove ONLY the doctor UI card from hero section */
       }
 
-      /* Mobile CTA Block positioned strictly BELOW the vials */
+      /* Mobile CTA Block positioned strictly BELOW the vials and moved up */
       .wl-hero-mobile-cta-wrap {
         order: 3 !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        margin-top: 24px !important;
-        width: 100% !important;
+        margin-top: 10px !important;
+        width: 100%;
+        box-sizing: border-box !important;
       }
 
       .wl-hero-mobile-cta-wrap .alivio-hero-primary-cta {
         width: 100% !important;
         max-width: 380px !important;
-        min-width: 280px !important;
+        min-width: 0 !important;
         background-color: var(--color-rust-terracotta, #5B2009) !important;
         color: #FFFFFF !important;
         border: 1px solid var(--color-rust-terracotta, #5B2009) !important;
-        height: 58px !important;
-        min-height: 58px !important;
-        max-height: 58px !important;
+        height: 48px !important;
+        min-height: 48px !important;
+        max-height: 48px !important;
         box-shadow: 0 4px 16px rgba(91, 32, 8, 0.16) !important;
         display: inline-flex !important;
         align-items: center !important;
         justify-content: space-between !important;
-        padding: 0 8px 0 24px !important;
+        padding: 0 6px 0 16px !important;
         border-radius: 9999px !important;
+        box-sizing: border-box !important;
       }
 
       .wl-hero-mobile-cta-wrap .alivio-hero-primary-cta .alivio-cta-label {
         color: #FFFFFF !important;
         font-family: var(--sp-font-sans, "Inter", sans-serif) !important;
-        font-size: 0.98rem !important;
+        font-size: 0.95rem !important;
         font-weight: 600 !important;
         letter-spacing: -0.01em !important;
         flex: 1 !important;
         text-align: center !important;
-        margin-left: 18px !important;
+        margin-left: 14px !important;
       }
 
       .wl-hero-mobile-cta-wrap .alivio-hero-primary-cta .alivio-cta-disk {
-        width: 44px !important;
-        height: 44px !important;
-        min-width: 44px !important;
-        min-height: 44px !important;
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
         border-radius: 50% !important;
         background-color: #FFFFFF !important;
         color: var(--color-rust-terracotta, #5B2009) !important;
@@ -884,33 +993,41 @@
       }
 
       .wl-hero-mobile-cta-wrap .wl-hero-guarantee {
-        margin-top: 14px !important;
-        margin-bottom: 8px !important;
+        margin-top: 10px !important;
+        margin-bottom: 0 !important;
         justify-content: center !important;
         display: inline-flex !important;
         visibility: visible !important;
         opacity: 1 !important;
-        font-size: 0.92rem !important;
+        font-size: 0.88rem !important;
       }
 
-      /* Model positioned below or tucked cleanly */
+      /* Model moved UP closely with reduced top margin */
       .wl-hero-model-col {
         order: 4 !important;
-        margin: 48px auto 0 !important;
+        margin: 20px auto 0 !important;
         justify-content: center !important;
         width: 100% !important;
       }
 
       .wl-model-wrapper {
         justify-content: center !important;
-        max-width: 440px !important;
+        max-width: 360px !important;
         margin: 0 auto !important;
       }
 
       .wl-model-img {
-        max-height: 480px !important;
+        max-height: 380px !important;
         object-position: center bottom !important;
         margin: 0 auto !important;
+      }
+    }
+
+    /* As Seen In Section: moved up on mobile */
+    @media (max-width: 1120px) {
+      .sp-as-seen-in {
+        padding: 10px 0 16px !important;
+        margin-top: -6px !important;
       }
     }
 
@@ -1386,9 +1503,8 @@
           </svg>
         </a>
 
-        <!-- Primary CTA: 2-Minute Assessment (Intake Trigger) -->
-        <button type="button" class="alivio-hero-primary-cta alivio-nav-primary-cta" data-intake-trigger
-          data-intake-goal="weight-loss" aria-label="2-Minute Assessment">
+        <!-- Primary CTA: 2-Minute Assessment (Direct Link to Women Intake) -->
+        <a href="intake-women.html" class="alivio-hero-primary-cta alivio-nav-primary-cta" aria-label="2-Minute Assessment">
           <span class="alivio-cta-label">2-Minute Assessment</span>
           <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"
               stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"
@@ -1396,7 +1512,7 @@
               <path d="M7 7h10v10"></path>
               <path d="M7 17 17 7"></path>
             </svg></span>
-        </button>
+        </a>
 
         <!-- Mobile Hamburger Menu Button -->
         <button type="button" class="menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false"
@@ -3268,84 +3384,189 @@
   <!-- Global Footer -->
 
 
-  <!-- Mobile Slideout Navigation Drawer -->
+  <!-- Mobile Slideout Navigation Drawer (Matches Homepage Drawer Exactly) -->
+  <div class="sp-drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
   <aside class="sp-drawer alivio-treatment-drawer" id="mobile-drawer" role="dialog" aria-modal="true"
-    aria-labelledby="drawer-heading" hidden>
+    aria-labelledby="drawer-heading" aria-hidden="true">
     <div class="sp-drawer-header">
-      <div class="sp-drawer-header-left">
-        <a href="index.html" class="sp-drawer-logo" aria-label="PapayaMD Homepage">
-          <img src="assets/images/papayamd-logo.svg" alt="PapayaMD Logo" class="brand-logo-img" width="120"
-            height="28" />
-        </a>
-      </div>
-      <button type="button" class="sp-drawer-close drawer-close" aria-label="Close menu">
+      <a href="index.html" class="brand-wordmark" aria-label="PapayaMD Homepage">
+        <svg class="brand-logo-svg" viewBox="0 0 235 49" width="144" height="30" aria-hidden="true" fill="currentColor">
+          <path
+            d="M101.789 18.9482C107.081 18.9482 111.149 22.9085 111.149 29.0645C111.149 35.1842 107.081 39.3242 101.789 39.3242C98.1892 39.3241 95.6332 37.3802 94.4092 35.3643V48.3604H91.1338V19.2725H94.4092V22.9082C95.5972 20.8203 98.1892 18.9483 101.789 18.9482ZM145.277 35.2559L151.397 19.2725H154.781L142.901 48.2881H139.518L143.405 38.7842L135.449 19.2725H139.086L145.277 35.2559ZM26.7549 8C34.0588 8.00025 39.9999 13.9974 40 21.3721C40 24.9391 38.622 28.2971 36.1201 30.8262C33.6139 33.352 30.2889 34.744 26.7549 34.7441C26.7223 34.7441 23.3001 34.7819 20.0205 36.1982C16.147 37.8703 14.2647 40.6611 14.2646 44.7246V45H8V25.9434H14.2646V32.2168C15.3074 31.4781 16.4744 30.8365 17.7393 30.3057C22.1727 28.4406 26.5712 28.418 26.7549 28.418C28.6196 28.4179 30.3717 27.685 31.6885 26.3525C33.0083 25.0214 33.7344 23.2535 33.7344 21.3721C33.7343 17.4867 30.6044 14.3254 26.7549 14.3252H25.7676V8H26.7549ZM75.9414 18.9482C79.6133 18.9483 82.1332 20.8201 83.2852 22.8721V19.2725H86.5977V39H83.2852V35.3281C82.0972 37.4521 79.5412 39.3242 75.9053 39.3242C70.6494 39.3242 66.5812 35.1842 66.5811 29.0645C66.5811 22.9085 70.6494 18.9482 75.9414 18.9482ZM122.598 18.9482C126.27 18.9483 128.789 20.8201 129.941 22.8721V19.2725H133.254V39H129.941V35.3281C128.753 37.4521 126.197 39.3242 122.562 39.3242C117.306 39.3242 113.237 35.1842 113.237 29.0645C113.237 22.9085 117.306 18.9482 122.598 18.9482ZM165.211 18.9482C168.883 18.9483 171.403 20.8201 172.555 22.8721V19.2725H175.867V39H172.555V35.3281C171.367 37.4521 168.811 39.3242 165.175 39.3242C159.919 39.3242 155.851 35.1842 155.851 29.0645C155.851 22.9085 159.919 18.9482 165.211 18.9482ZM56.0576 13.9082C61.9615 13.9082 64.7333 17.148 64.7334 21.252C64.7334 25.0679 62.2855 28.5244 56.0576 28.5244H51.2334V39H47.958V13.9082H56.0576ZM193.831 32.5557L201.823 13.8721H207.511V39H202.471V22.6562L195.739 39H191.923L185.155 22.6562V39H180.115V13.8721H185.839L193.831 32.5557ZM221.277 13.8721C229.305 13.8721 234.525 18.8399 234.525 26.4717C234.525 34.0677 229.305 39 221.277 39H212.494V13.8721H221.277ZM76.5889 21.792C72.989 21.7921 69.9287 24.4206 69.9287 29.0645C69.9289 33.7081 72.9891 36.4442 76.5889 36.4443C80.1889 36.4443 83.2852 33.7436 83.2852 29.0996C83.285 24.5279 80.1887 21.792 76.5889 21.792ZM101.105 21.792C97.5416 21.792 94.4094 24.5279 94.4092 29.0996C94.4092 33.7436 97.5415 36.4443 101.105 36.4443C104.741 36.4443 107.802 33.7081 107.802 29.0645C107.802 24.4205 104.741 21.7921 101.105 21.792ZM123.245 21.792C119.645 21.7921 116.585 24.4206 116.585 29.0645C116.585 33.7081 119.645 36.4442 123.245 36.4443C126.845 36.4443 129.941 33.7436 129.941 29.0996C129.941 24.5279 126.845 21.792 123.245 21.792ZM165.858 21.792C162.259 21.7921 159.198 24.4206 159.198 29.0645C159.198 33.7081 162.259 36.4442 165.858 36.4443C169.458 36.4443 172.555 33.7436 172.555 29.0996C172.554 24.5279 169.458 21.792 165.858 21.792ZM217.534 34.7158H221.098C226.39 34.7158 229.378 31.6917 229.378 26.4717C229.378 21.2519 226.39 18.1201 221.098 18.1201H217.534V34.7158ZM51.2334 25.8242H56.0576C59.8015 25.8242 61.3857 24.0599 61.3857 21.252C61.3857 18.3361 59.8015 16.6084 56.0576 16.6084H51.2334V25.8242ZM14.2363 7.76367H22V14.2344H14.2363V22H7.76367V14.2314H0V7.76367H7.76367V0H14.2363V7.76367Z" />
+        </svg>
+      </a>
+      <button type="button" class="drawer-close" aria-label="Close navigation menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round" width="22" height="22" aria-hidden="true">
+          stroke-linejoin="round" width="20" height="20" aria-hidden="true">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
     </div>
 
+    <!-- Treatment Navigation Content -->
     <div class="alivio-drawer-body">
-      <div class="alivio-drawer-view" id="drawer-view-subpage">
-        <div class="alivio-drawer-header-content" style="margin-bottom: 14px;">
-          <h3 class="alivio-drawer-heading" id="drawer-heading">Weight Loss Protocols</h3>
-        </div>
-
-        <div class="alivio-drawer-subpage-nav" role="navigation" aria-label="Page Sections">
-          <a href="#science" class="alivio-drawer-subpage-link sp-drawer-link">
-            <span>The Science of GLP-1</span>
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"
-              aria-hidden="true">
-              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
-          <a href="#formulations" class="alivio-drawer-subpage-link sp-drawer-link">
-            <span>Treatment Formulations</span>
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"
-              aria-hidden="true">
-              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
-          <a href="#comparison" class="alivio-drawer-subpage-link sp-drawer-link">
-            <span>Medication Comparison</span>
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"
-              aria-hidden="true">
-              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
-          <a href="#how-it-works" class="alivio-drawer-subpage-link sp-drawer-link">
-            <span>How It Works</span>
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"
-              aria-hidden="true">
-              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
-          <a href="#faq" class="alivio-drawer-subpage-link sp-drawer-link">
-            <span>Clinical FAQ</span>
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"
-              aria-hidden="true">
-              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
-        </div>
-
-        <div style="margin-top: 24px;">
-          <button type="button" class="alivio-hero-primary-cta" data-intake-trigger data-intake-goal="weight-loss"
-            style="width: 100%; justify-content: center;" aria-label="Start Free 2-Minute Assessment">
-            <span class="alivio-cta-label">2-Minute Assessment</span>
-            <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-                stroke="currentColor" stroke-width="2.4" class="alivio-disk-arrow">
-                <path d="M7 7h10v10"></path>
-                <path d="M7 17 17 7"></path>
-              </svg></span>
+      <div class="alivio-drawer-header-content">
+        <h3 class="alivio-drawer-heading" id="drawer-heading">Who is this care for?</h3>
+        <!-- Gender Segmented Control -->
+        <div class="alivio-gender-tabs" role="tablist" aria-label="Care Audience">
+          <button type="button" class="alivio-gender-tab is-active" role="tab" id="gender-tab-women"
+            aria-selected="true" aria-controls="treatment-panel-women" data-gender="women">
+            Women
+          </button>
+          <button type="button" class="alivio-gender-tab" role="tab" id="gender-tab-men" aria-selected="false"
+            aria-controls="treatment-panel-men" data-gender="men">
+            Men
           </button>
         </div>
       </div>
+
+      <!-- Treatment Panels Stack -->
+      <div class="alivio-treatment-panels">
+        <!-- Women Care List (Default Active) -->
+        <div class="alivio-treatment-list is-active" id="treatment-panel-women" role="tabpanel"
+          aria-labelledby="gender-tab-women">
+          <!-- 1. Weight Loss -->
+          <a href="weight-loss.html" class="alivio-treatment-row sp-drawer-link" data-treatment="women-weight-loss">
+            <div class="alivio-treatment-thumb-box" aria-hidden="true">
+              <img decoding="async" src="assets/images/care-weightloss.png" alt="Weight Loss treatment"
+                class="alivio-treatment-thumb-img">
+            </div>
+            <span class="alivio-treatment-name">Weight Loss</span>
+            <svg class="alivio-treatment-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+
+          <!-- 2. Menopause -->
+          <a href="menopause.html" class="alivio-treatment-row sp-drawer-link" data-treatment="women-menopause">
+            <div class="alivio-treatment-thumb-box" aria-hidden="true">
+              <img decoding="async" src="assets/images/care-menopause.png" alt="Menopause treatment"
+                class="alivio-treatment-thumb-img">
+            </div>
+            <span class="alivio-treatment-name">Menopause</span>
+            <svg class="alivio-treatment-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+
+          <!-- 3. Skin Care -->
+          <a href="skin.html" class="alivio-treatment-row sp-drawer-link" data-treatment="women-skin-care">
+            <div class="alivio-treatment-thumb-box" aria-hidden="true">
+              <img decoding="async" src="assets/images/care-skincare.png" alt="Skin Care treatment"
+                class="alivio-treatment-thumb-img">
+            </div>
+            <span class="alivio-treatment-name">Skin Care</span>
+            <svg class="alivio-treatment-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+
+          <!-- 4. Sexual Health -->
+          <a href="index.html#products" class="alivio-treatment-row sp-drawer-link" data-treatment="women-sexual-health">
+            <div class="alivio-treatment-thumb-box" aria-hidden="true">
+              <img decoding="async" src="assets/images/sexual-wellness-couple.jpg" alt="Sexual Health treatment"
+                class="alivio-treatment-thumb-img">
+            </div>
+            <span class="alivio-treatment-name">Sexual Health</span>
+            <svg class="alivio-treatment-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Men Care List -->
+        <div class="alivio-treatment-list" id="treatment-panel-men" role="tabpanel" aria-labelledby="gender-tab-men"
+          hidden>
+          <!-- 1. Weight Loss -->
+          <a href="weight-loss.html" class="alivio-treatment-row sp-drawer-link" data-treatment="men-weight-loss">
+            <div class="alivio-treatment-thumb-box" aria-hidden="true">
+              <img decoding="async" src="assets/images/care-weightloss.png" alt="Weight Loss treatment"
+                class="alivio-treatment-thumb-img">
+            </div>
+            <span class="alivio-treatment-name">Weight Loss</span>
+            <svg class="alivio-treatment-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+
+          <!-- 2. Testosterone -->
+          <a href="index.html#products" class="alivio-treatment-row sp-drawer-link" data-treatment="men-testosterone">
+            <div class="alivio-treatment-thumb-box" aria-hidden="true">
+              <img decoding="async" src="assets/images/care-mens-sexual-health.png" alt="Testosterone treatment"
+                class="alivio-treatment-thumb-img">
+            </div>
+            <span class="alivio-treatment-name">Testosterone</span>
+            <svg class="alivio-treatment-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+
+          <!-- 3. Hair Loss -->
+          <a href="index.html#products" class="alivio-treatment-row sp-drawer-link" data-treatment="men-hair-loss">
+            <div class="alivio-treatment-thumb-box" aria-hidden="true">
+              <img decoding="async" src="assets/images/energy-recovery-man.jpg" alt="Hair Loss treatment"
+                class="alivio-treatment-thumb-img">
+            </div>
+            <span class="alivio-treatment-name">Hair Loss</span>
+            <svg class="alivio-treatment-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+
+          <!-- 4. Sexual Health -->
+          <a href="index.html#products" class="alivio-treatment-row sp-drawer-link" data-treatment="men-sexual-health">
+            <div class="alivio-treatment-thumb-box" aria-hidden="true">
+              <img decoding="async" src="assets/images/sexual-wellness-couple.jpg" alt="Sexual Health treatment"
+                class="alivio-treatment-thumb-img">
+            </div>
+            <span class="alivio-treatment-name">Sexual Health</span>
+            <svg class="alivio-treatment-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile & Tablet Navigation Links inside Drawer -->
+      <div class="alivio-drawer-site-nav" aria-label="Page Navigation">
+        <a href="index.html#products" class="sp-drawer-link drawer-link">Treatments</a>
+        <a href="index.html#care-stories" class="sp-drawer-link drawer-link">Our Approach</a>
+        <a href="#how-it-works" class="sp-drawer-link drawer-link">How It Works</a>
+        <a href="#faq" class="sp-drawer-link drawer-link">FAQ</a>
+        <a href="login.html" class="sp-drawer-link drawer-link alivio-drawer-account-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" width="16" height="16" aria-hidden="true">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          <span>Login</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Drawer Footer Assessment CTA (Direct Link to Women Intake) -->
+    <div class="sp-drawer-footer">
+      <a href="intake-women.html" class="alivio-hero-primary-cta" style="width: 100%; justify-content: space-between;"
+        aria-label="Start Free 2-Minute Assessment">
+        <span class="alivio-cta-label">2-Minute Assessment</span>
+        <span class="alivio-cta-disk" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+            stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"
+            class="alivio-disk-arrow" aria-hidden="true">
+            <path d="M7 7h10v10"></path>
+            <path d="M7 17 17 7"></path>
+          </svg></span>
+      </a>
     </div>
   </aside>
-  <div class="sp-drawer-backdrop" aria-hidden="true"></div>
 
   <!-- Modular Scripts -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -3353,10 +3574,11 @@
   <script type="module" src="assets/js/main.js"></script>
   <script type="module" src="assets/js/modules/intake.js"></script>
 
-  <!-- Mobile Drawer Toggle Script -->
+  <!-- Mobile Drawer Toggle & Tab Switching Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const drawer = document.getElementById('mobile-drawer');
+      const backdrop = document.getElementById('drawer-backdrop');
       const menuToggle = document.querySelector('.menu-toggle');
       const closeBtn = drawer ? drawer.querySelector('.drawer-close') : null;
       const drawerLinks = drawer ? drawer.querySelectorAll('.sp-drawer-link') : [];
@@ -3365,29 +3587,73 @@
 
       const openDrawer = () => {
         drawer.removeAttribute('hidden');
-        drawer.classList.add('is-open');
+        drawer.classList.add('active');
+        if (backdrop) backdrop.classList.add('active');
         menuToggle.setAttribute('aria-expanded', 'true');
-        document.body.classList.add('drawer-open');
+        drawer.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
       };
 
       const closeDrawer = () => {
-        drawer.classList.remove('is-open');
+        drawer.classList.remove('active');
+        if (backdrop) backdrop.classList.remove('active');
         menuToggle.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('drawer-open');
-        setTimeout(() => {
-          if (!drawer.classList.contains('is-open')) {
-            drawer.setAttribute('hidden', '');
-          }
-        }, 300);
+        drawer.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
       };
 
       menuToggle.addEventListener('click', () => {
-        if (drawer.classList.contains('is-open')) closeDrawer();
+        if (drawer.classList.contains('active')) closeDrawer();
         else openDrawer();
       });
 
       if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+      if (backdrop) backdrop.addEventListener('click', closeDrawer);
       drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+      // Handle Escape key to close drawer
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && drawer.classList.contains('active')) {
+          closeDrawer();
+        }
+      });
+
+      // Gender Tabs Switching (Women / Men)
+      const genderTabs = drawer.querySelectorAll('.alivio-gender-tab');
+      const panelWomen = drawer.querySelector('#treatment-panel-women');
+      const panelMen = drawer.querySelector('#treatment-panel-men');
+
+      genderTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const selectedGender = tab.getAttribute('data-gender');
+
+          genderTabs.forEach(t => {
+            const isActive = t === tab;
+            t.classList.toggle('is-active', isActive);
+            t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          });
+
+          if (selectedGender === 'women') {
+            if (panelWomen) {
+              panelWomen.classList.add('is-active');
+              panelWomen.removeAttribute('hidden');
+            }
+            if (panelMen) {
+              panelMen.classList.remove('is-active');
+              panelMen.setAttribute('hidden', 'true');
+            }
+          } else if (selectedGender === 'men') {
+            if (panelMen) {
+              panelMen.classList.add('is-active');
+              panelMen.removeAttribute('hidden');
+            }
+            if (panelWomen) {
+              panelWomen.classList.remove('is-active');
+              panelWomen.setAttribute('hidden', 'true');
+            }
+          }
+        });
+      });
     });
   </script>
 

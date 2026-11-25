@@ -1879,3 +1879,38 @@
   width: 32px;
   height: 32px;
 }
+
+/* --------------------------------------------------------------------------
+   Mobile Sticky First Column for Treatment Comparison Table
+   Keeps "Care Dimension" labels sticky on the left while PapayaMD and
+   Other Brand columns scroll horizontally.
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .pdp-matrix-card {
+    padding: 16px 12px;
+    border-radius: 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    background-color: #2D1409 !important;
+  }
+
+  .pdp-matrix-table {
+    min-width: 540px;
+  }
+
+  .pdp-matrix-table th.pdp-matrix-col--dim,
+  .pdp-matrix-table td.pdp-matrix-col--dim {
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    background-color: #2D1409 !important;
+    background: #2D1409 !important;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.25);
+    padding: 14px 14px 14px 10px;
+    width: 40%;
+  }
+
+  .pdp-matrix-table thead th.pdp-matrix-col--dim {
+    z-index: 6;
+  }
+}

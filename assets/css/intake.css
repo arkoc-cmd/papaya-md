@@ -658,41 +658,99 @@
 
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
+  .alivio-intake-modal {
+    padding: 10px;
+    align-items: flex-end;
+  }
+
   .alivio-intake-window {
-    border-radius: 20px;
-    max-height: calc(100vh - 20px);
+    border-radius: 24px 24px 18px 18px;
+    max-height: 92vh;
+    width: 100%;
+    margin: 0;
   }
 
   .alivio-intake-header {
-    padding: 16px 20px 12px;
+    padding: 12px 16px 0;
   }
 
   .alivio-intake-progress-wrap {
-    padding: 12px 20px 0;
+    padding: 14px 18px 0;
   }
 
   .alivio-intake-body {
-    padding: 20px;
+    padding: 18px 18px 16px;
+  }
+
+  .alivio-stage-tag {
+    font-size: 0.68rem;
+    padding: 3px 10px;
+    margin-bottom: 6px;
+  }
+
+  .alivio-stage-heading {
+    font-size: 1.25rem !important;
+    line-height: 1.22;
+    margin-bottom: 4px;
+  }
+
+  .alivio-stage-subhead {
+    font-size: 0.82rem;
+    margin-bottom: 14px;
+  }
+
+  .alivio-answer-grid {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .alivio-answer-card {
+    padding: 10px 14px;
+    gap: 10px;
+    min-height: 52px;
+  }
+
+  .alivio-answer-title {
+    font-size: 0.88rem;
+  }
+
+  .alivio-answer-desc {
+    font-size: 0.75rem;
   }
 
   .alivio-intake-footer {
-    padding: 12px 18px 16px;
-    justify-content: center;
+    padding: 12px 16px 14px;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .alivio-intake-trust-micro {
     display: flex; /* Keep visible and centered */
-    gap: 12px;
-    font-size: 0.72rem;
+    gap: 10px;
+    font-size: 0.70rem;
+    order: 2;
+    justify-content: center;
   }
 
   .alivio-intake-nav-btns {
     width: 100%;
     justify-content: space-between;
+    gap: 8px;
+    margin-left: 0;
+    order: 1;
   }
 
-  .alivio-btn-back,
+  .alivio-btn-back {
+    height: 42px;
+    padding: 0 16px;
+    font-size: 0.84rem;
+    flex: 0 0 auto;
+  }
+
   .alivio-btn-continue {
+    height: 42px;
+    padding: 0 20px;
+    font-size: 0.84rem;
     flex: 1;
     justify-content: center;
   }
